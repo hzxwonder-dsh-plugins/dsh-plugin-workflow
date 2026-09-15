@@ -2,6 +2,16 @@
 
 DeepSeek Harness 的可插拔工作流 Studio。侧栏只有一个“工作流”入口：点击在主界面打开工作流面板（卡片或列表两种样式），再点一次回到对话。每个工作流保存不可变版本，它的对话显示在面板中对应的工作流下。任意会话也可输入 `/workflow` 选择或创建工作流。
 
+## 宿主支持
+
+两端共用同一个包 `dsh-plugin-workflow`，没有桌面端专用包，也没有需要单独维护的桌面仓库，两端由本仓库同一份实现维护。插件数据落在 `$DSH_HOME`（`config.dshHome` → `DSH_HOME` → `~/.dsh`），两端各用自己的 home。
+
+客户端面只用官方 slot 与 `commandUi` 注册：`main` 槽的工作流面板、输入区绑定标签、`shell.overlay` 选择器、侧栏工作流树，都不依赖宿主内部实现。插件不把宿主专属能力放进顶层 `inject`；桌面宿主的规范见 [plugin-development.md](https://github.com/anywhere-labs/dsh-desktop/blob/master/docs/plugin-development.md)。
+
+包显式导出 `./package.json`：DSH Desktop 的宿主在 Electron Utility 进程里通过 Node loader 的 fallback 路径解析客户端入口，未声明该导出时客户端入口会被静默跳过；普通 Web 宿主不受影响。该导出对两端都保留。
+
+验证状态：`npm test` 12 项通过；桌面端已确认插件加载与客户端入口出现在宿主的客户端清单里，工作流面板交互尚未在桌面端逐项验证。
+
 ## 功能
 
 - `/workflow` 原生弹出菜单：创建工作流，或对任一工作流选择“运行”（绑定当前会话）和“修改”（对话修改）
