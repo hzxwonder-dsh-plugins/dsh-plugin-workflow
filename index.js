@@ -56,6 +56,88 @@ export async function apply(ctx, config = {}) {
       owned.set(id, await ctx.agents.resume({ resumeSessionId: id }));
     return owned.get(id).agent;
   };
+  // An interaction node parks the run in `waiting_input` and publishes the one
+  // question a person has to answer. The bound conversation is the answer
+  // channel: the question is handed to the session agent, and the next user
+  // message is handed back to the engine as that answer.
+  const pendingInteraction = (nodes = {}) => {
+    const entry = Object.entries(nodes).find(
+      ([, state]) => state.status === "waiting_input",
+    );
+    if (!entry) return null;
+    const [nodeId, state] = entry;
+    const info = state.interaction ?? {};
+    return {
+      nodeId,
+      phase: info.phase ?? "ask",
+      turns: info.turns ?? 0,
+      maxTurns: info.maxTurns ?? 1,
+      question: info.question ?? "",
+    };
+  };
+  const runReport = async (run) => {
+    const pending = pendingInteraction(run.nodes);
+    if (run.status === "waiting_input" && pending)
+      return `\n<workflow_interaction>\n${JSON.stringify({ runId: run.id, workflowId: run.workflowId, ...pending })}\n</workflow_interaction>\n${
+        pending.phase === "confirm"
+          ? "Restate the question to the user and ask for confirmation. Do not confirm on the user's behalf and do not execute the workflow again."
+          : "Ask the user this question verbatim and wait. The user's next message is the answer to this interaction; do not answer it yourself and do not execute the workflow again."
+      }`;
+    const artifacts = store.list("artifact").filter((a) => a.runId === run.id);
+    const result = {
+      runId: run.id,
+      status: run.status,
+      error: run.error,
+      result: run.result,
+      artifacts: await Promise.all(
+        artifacts.map(async (a) => ({
+          id: a.id,
+          name: a.name,
+          content: await readFile(a.path, "utf8"),
+        })),
+      ),
+    };
+    return `\n<workflow_result>\n${JSON.stringify(result)}\n</workflow_result>\nPresent the completed artifact faithfully. Report a failed or waiting run accurately. Do not execute the workflow again.`;
+  };
+  const deliverQuestion = async (run, parent) => {
+    if (!parent || run?.status !== "waiting_input") return;
+    if (reports.has(parent.session.id)) return;
+    reports.add(parent.session.id);
+    try {
+      parent.followup({
+        id: uid("message"),
+        role: "user",
+        source: { kind: "user" },
+        content: [{ type: "text", text: await runReport(run) }],
+      });
+      await parent.whenIdle();
+    } finally {
+      reports.delete(parent.session.id);
+    }
+  };
+  const withText = (decision, messages, text) => {
+    const admitted = decision.messages ?? messages;
+    return {
+      ...decision,
+      messages: admitted.map((m, i) =>
+        i === admitted.length - 1
+          ? { ...m, content: [...m.content, { type: "text", text }] }
+          : m,
+      ),
+    };
+  };
+  const withNote = (decision, messages, text) => ({
+    ...decision,
+    messages: [
+      ...(decision.messages ?? messages),
+      {
+        id: uid("wf-error"),
+        role: "user",
+        source: { kind: "user" },
+        content: [{ type: "text", text }],
+      },
+    ],
+  });
   const scheduler = new Scheduler(store, async (occurrence) => {
     const p = occurrence.plan;
     const handle = await ctx.agents.create({
@@ -143,6 +225,7 @@ export async function apply(ctx, config = {}) {
           .slice(0, 100)
           .map(({ prepared, input, outputs, nodes, ...run }) => ({
             ...run,
+            pending: pendingInteraction(nodes),
             nodes: Object.fromEntries(
               Object.entries(nodes).map(([id, n]) => [
                 id,
@@ -318,7 +401,7 @@ export async function apply(ctx, config = {}) {
               runId,
             });
       if (a.background) {
-        track(promise);
+        track(promise.then((run) => deliverQuestion(run, parent)));
         return { runId };
       }
       return track(promise);
@@ -329,7 +412,7 @@ export async function apply(ctx, config = {}) {
     defineTool({
       name: "workflow_studio",
       description:
-        "Create, copy, inspect, save, publish, bind, execute, revise and schedule visual workflows. Call describe for schema and templates; read before save. Payload is a JSON object of action-specific fields. Run uses id, revision, input. Save uses definition and expectedRevision. Bind uses id, revision, mode run/author for this session. Copy uses id and starts a new unpublished draft from the newest definition.",
+        "Create, copy, inspect, save, publish, bind, execute, revise and schedule visual workflows. Call describe for schema and templates; read before save. Payload is a JSON object of action-specific fields. Run uses id, revision, input. Save uses definition and expectedRevision. Bind uses id, revision, mode run/author for this session. Copy uses id and starts a new unpublished draft from the newest definition. Resume uses runId with response; an interact node parks the run in waiting_input and takes its answer from the user's next message in the bound conversation.",
       parameters: {
         action: { type: "string", required: true },
         payload: { type: "string" },
@@ -373,7 +456,7 @@ export async function apply(ctx, config = {}) {
     const binding = agent && store.get("binding", agent.session.id);
     if (!binding)
       return "Use workflow_studio and workflow-builder skill when the user requests creating or editing a reusable workflow.";
-    return `Workflow binding: ${JSON.stringify(binding)}. ${binding.mode === "author" ? `${skill}\n${skillText["workflow-discovery"]}\n${skillText["workflow-refiner"]}\n${skillText["workflow-debugger"]}` : "New material runs the pinned graph automatically. Discuss follow-up questions normally. For workflow changes, bind author mode and use workflow-refiner; use workflow-debugger to inspect intermediate inputs and outputs. Do not rerun a completed graph unless requested."}`;
+    return `Workflow binding: ${JSON.stringify(binding)}. ${binding.mode === "author" ? `${skill}\n${skillText["workflow-discovery"]}\n${skillText["workflow-refiner"]}\n${skillText["workflow-debugger"]}` : "New material runs the pinned graph automatically. A run that reports waiting_input is parked on an interact node: relay its question verbatim and treat the user's next message as the answer, never answer it yourself. Discuss follow-up questions normally. For workflow changes, bind author mode and use workflow-refiner; use workflow-debugger to inspect intermediate inputs and outputs. Do not rerun a completed graph unless requested."}`;
   });
   ctx.systemPrompt.section({
     name: "workflow-studio",
@@ -383,24 +466,50 @@ export async function apply(ctx, config = {}) {
   ctx.on("agent/pre-step", async ({ agent, messages, signal }, next) => {
     const decision = await next();
     if (decision.kind !== "enter" || !messages.length || reports.has(agent.session.id)) return decision;
+    const waiting = store
+      .list("run")
+      .find(
+        (r) => r.sessionId === agent.session.id && r.status === "waiting_input",
+      );
+    if (waiting) {
+      try {
+        const answer = await materialInput(ctx, messages, signal);
+        const run = await engine.resume(waiting.id, agent, signal, {
+          text: answer.text,
+          attachments: answer.attachments,
+        });
+        return withText(decision, messages, await runReport(run));
+      } catch (error) {
+        return withNote(
+          decision,
+          messages,
+          `Workflow interaction answer rejected: ${error.code ?? "WORKFLOW_ERROR"}. The run stays at ${waiting.id}. Tell the user what is missing and ask again; do not answer the interaction yourself.`,
+        );
+      }
+    }
     const binding = store.get("binding", agent.session.id);
     if (!binding || binding.mode !== "run") return decision;
     const def = store.get(
       "revision",
       `${binding.workflowId}:${binding.revision}`,
     )?.definition;
-    const previous = store
+    const sessionRuns = store
       .list("run")
-      .some(
-        (r) =>
-          r.sessionId === agent.session.id &&
-          r.workflowId === binding.workflowId,
-      );
+      .filter((r) => r.sessionId === agent.session.id);
+    const previous = sessionRuns.some(
+      (r) => r.workflowId === binding.workflowId,
+    );
+    const active = sessionRuns.some((r) =>
+      ["queued", "running", "waiting_approval", "waiting_input", "paused"].includes(
+        r.status,
+      ),
+    );
     const files = messages.some((m) =>
       m.content.some((b) => b.type === "file"),
     );
     if (
       def?.trigger === "manual" ||
+      active ||
       (def?.trigger !== "every-message" && previous && !files)
     )
       return decision;
@@ -413,58 +522,13 @@ export async function apply(ctx, config = {}) {
         parent: agent,
         signal,
       });
-      const artifacts = store
-        .list("artifact")
-        .filter((a) => a.runId === run.id);
-      const result = {
-        runId: run.id,
-        status: run.status,
-        error: run.error,
-        result: run.result,
-        artifacts: await Promise.all(
-          artifacts.map(async (a) => ({
-            id: a.id,
-            name: a.name,
-            content: await readFile(a.path, "utf8"),
-          })),
-        ),
-      };
-      const admitted = decision.messages ?? messages;
-      return {
-        ...decision,
-        messages: admitted.map((m, i) =>
-          i === admitted.length - 1
-            ? {
-                ...m,
-                content: [
-                  ...m.content,
-                  {
-                    type: "text",
-                    text: `\n<workflow_result>\n${JSON.stringify(result)}\n</workflow_result>\nPresent the completed artifact faithfully. Report a failed or waiting run accurately. Do not execute the workflow again.`,
-                  },
-                ],
-              }
-            : m,
-        ),
-      };
+      return withText(decision, messages, await runReport(run));
     } catch (error) {
-      return {
-        ...decision,
-        messages: [
-          ...(decision.messages ?? messages),
-          {
-            id: uid("wf-error"),
-            role: "user",
-            source: { kind: "user" },
-            content: [
-              {
-                type: "text",
-                text: `Workflow execution failed: ${error.code ?? "WORKFLOW_ERROR"}. Inspect workflow_studio state and help resolve it.`,
-              },
-            ],
-          },
-        ],
-      };
+      return withNote(
+        decision,
+        messages,
+        `Workflow execution failed: ${error.code ?? "WORKFLOW_ERROR"}. Inspect workflow_studio state and help resolve it.`,
+      );
     }
   });
   ctx.connection.fetch.register({

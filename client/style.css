@@ -564,6 +564,7 @@
 
 /* ---------------------------------------------------------- step cards */
 .wf .wf-step-input { --step-tint: #eef3a8; --step-ink: #454a15; --step-body: #f8fbdc; }
+.wf .wf-step-interact { --step-tint: #a9e7dc; --step-ink: #14504a; --step-body: #e6faf6; }
 .wf .wf-step-agent { --step-tint: #ccd9fb; --step-ink: #2c3f63; --step-body: #eef3fe; }
 .wf .wf-step-tool { --step-tint: #ffd9ab; --step-ink: #6b4413; --step-body: #fff2e2; }
 .wf .wf-step-condition { --step-tint: #ffc9dd; --step-ink: #6d2743; --step-body: #ffedf4; }
@@ -787,6 +788,11 @@
 .wf-status.completed { color: var(--dsw-alias-state-success-primary, #2f9e6b); font-weight: 600; }
 .wf-status.failed, .wf-status.needs_attention { color: var(--dsw-alias-state-error-primary, #b13e4a); }
 .wf-status.running { color: var(--dsw-alias-state-business-primary, #357bad); }
+.wf-status.waiting_input { color: var(--dsw-alias-state-warning-primary, #b07d1f); font-weight: 600; }
+.wf-interaction { display: grid; gap: 6px; margin: 12px 0; padding: 12px 14px; border: 1px solid var(--wf-line); border-left: 3px solid var(--wf-accent); border-radius: 10px; background: var(--wf-surface-subtle); }
+.wf-interaction p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.wf-interaction small { color: var(--wf-muted); }
+.wf-interaction button { justify-self: start; }
 
 /* ------------------------------------------------------------ responsive */
 @media (max-width: 1100px) {
@@ -828,6 +834,7 @@
     --wf-accent: var(--dsw-alias-brand-primary, #8f7ff0);
   }
   .wf .wf-step-input { --step-tint: #3c4118; --step-ink: #e2ecab; --step-body: #24260f; }
+  .wf .wf-step-interact { --step-tint: #17453f; --step-ink: #a9e7dc; --step-body: #0e2a26; }
   .wf .wf-step-agent { --step-tint: #26324f; --step-ink: #c3d3f8; --step-body: #1b2233; }
   .wf .wf-step-tool { --step-tint: #4a3316; --step-ink: #f6d3a4; --step-body: #2a1e0e; }
   .wf .wf-step-condition { --step-tint: #4b2131; --step-ink: #f8c2d6; --step-body: #2b131c; }

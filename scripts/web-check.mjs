@@ -185,22 +185,43 @@ try {
     const sessionId = created.sessionId;
     const record = await call({ action: "read", id: "paper-reader" });
     const definition = record.snapshot.definition;
-    definition.nodes[0].provider = { mode: "explicit", id: "workflow-test" };
-    definition.nodes[0].model = { mode: "explicit", id: "fixture-node" };
-    definition.nodes[0].effort = { mode: "explicit", id: "high" };
+    assert.equal(definition.nodes[0].kind, "interact");
+    const routed = definition.nodes.find((n) => n.kind === "agent");
+    routed.provider = { mode: "explicit", id: "workflow-test" };
+    routed.model = { mode: "explicit", id: "fixture-node" };
+    routed.effort = { mode: "explicit", id: "high" };
     await call({ action: "save", definition, expectedRevision: 1 });
     await call({ action: "bind", id: "paper-reader", revision: 2, sessionId });
+    // The paper template opens with an interaction node: the first message
+    // starts the run, and the paper itself arrives as the user's next message
+    // in the same conversation and continues that run.
+    await api("/api/workflow-fixture", {
+      action: "prompt",
+      sessionId,
+      text: "Synthetic request without the paper.",
+    });
+    let state = await call({ action: "state" });
+    assert.equal(
+      state.runs[0].status,
+      "waiting_input",
+      JSON.stringify(state.runs[0]),
+    );
+    assert.match(state.runs[0].pending.question, /论文 PDF/);
+    const runId = state.runs[0].id;
     await api("/api/workflow-fixture", {
       action: "prompt",
       sessionId,
       text: "Synthetic research paper. Section 1: method. Section 2: evidence.",
     });
-    const state = await call({ action: "state" });
+    state = await call({ action: "state" });
     assert.equal(
       state.runs[0].status,
       "completed",
       JSON.stringify(state.runs[0]),
     );
+    assert.equal(state.runs[0].id, runId, "the answer continues the same run");
+    assert.equal(state.runs.length, 1, "the answer starts no second run");
+    assert.equal(state.runs[0].pending, null);
     const calls = (await api("/api/workflow-fixture", { action: "calls" }))
       .calls;
     assert(calls.some((c) => c.model === "fixture-node" && c.effort === "high"));
@@ -243,7 +264,7 @@ try {
       await page.getByLabel("工作流名称", { exact: true }).inputValue(),
       "论文精读 副本",
     );
-    assert.equal(await page.locator(".react-flow__node").count(), 5);
+    assert.equal(await page.locator(".react-flow__node").count(), 6);
     await page.getByRole("button", { name: "返回工作流列表", exact: true }).click();
     await card.waitFor({ timeout: 5000 });
     assert(
@@ -266,7 +287,29 @@ try {
     // The editor still owns the graph, persistence and the run surface.
     await card.getByRole("button", { name: "打开", exact: true }).click();
     await page.locator(".react-flow__node").first().waitFor();
-    assert.equal(await page.locator(".react-flow__node").count(), 5);
+    assert.equal(await page.locator(".react-flow__node").count(), 6);
+    // The interaction step is a first-class node: its card selects, and the
+    // inspector exposes the two interaction modes.
+    await page.locator(".react-flow__node.wf-node-interact").click();
+    await page.locator(".wf-panel-head.wf-step-interact").waitFor({ timeout: 5000 });
+    const modeSelect = page.getByRole("combobox", {
+      name: "交互方式",
+      exact: true,
+    });
+    assert.equal(await modeSelect.inputValue(), "once");
+    await modeSelect.selectOption("goal");
+    await page
+      .getByRole("spinbutton", { name: "最多回答轮次", exact: true })
+      .waitFor();
+    await page.waitForTimeout(300);
+    await modeSelect.selectOption("once");
+    await page.getByRole("button", { name: "保存版本", exact: true }).click();
+    await page.waitForTimeout(500);
+    assert.equal(
+      (await call({ action: "read", id: "paper-reader" })).snapshot.definition
+        .nodes[0].interaction,
+      "once",
+    );
     await page.getByLabel("工作流名称", { exact: true }).fill("论文精读验证");
     await page.getByRole("button", { name: "保存版本", exact: true }).click();
     await page.waitForTimeout(500);
@@ -309,7 +352,7 @@ try {
       .waitFor({ timeout: 10000 });
     assert.deepEqual(errors, []);
     console.log(
-      "PASS: native Host execution, root/node routes, single sidebar entry, workflow gallery (cards/list), panel conversations, workflow copy, authoring conversation, titled workflow Workspaces, editor persistence, run history and mobile layout",
+      "PASS: native Host execution, root/node routes, single sidebar entry, workflow gallery (cards/list), panel conversations, workflow copy, authoring conversation, titled workflow Workspaces, editor persistence, interaction node modes, run history and mobile layout",
     );
   }
 } catch (e) {

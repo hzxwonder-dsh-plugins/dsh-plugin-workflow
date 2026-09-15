@@ -63,6 +63,7 @@ export const inject = [
 ];
 const labels = {
   input: "用户输入",
+  interact: "交互",
   agent: "生成",
   tool: "工具",
   condition: "条件",
@@ -80,6 +81,7 @@ const statuses = {
   cancelled: "已取消",
   paused: "已暂停",
   waiting_approval: "等待确认",
+  waiting_input: "等待输入",
   needs_attention: "需要处理",
   skipped: "已跳过",
   pending: "待执行",
@@ -92,6 +94,7 @@ const glyphs = {
   file: FileText,
   sparkles: Sparkles,
   input: TextCursorInput,
+  interact: MessageSquare,
   agent: Sparkles,
   tool: Settings2,
   condition: GitBranch,
@@ -1073,6 +1076,11 @@ export function apply(ctx) {
         n.prompt = "请提供本次任务需要的材料。";
         n.input = { text: { source: "workflow", path: "/text" } };
       }
+      if (kind === "interact") {
+        n.interaction = "once";
+        n.prompt = "请提供完成任务需要的材料。";
+        n.input = { material: { source: "workflow", path: "/text" } };
+      }
       if (kind === "condition") n.condition = { "!!": [{ var: "value" }] };
       if (kind === "artifact") {
         n.format = "text/markdown";
@@ -1097,6 +1105,7 @@ export function apply(ctx) {
         title: n.name,
         model: n.model?.mode === "explicit" ? n.model.id : "会话模型",
         summary: n.prompt || (n.kind === 'artifact' ? '展示并保存上游步骤的结果' : '配置此步骤的执行行为'),
+        mode: n.kind === 'interact' ? (n.interaction === 'goal' ? '交互目标' : '交互一次') : undefined,
         references: Object.values(n.input ?? {}).filter(r => r.source === 'node').map(r => definition.nodes.find(x => x.id === r.nodeId)).filter(Boolean),
       },
       className: `wf-node wf-node-${n.kind}`,
@@ -1128,6 +1137,7 @@ export function apply(ctx) {
               </div>
             )}
             {view.kind === 'agent' && <span className="wf-step-model">{view.model}</span>}
+            {view.kind === 'interact' && <span className="wf-step-model">{view.mode}</span>}
           </div>
           <Handle type="source" position={Position.Right} />
         </div>
@@ -1479,10 +1489,18 @@ export function apply(ctx) {
               </div>
             ) : node ? (
               <div className="wf-panel-body">
-                <Routing node={node} update={update} caps={caps} />
+                {!(node.kind === "interact" && node.interaction !== "goal") && (
+                  <Routing node={node} update={update} caps={caps} />
+                )}
                 <div className="wf-prompt-label">
                   <Sparkles size={12} />
-                  <span>步骤说明</span>
+                  <span>
+                    {node.kind === "interact"
+                      ? node.interaction === "goal"
+                        ? "交互目标"
+                        : "提问内容"
+                      : "步骤说明"}
+                  </span>
                   <Icon
                     label="编辑步骤说明"
                     icon={Pencil}
@@ -1545,6 +1563,73 @@ export function apply(ctx) {
                     />
                   </Field>
                 )}
+                {node.kind === "interact" && (
+                  <>
+                    <Field label="交互方式">
+                      <select
+                        value={node.interaction ?? "once"}
+                        onChange={(e) =>
+                          update({
+                            interaction: e.target.value,
+                            ...(e.target.value === "once"
+                              ? { maxTurns: undefined }
+                              : {}),
+                          })
+                        }
+                      >
+                        <option value="once">交互一次：用户回答一次后继续</option>
+                        <option value="goal">交互目标：反复澄清直到确认理解</option>
+                      </select>
+                    </Field>
+                    {node.interaction === "goal" && (
+                      <Field label="最多回答轮次">
+                        <input
+                          type="number"
+                          min="1"
+                          max="20"
+                          value={node.maxTurns ?? 8}
+                          onChange={(e) =>
+                            update({ maxTurns: Number(e.target.value) })
+                          }
+                        />
+                      </Field>
+                    )}
+                    <Field label="已有材料时跳过提问">
+                      <select
+                        value={
+                          node.provided
+                            ? ["/text", "/attachments"].includes(node.provided.path)
+                              ? node.provided.path
+                              : "custom"
+                            : ""
+                        }
+                        onChange={(e) =>
+                          update({
+                            provided: e.target.value
+                              ? e.target.value === "custom"
+                                ? node.provided
+                                : { source: "workflow", path: e.target.value }
+                              : undefined,
+                          })
+                        }
+                      >
+                        <option value="">每次提问</option>
+                        <option value="/attachments">消息已带附件时直接采用</option>
+                        <option value="/text">消息文本就是材料时直接采用</option>
+                        {node.provided &&
+                          !["/text", "/attachments"].includes(node.provided.path) && (
+                            <option value="custom">自定义引用</option>
+                          )}
+                      </select>
+                    </Field>
+                    <p className="wf-muted">
+                      交互节点会暂停运行，把问题交给绑定会话里的 Agent；用户的下一条消息就是这次交互的回答。
+                      {node.interaction === "goal"
+                        ? "判定 Agent 认为已经理解意图后，会先请你确认，确认后才进入下一步。"
+                        : ""}
+                    </p>
+                  </>
+                )}
                 <datalist id="wf-tools">
                   {(caps?.tools ?? []).map((t) => (
                     <option key={t} value={t} />
@@ -1565,11 +1650,13 @@ export function apply(ctx) {
                       change={(condition) => update({ condition })}
                     />
                   )}
-                  <JsonField
-                    label="输出数据结构"
-                    value={node.outputSchema ?? { type: "object" }}
-                    change={(outputSchema) => update({ outputSchema })}
-                  />
+                  {!(node.kind === "interact" && node.interaction !== "goal") && (
+                    <JsonField
+                      label="输出数据结构"
+                      value={node.outputSchema ?? { type: "object" }}
+                      change={(outputSchema) => update({ outputSchema })}
+                    />
+                  )}
                   {["loop", "subworkflow"].includes(node.kind) && (
                     <JsonField
                       label="子工作流版本"
@@ -1577,15 +1664,17 @@ export function apply(ctx) {
                       change={(workflow) => update({ workflow })}
                     />
                   )}
-                  <Field label="超时（秒）">
-                    <input
-                      type="number"
-                      min="1"
-                      max="3600"
-                      value={node.timeoutSeconds ?? 600}
-                      onChange={(e) => update({ timeoutSeconds: Number(e.target.value) })}
-                    />
-                  </Field>
+                  {node.kind !== "interact" && (
+                    <Field label="超时（秒）">
+                      <input
+                        type="number"
+                        min="1"
+                        max="3600"
+                        value={node.timeoutSeconds ?? 600}
+                        onChange={(e) => update({ timeoutSeconds: Number(e.target.value) })}
+                      />
+                    </Field>
+                  )}
                   {node.kind === "loop" && (
                     <Field label="最大条目数">
                       <input
@@ -1747,6 +1836,36 @@ export function apply(ctx) {
               {detail.run.error && (
                 <p className="wf-error">{detail.run.error}</p>
               )}
+              {(() => {
+                const entry = Object.entries(detail.run.nodes ?? {}).find(
+                  ([, n]) => n.status === "waiting_input",
+                );
+                if (detail.run.status !== "waiting_input" || !entry) return null;
+                const [nodeId, state] = entry;
+                const info = state.interaction ?? {};
+                return (
+                  <div className="wf-interaction" data-wf-interaction={nodeId}>
+                    <strong>
+                      {info.phase === "confirm" ? "等待你确认理解" : "等待你的回答"}
+                    </strong>
+                    <p>{info.question}</p>
+                    <small>
+                      第 {info.turns ?? 0} / {info.maxTurns ?? 1} 轮 · 在运行会话里回答，或在这里跳过去回复
+                    </small>
+                    <button
+                      className="wf-primary"
+                      onClick={async () => {
+                        await ctx.sessions.refresh();
+                        ctx.sessions.open(detail.run.sessionId);
+                        ctx.layout.selectPanel(null);
+                      }}
+                    >
+                      <MessageSquare size={16} />
+                      去对话回答
+                    </button>
+                  </div>
+                );
+              })()}
               <pre>{pretty(detail.run.nodes)}</pre>
               {detail.artifacts.map((a) => (
                 <button
@@ -2445,7 +2564,9 @@ export function apply(ctx) {
     const active = data.runs.find(
       (item) =>
         item.sessionId === sessionId &&
-        ["running", "waiting_approval", "paused"].includes(item.status),
+        ["running", "waiting_approval", "waiting_input", "paused"].includes(
+          item.status,
+        ),
     );
     const name = workflow?.name ?? "新工作流";
     const label = authoring
