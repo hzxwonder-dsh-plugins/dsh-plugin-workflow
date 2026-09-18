@@ -1,0 +1,35 @@
+[
+  {
+    "id": "E01",
+    "title": "Desktop 原生 Host 创建调试运行",
+    "status": "通过"
+  },
+  {
+    "id": "E02",
+    "title": "Desktop 步骤原生对话",
+    "status": "部分覆盖",
+    "reason": "首次验证通过；后续复测页面未恢复工作流入口数据"
+  },
+  {
+    "id": "E03",
+    "title": "Desktop 独立步骤与返回",
+    "status": "通过"
+  },
+  {
+    "id": "E04",
+    "title": "Desktop 单步执行交付",
+    "status": "通过"
+  },
+  {
+    "id": "E05",
+    "title": "Desktop 刷新恢复运行记录",
+    "status": "部分覆盖",
+    "reason": "持久数据可读取；可见界面恢复需进一步验证"
+  },
+  {
+    "id": "E06",
+    "title": "Desktop 内容区绘制与交互恢复",
+    "status": "失败",
+    "reason": "兼容模式测试窗口出现内容区空白，Host 仍响应；退出该测试实例后日常实例显示正常，触发原因未确定"
+  }
+]

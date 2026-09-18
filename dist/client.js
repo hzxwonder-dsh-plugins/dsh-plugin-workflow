@@ -39,7 +39,7 @@ var require_use_sync_external_store_shim_development = __commonJS({
         return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
       }
       function useSyncExternalStore$2(subscribe, getSnapshot) {
-        didWarnOld18Alpha || void 0 === React3.startTransition || (didWarnOld18Alpha = true, console.error(
+        didWarnOld18Alpha || void 0 === React6.startTransition || (didWarnOld18Alpha = true, console.error(
           "You are using an outdated, pre-release alpha of React 18 that does not support useSyncExternalStore. The use-sync-external-store shim will not work correctly. Upgrade to a newer pre-release."
         ));
         var value = getSnapshot();
@@ -49,7 +49,7 @@ var require_use_sync_external_store_shim_development = __commonJS({
             "The result of getSnapshot should be cached to avoid an infinite loop"
           ), didWarnUncachedGetSnapshot = true);
         }
-        cachedValue = useState4({
+        cachedValue = useState7({
           inst: { value, getSnapshot }
         });
         var inst = cachedValue[0].inst, forceUpdate = cachedValue[1];
@@ -61,7 +61,7 @@ var require_use_sync_external_store_shim_development = __commonJS({
           },
           [subscribe, value, getSnapshot]
         );
-        useEffect3(
+        useEffect6(
           function() {
             checkIfSnapshotChanged(inst) && forceUpdate({ inst });
             return subscribe(function() {
@@ -87,8 +87,8 @@ var require_use_sync_external_store_shim_development = __commonJS({
         return getSnapshot();
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React3 = require("react"), objectIs = "function" === typeof Object.is ? Object.is : is, useState4 = React3.useState, useEffect3 = React3.useEffect, useLayoutEffect3 = React3.useLayoutEffect, useDebugValue2 = React3.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
-      exports.useSyncExternalStore = void 0 !== React3.useSyncExternalStore ? React3.useSyncExternalStore : shim;
+      var React6 = require("react"), objectIs = "function" === typeof Object.is ? Object.is : is, useState7 = React6.useState, useEffect6 = React6.useEffect, useLayoutEffect3 = React6.useLayoutEffect, useDebugValue2 = React6.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
+      exports.useSyncExternalStore = void 0 !== React6.useSyncExternalStore ? React6.useSyncExternalStore : shim;
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
     })();
   }
@@ -115,14 +115,14 @@ var require_with_selector_development = __commonJS({
         return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
       }
       "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-      var React3 = require("react"), shim = require_shim(), objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore2 = shim.useSyncExternalStore, useRef3 = React3.useRef, useEffect3 = React3.useEffect, useMemo2 = React3.useMemo, useDebugValue2 = React3.useDebugValue;
+      var React6 = require("react"), shim = require_shim(), objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore2 = shim.useSyncExternalStore, useRef4 = React6.useRef, useEffect6 = React6.useEffect, useMemo3 = React6.useMemo, useDebugValue2 = React6.useDebugValue;
       exports.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-        var instRef = useRef3(null);
+        var instRef = useRef4(null);
         if (null === instRef.current) {
           var inst = { hasValue: false, value: null };
           instRef.current = inst;
         } else inst = instRef.current;
-        instRef = useMemo2(
+        instRef = useMemo3(
           function() {
             function memoizedSelector(nextSnapshot) {
               if (!hasMemo) {
@@ -158,7 +158,7 @@ var require_with_selector_development = __commonJS({
           [getSnapshot, getServerSnapshot, selector, isEqual]
         );
         var value = useSyncExternalStore2(subscribe, instRef[0], instRef[1]);
-        useEffect3(
+        useEffect6(
           function() {
             inst.hasValue = true;
             inst.value = value;
@@ -193,26 +193,26 @@ __export(index_exports, {
   name: () => name
 });
 module.exports = __toCommonJS(index_exports);
-var import_react6 = __toESM(require("react"), 1);
-var import_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
+var import_react9 = __toESM(require("react"), 1);
+var import_dsh_client_ui_primitives2 = require("@deepseek-ai/dsh-client-ui-primitives");
 
 // node_modules/@xyflow/react/dist/esm/index.js
 var import_jsx_runtime = require("react/jsx-runtime");
 var import_react2 = require("react");
 
 // node_modules/classcat/index.js
-function cc(names) {
-  if (typeof names === "string" || typeof names === "number") return "" + names;
+function cc(names2) {
+  if (typeof names2 === "string" || typeof names2 === "number") return "" + names2;
   let out = "";
-  if (Array.isArray(names)) {
-    for (let i = 0, tmp; i < names.length; i++) {
-      if ((tmp = cc(names[i])) !== "") {
+  if (Array.isArray(names2)) {
+    for (let i = 0, tmp; i < names2.length; i++) {
+      if ((tmp = cc(names2[i])) !== "") {
         out += (out && " ") + tmp;
       }
     }
   } else {
-    for (let k in names) {
-      if (names[k]) out += (out && " ") + k;
+    for (let k in names2) {
+      if (names2[k]) out += (out && " ") + k;
     }
   }
   return out;
@@ -788,37 +788,37 @@ ClassList.prototype = {
     return this._names.indexOf(name2) >= 0;
   }
 };
-function classedAdd(node, names) {
-  var list = classList(node), i = -1, n = names.length;
-  while (++i < n) list.add(names[i]);
+function classedAdd(node, names2) {
+  var list = classList(node), i = -1, n = names2.length;
+  while (++i < n) list.add(names2[i]);
 }
-function classedRemove(node, names) {
-  var list = classList(node), i = -1, n = names.length;
-  while (++i < n) list.remove(names[i]);
+function classedRemove(node, names2) {
+  var list = classList(node), i = -1, n = names2.length;
+  while (++i < n) list.remove(names2[i]);
 }
-function classedTrue(names) {
+function classedTrue(names2) {
   return function() {
-    classedAdd(this, names);
+    classedAdd(this, names2);
   };
 }
-function classedFalse(names) {
+function classedFalse(names2) {
   return function() {
-    classedRemove(this, names);
+    classedRemove(this, names2);
   };
 }
-function classedFunction(names, value) {
+function classedFunction(names2, value) {
   return function() {
-    (value.apply(this, arguments) ? classedAdd : classedRemove)(this, names);
+    (value.apply(this, arguments) ? classedAdd : classedRemove)(this, names2);
   };
 }
 function classed_default(name2, value) {
-  var names = classArray(name2 + "");
+  var names2 = classArray(name2 + "");
   if (arguments.length < 2) {
-    var list = classList(this.node()), i = -1, n = names.length;
-    while (++i < n) if (!list.contains(names[i])) return false;
+    var list = classList(this.node()), i = -1, n = names2.length;
+    while (++i < n) if (!list.contains(names2[i])) return false;
     return true;
   }
-  return this.each((typeof value === "function" ? classedFunction : value ? classedTrue : classedFalse)(names, value));
+  return this.each((typeof value === "function" ? classedFunction : value ? classedTrue : classedFalse)(names2, value));
 }
 
 // node_modules/d3-selection/src/selection/text.js
@@ -9108,8 +9108,24 @@ var BookOpen = createLucideIcon("BookOpen", [
   ]
 ]);
 
+// node_modules/lucide-react/dist/esm/icons/check-check.js
+var CheckCheck = createLucideIcon("CheckCheck", [
+  ["path", { d: "M18 6 7 17l-5-5", key: "116fxf" }],
+  ["path", { d: "m22 10-7.5 7.5L13 16", key: "ke71qq" }]
+]);
+
 // node_modules/lucide-react/dist/esm/icons/check.js
 var Check = createLucideIcon("Check", [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]);
+
+// node_modules/lucide-react/dist/esm/icons/chevron-down.js
+var ChevronDown = createLucideIcon("ChevronDown", [
+  ["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]
+]);
+
+// node_modules/lucide-react/dist/esm/icons/chevron-right.js
+var ChevronRight = createLucideIcon("ChevronRight", [
+  ["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]
+]);
 
 // node_modules/lucide-react/dist/esm/icons/clipboard-paste.js
 var ClipboardPaste = createLucideIcon("ClipboardPaste", [
@@ -9159,6 +9175,13 @@ var Ellipsis = createLucideIcon("Ellipsis", [
   ["circle", { cx: "5", cy: "12", r: "1", key: "1pcz8c" }]
 ]);
 
+// node_modules/lucide-react/dist/esm/icons/external-link.js
+var ExternalLink = createLucideIcon("ExternalLink", [
+  ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
+  ["path", { d: "M10 14 21 3", key: "gplh6r" }],
+  ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
+]);
+
 // node_modules/lucide-react/dist/esm/icons/file-text.js
 var FileText = createLucideIcon("FileText", [
   ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
@@ -9194,6 +9217,11 @@ var List = createLucideIcon("List", [
   ["path", { d: "M8 6h13", key: "ik3vkj" }]
 ]);
 
+// node_modules/lucide-react/dist/esm/icons/loader-circle.js
+var LoaderCircle = createLucideIcon("LoaderCircle", [
+  ["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]
+]);
+
 // node_modules/lucide-react/dist/esm/icons/message-square.js
 var MessageSquare = createLucideIcon("MessageSquare", [
   ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
@@ -9204,6 +9232,18 @@ var PanelsTopLeft = createLucideIcon("PanelsTopLeft", [
   ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }],
   ["path", { d: "M3 9h18", key: "1pudct" }],
   ["path", { d: "M9 21V9", key: "1oto5p" }]
+]);
+
+// node_modules/lucide-react/dist/esm/icons/paperclip.js
+var Paperclip = createLucideIcon("Paperclip", [
+  ["path", { d: "M13.234 20.252 21 12.3", key: "1cbrk9" }],
+  [
+    "path",
+    {
+      d: "m16 6-8.414 8.586a2 2 0 0 0 0 2.828 2 2 0 0 0 2.828 0l8.414-8.586a4 4 0 0 0 0-5.656 4 4 0 0 0-5.656 0l-8.415 8.585a6 6 0 1 0 8.486 8.486",
+      key: "1pkts6"
+    }
+  ]
 ]);
 
 // node_modules/lucide-react/dist/esm/icons/pause.js
@@ -9282,6 +9322,12 @@ var Settings2 = createLucideIcon("Settings2", [
   ["circle", { cx: "7", cy: "7", r: "3", key: "dfmy0x" }]
 ]);
 
+// node_modules/lucide-react/dist/esm/icons/skip-forward.js
+var SkipForward = createLucideIcon("SkipForward", [
+  ["polygon", { points: "5 4 15 12 5 20 5 4", key: "16p6eg" }],
+  ["line", { x1: "19", x2: "19", y1: "5", y2: "19", key: "futhcm" }]
+]);
+
 // node_modules/lucide-react/dist/esm/icons/sparkles.js
 var Sparkles = createLucideIcon("Sparkles", [
   [
@@ -9300,6 +9346,12 @@ var Sparkles = createLucideIcon("Sparkles", [
 // node_modules/lucide-react/dist/esm/icons/square.js
 var Square = createLucideIcon("Square", [
   ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }]
+]);
+
+// node_modules/lucide-react/dist/esm/icons/step-forward.js
+var StepForward = createLucideIcon("StepForward", [
+  ["line", { x1: "6", x2: "6", y1: "4", y2: "20", key: "fy8qot" }],
+  ["polygon", { points: "10,4 20,12 10,20", key: "1mc1pf" }]
 ]);
 
 // node_modules/lucide-react/dist/esm/icons/text-cursor-input.js
@@ -9350,7 +9402,7 @@ var X = createLucideIcon("X", [
 var style_default3 = "/* this gets exported as style.css and can be used for the default theming */\n/* these are the necessary styles for React/Svelte Flow, they get used by base.css and style.css */\n.react-flow {\n  direction: ltr;\n\n  --xy-edge-stroke-default: #b1b1b7;\n  --xy-edge-stroke-width-default: 1;\n  --xy-edge-stroke-selected-default: #555;\n\n  --xy-connectionline-stroke-default: #b1b1b7;\n  --xy-connectionline-stroke-width-default: 1;\n\n  --xy-attribution-background-color-default: rgba(255, 255, 255, 0.5);\n\n  --xy-minimap-background-color-default: #fff;\n  --xy-minimap-mask-background-color-default: rgba(240, 240, 240, 0.6);\n  --xy-minimap-mask-stroke-color-default: transparent;\n  --xy-minimap-mask-stroke-width-default: 1;\n  --xy-minimap-node-background-color-default: #e2e2e2;\n  --xy-minimap-node-stroke-color-default: transparent;\n  --xy-minimap-node-stroke-width-default: 2;\n\n  --xy-background-color-default: transparent;\n  --xy-background-pattern-dots-color-default: #91919a;\n  --xy-background-pattern-lines-color-default: #eee;\n  --xy-background-pattern-cross-color-default: #e2e2e2;\n  background-color: var(--xy-background-color, var(--xy-background-color-default));\n  --xy-node-color-default: inherit;\n  --xy-node-border-default: 1px solid #1a192b;\n  --xy-node-background-color-default: #fff;\n  --xy-node-group-background-color-default: rgba(240, 240, 240, 0.25);\n  --xy-node-boxshadow-hover-default: 0 1px 4px 1px rgba(0, 0, 0, 0.08);\n  --xy-node-boxshadow-selected-default: 0 0 0 0.5px #1a192b;\n  --xy-node-border-radius-default: 3px;\n\n  --xy-handle-background-color-default: #1a192b;\n  --xy-handle-border-color-default: #fff;\n\n  --xy-selection-background-color-default: rgba(0, 89, 220, 0.08);\n  --xy-selection-border-default: 1px dotted rgba(0, 89, 220, 0.8);\n\n  --xy-controls-button-background-color-default: #fefefe;\n  --xy-controls-button-background-color-hover-default: #f4f4f4;\n  --xy-controls-button-color-default: inherit;\n  --xy-controls-button-color-hover-default: inherit;\n  --xy-controls-button-border-color-default: #eee;\n  --xy-controls-box-shadow-default: 0 0 2px 1px rgba(0, 0, 0, 0.08);\n\n  --xy-edge-label-background-color-default: #ffffff;\n  --xy-edge-label-color-default: inherit;\n  --xy-resize-background-color-default: #3367d9;\n}\n.react-flow.dark {\n  --xy-edge-stroke-default: #3e3e3e;\n  --xy-edge-stroke-width-default: 1;\n  --xy-edge-stroke-selected-default: #727272;\n\n  --xy-connectionline-stroke-default: #b1b1b7;\n  --xy-connectionline-stroke-width-default: 1;\n\n  --xy-attribution-background-color-default: rgba(150, 150, 150, 0.25);\n\n  --xy-minimap-background-color-default: #141414;\n  --xy-minimap-mask-background-color-default: rgba(60, 60, 60, 0.6);\n  --xy-minimap-mask-stroke-color-default: transparent;\n  --xy-minimap-mask-stroke-width-default: 1;\n  --xy-minimap-node-background-color-default: #2b2b2b;\n  --xy-minimap-node-stroke-color-default: transparent;\n  --xy-minimap-node-stroke-width-default: 2;\n\n  --xy-background-color-default: #141414;\n  --xy-background-pattern-dots-color-default: #777;\n  --xy-background-pattern-lines-color-default: #777;\n  --xy-background-pattern-cross-color-default: #777;\n  --xy-node-color-default: #f8f8f8;\n  --xy-node-border-default: 1px solid #3c3c3c;\n  --xy-node-background-color-default: #1e1e1e;\n  --xy-node-group-background-color-default: rgba(240, 240, 240, 0.25);\n  --xy-node-boxshadow-hover-default: 0 1px 4px 1px rgba(255, 255, 255, 0.08);\n  --xy-node-boxshadow-selected-default: 0 0 0 0.5px #999;\n\n  --xy-handle-background-color-default: #bebebe;\n  --xy-handle-border-color-default: #1e1e1e;\n\n  --xy-selection-background-color-default: rgba(200, 200, 220, 0.08);\n  --xy-selection-border-default: 1px dotted rgba(200, 200, 220, 0.8);\n\n  --xy-controls-button-background-color-default: #2b2b2b;\n  --xy-controls-button-background-color-hover-default: #3e3e3e;\n  --xy-controls-button-color-default: #f8f8f8;\n  --xy-controls-button-color-hover-default: #fff;\n  --xy-controls-button-border-color-default: #5b5b5b;\n  --xy-controls-box-shadow-default: 0 0 2px 1px rgba(0, 0, 0, 0.08);\n\n  --xy-edge-label-background-color-default: #141414;\n  --xy-edge-label-color-default: #f8f8f8;\n}\n.react-flow__background {\n  background-color: var(--xy-background-color-props, var(--xy-background-color, var(--xy-background-color-default)));\n  pointer-events: none;\n  z-index: -1;\n}\n.react-flow__container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n.react-flow__pane {\n  z-index: 1;\n}\n.react-flow__pane.draggable {\n    cursor: grab;\n  }\n.react-flow__pane.dragging {\n    cursor: grabbing;\n  }\n.react-flow__pane.selection {\n    cursor: pointer;\n  }\n.react-flow__viewport {\n  transform-origin: 0 0;\n  z-index: 2;\n  pointer-events: none;\n}\n.react-flow__renderer {\n  z-index: 4;\n}\n.react-flow__selection {\n  z-index: 6;\n}\n.react-flow__nodesselection-rect:focus,\n.react-flow__nodesselection-rect:focus-visible {\n  outline: none;\n}\n.react-flow__edge-path {\n  stroke: var(--xy-edge-stroke, var(--xy-edge-stroke-default));\n  stroke-width: var(--xy-edge-stroke-width, var(--xy-edge-stroke-width-default));\n  fill: none;\n}\n.react-flow__connection-path {\n  stroke: var(--xy-connectionline-stroke, var(--xy-connectionline-stroke-default));\n  stroke-width: var(--xy-connectionline-stroke-width, var(--xy-connectionline-stroke-width-default));\n  fill: none;\n}\n.react-flow .react-flow__edges {\n  position: absolute;\n}\n.react-flow .react-flow__edges svg {\n    overflow: visible;\n    position: absolute;\n    pointer-events: none;\n  }\n.react-flow__edge {\n  pointer-events: visibleStroke;\n}\n.react-flow__edge.selectable {\n    cursor: pointer;\n  }\n.react-flow__edge.animated path {\n    stroke-dasharray: 5;\n    animation: dashdraw 0.5s linear infinite;\n  }\n.react-flow__edge.animated path.react-flow__edge-interaction {\n    stroke-dasharray: none;\n    animation: none;\n  }\n.react-flow__edge.inactive {\n    pointer-events: none;\n  }\n.react-flow__edge.selected,\n  .react-flow__edge:focus,\n  .react-flow__edge:focus-visible {\n    outline: none;\n  }\n.react-flow__edge.selected .react-flow__edge-path,\n  .react-flow__edge.selectable:focus .react-flow__edge-path,\n  .react-flow__edge.selectable:focus-visible .react-flow__edge-path {\n    stroke: var(--xy-edge-stroke-selected, var(--xy-edge-stroke-selected-default));\n  }\n.react-flow__edge-textwrapper {\n    pointer-events: all;\n  }\n.react-flow__edge .react-flow__edge-text {\n    pointer-events: none;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n            user-select: none;\n  }\n/* Arrowhead marker styles - use CSS custom properties as default */\n.react-flow__arrowhead polyline {\n  stroke: var(--xy-edge-stroke, var(--xy-edge-stroke-default));\n}\n.react-flow__arrowhead polyline.arrowclosed {\n  fill: var(--xy-edge-stroke, var(--xy-edge-stroke-default));\n}\n.react-flow__connection {\n  pointer-events: none;\n}\n.react-flow__connection .animated {\n    stroke-dasharray: 5;\n    animation: dashdraw 0.5s linear infinite;\n  }\nsvg.react-flow__connectionline {\n  z-index: 1001;\n  overflow: visible;\n  position: absolute;\n}\n.react-flow__nodes {\n  pointer-events: none;\n  transform-origin: 0 0;\n}\n.react-flow__node {\n  position: absolute;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  pointer-events: all;\n  transform-origin: 0 0;\n  box-sizing: border-box;\n  cursor: default;\n}\n.react-flow__node.selectable {\n    cursor: pointer;\n  }\n.react-flow__node.draggable {\n    cursor: grab;\n    pointer-events: all;\n  }\n.react-flow__node.draggable.dragging {\n      cursor: grabbing;\n    }\n.react-flow__nodesselection {\n  z-index: 3;\n  transform-origin: left top;\n  pointer-events: none;\n}\n.react-flow__nodesselection-rect {\n    position: absolute;\n    pointer-events: all;\n    cursor: grab;\n  }\n.react-flow__handle {\n  position: absolute;\n  pointer-events: none;\n  min-width: 5px;\n  min-height: 5px;\n  width: 6px;\n  height: 6px;\n  background-color: var(--xy-handle-background-color, var(--xy-handle-background-color-default));\n  border: 1px solid var(--xy-handle-border-color, var(--xy-handle-border-color-default));\n  border-radius: 100%;\n}\n.react-flow__handle.connectingfrom {\n    pointer-events: all;\n  }\n.react-flow__handle.connectionindicator {\n    pointer-events: all;\n    cursor: crosshair;\n  }\n.react-flow__handle-bottom {\n    top: auto;\n    left: 50%;\n    bottom: 0;\n    transform: translate(-50%, 50%);\n  }\n.react-flow__handle-top {\n    top: 0;\n    left: 50%;\n    transform: translate(-50%, -50%);\n  }\n.react-flow__handle-left {\n    top: 50%;\n    left: 0;\n    transform: translate(-50%, -50%);\n  }\n.react-flow__handle-right {\n    top: 50%;\n    right: 0;\n    transform: translate(50%, -50%);\n  }\n.react-flow__edgeupdater {\n  cursor: move;\n  pointer-events: all;\n}\n.react-flow__pane.selection .react-flow__panel {\n  pointer-events: none;\n}\n.react-flow__panel {\n  position: absolute;\n  z-index: 5;\n  margin: 15px;\n}\n.react-flow__panel.top {\n    top: 0;\n  }\n.react-flow__panel.bottom {\n    bottom: 0;\n  }\n.react-flow__panel.top.center, .react-flow__panel.bottom.center {\n      left: 50%;\n      transform: translateX(-15px) translateX(-50%);\n    }\n.react-flow__panel.left {\n    left: 0;\n  }\n.react-flow__panel.right {\n    right: 0;\n  }\n.react-flow__panel.left.center, .react-flow__panel.right.center {\n      top: 50%;\n      transform: translateY(-15px) translateY(-50%);\n    }\n.react-flow__attribution {\n  font-size: 10px;\n  background: var(--xy-attribution-background-color, var(--xy-attribution-background-color-default));\n  padding: 2px 3px;\n  margin: 0;\n}\n.react-flow__attribution a {\n    text-decoration: none;\n    color: #999;\n  }\n@keyframes dashdraw {\n  from {\n    stroke-dashoffset: 10;\n  }\n}\n.react-flow__edgelabel-renderer {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  left: 0;\n  top: 0;\n}\n.react-flow__viewport-portal {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.react-flow__minimap {\n  background: var(\n    --xy-minimap-background-color-props,\n    var(--xy-minimap-background-color, var(--xy-minimap-background-color-default))\n  );\n}\n.react-flow__minimap-svg {\n    display: block;\n  }\n.react-flow__minimap-mask {\n    fill: var(\n      --xy-minimap-mask-background-color-props,\n      var(--xy-minimap-mask-background-color, var(--xy-minimap-mask-background-color-default))\n    );\n    stroke: var(\n      --xy-minimap-mask-stroke-color-props,\n      var(--xy-minimap-mask-stroke-color, var(--xy-minimap-mask-stroke-color-default))\n    );\n    stroke-width: var(\n      --xy-minimap-mask-stroke-width-props,\n      var(--xy-minimap-mask-stroke-width, var(--xy-minimap-mask-stroke-width-default))\n    );\n  }\n.react-flow__minimap-node {\n    fill: var(\n      --xy-minimap-node-background-color-props,\n      var(--xy-minimap-node-background-color, var(--xy-minimap-node-background-color-default))\n    );\n    stroke: var(\n      --xy-minimap-node-stroke-color-props,\n      var(--xy-minimap-node-stroke-color, var(--xy-minimap-node-stroke-color-default))\n    );\n    stroke-width: var(\n      --xy-minimap-node-stroke-width-props,\n      var(--xy-minimap-node-stroke-width, var(--xy-minimap-node-stroke-width-default))\n    );\n  }\n.react-flow__background-pattern.dots {\n    fill: var(\n      --xy-background-pattern-color-props,\n      var(--xy-background-pattern-color, var(--xy-background-pattern-dots-color-default))\n    );\n  }\n.react-flow__background-pattern.lines {\n    stroke: var(\n      --xy-background-pattern-color-props,\n      var(--xy-background-pattern-color, var(--xy-background-pattern-lines-color-default))\n    );\n  }\n.react-flow__background-pattern.cross {\n    stroke: var(\n      --xy-background-pattern-color-props,\n      var(--xy-background-pattern-color, var(--xy-background-pattern-cross-color-default))\n    );\n  }\n.react-flow__controls {\n  display: flex;\n  flex-direction: column;\n  box-shadow: var(--xy-controls-box-shadow, var(--xy-controls-box-shadow-default));\n}\n.react-flow__controls.horizontal {\n    flex-direction: row;\n  }\n.react-flow__controls-button {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 26px;\n    width: 26px;\n    padding: 4px;\n    border: none;\n    background: var(--xy-controls-button-background-color, var(--xy-controls-button-background-color-default));\n    border-bottom: 1px solid\n      var(\n        --xy-controls-button-border-color-props,\n        var(--xy-controls-button-border-color, var(--xy-controls-button-border-color-default))\n      );\n    color: var(\n      --xy-controls-button-color-props,\n      var(--xy-controls-button-color, var(--xy-controls-button-color-default))\n    );\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n            user-select: none;\n  }\n.react-flow__controls-button svg {\n      width: 100%;\n      max-width: 12px;\n      max-height: 12px;\n      fill: currentColor;\n    }\n.react-flow__edge.updating .react-flow__edge-path {\n      stroke: #777;\n    }\n.react-flow__edge-text {\n    font-size: 10px;\n  }\n.react-flow__node.selectable:focus,\n  .react-flow__node.selectable:focus-visible {\n    outline: none;\n  }\n.react-flow__node-input,\n.react-flow__node-default,\n.react-flow__node-output,\n.react-flow__node-group {\n  padding: 10px;\n  border-radius: var(--xy-node-border-radius, var(--xy-node-border-radius-default));\n  width: 150px;\n  font-size: 12px;\n  color: var(--xy-node-color, var(--xy-node-color-default));\n  text-align: center;\n  border: var(--xy-node-border, var(--xy-node-border-default));\n  background-color: var(--xy-node-background-color, var(--xy-node-background-color-default));\n}\n.react-flow__node-input.selectable:hover, .react-flow__node-default.selectable:hover, .react-flow__node-output.selectable:hover, .react-flow__node-group.selectable:hover {\n      box-shadow: var(--xy-node-boxshadow-hover, var(--xy-node-boxshadow-hover-default));\n    }\n.react-flow__node-input.selectable.selected,\n    .react-flow__node-input.selectable:focus,\n    .react-flow__node-input.selectable:focus-visible,\n    .react-flow__node-default.selectable.selected,\n    .react-flow__node-default.selectable:focus,\n    .react-flow__node-default.selectable:focus-visible,\n    .react-flow__node-output.selectable.selected,\n    .react-flow__node-output.selectable:focus,\n    .react-flow__node-output.selectable:focus-visible,\n    .react-flow__node-group.selectable.selected,\n    .react-flow__node-group.selectable:focus,\n    .react-flow__node-group.selectable:focus-visible {\n      box-shadow: var(--xy-node-boxshadow-selected, var(--xy-node-boxshadow-selected-default));\n    }\n.react-flow__node-group {\n  background-color: var(--xy-node-group-background-color, var(--xy-node-group-background-color-default));\n}\n.react-flow__nodesselection-rect,\n.react-flow__selection {\n  background: var(--xy-selection-background-color, var(--xy-selection-background-color-default));\n  border: var(--xy-selection-border, var(--xy-selection-border-default));\n}\n.react-flow__nodesselection-rect:focus,\n  .react-flow__nodesselection-rect:focus-visible,\n  .react-flow__selection:focus,\n  .react-flow__selection:focus-visible {\n    outline: none;\n  }\n.react-flow__controls-button:hover {\n      background: var(\n        --xy-controls-button-background-color-hover-props,\n        var(--xy-controls-button-background-color-hover, var(--xy-controls-button-background-color-hover-default))\n      );\n      color: var(\n        --xy-controls-button-color-hover-props,\n        var(--xy-controls-button-color-hover, var(--xy-controls-button-color-hover-default))\n      );\n    }\n.react-flow__controls-button:disabled {\n      pointer-events: none;\n    }\n.react-flow__controls-button:disabled svg {\n        fill-opacity: 0.4;\n      }\n.react-flow__controls-button:last-child {\n    border-bottom: none;\n  }\n.react-flow__controls.horizontal .react-flow__controls-button {\n    border-bottom: none;\n    border-right: 1px solid\n      var(\n        --xy-controls-button-border-color-props,\n        var(--xy-controls-button-border-color, var(--xy-controls-button-border-color-default))\n      );\n  }\n.react-flow__controls.horizontal .react-flow__controls-button:last-child {\n    border-right: none;\n  }\n.react-flow__resize-control {\n  position: absolute;\n}\n.react-flow__resize-control.left,\n.react-flow__resize-control.right {\n  cursor: ew-resize;\n}\n.react-flow__resize-control.top,\n.react-flow__resize-control.bottom {\n  cursor: ns-resize;\n}\n.react-flow__resize-control.top.left,\n.react-flow__resize-control.bottom.right {\n  cursor: nwse-resize;\n}\n.react-flow__resize-control.bottom.left,\n.react-flow__resize-control.top.right {\n  cursor: nesw-resize;\n}\n/* handle styles */\n.react-flow__resize-control.handle {\n  width: 5px;\n  height: 5px;\n  border: 1px solid #fff;\n  border-radius: 1px;\n  background-color: var(--xy-resize-background-color, var(--xy-resize-background-color-default));\n  translate: -50% -50%;\n}\n.react-flow__resize-control.handle.left {\n  left: 0;\n  top: 50%;\n}\n.react-flow__resize-control.handle.right {\n  left: 100%;\n  top: 50%;\n}\n.react-flow__resize-control.handle.top {\n  left: 50%;\n  top: 0;\n}\n.react-flow__resize-control.handle.bottom {\n  left: 50%;\n  top: 100%;\n}\n.react-flow__resize-control.handle.top.left {\n  left: 0;\n}\n.react-flow__resize-control.handle.bottom.left {\n  left: 0;\n}\n.react-flow__resize-control.handle.top.right {\n  left: 100%;\n}\n.react-flow__resize-control.handle.bottom.right {\n  left: 100%;\n}\n/* line styles */\n.react-flow__resize-control.line {\n  border-color: var(--xy-resize-background-color, var(--xy-resize-background-color-default));\n  border-width: 0;\n  border-style: solid;\n}\n.react-flow__resize-control.line.left,\n.react-flow__resize-control.line.right {\n  width: 1px;\n  transform: translate(-50%, 0);\n  top: 0;\n  height: 100%;\n}\n.react-flow__resize-control.line.left {\n  left: 0;\n  border-left-width: 1px;\n}\n.react-flow__resize-control.line.right {\n  left: 100%;\n  border-right-width: 1px;\n}\n.react-flow__resize-control.line.top,\n.react-flow__resize-control.line.bottom {\n  height: 1px;\n  transform: translate(0, -50%);\n  left: 0;\n  width: 100%;\n}\n.react-flow__resize-control.line.top {\n  top: 0;\n  border-top-width: 1px;\n}\n.react-flow__resize-control.line.bottom {\n  border-bottom-width: 1px;\n  top: 100%;\n}\n.react-flow__edge-textbg {\n  fill: var(--xy-edge-label-background-color, var(--xy-edge-label-background-color-default));\n}\n.react-flow__edge-text {\n  fill: var(--xy-edge-label-color, var(--xy-edge-label-color-default));\n}\n";
 
 // client/style.css
-var style_default4 = '/* Workflow Studio surfaces.\n   Visual model: a light canvas with tinted step cards, a floating step toolbar,\n   a right-hand Step inspector and an instruction composer \u2014 the same composition\n   as the reference editor, expressed with Harness theme aliases. */\n\n.wf {\n  --wf-bg: var(--dsw-alias-bg-base, #fff);\n  --wf-surface: var(--dsw-alias-bg-base, #fff);\n  --wf-surface-subtle: var(--dsw-alias-bg-secondary, #f6f7f9);\n  --wf-surface-strong: var(--dsw-alias-interactive-bg-hover, #eef0f3);\n  --wf-text: var(--dsw-alias-label-primary, #202428);\n  --wf-muted: var(--dsw-alias-label-secondary, #6c747c);\n  --wf-line: var(--dsw-alias-border-l3, #e4e7ea);\n  --wf-line-strong: var(--dsw-alias-border-l2, #cfd5db);\n  --wf-hover: var(--dsw-alias-interactive-bg-hover, #f1f3f5);\n  --wf-accent: var(--dsw-alias-brand-primary, #6a5acd);\n  --wf-accent-soft: color-mix(in srgb, var(--wf-accent) 14%, transparent);\n  --wf-radius: 14px;\n  --wf-shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 8px 24px rgb(16 24 40 / 6%);\n  color: var(--wf-text);\n  font: 13px/1.5 var(--dsw-font-family, system-ui, sans-serif);\n  letter-spacing: 0;\n}\n.wf * {\n  box-sizing: border-box;\n  letter-spacing: 0;\n}\n.wf button,\n.wf input,\n.wf select,\n.wf textarea {\n  font: inherit;\n  color: inherit;\n}\n.wf button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 6px;\n  min-height: 30px;\n  padding: 5px 10px;\n  border: 1px solid var(--wf-line);\n  border-radius: 8px;\n  background: var(--wf-surface);\n  cursor: pointer;\n  transition: background .15s ease, border-color .15s ease, color .15s ease;\n}\n.wf button:hover {\n  background: var(--wf-surface-strong);\n  border-color: var(--wf-line-strong);\n}\n.wf button:disabled {\n  opacity: .45;\n  cursor: default;\n}\n.wf button:focus-visible,\n.wf input:focus-visible,\n.wf select:focus-visible,\n.wf textarea:focus-visible,\n.wf [contenteditable]:focus-visible {\n  outline: 2px solid var(--wf-accent);\n  outline-offset: 1px;\n}\n.wf input:not([type="checkbox"]),\n.wf select,\n.wf textarea {\n  width: 100%;\n  min-width: 0;\n  padding: 7px 9px;\n  border: 1px solid var(--wf-line);\n  border-radius: 8px;\n  background: var(--wf-surface);\n}\n.wf textarea {\n  resize: vertical;\n  background: var(--wf-surface-subtle);\n  font: 12px/1.6 ui-monospace, monospace;\n}\n.wf h1 { margin: 0; font-size: 17px; font-weight: 600; overflow-wrap: anywhere; }\n.wf h2 { margin: 0; font-size: 16px; }\n.wf h3 { margin: 0; font-size: 13px; font-weight: 600; }\n.wf .wf-primary {\n  background: var(--wf-accent);\n  border-color: var(--wf-accent);\n  color: #fff;\n  box-shadow: 0 1px 1px rgb(16 24 40 / 10%);\n}\n.wf .wf-primary:hover { background: color-mix(in srgb, var(--wf-accent) 86%, #000); border-color: transparent; }\n.wf .wf-icon {\n  width: 28px;\n  height: 28px;\n  min-height: 28px;\n  flex: 0 0 28px;\n  padding: 5px;\n  border: 0;\n  border-radius: 8px;\n  background: transparent;\n  color: var(--wf-muted);\n}\n.wf .wf-icon:hover { background: var(--wf-surface-strong); color: var(--wf-text); }\n.wf-spacer { flex: 1; }\n.wf-muted,\n.wf small { color: var(--wf-muted); }\n.wf small { display: block; font-size: 11px; }\n.wf-error { color: var(--dsw-alias-state-error-primary, #b13e4a); overflow-wrap: anywhere; }\n.wf [role="alert"] { overflow-wrap: anywhere; }\n\n/* ---------------------------------------------------------------- shell */\n.wf-workspace-wrapper {\n  display: flex;\n  flex: 1;\n  min-height: 0;\n  flex-direction: column;\n  overflow: hidden;\n}\n.wf-main {\n  height: 100%;\n  min-height: 0;\n  display: flex;\n  flex-direction: column;\n  background: var(--wf-bg);\n  overflow: hidden;\n}\n.wf-main, .wf-editor, .wf-editor-body { min-width: 0; max-width: 100%; }\n\n/* ------------------------------------------------------------ app bar */\n.wf-appbar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-height: 56px;\n  padding: 10px 16px;\n  border-bottom: 1px solid var(--wf-line);\n  background: var(--wf-surface);\n  flex: none;\n}\n.wf-appbar > svg { flex: none; color: var(--wf-muted); }\n.wf-appbar-name {\n  width: auto !important;\n  max-width: 260px;\n  min-width: 90px;\n  padding: 5px 6px !important;\n  border: 1px solid transparent !important;\n  border-radius: 8px !important;\n  background: transparent !important;\n  font-size: 15px !important;\n  font-weight: 600 !important;\n}\n.wf-appbar-name:hover { border-color: var(--wf-line) !important; }\n.wf-appbar-name:disabled { color: var(--wf-text); opacity: 1; }\n.wf-chip {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  height: 24px;\n  padding: 0 9px;\n  border-radius: 999px;\n  background: var(--wf-surface-strong);\n  color: var(--wf-muted);\n  font-size: 11px;\n  font-weight: 600;\n  white-space: nowrap;\n}\n.wf-chip.is-published { background: color-mix(in srgb, #2f9e6b 16%, transparent); color: #1d7d52; }\n.wf-chip.is-dirty { background: color-mix(in srgb, #d98324 18%, transparent); color: #9a5a13; }\n.wf-segmented {\n  display: inline-flex;\n  gap: 2px;\n  padding: 2px;\n  border-radius: 999px;\n  background: var(--wf-surface-strong);\n}\n.wf-segmented button {\n  min-height: 26px;\n  padding: 3px 14px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  color: var(--wf-muted);\n  font-size: 12px;\n  font-weight: 600;\n}\n.wf-segmented button[aria-selected="true"] {\n  background: var(--wf-surface);\n  color: var(--wf-text);\n  box-shadow: 0 1px 2px rgb(16 24 40 / 12%);\n}\n.wf-toolbar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 0 0 10px;\n}\n.wf-toolbar h3 { margin: 0; }\n.wf-tabs {\n  display: flex;\n  gap: 20px;\n  padding: 0 16px;\n  border-bottom: 1px solid var(--wf-line);\n  background: var(--wf-surface);\n  flex: none;\n}\n.wf-tabs button {\n  padding: 10px 0;\n  border: 0;\n  border-bottom: 2px solid transparent;\n  border-radius: 0;\n  background: none;\n  color: var(--wf-muted);\n  font-size: 13px;\n}\n.wf-tabs button[aria-current] { border-bottom-color: var(--wf-accent); color: var(--wf-accent); font-weight: 600; }\n.wf-scroll { flex: 1; min-height: 0; padding: 16px 18px; overflow: auto; }\n.wf table { width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; }\n.wf th { color: var(--wf-muted); font-size: 11px; font-weight: 600; }\n.wf th, .wf td { padding: 12px 10px; border-bottom: 1px solid var(--wf-line); vertical-align: middle; }\n.wf td:first-child { padding-left: 0; }\n.wf .wf-link { padding: 0; border: 0; background: none; font-weight: 600; }\n.wf-import {\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 30px;\n  height: 30px;\n  border: 1px solid var(--wf-line);\n  border-radius: 8px;\n  cursor: pointer;\n}\n.wf-import input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }\n\n/* ------------------------------------------------- sidebar workflow entry */\n.wf-tree {\n  flex: none;\n  padding: 6px 6px 8px;\n  background: transparent;\n}\n/* The single sidebar entry: a borderless row that reads as part of the rail and\n   highlights while the workflow panel owns the main area. */\n.wf-nav-button {\n  display: flex;\n  width: 100%;\n  align-items: center;\n  gap: 8px;\n  min-width: 0;\n  min-height: 34px;\n  padding: 6px 8px;\n  border: 0 !important;\n  border-radius: 9px;\n  background: transparent !important;\n  box-shadow: none !important;\n  color: var(--wf-text);\n  font-size: 13px;\n  font-weight: 500;\n  text-align: left;\n}\n.wf-nav-button:hover { background: var(--wf-hover) !important; }\n.wf-nav-button.is-active {\n  background: var(--wf-accent-soft) !important;\n  color: var(--wf-accent);\n  font-weight: 600;\n}\n.wf-nav-button.is-rail { justify-content: center; padding: 6px 0; }\n.wf-nav-button svg { flex: none; }\n.wf-nav-button > span:not(.wf-nav-count) {\n  min-width: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.wf-nav-count {\n  margin-left: auto;\n  padding: 0 7px;\n  border-radius: 999px;\n  background: var(--wf-surface-strong);\n  color: var(--wf-muted);\n  font-size: 11px;\n  font-weight: 600;\n  line-height: 18px;\n}\n.wf-nav-button.is-active .wf-nav-count { background: transparent; color: var(--wf-accent); }\n.wf-workflow-icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 22px;\n  height: 22px;\n  flex: none;\n  border-radius: 6px;\n  background: var(--wf-accent-soft);\n  color: var(--wf-accent);\n}\n.wf-icon-sparkles { background: color-mix(in srgb, #7c5cff 16%, transparent); color: #6b46e0; }\n.wf-icon-book { background: color-mix(in srgb, #2f7ad6 16%, transparent); color: #2464b3; }\n.wf-icon-search { background: color-mix(in srgb, #2f9e8b 16%, transparent); color: #1f7d6d; }\n.wf-icon-code { background: color-mix(in srgb, #d98324 18%, transparent); color: #9a5a13; }\n.wf-icon-file { background: color-mix(in srgb, #c7486e 16%, transparent); color: #a53458; }\n\n/* -------------------------------------------------------- workflow gallery */\n.wf-gallery-bar {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 0 0 12px;\n  color: var(--wf-muted);\n  font-size: 12px;\n}\n.wf-check { display: inline-flex; align-items: center; gap: 6px; }\n.wf-check input { width: auto; }\n.wf-gallery-empty {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 14px;\n  padding: 64px 24px;\n  color: var(--wf-muted);\n  text-align: center;\n}\n.wf-gallery-empty p { margin: 0; max-width: 440px; }\n.wf-cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));\n  gap: 12px;\n  padding: 0 0 20px;\n}\n.wf-card {\n  display: flex;\n  min-width: 0;\n  flex-direction: column;\n  gap: 8px;\n  padding: 14px;\n  border: 1px solid var(--wf-line);\n  border-radius: var(--wf-radius);\n  background: var(--wf-surface);\n  box-shadow: var(--wf-shadow);\n}\n.wf-card-head {\n  display: flex;\n  width: 100%;\n  min-width: 0;\n  align-items: center;\n  gap: 8px;\n  padding: 0 !important;\n  border: 0 !important;\n  background: transparent !important;\n  box-shadow: none !important;\n  text-align: left;\n}\n.wf-card-title {\n  min-width: 0;\n  overflow: hidden;\n  font-size: 14px;\n  font-weight: 600;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.wf-card-head .wf-chip { margin-left: auto; flex: none; }\n.wf-card-desc { margin: 0; min-height: 34px; color: var(--wf-muted); font-size: 12.5px; overflow-wrap: anywhere; }\n.wf-card-meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; color: var(--wf-muted); font-size: 11.5px; }\n.wf-card-actions { display: flex; align-items: center; gap: 6px; margin-top: auto; }\n.wf-card-actions > button { flex: none; }\n.wf-card-sessions { border-top: 1px solid var(--wf-line); padding-top: 4px; }\n.wf-card-sessions > summary {\n  padding: 2px 0;\n  color: var(--wf-muted);\n  cursor: pointer;\n  font-size: 12px;\n}\n.wf-card-sessions > summary:hover { color: var(--wf-text); }\n.wf-detail-row > td { padding: 2px 0 14px; }\n.wf-sessions { display: flex; flex-direction: column; gap: 2px; padding: 4px 0 2px; }\n.wf-session-row {\n  display: flex;\n  align-items: center;\n  gap: 2px;\n  min-height: 30px;\n  border-radius: 8px;\n}\n.wf-session-row:hover,\n.wf-session-row.selected { background: var(--wf-hover); }\n.wf-session-name {\n  display: flex;\n  flex: 1 1 auto;\n  min-width: 0;\n  align-items: center;\n  gap: 7px;\n  padding: 5px 8px;\n  border: 0 !important;\n  background: transparent !important;\n  box-shadow: none !important;\n  color: var(--wf-muted);\n  font-size: 12.5px;\n  text-align: left;\n}\n.wf-session-name > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.wf-session-row.selected .wf-session-name { color: var(--wf-accent); font-weight: 500; }\n.wf-sessions-empty { margin: 4px 0 0; color: var(--wf-muted); font-size: 12px; }\n/* Row actions stay out of the way until the row is under the pointer. */\n.wf-session-row .wf-row-action,\n.wf-session-row .wf-session-menu-trigger {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 24px;\n  height: 24px;\n  min-height: 24px;\n  flex: 0 0 24px;\n  margin-left: 1px;\n  padding: 0;\n  border: 0 !important;\n  background: transparent !important;\n  border-radius: 6px;\n  color: var(--wf-muted);\n  opacity: 0;\n}\n.wf-session-row:hover .wf-row-action,\n.wf-session-row:focus-within .wf-row-action,\n.wf-row-action[aria-expanded="true"] { opacity: 1; }\n.wf-session-row .wf-row-action:hover,\n.wf-session-row .wf-session-menu-trigger:hover {\n  background: var(--wf-surface-strong) !important;\n  color: var(--wf-text);\n}\n\n/* --------------------------------------------------- composer workflow tag */\n.wf-composer-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 2px;\n  max-width: min(340px, 42vw);\n  height: 26px;\n  border: 1px solid transparent;\n  border-radius: 999px;\n  font: 12px/1 var(--dsw-font-family, system-ui, sans-serif);\n}\n.wf-composer-tag[data-mode="author"] {\n  background: color-mix(in srgb, #6a5acd 14%, transparent);\n  border-color: color-mix(in srgb, #6a5acd 34%, transparent);\n  color: #5a49bd;\n}\n.wf-composer-tag[data-mode="run"] {\n  background: color-mix(in srgb, #2f9e6b 14%, transparent);\n  border-color: color-mix(in srgb, #2f9e6b 34%, transparent);\n  color: #1d7d52;\n}\n.wf-composer-tag-open {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  min-width: 0;\n  height: 24px;\n  padding: 0 8px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  cursor: pointer;\n}\n.wf-composer-tag-open:hover { background: color-mix(in srgb, currentcolor 14%, transparent); }\n.wf-composer-tag-open strong {\n  font-weight: 600;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.wf-composer-tag-open small { font-size: 11px; opacity: .72; }\n.wf-composer-tag .wf-status { padding: 0 6px; font-size: 11px; white-space: nowrap; }\n.wf-composer-tag-clear {\n  display: grid;\n  flex: none;\n  place-items: center;\n  width: 18px;\n  height: 18px;\n  margin-right: 3px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  color: inherit;\n  opacity: .72;\n  cursor: pointer;\n}\n.wf-composer-tag-clear:hover { background: color-mix(in srgb, currentcolor 16%, transparent); opacity: 1; }\n\n/* -------------------------------------------------------------- editor */\n.wf-editor { display: flex; flex: 1; min-height: 0; flex-direction: column; }\n.wf-editor-body {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) 352px;\n  flex: 1;\n  min-height: 0;\n  background: var(--wf-surface-subtle);\n}\n.wf-stage {\n  display: flex;\n  flex: 1;\n  min-width: 0;\n  min-height: 0;\n  flex-direction: column;\n  position: relative;\n}\n.wf-canvas {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  min-width: 0;\n  min-height: 320px;\n  background-color: var(--wf-surface-subtle);\n  background-image: radial-gradient(color-mix(in srgb, var(--wf-muted) 35%, transparent) 1px, transparent 1px);\n  background-size: 20px 20px;\n}\n.wf-addbar {\n  position: absolute;\n  z-index: 6;\n  top: 14px;\n  left: 50%;\n  transform: translateX(-50%);\n  display: flex;\n  align-items: center;\n  gap: 2px;\n  max-width: calc(100% - 24px);\n  padding: 5px;\n  border: 1px solid var(--wf-line);\n  border-radius: 999px;\n  background: var(--wf-surface);\n  box-shadow: var(--wf-shadow);\n  overflow-x: auto;\n  scrollbar-width: none;\n}\n.wf-addbar::-webkit-scrollbar { display: none; }\n.wf-addbar button {\n  flex: none;\n  gap: 7px;\n  min-height: 32px;\n  padding: 5px 11px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  font-size: 12px;\n  font-weight: 500;\n  white-space: nowrap;\n}\n.wf-addbar button:hover { background: var(--wf-surface-strong); }\n.wf-addbar button svg { color: var(--wf-muted); }\n.wf-addbar-divider { width: 1px; height: 20px; margin: 0 4px; background: var(--wf-line); }\n.wf-canvas-tools {\n  position: absolute;\n  z-index: 5;\n  bottom: 14px;\n  left: 56px;\n  display: flex;\n  gap: 2px;\n  padding: 4px;\n  border: 1px solid var(--wf-line);\n  border-radius: 12px;\n  background: var(--wf-surface);\n  box-shadow: var(--wf-shadow);\n}\n.wf-canvas-tools button { min-height: 28px; height: 28px; width: 28px; padding: 4px; border: 0; border-radius: 8px; background: transparent; }\n.wf-canvas-tools button[aria-pressed="true"] { background: var(--wf-accent-soft); color: var(--wf-accent); }\n.wf-flow { flex: 1; min-height: 0; }\n.wf-json { flex: 1; min-height: 0; padding: 16px; overflow: auto; }\n\n/* ---------------------------------------------------------- step cards */\n.wf .wf-step-input { --step-tint: #eef3a8; --step-ink: #454a15; --step-body: #f8fbdc; }\n.wf .wf-step-interact { --step-tint: #a9e7dc; --step-ink: #14504a; --step-body: #e6faf6; }\n.wf .wf-step-agent { --step-tint: #ccd9fb; --step-ink: #2c3f63; --step-body: #eef3fe; }\n.wf .wf-step-tool { --step-tint: #ffd9ab; --step-ink: #6b4413; --step-body: #fff2e2; }\n.wf .wf-step-condition { --step-tint: #ffc9dd; --step-ink: #6d2743; --step-body: #ffedf4; }\n.wf .wf-step-join { --step-tint: #d9d4fb; --step-ink: #3d3470; --step-body: #f1efff; }\n.wf .wf-step-loop { --step-tint: #c6ecf7; --step-ink: #1f4c5c; --step-body: #e9f7fc; }\n.wf .wf-step-subworkflow { --step-tint: #e3d3fb; --step-ink: #472e70; --step-body: #f5eeff; }\n.wf .wf-step-approval { --step-tint: #ffe1b8; --step-ink: #6d4a15; --step-body: #fff4e4; }\n.wf .wf-step-artifact { --step-tint: #c6f2d3; --step-ink: #1f5233; --step-body: #eafbf0; }\n.wf .wf-node { width: 264px !important; padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }\n.wf .wf-node-card {\n  width: 264px;\n  padding: 0;\n  gap: 0;\n  overflow: hidden;\n  border: 1px solid color-mix(in srgb, var(--step-ink, #303742) 14%, transparent);\n  border-radius: var(--wf-radius);\n  background: var(--step-body, var(--wf-surface));\n  box-shadow: 0 1px 2px rgb(16 24 40 / 8%), 0 8px 20px rgb(16 24 40 / 8%);\n  transition: box-shadow .15s ease, transform .15s ease;\n}\n.wf .wf-node-card.is-selected {\n  box-shadow: 0 0 0 2px var(--wf-accent), 0 10px 24px rgb(16 24 40 / 14%);\n}\n.wf .wf-step-heading {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 10px 14px;\n  background: var(--step-tint, #e5e7ee);\n  color: var(--step-ink, #303742);\n}\n.wf .wf-step-heading strong { flex: 1; min-width: 0; margin: 0; font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.wf .wf-step-heading em { font-size: 11px; font-style: normal; opacity: .8; white-space: nowrap; }\n.wf .wf-step-glyph { display: inline-flex; flex: none; opacity: .85; }\n.wf .wf-step-body { display: grid; gap: 8px; padding: 12px 14px 14px; }\n.wf .wf-step-body p {\n  display: -webkit-box;\n  margin: 0;\n  overflow: hidden;\n  color: var(--wf-text);\n  font-size: 12.5px;\n  line-height: 1.6;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n}\n.wf .wf-step-body small { font-size: 10px; }\n.wf .wf-step-references { display: flex; flex-wrap: wrap; gap: 4px; }\n.wf .wf-inline-reference {\n  display: inline-block;\n  padding: 1px 8px;\n  border-radius: 999px;\n  background: var(--step-tint, #e5e7ee);\n  color: var(--step-ink, #303742);\n  font-size: 11px;\n  vertical-align: baseline;\n}\n.wf .wf-step-model { color: var(--wf-muted); font-size: 11px; }\n.wf .wf-node-card .react-flow__handle { width: 9px; height: 9px; border: 2px solid var(--wf-surface); background: var(--step-ink, #303742); }\n.wf .react-flow__edge-path { stroke: color-mix(in srgb, var(--wf-accent) 72%, #7a5cc4); stroke-width: 1.6; }\n.wf .react-flow__edge.wf-edge-dashed .react-flow__edge-path { stroke-dasharray: 5 5; stroke: var(--wf-line-strong); }\n.wf .react-flow__controls { overflow: hidden; border: 1px solid var(--wf-line); border-radius: 10px; box-shadow: var(--wf-shadow); }\n.wf .react-flow__controls button { min-height: 28px; padding: 5px; border: 0; border-bottom: 1px solid var(--wf-line); border-radius: 0; background: var(--wf-surface); color: var(--wf-text); }\n.wf .react-flow__minimap { width: 130px; height: 84px; border: 1px solid var(--wf-line); border-radius: 10px; background: var(--wf-surface); overflow: hidden; }\n\n/* ------------------------------------------------------- step inspector */\n.wf-inspector {\n  display: flex;\n  flex-direction: column;\n  min-width: 0;\n  min-height: 0;\n  border-left: 1px solid var(--wf-line);\n  background: var(--wf-surface);\n}\n.wf-panel-tabs {\n  display: flex;\n  gap: 6px;\n  padding: 10px 12px 0;\n  flex: none;\n}\n.wf-panel-tabs button {\n  flex: 1;\n  min-height: 30px;\n  padding: 4px 6px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  color: var(--wf-muted);\n  font-size: 12px;\n  font-weight: 600;\n}\n.wf-panel-tabs button[aria-selected="true"] { background: var(--wf-accent-soft); color: var(--wf-accent); }\n.wf-panel-head {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin: 12px;\n  padding: 12px 14px;\n  border-radius: 12px;\n  background: var(--step-tint, var(--wf-surface-strong));\n  color: var(--step-ink, var(--wf-text));\n}\n.wf-panel-head strong { flex: 1; min-width: 0; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.wf-panel-head em { font-size: 11px; font-style: normal; opacity: .8; }\n.wf-panel-head .wf-icon { color: inherit; }\n.wf-panel-body { flex: 1; min-height: 0; padding: 0 14px 16px; overflow: auto; }\n.wf-panel-empty { padding: 24px 16px; color: var(--wf-muted); font-size: 12px; text-align: center; }\n.wf-panel-note { display: flex; align-items: center; gap: 6px; margin: 0 0 12px; color: var(--wf-muted); font-size: 11px; }\n.wf-agent-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }\n.wf-agent-row select { flex: 1; }\n.wf-output {\n  max-height: 320px;\n  margin: 0 0 12px;\n  padding: 12px;\n  overflow: auto;\n  border: 1px solid var(--wf-line);\n  border-radius: 10px;\n  background: var(--wf-surface-subtle);\n  font: 11px/1.6 ui-monospace, monospace;\n  white-space: pre-wrap;\n  overflow-wrap: anywhere;\n}\n.wf-console { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }\n.wf-console li { display: flex; gap: 8px; padding: 7px 9px; border-radius: 8px; background: var(--wf-surface-subtle); font-size: 11px; }\n.wf-console li time { flex: none; color: var(--wf-muted); }\n.wf-console li span { min-width: 0; overflow-wrap: anywhere; }\n.wf-swatches { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 16px; }\n.wf-swatch { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 999px; background: var(--step-tint); color: var(--step-ink); font-size: 11px; }\n.wf-icon-picker { display: flex; flex-wrap: wrap; gap: 6px; }\n.wf-icon-picker button {\n  width: 34px;\n  height: 34px;\n  min-height: 34px;\n  padding: 7px;\n  border: 1px solid var(--wf-line);\n  border-radius: 10px;\n  background: var(--wf-surface);\n  color: var(--wf-muted);\n}\n.wf-icon-picker button[aria-pressed="true"] { border-color: var(--wf-accent); color: var(--wf-accent); background: var(--wf-accent-soft); }\n\n/* ---------------------------------------------------------- step fields */\n.wf-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 13px; font-size: 12px; }\n.wf-field > span { color: var(--wf-muted); font-size: 10px; font-weight: 700; text-transform: uppercase; }\n.wf-prompt-label { display: flex; align-items: center; gap: 6px; margin: 4px 0 2px; color: var(--wf-muted); font-size: 10px; font-weight: 700; text-transform: uppercase; }\n.wf-prompt-label button { width: 22px; height: 22px; min-height: 22px; padding: 3px; border: 0; background: transparent; color: var(--wf-muted); }\n.wf-step-prompt {\n  min-height: 150px;\n  margin-bottom: 10px;\n  padding: 12px 13px;\n  border: 1px solid transparent;\n  border-radius: 10px;\n  background: var(--wf-surface-subtle);\n  outline: none;\n  font: 13px/1.75 var(--dsw-font-family, system-ui);\n  white-space: pre-wrap;\n  overflow-wrap: anywhere;\n}\n.wf-step-prompt:hover { border-color: var(--wf-line); }\n.wf-step-prompt:focus { border-color: var(--wf-accent); background: var(--wf-surface); }\n.wf-step-prompt:empty::before { content: attr(data-placeholder); color: var(--wf-muted); pointer-events: none; }\n.wf-prompt-composer { display: flex; flex-direction: column; }\n.wf-add-reference { align-self: flex-start; min-height: 26px; padding: 2px 10px; border: 0; border-radius: 999px; background: var(--wf-surface-strong); color: var(--wf-muted); font-size: 11px; }\n.wf-reference-picker { display: grid; gap: 5px; padding-top: 10px; }\n.wf-reference-picker button { justify-content: flex-start; border: 0; background: var(--step-tint, var(--wf-surface-strong)); color: var(--step-ink, var(--wf-text)); }\n.wf-advanced { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--wf-line); }\n.wf-advanced summary { margin-bottom: 14px; color: var(--wf-muted); cursor: pointer; }\n\n/* ------------------------------------------------- step edit composer */\n.wf-step-composer {\n  flex: none;\n  padding: 12px 16px 14px;\n  border-top: 1px solid var(--wf-line);\n  background: var(--wf-surface);\n}\n.wf-instruction {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 6px 6px 6px 16px;\n  border: 1px solid var(--wf-line);\n  border-radius: 999px;\n  background: var(--wf-surface-subtle);\n}\n.wf-instruction:focus-within { border-color: var(--wf-accent); background: var(--wf-surface); }\n.wf-instruction input {\n  flex: 1;\n  min-width: 0;\n  padding: 6px 0;\n  border: 0;\n  background: transparent;\n}\n.wf-instruction input:focus-visible { outline: none; }\n.wf-instruction button { width: 32px; height: 32px; min-height: 32px; flex: 0 0 32px; padding: 6px; border: 0; border-radius: 999px; background: transparent; color: var(--wf-muted); }\n.wf-instruction .wf-send { background: var(--wf-accent); color: #fff; }\n.wf-instruction .wf-send:disabled { background: var(--wf-surface-strong); color: var(--wf-muted); }\n.wf-composer-note { margin: 8px 0 0; color: var(--wf-muted); font-size: 11px; text-align: center; }\n\n/* --------------------------------------------------------------- modal */\n.wf-modal {\n  width: 620px;\n  max-width: calc(100vw - 24px);\n  max-height: calc(100dvh - 40px);\n  padding: 0;\n  border: 1px solid var(--wf-line);\n  border-radius: 14px;\n  background: var(--wf-bg);\n  color: var(--wf-text);\n  box-shadow: 0 24px 70px rgb(16 24 40 / 24%);\n  pointer-events: auto;\n}\n.wf-modal::backdrop { background: rgb(16 24 40 / 32%); }\n.wf-modal > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--wf-line); }\n.wf-modal-body { max-height: calc(100dvh - 120px); padding: 18px; overflow: auto; }\n.wf-modal pre { max-height: 280px; margin: 0; padding: 12px; overflow: auto; border-radius: 10px; background: var(--wf-surface-subtle); font-size: 11px; white-space: pre-wrap; overflow-wrap: anywhere; }\n.wf-search { display: flex; align-items: center; gap: 8px; }\n.wf-picker-list { display: grid; gap: 2px; max-height: 340px; margin: 14px 0; overflow: auto; }\n.wf-picker-list > button { justify-content: flex-start; gap: 10px; width: 100%; padding: 12px 10px; border: 0; border-radius: 10px; text-align: left; }\n.wf-picker-list > button > span:first-of-type { flex: 1; min-width: 0; overflow-wrap: anywhere; }\n.wf-picker-list strong { display: block; font-size: 13px; }\n.wf-status { color: var(--wf-muted); }\n.wf-status.completed { color: var(--dsw-alias-state-success-primary, #2f9e6b); font-weight: 600; }\n.wf-status.failed, .wf-status.needs_attention { color: var(--dsw-alias-state-error-primary, #b13e4a); }\n.wf-status.running { color: var(--dsw-alias-state-business-primary, #357bad); }\n.wf-status.waiting_input { color: var(--dsw-alias-state-warning-primary, #b07d1f); font-weight: 600; }\n.wf-interaction { display: grid; gap: 6px; margin: 12px 0; padding: 12px 14px; border: 1px solid var(--wf-line); border-left: 3px solid var(--wf-accent); border-radius: 10px; background: var(--wf-surface-subtle); }\n.wf-interaction p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }\n.wf-interaction small { color: var(--wf-muted); }\n.wf-interaction button { justify-self: start; }\n\n/* ------------------------------------------------------------ responsive */\n@media (max-width: 1100px) {\n  .wf-editor-body { grid-template-columns: minmax(0, 1fr) 300px; }\n  .wf-appbar { padding: 8px 10px; gap: 6px; }\n  .wf-appbar button { font-size: 11px; padding: 5px 8px; }\n  .wf-appbar-name { max-width: 160px; font-size: 14px !important; }\n}\n@media (max-width: 760px) {\n  .wf-main { overflow: hidden !important; }\n  .wf-appbar { flex-wrap: nowrap; overflow-x: auto; }\n  .wf-appbar .wf-spacer { display: none; }\n  .wf-appbar-name { flex: 1; min-width: 96px; max-width: none; }\n  .wf-editor-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(260px, 1fr) minmax(200px, 46vh); overflow: auto; }\n  .wf-canvas { min-width: 0; width: 100%; min-height: 260px; }\n  .wf-inspector { min-width: 0; border-left: 0; border-top: 1px solid var(--wf-line); }\n  .wf-addbar { max-width: calc(100% - 16px); padding: 4px; overflow-x: auto; }\n  .wf-addbar button { padding: 5px 9px; white-space: nowrap; }\n  .wf-tabs { overflow-x: auto; padding: 0 2px; }\n  .wf-tabs button { white-space: nowrap; }\n  .wf-segmented button { padding: 5px 9px; white-space: nowrap; }\n  .wf-canvas-tools { bottom: 8px; left: 50px; }\n  .wf-scroll { padding: 12px; }\n  .wf-scroll table { min-width: 420px; }\n  .wf-main table { display: table; width: 100%; table-layout: fixed; }\n  .wf-main th, .wf-main td { overflow: hidden; text-overflow: ellipsis; word-break: break-word; }\n}\n\n@media (prefers-color-scheme: dark) {\n  .wf {\n    --wf-bg: var(--dsw-alias-bg-base, #1f2023);\n    --wf-surface: var(--dsw-alias-bg-elevated, #25272b);\n    --wf-surface-subtle: var(--dsw-alias-bg-secondary, #1b1d20);\n    --wf-surface-strong: var(--dsw-alias-interactive-bg-hover, #30343a);\n    --wf-text: var(--dsw-alias-label-primary, #f2f4f7);\n    --wf-muted: var(--dsw-alias-label-secondary, #a7afb9);\n    --wf-line: var(--dsw-alias-border-l3, #3b4149);\n    --wf-line-strong: var(--dsw-alias-border-l2, #4a515b);\n    --wf-accent: var(--dsw-alias-brand-primary, #8f7ff0);\n  }\n  .wf .wf-step-input { --step-tint: #3c4118; --step-ink: #e2ecab; --step-body: #24260f; }\n  .wf .wf-step-interact { --step-tint: #17453f; --step-ink: #a9e7dc; --step-body: #0e2a26; }\n  .wf .wf-step-agent { --step-tint: #26324f; --step-ink: #c3d3f8; --step-body: #1b2233; }\n  .wf .wf-step-tool { --step-tint: #4a3316; --step-ink: #f6d3a4; --step-body: #2a1e0e; }\n  .wf .wf-step-condition { --step-tint: #4b2131; --step-ink: #f8c2d6; --step-body: #2b131c; }\n  .wf .wf-step-join { --step-tint: #322b57; --step-ink: #d3cbf8; --step-body: #1f1b36; }\n  .wf .wf-step-loop { --step-tint: #173d4a; --step-ink: #bde6f4; --step-body: #0f262e; }\n  .wf .wf-step-subworkflow { --step-tint: #3a2154; --step-ink: #dfc9f8; --step-body: #231434; }\n  .wf .wf-step-approval { --step-tint: #4a3416; --step-ink: #f7d8aa; --step-body: #2b1f0e; }\n  .wf .wf-step-artifact { --step-tint: #1c3f2a; --step-ink: #bdeecb; --step-body: #10261a; }\n  .wf .wf-node-card { box-shadow: 0 5px 18px rgb(0 0 0 / 32%); }\n  .wf .wf-node-card .react-flow__handle { border-color: var(--step-body, #25272b); }\n}\n\n/* --------------------------------------------------- composer tag (dark) */\n@media (prefers-color-scheme: dark) {\n  .wf-composer-tag[data-mode="author"] {\n    background: color-mix(in srgb, #8f7ff0 24%, transparent);\n    border-color: color-mix(in srgb, #8f7ff0 46%, transparent);\n    color: #d3caff;\n  }\n  .wf-composer-tag[data-mode="run"] {\n    background: color-mix(in srgb, #46c08a 22%, transparent);\n    border-color: color-mix(in srgb, #46c08a 44%, transparent);\n    color: #b3ecd2;\n  }\n}\n';
+var style_default4 = '/* Workflow Studio surfaces.\n   Visual model: a light canvas with tinted step cards, a floating step toolbar,\n   a right-hand Step inspector and an instruction composer \u2014 the same composition\n   as the reference editor, expressed with Harness theme aliases. */\n\n.wf {\n  --wf-bg: var(--dsw-alias-bg-base, #fff);\n  --wf-surface: var(--dsw-alias-bg-base, #fff);\n  --wf-surface-subtle: var(--dsw-alias-bg-secondary, #f6f7f9);\n  --wf-surface-strong: var(--dsw-alias-interactive-bg-hover, #eef0f3);\n  --wf-text: var(--dsw-alias-label-primary, #202428);\n  --wf-muted: var(--dsw-alias-label-secondary, #6c747c);\n  --wf-line: var(--dsw-alias-border-l3, #e4e7ea);\n  --wf-line-strong: var(--dsw-alias-border-l2, #cfd5db);\n  --wf-hover: var(--dsw-alias-interactive-bg-hover, #f1f3f5);\n  --wf-accent: var(--dsw-alias-brand-primary, #6a5acd);\n  --wf-accent-soft: color-mix(in srgb, var(--wf-accent) 14%, transparent);\n  --wf-radius: 14px;\n  --wf-shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 8px 24px rgb(16 24 40 / 6%);\n  color: var(--wf-text);\n  font: 13px/1.5 var(--dsw-font-family, system-ui, sans-serif);\n  letter-spacing: 0;\n}\n.wf * {\n  box-sizing: border-box;\n  letter-spacing: 0;\n}\n.wf button:where(:not(.wf-native-step *)),\n.wf input:where(:not(.wf-native-step *)),\n.wf select:where(:not(.wf-native-step *)),\n.wf textarea:where(:not(.wf-native-step *)) {\n  font: inherit;\n  color: inherit;\n}\n.wf button:where(:not(.wf-native-step *)) {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 6px;\n  min-height: 30px;\n  padding: 5px 10px;\n  border: 1px solid var(--wf-line);\n  border-radius: 8px;\n  background: var(--wf-surface);\n  cursor: pointer;\n  transition: background .15s ease, border-color .15s ease, color .15s ease;\n}\n.wf button:where(:not(.wf-native-step *)):hover {\n  background: var(--wf-surface-strong);\n  border-color: var(--wf-line-strong);\n}\n.wf button:where(:not(.wf-native-step *)):disabled {\n  opacity: .45;\n  cursor: default;\n}\n.wf button:where(:not(.wf-native-step *)):focus-visible,\n.wf input:where(:not(.wf-native-step *)):focus-visible,\n.wf select:where(:not(.wf-native-step *)):focus-visible,\n.wf textarea:where(:not(.wf-native-step *)):focus-visible,\n.wf [contenteditable]:focus-visible {\n  outline: 2px solid var(--wf-accent);\n  outline-offset: 1px;\n}\n.wf input:where(:not(.wf-native-step *)):not([type="checkbox"]),\n.wf select:where(:not(.wf-native-step *)),\n.wf textarea:where(:not(.wf-native-step *)) {\n  width: 100%;\n  min-width: 0;\n  padding: 7px 9px;\n  border: 1px solid var(--wf-line);\n  border-radius: 8px;\n  background: var(--wf-surface);\n}\n.wf textarea:where(:not(.wf-native-step *)) {\n  resize: vertical;\n  background: var(--wf-surface-subtle);\n  font: 12px/1.6 ui-monospace, monospace;\n}\n.wf h1:where(:not(.wf-native-step *)) { margin: 0; font-size: 17px; font-weight: 600; overflow-wrap: anywhere; }\n.wf h2:where(:not(.wf-native-step *)) { margin: 0; font-size: 16px; }\n.wf h3:where(:not(.wf-native-step *)) { margin: 0; font-size: 13px; font-weight: 600; }\n.wf .wf-primary {\n  background: var(--wf-accent);\n  border-color: var(--wf-accent);\n  color: #fff;\n  box-shadow: 0 1px 1px rgb(16 24 40 / 10%);\n}\n.wf .wf-primary:hover { background: color-mix(in srgb, var(--wf-accent) 86%, #000); border-color: transparent; }\n.wf .wf-icon {\n  width: 28px;\n  height: 28px;\n  min-height: 28px;\n  flex: 0 0 28px;\n  padding: 5px;\n  border: 0;\n  border-radius: 8px;\n  background: transparent;\n  color: var(--wf-muted);\n}\n.wf .wf-icon:hover { background: var(--wf-surface-strong); color: var(--wf-text); }\n.wf-spacer { flex: 1; }\n.wf-muted,\n.wf small:where(:not(.wf-native-step *)) { color: var(--wf-muted); }\n.wf small:where(:not(.wf-native-step *)) { display: block; font-size: 11px; }\n.wf-error { color: var(--dsw-alias-state-error-primary, #b13e4a); overflow-wrap: anywhere; }\n.wf [role="alert"] { overflow-wrap: anywhere; }\n\n/* ---------------------------------------------------------------- shell */\n.wf-workspace-wrapper {\n  display: flex;\n  flex: 1;\n  min-height: 0;\n  flex-direction: column;\n  overflow: hidden;\n}\n.wf-main {\n  height: 100%;\n  min-height: 0;\n  display: flex;\n  flex-direction: column;\n  background: var(--wf-bg);\n  overflow: hidden;\n}\n.wf-main, .wf-editor, .wf-editor-body { min-width: 0; max-width: 100%; }\n\n/* ------------------------------------------------------------ app bar */\n.wf-appbar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-height: 56px;\n  padding: 10px 16px;\n  border-bottom: 1px solid var(--wf-line);\n  background: var(--wf-surface);\n  flex: none;\n}\n.wf-appbar > svg { flex: none; color: var(--wf-muted); }\n.wf-appbar-name {\n  width: auto !important;\n  max-width: 260px;\n  min-width: 90px;\n  padding: 5px 6px !important;\n  border: 1px solid transparent !important;\n  border-radius: 8px !important;\n  background: transparent !important;\n  font-size: 15px !important;\n  font-weight: 600 !important;\n}\n.wf-appbar-name:hover { border-color: var(--wf-line) !important; }\n.wf-appbar-name:disabled { color: var(--wf-text); opacity: 1; }\n.wf-chip {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  height: 24px;\n  padding: 0 9px;\n  border-radius: 999px;\n  background: var(--wf-surface-strong);\n  color: var(--wf-muted);\n  font-size: 11px;\n  font-weight: 600;\n  white-space: nowrap;\n}\n.wf-chip.is-published { background: color-mix(in srgb, #2f9e6b 16%, transparent); color: #1d7d52; }\n.wf-chip.is-dirty { background: color-mix(in srgb, #d98324 18%, transparent); color: #9a5a13; }\n.wf-segmented {\n  display: inline-flex;\n  gap: 2px;\n  padding: 2px;\n  border-radius: 999px;\n  background: var(--wf-surface-strong);\n}\n.wf-segmented button {\n  min-height: 26px;\n  padding: 3px 14px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  color: var(--wf-muted);\n  font-size: 12px;\n  font-weight: 600;\n}\n.wf-segmented button[aria-selected="true"] {\n  background: var(--wf-surface);\n  color: var(--wf-text);\n  box-shadow: 0 1px 2px rgb(16 24 40 / 12%);\n}\n.wf-toolbar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 0 0 10px;\n}\n.wf-toolbar h3 { margin: 0; }\n.wf-tabs {\n  display: flex;\n  gap: 20px;\n  padding: 0 16px;\n  border-bottom: 1px solid var(--wf-line);\n  background: var(--wf-surface);\n  flex: none;\n}\n.wf-tabs button {\n  padding: 10px 0;\n  border: 0;\n  border-bottom: 2px solid transparent;\n  border-radius: 0;\n  background: none;\n  color: var(--wf-muted);\n  font-size: 13px;\n}\n.wf-tabs button[aria-current] { border-bottom-color: var(--wf-accent); color: var(--wf-accent); font-weight: 600; }\n.wf-scroll { flex: 1; min-height: 0; padding: 16px 18px; overflow: auto; }\n.wf table { width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; }\n.wf th { color: var(--wf-muted); font-size: 11px; font-weight: 600; }\n.wf th, .wf td { padding: 12px 10px; border-bottom: 1px solid var(--wf-line); vertical-align: middle; }\n.wf td:first-child { padding-left: 0; }\n.wf .wf-link { padding: 0; border: 0; background: none; font-weight: 600; }\n.wf-import {\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 30px;\n  height: 30px;\n  border: 1px solid var(--wf-line);\n  border-radius: 8px;\n  cursor: pointer;\n}\n.wf-import input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }\n\n/* ------------------------------------------------- sidebar workflow entry */\n.wf-tree {\n  flex: none;\n  padding: 6px 6px 8px;\n  background: transparent;\n}\n/* The single sidebar entry: a borderless row that reads as part of the rail and\n   highlights while the workflow panel owns the main area. */\n.wf-nav-button {\n  display: flex;\n  width: 100%;\n  align-items: center;\n  gap: 8px;\n  min-width: 0;\n  min-height: 34px;\n  padding: 6px 8px;\n  border: 0 !important;\n  border-radius: 9px;\n  background: transparent !important;\n  box-shadow: none !important;\n  color: var(--wf-text);\n  font-size: 13px;\n  font-weight: 500;\n  text-align: left;\n}\n.wf-nav-button:hover { background: var(--wf-hover) !important; }\n.wf-nav-button.is-active {\n  background: var(--wf-accent-soft) !important;\n  color: var(--wf-accent);\n  font-weight: 600;\n}\n.wf-nav-button.is-rail { justify-content: center; padding: 6px 0; }\n.wf-nav-button svg { flex: none; }\n.wf-nav-button > span:not(.wf-nav-count) {\n  min-width: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.wf-nav-count {\n  margin-left: auto;\n  padding: 0 7px;\n  border-radius: 999px;\n  background: var(--wf-surface-strong);\n  color: var(--wf-muted);\n  font-size: 11px;\n  font-weight: 600;\n  line-height: 18px;\n}\n.wf-nav-button.is-active .wf-nav-count { background: transparent; color: var(--wf-accent); }\n.wf-workflow-icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 22px;\n  height: 22px;\n  flex: none;\n  border-radius: 6px;\n  background: var(--wf-accent-soft);\n  color: var(--wf-accent);\n}\n.wf-icon-sparkles { background: color-mix(in srgb, #7c5cff 16%, transparent); color: #6b46e0; }\n.wf-icon-book { background: color-mix(in srgb, #2f7ad6 16%, transparent); color: #2464b3; }\n.wf-icon-search { background: color-mix(in srgb, #2f9e8b 16%, transparent); color: #1f7d6d; }\n.wf-icon-code { background: color-mix(in srgb, #d98324 18%, transparent); color: #9a5a13; }\n.wf-icon-file { background: color-mix(in srgb, #c7486e 16%, transparent); color: #a53458; }\n\n/* -------------------------------------------------------- workflow gallery */\n.wf-gallery-bar {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 0 0 12px;\n  color: var(--wf-muted);\n  font-size: 12px;\n}\n.wf-check { display: inline-flex; align-items: center; gap: 6px; }\n.wf-check input { width: auto; }\n.wf-gallery-empty {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 14px;\n  padding: 64px 24px;\n  color: var(--wf-muted);\n  text-align: center;\n}\n.wf-gallery-empty p { margin: 0; max-width: 440px; }\n.wf-cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));\n  gap: 12px;\n  padding: 0 0 20px;\n}\n.wf-card {\n  display: flex;\n  min-width: 0;\n  flex-direction: column;\n  gap: 8px;\n  padding: 14px;\n  border: 1px solid var(--wf-line);\n  border-radius: var(--wf-radius);\n  background: var(--wf-surface);\n  box-shadow: var(--wf-shadow);\n}\n.wf-card-head {\n  display: flex;\n  width: 100%;\n  min-width: 0;\n  align-items: center;\n  gap: 8px;\n  padding: 0 !important;\n  border: 0 !important;\n  background: transparent !important;\n  box-shadow: none !important;\n  text-align: left;\n}\n.wf-card-title {\n  min-width: 0;\n  overflow: hidden;\n  font-size: 14px;\n  font-weight: 600;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.wf-card-head .wf-chip { margin-left: auto; flex: none; }\n.wf-card-desc { margin: 0; min-height: 34px; color: var(--wf-muted); font-size: 12.5px; overflow-wrap: anywhere; }\n.wf-card-meta { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; color: var(--wf-muted); font-size: 11.5px; }\n.wf-card-actions { display: flex; align-items: center; gap: 6px; margin-top: auto; }\n.wf-card-actions > button { flex: none; }\n.wf-card-sessions { border-top: 1px solid var(--wf-line); padding-top: 4px; }\n.wf-card-sessions > summary {\n  padding: 2px 0;\n  color: var(--wf-muted);\n  cursor: pointer;\n  font-size: 12px;\n}\n.wf-card-sessions > summary:hover { color: var(--wf-text); }\n.wf-detail-row > td { padding: 2px 0 14px; }\n.wf-sessions { display: flex; flex-direction: column; gap: 2px; padding: 4px 0 2px; }\n.wf-session-row {\n  display: flex;\n  align-items: center;\n  gap: 2px;\n  min-height: 30px;\n  border-radius: 8px;\n}\n.wf-session-row:hover,\n.wf-session-row.selected { background: var(--wf-hover); }\n.wf-session-name {\n  display: flex;\n  flex: 1 1 auto;\n  min-width: 0;\n  align-items: center;\n  gap: 7px;\n  padding: 5px 8px;\n  border: 0 !important;\n  background: transparent !important;\n  box-shadow: none !important;\n  color: var(--wf-muted);\n  font-size: 12.5px;\n  text-align: left;\n}\n.wf-session-name > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.wf-session-row.selected .wf-session-name { color: var(--wf-accent); font-weight: 500; }\n.wf-sessions-empty { margin: 4px 0 0; color: var(--wf-muted); font-size: 12px; }\n/* Row actions stay out of the way until the row is under the pointer. */\n.wf-session-row .wf-row-action,\n.wf-session-row .wf-session-menu-trigger {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 24px;\n  height: 24px;\n  min-height: 24px;\n  flex: 0 0 24px;\n  margin-left: 1px;\n  padding: 0;\n  border: 0 !important;\n  background: transparent !important;\n  border-radius: 6px;\n  color: var(--wf-muted);\n  opacity: 0;\n}\n.wf-session-row:hover .wf-row-action,\n.wf-session-row:focus-within .wf-row-action,\n.wf-row-action[aria-expanded="true"] { opacity: 1; }\n.wf-session-row .wf-row-action:hover,\n.wf-session-row .wf-session-menu-trigger:hover {\n  background: var(--wf-surface-strong) !important;\n  color: var(--wf-text);\n}\n\n/* --------------------------------------------------- composer workflow tag */\n.wf-composer-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 2px;\n  max-width: min(340px, 42vw);\n  height: 26px;\n  border: 1px solid transparent;\n  border-radius: 999px;\n  font: 12px/1 var(--dsw-font-family, system-ui, sans-serif);\n}\n.wf-composer-tag[data-mode="author"] {\n  background: color-mix(in srgb, #6a5acd 14%, transparent);\n  border-color: color-mix(in srgb, #6a5acd 34%, transparent);\n  color: #5a49bd;\n}\n.wf-composer-tag[data-mode="run"] {\n  background: color-mix(in srgb, #2f9e6b 14%, transparent);\n  border-color: color-mix(in srgb, #2f9e6b 34%, transparent);\n  color: #1d7d52;\n}\n.wf-composer-tag-open {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  min-width: 0;\n  height: 24px;\n  padding: 0 8px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  cursor: pointer;\n}\n.wf-composer-tag-open:hover { background: color-mix(in srgb, currentcolor 14%, transparent); }\n.wf-composer-tag-open strong {\n  font-weight: 600;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.wf-composer-tag-open small { font-size: 11px; opacity: .72; }\n.wf-composer-tag .wf-status { padding: 0 6px; font-size: 11px; white-space: nowrap; }\n.wf-composer-tag-clear {\n  display: grid;\n  flex: none;\n  place-items: center;\n  width: 18px;\n  height: 18px;\n  margin-right: 3px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  color: inherit;\n  opacity: .72;\n  cursor: pointer;\n}\n.wf-composer-tag-clear:hover { background: color-mix(in srgb, currentcolor 16%, transparent); opacity: 1; }\n\n/* -------------------------------------------------------------- editor */\n.wf-editor { display: flex; flex: 1; min-height: 0; flex-direction: column; }\n.wf-editor-body {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) 352px;\n  flex: 1;\n  min-height: 0;\n  background: var(--wf-surface-subtle);\n}\n.wf-stage {\n  display: flex;\n  flex: 1;\n  min-width: 0;\n  min-height: 0;\n  flex-direction: column;\n  position: relative;\n}\n.wf-canvas {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  min-width: 0;\n  min-height: 320px;\n  background-color: var(--wf-surface-subtle);\n  background-image: radial-gradient(color-mix(in srgb, var(--wf-muted) 35%, transparent) 1px, transparent 1px);\n  background-size: 20px 20px;\n}\n.wf-addbar {\n  position: absolute;\n  z-index: 6;\n  top: 14px;\n  left: 50%;\n  transform: translateX(-50%);\n  display: flex;\n  align-items: center;\n  gap: 2px;\n  max-width: calc(100% - 24px);\n  padding: 5px;\n  border: 1px solid var(--wf-line);\n  border-radius: 999px;\n  background: var(--wf-surface);\n  box-shadow: var(--wf-shadow);\n  overflow-x: auto;\n  scrollbar-width: none;\n}\n.wf-addbar::-webkit-scrollbar { display: none; }\n.wf-addbar button {\n  flex: none;\n  gap: 7px;\n  min-height: 32px;\n  padding: 5px 11px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  font-size: 12px;\n  font-weight: 500;\n  white-space: nowrap;\n}\n.wf-addbar button:hover { background: var(--wf-surface-strong); }\n.wf-addbar button svg { color: var(--wf-muted); }\n.wf-addbar-divider { width: 1px; height: 20px; margin: 0 4px; background: var(--wf-line); }\n.wf-canvas-tools {\n  position: absolute;\n  z-index: 5;\n  bottom: 14px;\n  left: 56px;\n  display: flex;\n  gap: 2px;\n  padding: 4px;\n  border: 1px solid var(--wf-line);\n  border-radius: 12px;\n  background: var(--wf-surface);\n  box-shadow: var(--wf-shadow);\n}\n.wf-canvas-tools button { min-height: 28px; height: 28px; width: 28px; padding: 4px; border: 0; border-radius: 8px; background: transparent; }\n.wf-canvas-tools button[aria-pressed="true"] { background: var(--wf-accent-soft); color: var(--wf-accent); }\n.wf-flow { flex: 1; min-height: 0; }\n.wf-json { flex: 1; min-height: 0; padding: 16px; overflow: auto; }\n\n/* ---------------------------------------------------------- step cards */\n.wf .wf-step-input { --step-tint: #eef3a8; --step-ink: #454a15; --step-body: #f8fbdc; }\n.wf .wf-step-interact { --step-tint: #a9e7dc; --step-ink: #14504a; --step-body: #e6faf6; }\n.wf .wf-step-agent { --step-tint: #ccd9fb; --step-ink: #2c3f63; --step-body: #eef3fe; }\n.wf .wf-step-tool { --step-tint: #ffd9ab; --step-ink: #6b4413; --step-body: #fff2e2; }\n.wf .wf-step-condition { --step-tint: #ffc9dd; --step-ink: #6d2743; --step-body: #ffedf4; }\n.wf .wf-step-join { --step-tint: #d9d4fb; --step-ink: #3d3470; --step-body: #f1efff; }\n.wf .wf-step-loop { --step-tint: #c6ecf7; --step-ink: #1f4c5c; --step-body: #e9f7fc; }\n.wf .wf-step-subworkflow { --step-tint: #e3d3fb; --step-ink: #472e70; --step-body: #f5eeff; }\n.wf .wf-step-approval { --step-tint: #ffe1b8; --step-ink: #6d4a15; --step-body: #fff4e4; }\n.wf .wf-step-artifact { --step-tint: #c6f2d3; --step-ink: #1f5233; --step-body: #eafbf0; }\n.wf .wf-node { width: 264px !important; padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }\n.wf .wf-node-card {\n  width: 264px;\n  padding: 0;\n  gap: 0;\n  overflow: hidden;\n  border: 1px solid color-mix(in srgb, var(--step-ink, #303742) 14%, transparent);\n  border-radius: var(--wf-radius);\n  background: var(--step-body, var(--wf-surface));\n  box-shadow: 0 1px 2px rgb(16 24 40 / 8%), 0 8px 20px rgb(16 24 40 / 8%);\n  transition: box-shadow .15s ease, transform .15s ease;\n}\n.wf .wf-node-card.is-selected {\n  box-shadow: 0 0 0 2px var(--wf-accent), 0 10px 24px rgb(16 24 40 / 14%);\n}\n.wf .wf-step-heading {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 10px 14px;\n  background: var(--step-tint, #e5e7ee);\n  color: var(--step-ink, #303742);\n}\n.wf .wf-step-heading strong { flex: 1; min-width: 0; margin: 0; font-size: 13px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.wf .wf-step-heading em { font-size: 11px; font-style: normal; opacity: .8; white-space: nowrap; }\n.wf .wf-step-glyph { display: inline-flex; flex: none; opacity: .85; }\n.wf .wf-step-body { display: grid; gap: 8px; padding: 12px 14px 14px; }\n.wf .wf-step-body p {\n  display: -webkit-box;\n  margin: 0;\n  overflow: hidden;\n  color: var(--wf-text);\n  font-size: 12.5px;\n  line-height: 1.6;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 3;\n}\n.wf .wf-step-body small { font-size: 10px; }\n.wf .wf-step-references { display: flex; flex-wrap: wrap; gap: 4px; }\n.wf .wf-inline-reference {\n  display: inline-block;\n  padding: 1px 8px;\n  border-radius: 999px;\n  background: var(--step-tint, #e5e7ee);\n  color: var(--step-ink, #303742);\n  font-size: 11px;\n  vertical-align: baseline;\n}\n.wf .wf-step-model { color: var(--wf-muted); font-size: 11px; }\n.wf .wf-node-card .react-flow__handle { width: 9px; height: 9px; border: 2px solid var(--wf-surface); background: var(--step-ink, #303742); }\n.wf .react-flow__edge-path { stroke: color-mix(in srgb, var(--wf-accent) 72%, #7a5cc4); stroke-width: 1.6; }\n.wf .react-flow__edge.wf-edge-dashed .react-flow__edge-path { stroke-dasharray: 5 5; stroke: var(--wf-line-strong); }\n.wf .react-flow__controls { overflow: hidden; border: 1px solid var(--wf-line); border-radius: 10px; box-shadow: var(--wf-shadow); }\n.wf .react-flow__controls button { min-height: 28px; padding: 5px; border: 0; border-bottom: 1px solid var(--wf-line); border-radius: 0; background: var(--wf-surface); color: var(--wf-text); }\n.wf .react-flow__minimap { width: 130px; height: 84px; border: 1px solid var(--wf-line); border-radius: 10px; background: var(--wf-surface); overflow: hidden; }\n\n/* ------------------------------------------------------- step inspector */\n.wf-inspector {\n  display: flex;\n  flex-direction: column;\n  min-width: 0;\n  min-height: 0;\n  border-left: 1px solid var(--wf-line);\n  background: var(--wf-surface);\n}\n.wf-panel-tabs {\n  display: flex;\n  gap: 6px;\n  padding: 10px 12px 0;\n  flex: none;\n}\n.wf-panel-tabs button {\n  flex: 1;\n  min-height: 30px;\n  padding: 4px 6px;\n  border: 0;\n  border-radius: 999px;\n  background: transparent;\n  color: var(--wf-muted);\n  font-size: 12px;\n  font-weight: 600;\n}\n.wf-panel-tabs button[aria-selected="true"] { background: var(--wf-accent-soft); color: var(--wf-accent); }\n.wf-panel-head {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin: 12px;\n  padding: 12px 14px;\n  border-radius: 12px;\n  background: var(--step-tint, var(--wf-surface-strong));\n  color: var(--step-ink, var(--wf-text));\n}\n.wf-panel-head strong { flex: 1; min-width: 0; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.wf-panel-head em { font-size: 11px; font-style: normal; opacity: .8; }\n.wf-panel-head .wf-icon { color: inherit; }\n.wf-panel-body { flex: 1; min-height: 0; padding: 0 14px 16px; overflow: auto; }\n.wf-panel-empty { padding: 24px 16px; color: var(--wf-muted); font-size: 12px; text-align: center; }\n.wf-panel-note { display: flex; align-items: center; gap: 6px; margin: 0 0 12px; color: var(--wf-muted); font-size: 11px; }\n.wf-agent-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }\n.wf-agent-row select { flex: 1; }\n.wf-output {\n  max-height: 320px;\n  margin: 0 0 12px;\n  padding: 12px;\n  overflow: auto;\n  border: 1px solid var(--wf-line);\n  border-radius: 10px;\n  background: var(--wf-surface-subtle);\n  font: 11px/1.6 ui-monospace, monospace;\n  white-space: pre-wrap;\n  overflow-wrap: anywhere;\n}\n.wf-console { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }\n.wf-console li { display: flex; gap: 8px; padding: 7px 9px; border-radius: 8px; background: var(--wf-surface-subtle); font-size: 11px; }\n.wf-console li time { flex: none; color: var(--wf-muted); }\n.wf-console li span { min-width: 0; overflow-wrap: anywhere; }\n.wf-swatches { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 16px; }\n.wf-swatch { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 999px; background: var(--step-tint); color: var(--step-ink); font-size: 11px; }\n.wf-icon-picker { display: flex; flex-wrap: wrap; gap: 6px; }\n.wf-icon-picker button {\n  width: 34px;\n  height: 34px;\n  min-height: 34px;\n  padding: 7px;\n  border: 1px solid var(--wf-line);\n  border-radius: 10px;\n  background: var(--wf-surface);\n  color: var(--wf-muted);\n}\n.wf-icon-picker button[aria-pressed="true"] { border-color: var(--wf-accent); color: var(--wf-accent); background: var(--wf-accent-soft); }\n\n/* ---------------------------------------------------------- step fields */\n.wf-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 13px; font-size: 12px; }\n.wf-field > span { color: var(--wf-muted); font-size: 10px; font-weight: 700; text-transform: uppercase; }\n.wf-prompt-label { display: flex; align-items: center; gap: 6px; margin: 4px 0 2px; color: var(--wf-muted); font-size: 10px; font-weight: 700; text-transform: uppercase; }\n.wf-prompt-label button { width: 22px; height: 22px; min-height: 22px; padding: 3px; border: 0; background: transparent; color: var(--wf-muted); }\n.wf-step-prompt {\n  min-height: 150px;\n  margin-bottom: 10px;\n  padding: 12px 13px;\n  border: 1px solid transparent;\n  border-radius: 10px;\n  background: var(--wf-surface-subtle);\n  outline: none;\n  font: 13px/1.75 var(--dsw-font-family, system-ui);\n  white-space: pre-wrap;\n  overflow-wrap: anywhere;\n}\n.wf-step-prompt:hover { border-color: var(--wf-line); }\n.wf-step-prompt:focus { border-color: var(--wf-accent); background: var(--wf-surface); }\n.wf-step-prompt:empty::before { content: attr(data-placeholder); color: var(--wf-muted); pointer-events: none; }\n.wf-prompt-composer { display: flex; flex-direction: column; }\n.wf-add-reference { align-self: flex-start; min-height: 26px; padding: 2px 10px; border: 0; border-radius: 999px; background: var(--wf-surface-strong); color: var(--wf-muted); font-size: 11px; }\n.wf-reference-picker { display: grid; gap: 5px; padding-top: 10px; }\n.wf-reference-picker button { justify-content: flex-start; border: 0; background: var(--step-tint, var(--wf-surface-strong)); color: var(--step-ink, var(--wf-text)); }\n.wf-advanced { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--wf-line); }\n.wf-advanced summary { margin-bottom: 14px; color: var(--wf-muted); cursor: pointer; }\n\n/* ------------------------------------------------- step edit composer */\n.wf-step-composer {\n  flex: none;\n  padding: 12px 16px 14px;\n  border-top: 1px solid var(--wf-line);\n  background: var(--wf-surface);\n}\n.wf-instruction {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 6px 6px 6px 16px;\n  border: 1px solid var(--wf-line);\n  border-radius: 999px;\n  background: var(--wf-surface-subtle);\n}\n.wf-instruction:focus-within { border-color: var(--wf-accent); background: var(--wf-surface); }\n.wf-instruction input {\n  flex: 1;\n  min-width: 0;\n  padding: 6px 0;\n  border: 0;\n  background: transparent;\n}\n.wf-instruction input:focus-visible { outline: none; }\n.wf-instruction button { width: 32px; height: 32px; min-height: 32px; flex: 0 0 32px; padding: 6px; border: 0; border-radius: 999px; background: transparent; color: var(--wf-muted); }\n.wf-instruction .wf-send { background: var(--wf-accent); color: #fff; }\n.wf-instruction .wf-send:disabled { background: var(--wf-surface-strong); color: var(--wf-muted); }\n.wf-composer-note { margin: 8px 0 0; color: var(--wf-muted); font-size: 11px; text-align: center; }\n\n/* --------------------------------------------------------------- modal */\n.wf-modal {\n  width: 620px;\n  max-width: calc(100vw - 24px);\n  max-height: calc(100dvh - 40px);\n  padding: 0;\n  border: 1px solid var(--wf-line);\n  border-radius: 14px;\n  background: var(--wf-bg);\n  color: var(--wf-text);\n  box-shadow: 0 24px 70px rgb(16 24 40 / 24%);\n  pointer-events: auto;\n}\n.wf-modal::backdrop { background: rgb(16 24 40 / 32%); }\n.wf-modal > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--wf-line); }\n.wf-modal-body { max-height: calc(100dvh - 120px); padding: 18px; overflow: auto; }\n.wf-modal pre { max-height: 280px; margin: 0; padding: 12px; overflow: auto; border-radius: 10px; background: var(--wf-surface-subtle); font-size: 11px; white-space: pre-wrap; overflow-wrap: anywhere; }\n.wf-search { display: flex; align-items: center; gap: 8px; }\n.wf-picker-list { display: grid; gap: 2px; max-height: 340px; margin: 14px 0; overflow: auto; }\n.wf-picker-list > button { justify-content: flex-start; gap: 10px; width: 100%; padding: 12px 10px; border: 0; border-radius: 10px; text-align: left; }\n.wf-picker-list > button > span:first-of-type { flex: 1; min-width: 0; overflow-wrap: anywhere; }\n.wf-picker-list strong { display: block; font-size: 13px; }\n.wf-status { color: var(--wf-muted); }\n.wf-status.completed { color: var(--dsw-alias-state-success-primary, #2f9e6b); font-weight: 600; }\n.wf-status.failed, .wf-status.needs_attention { color: var(--dsw-alias-state-error-primary, #b13e4a); }\n.wf-status.running { color: var(--dsw-alias-state-business-primary, #357bad); }\n.wf-status.waiting_input { color: var(--dsw-alias-state-warning-primary, #b07d1f); font-weight: 600; }\n.wf-interaction { display: grid; gap: 6px; margin: 12px 0; padding: 12px 14px; border: 1px solid var(--wf-line); border-left: 3px solid var(--wf-accent); border-radius: 10px; background: var(--wf-surface-subtle); }\n.wf-interaction p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }\n.wf-interaction small { color: var(--wf-muted); }\n.wf-interaction button { justify-self: start; }\n\n/* ------------------------------------------------------------ responsive */\n@media (max-width: 1100px) {\n  .wf-editor-body { grid-template-columns: minmax(0, 1fr) 300px; }\n  .wf-appbar { padding: 8px 10px; gap: 6px; }\n  .wf-appbar button { font-size: 11px; padding: 5px 8px; }\n  .wf-appbar-name { max-width: 160px; font-size: 14px !important; }\n}\n@media (max-width: 760px) {\n  .wf-main { overflow: hidden !important; }\n  .wf-appbar { flex-wrap: nowrap; overflow-x: auto; }\n  .wf-appbar .wf-spacer { display: none; }\n  .wf-appbar-name { flex: 1; min-width: 96px; max-width: none; }\n  .wf-editor-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(260px, 1fr) minmax(200px, 46vh); overflow: auto; }\n  .wf-canvas { min-width: 0; width: 100%; min-height: 260px; }\n  .wf-inspector { min-width: 0; border-left: 0; border-top: 1px solid var(--wf-line); }\n  .wf-addbar { max-width: calc(100% - 16px); padding: 4px; overflow-x: auto; }\n  .wf-addbar button { padding: 5px 9px; white-space: nowrap; }\n  .wf-tabs { overflow-x: auto; padding: 0 2px; }\n  .wf-tabs button { white-space: nowrap; }\n  .wf-segmented button { padding: 5px 9px; white-space: nowrap; }\n  .wf-canvas-tools { bottom: 8px; left: 50px; }\n  .wf-scroll { padding: 12px; }\n  .wf-scroll table { min-width: 420px; }\n  .wf-main table { display: table; width: 100%; table-layout: fixed; }\n  .wf-main th, .wf-main td { overflow: hidden; text-overflow: ellipsis; word-break: break-word; }\n}\n\n\n  body[data-ds-dark-theme] .wf {\n    --wf-bg: var(--dsw-alias-bg-base, #1f2023);\n    --wf-surface: var(--dsw-alias-bg-elevated, #25272b);\n    --wf-surface-subtle: var(--dsw-alias-bg-secondary, #1b1d20);\n    --wf-surface-strong: var(--dsw-alias-interactive-bg-hover, #30343a);\n    --wf-text: var(--dsw-alias-label-primary, #f2f4f7);\n    --wf-muted: var(--dsw-alias-label-secondary, #a7afb9);\n    --wf-line: var(--dsw-alias-border-l3, #3b4149);\n    --wf-line-strong: var(--dsw-alias-border-l2, #4a515b);\n    --wf-accent: var(--dsw-alias-brand-primary, #8f7ff0);\n  }\n  body[data-ds-dark-theme] .wf .wf-step-input { --step-tint: #3c4118; --step-ink: #e2ecab; --step-body: #24260f; }\n  body[data-ds-dark-theme] .wf .wf-step-interact { --step-tint: #17453f; --step-ink: #a9e7dc; --step-body: #0e2a26; }\n  body[data-ds-dark-theme] .wf .wf-step-agent { --step-tint: #26324f; --step-ink: #c3d3f8; --step-body: #1b2233; }\n  body[data-ds-dark-theme] .wf .wf-step-tool { --step-tint: #4a3316; --step-ink: #f6d3a4; --step-body: #2a1e0e; }\n  body[data-ds-dark-theme] .wf .wf-step-condition { --step-tint: #4b2131; --step-ink: #f8c2d6; --step-body: #2b131c; }\n  body[data-ds-dark-theme] .wf .wf-step-join { --step-tint: #322b57; --step-ink: #d3cbf8; --step-body: #1f1b36; }\n  body[data-ds-dark-theme] .wf .wf-step-loop { --step-tint: #173d4a; --step-ink: #bde6f4; --step-body: #0f262e; }\n  body[data-ds-dark-theme] .wf .wf-step-subworkflow { --step-tint: #3a2154; --step-ink: #dfc9f8; --step-body: #231434; }\n  body[data-ds-dark-theme] .wf .wf-step-approval { --step-tint: #4a3416; --step-ink: #f7d8aa; --step-body: #2b1f0e; }\n  body[data-ds-dark-theme] .wf .wf-step-artifact { --step-tint: #1c3f2a; --step-ink: #bdeecb; --step-body: #10261a; }\n  body[data-ds-dark-theme] .wf .wf-node-card { box-shadow: 0 5px 18px rgb(0 0 0 / 32%); }\n  body[data-ds-dark-theme] .wf .wf-node-card .react-flow__handle { border-color: var(--step-body, #25272b); }\n\n\n/* --------------------------------------------------- composer tag (dark) */\n\n  body[data-ds-dark-theme] .wf-composer-tag[data-mode="author"] {\n    background: color-mix(in srgb, #8f7ff0 24%, transparent);\n    border-color: color-mix(in srgb, #8f7ff0 46%, transparent);\n    color: #d3caff;\n  }\n  body[data-ds-dark-theme] .wf-composer-tag[data-mode="run"] {\n    background: color-mix(in srgb, #46c08a 22%, transparent);\n    border-color: color-mix(in srgb, #46c08a 44%, transparent);\n    color: #b3ecd2;\n  }\n\n\n/* Conversation reading column */\n.wf-timeline { flex: 0 0 auto; width: min(100%, calc(var(--dsh-chat-content-width, 780px) + 56px)); margin: 0 auto; padding: 32px 28px 12px; min-width: 0; background: var(--wf-bg); font-size: 14px; line-height: 1.8; }\n[data-phase] [data-conversation-scroll]:has(.wf-timeline) { justify-content: flex-start; }\n.wf-run-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 0 0 24px; }\n.wf-run-header h2 { font-size: 16px; font-weight: 600; margin: 0; }\n.wf-run-caption,.wf-model-line,.wf-step-number,.wf-step-state { color: var(--wf-muted); font-size: 12px; }\n.wf-run-actions { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }\n.wf-timeline .wf-run-actions button { min-height: 26px; padding: 3px 7px; border: 0; background: transparent; color: var(--wf-muted); font-size: 12px; }\n.wf-timeline .wf-run-actions button:hover { color: var(--wf-text); background: var(--wf-hover); }\n.wf-run-header .wf-run-actions button { border: 1px solid var(--wf-line); border-radius: 16px; padding: 4px 10px; }\n.wf-run-step { border-top: 1px solid var(--wf-line); padding: 22px 0 28px; min-width: 0; }\n.wf-run-step > header { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }\n.wf-run-step h3 { margin: 0; flex: 1; font-size: 14px; font-weight: 600; overflow-wrap: anywhere; }\n.wf-step-state { display: inline-flex; align-items: center; gap: 5px; }\n.wf-model-line { margin: 1px 0 14px; overflow-wrap: anywhere; }\n.wf-input-note { margin: 0 0 16px auto; padding: 10px 14px; background: var(--wf-surface-subtle); border-radius: 14px; max-width: 90%; color: var(--wf-muted); font-size: 13px; }\n.wf-input-note summary { cursor: pointer; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }\n.wf-input-note summary span { margin-left: 8px; }\n.wf-input-note[open] summary span { display: none; }\n.wf-timeline .wf-activity-toggle { border: 0; background: transparent; color: var(--wf-muted); padding: 2px 0; min-height: 24px; gap: 6px; font-size: 12px; }\n.wf-activity-toggle > span:last-child { opacity: .8; }\n.wf-step-answer { margin: 16px 0 18px; overflow-wrap: anywhere; }\n.wf-step-answer > small { display: block; font-size: 11px; color: var(--wf-muted); margin-bottom: 4px; }\n.wf-step-answer p,.wf-agent-prose p { line-height: 1.85; margin: 0 0 14px; }\n.wf-step-answer h1,.wf-step-answer h2,.wf-agent-prose h1,.wf-agent-prose h2 { font-size: 17px; margin: 16px 0 10px; }\n.wf-timeline pre:where(:not(.wf-native-step *)) { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 300px; overflow: auto; font-size: 12px; }\n.wf-trace { margin: 8px 0 16px; }\n.wf-trace details { margin: 7px 0; color: var(--wf-muted); font-size: 12px; }\n.wf-trace details summary { display: flex; gap: 6px; align-items: center; cursor: pointer; }\n.wf-agent-prose { margin: 16px 0; }\n.wf-team-member { margin: 14px 0; padding-left: 14px; border-left: 1px solid var(--wf-line); }\n.wf-team-member > strong { font-size: 13px; font-weight: 500; }\n.wf-team-member > span { margin: 0 8px; color: var(--wf-muted); font-size: 12px; }\n.wf-team-member > button { border: 0; background: transparent; font-size: 12px; color: var(--wf-muted); }\n.wf-run-step > details:last-child { color: var(--wf-muted); font-size: 12px; margin-top: 8px; }\n.wf-path { overflow-wrap: anywhere; color: var(--wf-muted); }\n.wf-run-composer { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; border: 1px solid var(--wf-line); border-radius: 18px; padding: 12px; }\n.wf-run-composer label { display: flex; align-items: center; gap: 8px; font-size: 12px; }\n.wf-run-composer textarea { flex: 1; min-width: 180px; min-height: 70px; border: 0; background: transparent; padding: 6px; }\n.wf-run-composer select,.wf-recipient { max-width: 180px; background: transparent; border: 0; font-size: 12px; color: inherit; }\n.wf-debug-toggle { display: inline-flex; gap: 5px; align-items: center; padding: 0 6px; }\n.wf-step-return { display: flex; gap: 8px; align-items: center; }\n.wf-step-return button { border: 0; background: transparent; font-size: 12px; }\n.wf-confirm { position: fixed; z-index: 1000; top: 30%; left: 50%; transform: translateX(-50%); width: min(460px, 90vw); padding: 24px; border: 1px solid var(--wf-line-strong); border-radius: 14px; background: var(--wf-surface); box-shadow: 0 0 0 100vmax rgb(0 0 0 / 35%); }\n.wf-confirm button { margin-right: 8px; }\n.wf-spin { animation: wf-spin 1.5s linear infinite; }\n@keyframes wf-spin { to { transform: rotate(360deg); } }\n@media (prefers-reduced-motion: reduce) { .wf-spin { animation: none; } }\n@media (max-width: 700px) { .wf-timeline { padding: 20px 16px; } .wf-run-header { gap: 10px; } }\n\n.wf-native-step { width: 100%; min-width: 0; margin: 12px 0; }\n.wf-native-step [data-slot="conversation.view"] { min-width: 0; }\n.wf-native-step [data-conversation-view="chat"] { padding-inline: 0; }\n.wf-native-step nav[aria-label="\u8F6E\u6B21\u5BFC\u822A"] { display: none; }\n\n.wf-root-conversation { width: min(100%, 836px); margin: 0 auto; padding: 12px 28px; color: var(--dsw-text-tertiary, #888); font-size: 12px; }\n.wf-root-conversation > summary { cursor: pointer; }\n.wf-native-scroll { overflow: auto; max-height: 680px; overscroll-behavior: contain; }\n.wf-native-step [data-slot="conversation.view"] > div > div { padding-inline: 0; }\n.wf-step-views { display: flex; gap: 18px; border-bottom: 1px solid var(--wf-line); margin-bottom: 12px; }\n.wf-step-views button { background: transparent; border: 0; border-radius: 0; padding: 6px 0; color: var(--wf-muted); font-size: 12px; }\n.wf-step-views button[aria-selected="true"] { color: var(--wf-text); border-bottom: 2px solid currentColor; }\n\n/* Notebook cells share the page scrollport; embedded transcripts have no scroll range. */\n.wf-native-scroll { overflow: visible; max-height: none; overscroll-behavior: auto; }\n.wf-timeline { width: min(100%, 880px); padding-top: 0; }\n.wf-run-header { position: sticky; top: 0; z-index: 12; background: var(--wf-bg); padding: 14px 0; border-bottom: 1px solid var(--wf-line); }\n.wf-run-header h2 { font-size: 14px; }\n.wf-run-caption { font-size: 11px; }\n.wf-run-header select { max-width: 145px; font-size: 12px; border: 0; background: transparent; }\n.wf-run-header .wf-debug-toggle { font-size: 12px; }\n.wf-run-step { margin: 18px 0; padding: 16px 22px 20px; border: 1px solid color-mix(in srgb, var(--wf-line) 60%, transparent); border-radius: 12px; background: hsl(var(--wf-cell-hue) 28% 97%); }\nbody[data-ds-dark-theme] .wf-run-step { background: hsl(var(--wf-cell-hue) 10% 15%); }\n.wf-run-step.is-running { border-color: hsl(var(--wf-cell-hue) 25% 64%); }\n.wf-model-line { margin-bottom: 4px; }\n.wf-cell-toolbar { display: flex; align-items: center; gap: 3px; margin: 4px 0 12px; }\n.wf-cell-toolbar button,.wf-input-files button { border: 0; background: transparent; padding: 6px; min-height: 30px; color: var(--wf-muted); }\n.wf-cell-toolbar button:hover { color: var(--wf-text); background: var(--wf-surface-strong); }\n.wf-cell-toolbar button:focus-visible { outline: 2px solid var(--wf-accent); outline-offset: 2px; }\n.wf-cell-input { margin: 12px 0 18px auto; width: 90%; }\n.wf-input-bubble { padding: 12px 16px; border-radius: 16px; background: color-mix(in srgb, hsl(var(--wf-cell-hue) 35% 80%) 24%, var(--wf-bg)); white-space: pre-wrap; overflow-wrap: anywhere; }\n.wf-input-bubble p { margin: 2px 0; }\n.wf-cell-label { color: var(--wf-muted); font-size: 11px; }\n.wf-input-material { font-size: 12px; color: var(--wf-muted); margin-top: 8px; }\n.wf-input-material > div { margin-top: 8px; }\n.wf-input-editor { padding: 12px; border: 1px solid var(--wf-line); border-radius: 14px; background: var(--wf-bg); }\n.wf-input-editor textarea { width: 100%; min-height: 140px; resize: vertical; background: transparent; border: 0; padding: 4px; }\n.wf-input-editor .wf-cell-toolbar { margin-bottom: 0; }\n.wf-input-editor .wf-muted { margin-right: auto; font-size: 11px; }\n.wf-input-files { display: flex; gap: 6px; flex-wrap: wrap; }\n.wf-input-files > span { display: flex; align-items: center; font-size: 12px; }\n.wf-file-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-bottom: 8px; }\n.wf .wf-file-card { display: flex; align-items: center; gap: 10px; max-width: 260px; border: 1px solid var(--wf-line); border-radius: 12px; background: var(--wf-bg); padding: 10px 14px; text-align: left; }\n.wf-file-card strong { display: block; font-size: 13px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }\n.wf-file-card span { min-width: 0; }\n.wf-file-card small { display: block; color: var(--wf-muted); font-size: 11px; }\n.wf .wf-file-card.is-image { padding: 0; width: 78px; height: 78px; overflow: hidden; }\n.wf-file-card img { width: 100%; height: 100%; object-fit: cover; }\n.wf-cell-process:not(:empty) { margin: 8px 0 12px 14px; padding-left: 12px; border-left: 1px solid var(--wf-line); }\n.wf-step-answer { margin-bottom: 8px; }\n.wf-run-step > details:last-child { font-size: 11px; opacity: .8; }\n@media(max-width:700px) { .wf-timeline { padding: 0 8px; } .wf-run-step { padding: 12px; } .wf-cell-input { width: 96%; } .wf-run-header { gap: 4px; } }\n.wf-run-header > div:first-of-type { flex: 1 1 180px; }\n.wf-run-header .wf-run-actions { flex: 0 1 auto; flex-wrap: nowrap; }\n.wf-run-header select { width: auto; flex: 0 1 145px; }\n.wf-run-header .wf-debug-toggle { white-space: nowrap; }\n.wf-run-header .wf-debug-toggle input { width: auto; }\n.wf-run-header .wf-run-actions button { flex: 0 0 auto; }\n';
 
 // lib/graph-edit.js
 var tokenFor = (key) => `{{input.${key}}}`;
@@ -9428,9 +9480,442 @@ function pasteNodes(def, copied) {
   return { ...def, nodes: [...def.nodes, ...nodes], edges: [...def.edges, ...edges] };
 }
 
-// client/step-prompt.jsx
+// client/run-timeline.jsx
+var import_react7 = __toESM(require("react"), 1);
+
+// client/native-step.jsx
 var import_react5 = __toESM(require("react"), 1);
 var import_jsx_runtime2 = require("react/jsx-runtime");
+function NativeStep({ ctx, sessionId, parentSessionId }) {
+  const view = "chat";
+  const [ready, setReady] = (0, import_react5.useState)(false), [error, setError] = (0, import_react5.useState)("");
+  (0, import_react5.useEffect)(() => {
+    let alive = true;
+    const connect = async () => {
+      try {
+        await ctx.sessions.refresh();
+        await ctx.sessions.refreshSubagents(parentSessionId);
+        for (let i = 0; i < 60; i++) {
+          const binding = ctx.sessions.binding(sessionId);
+          if (binding) {
+            if (typeof binding.session.open !== "function") throw new Error("\u5F53\u524D Harness \u7248\u672C\u4E0D\u652F\u6301\u5D4C\u5165\u6B65\u9AA4\u4F1A\u8BDD");
+            const catalog = ctx.sessions.list.getSnapshot().subagentsByParent[parentSessionId];
+            const member = catalog?.entries.find((e) => e.kind === "child" && e.id === sessionId);
+            const address = member && { parentSessionId, childSessionId: sessionId, mode: member.mode };
+            if (!address) throw new Error("\u6B65\u9AA4\u4F1A\u8BDD\u5730\u5740\u5C1A\u672A\u5C31\u7EEA");
+            binding.session.configureSubagent(address, true);
+            await binding.session.open();
+            const snapshot = binding.session.getSnapshot();
+            if (snapshot.openState === "error") throw new Error(snapshot.openError?.message ?? "\u6B65\u9AA4\u5386\u53F2\u52A0\u8F7D\u5931\u8D25");
+            if (alive) setReady(true);
+            return;
+          }
+          await new Promise((r) => setTimeout(r, 100));
+        }
+        throw new Error("\u6B65\u9AA4\u4F1A\u8BDD\u5C1A\u672A\u5C31\u7EEA");
+      } catch (e) {
+        if (alive) setError(e.message);
+      }
+    };
+    connect();
+    return () => {
+      alive = false;
+    };
+  }, [ctx, sessionId, parentSessionId]);
+  const surface = (0, import_react5.useMemo)(() => {
+    if (!ready) return null;
+    const registry = ctx.slots;
+    if (!registry.hostFace || !registry._renderer) return null;
+    const base = registry.hostFace(), adapter = base.scope("session"), binding = adapter?.resolve(sessionId);
+    if (!binding) return null;
+    const current = { getSnapshot: () => binding, subscribe: () => () => {
+    } };
+    const Entry = (props) => props.renderSlot("conversation.view", { openView: () => {
+    }, completeViewRequest: () => {
+    } }, { only: view });
+    const entry = { component: Entry, options: {}, children: { "conversation.view": { kind: "list", scope: "session" } } };
+    const host = {
+      ...base,
+      scope: () => ({ ...adapter, current, resolve: (id2) => adapter.resolve(id2) }),
+      entriesOf: (key) => key === "root" ? [entry] : base.entriesOf(key),
+      entriesOfSlot: (key) => key === "root" ? [entry] : base.entriesOfSlot(key),
+      isLive: (value) => value === entry || base.isLive(value),
+      storeOf: (value, scope) => value === entry ? void 0 : base.storeOf(value, scope)
+    };
+    return registry._renderer.renderRoot(host, {});
+  }, [ready, ctx, sessionId, view]);
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "wf-native-step", "data-native-step": sessionId, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { "data-conversation-scroll": "", className: "wf-native-scroll", children: error ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { role: "alert", children: error }) : surface ?? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "wf-muted", children: "\u6B63\u5728\u8BFB\u53D6\u6B65\u9AA4\u4F1A\u8BDD\u2026" }) }) });
+}
+
+// client/run-timeline.jsx
+var import_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
+
+// client/step-input.jsx
+var import_react6 = __toESM(require("react"), 1);
+var import_jsx_runtime3 = require("react/jsx-runtime");
+function IconButton({ label, icon: Icon3, ...props }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", "aria-label": label, title: label, ...props, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon3, { size: 16, "aria-hidden": "true" }) });
+}
+function FileCard({ api, runId, block }) {
+  const ref = block.attachment, [preview, setPreview] = (0, import_react6.useState)("");
+  (0, import_react6.useEffect)(() => {
+    if (block.type !== "image") return;
+    let alive = true;
+    api({ action: "stepFile", runId, attachmentId: ref.attachmentId }).then((file) => {
+      if (alive) setPreview(`data:${file.mediaType};base64,${file.data}`);
+    }).catch(() => {
+    });
+    return () => {
+      alive = false;
+    };
+  }, [ref.attachmentId, runId]);
+  const [error, setError] = (0, import_react6.useState)("");
+  const download2 = async () => {
+    try {
+      const file = await api({ action: "stepFile", runId, attachmentId: ref.attachmentId });
+      const bytes = Uint8Array.from(atob(file.data), (c) => c.charCodeAt(0));
+      const url = URL.createObjectURL(new Blob([bytes], { type: file.mediaType }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = file.name;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1e3);
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", className: `wf-file-card ${preview ? "is-image" : ""}`, onClick: download2, title: error || ref.name, "aria-label": `\u4E0B\u8F7D ${ref.name}`, children: preview ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { src: preview, alt: ref.name }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(FileText, { size: 24 }),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: ref.name }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("small", { children: [
+        Math.max(1, Math.round(ref.bytes / 1024)),
+        " KB"
+      ] })
+    ] })
+  ] }) });
+}
+function StepInput({ api, run, node, state, busy, act, editing, setEditing }) {
+  const saved = run.stepOverrides?.[node.id], [prompt, setPrompt] = (0, import_react6.useState)(""), [files, setFiles] = (0, import_react6.useState)([]), [keep, setKeep] = (0, import_react6.useState)([]), [error, setError] = (0, import_react6.useState)("");
+  const picker = (0, import_react6.useRef)(null);
+  (0, import_react6.useEffect)(() => {
+    if (editing) {
+      setPrompt(saved?.prompt ?? node.prompt ?? "");
+      setKeep((saved?.attachments ?? []).map((a) => a.attachment.attachmentId));
+      setFiles([]);
+      setError("");
+    }
+  }, [editing]);
+  const inherited = state.input?.attachments ?? [];
+  const cards = [...new Map([...inherited, ...saved?.attachments ?? []].map((b) => [b.attachment.attachmentId, b])).values()];
+  const material = Object.entries(state.input ?? {}).filter(([k]) => k !== "attachments").map(([k, v]) => typeof v === "string" ? v : `${k}: ${JSON.stringify(v)}`).join("\n\n");
+  const add = async (items) => {
+    if (files.length + keep.length + items.length > 12 || [...files, ...items].reduce((sum, f) => sum + (f.size ?? f.bytes ?? 0), 0) > 8 * 1024 * 1024) {
+      setError("\u6700\u591A 12 \u4E2A\u9644\u4EF6\uFF0C\u5408\u8BA1\u4E0D\u8D85\u8FC7 8 MB");
+      return;
+    }
+    const uploaded = await Promise.all([...items].map((file) => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = () => resolve({ name: file.name, mediaType: file.type, bytes: file.size, data: String(reader.result).split(",")[1] });
+      reader.readAsDataURL(file);
+    })));
+    setFiles((v) => [...v, ...uploaded]);
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("section", { className: "wf-cell-input", "aria-label": "\u6B65\u9AA4\u8F93\u5165", children: [
+    cards.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-file-row", children: cards.map((block) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(FileCard, { api, runId: run.id, block }, block.attachment.attachmentId)) }),
+    editing ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-input-editor", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("textarea", { "aria-label": "\u6B65\u9AA4\u8F93\u5165 prompt", value: prompt, onChange: (e) => setPrompt(e.target.value), autoFocus: true }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-input-files", children: [
+        (saved?.attachments ?? []).filter((b) => keep.includes(b.attachment.attachmentId)).map((b) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
+          b.attachment.name,
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(IconButton, { label: `\u79FB\u9664 ${b.attachment.name}`, icon: X, onClick: () => setKeep((v) => v.filter((id2) => id2 !== b.attachment.attachmentId)) })
+        ] }, b.attachment.attachmentId)),
+        files.map((f, i) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
+          f.name,
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(IconButton, { label: `\u79FB\u9664 ${f.name}`, icon: X, onClick: () => setFiles((v) => v.filter((_, index2) => index2 !== i)) })
+        ] }, i))
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("input", { ref: picker, type: "file", multiple: true, hidden: true, "aria-label": "\u6DFB\u52A0\u6B65\u9AA4\u6587\u4EF6", onChange: (e) => {
+        add(e.target.files).catch(() => setError("\u6587\u4EF6\u8BFB\u53D6\u5931\u8D25"));
+        e.target.value = "";
+      } }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-cell-toolbar", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(IconButton, { label: "\u6DFB\u52A0\u6587\u4EF6", icon: Paperclip, onClick: () => picker.current?.click() }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-muted", children: "\u672C\u6B21\u8FD0\u884C" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(IconButton, { label: "\u4FDD\u5B58\u8F93\u5165", icon: Check, disabled: busy, onClick: async () => {
+          const result = await act({ action: "stepEdit", runId: run.id, nodeId: node.id, prompt, keep, files, expectedRevision: run.checkpointRevision });
+          if (result) setEditing(false);
+        } }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(IconButton, { label: "\u53D6\u6D88\u7F16\u8F91", icon: X, onClick: () => setEditing(false) })
+      ] }),
+      error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { role: "alert", children: error })
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-input-bubble", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-cell-label", children: "\u8F93\u5165" }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: saved?.prompt || state.prompt || node.prompt || node.name }),
+      material && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("details", { className: "wf-input-material", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("summary", { children: "\u8F93\u5165\u6750\u6599" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { children: material })
+      ] })
+    ] })
+  ] });
+}
+
+// client/run-timeline.jsx
+var import_jsx_runtime4 = require("react/jsx-runtime");
+var names = { queued: "\u7B49\u5F85\u6267\u884C", running: "\u6267\u884C\u4E2D", completed: "\u5DF2\u5B8C\u6210", paused: "\u7B49\u5F85\u68C0\u89C6", waiting_input: "\u7B49\u5F85\u56DE\u7B54", waiting_approval: "\u7B49\u5F85\u786E\u8BA4", failed: "\u5931\u8D25", cancelled: "\u5DF2\u505C\u6B62", needs_attention: "\u6267\u884C\u4E2D\u65AD", stale: "\u8F93\u51FA\u5DF2\u8FC7\u671F", skipped: "\u5DF2\u8DF3\u8FC7", pending: "\u5F85\u6267\u884C" };
+var pretty = (value) => typeof value === "string" ? value : JSON.stringify(value ?? null, null, 2);
+var prose = (value) => {
+  if (value == null) return "";
+  if (typeof value === "string") return value;
+  if (typeof value.text === "string") return value.text;
+  if (typeof value.content === "string") return value.content;
+  if (typeof value.material === "string") return value.material;
+  return pretty(value);
+};
+function Content({ value }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_dsh_client_ui_primitives.MarkdownText, { text: prose(value), labels: { code: { copyLabel: "\u590D\u5236", copiedLabel: "\u5DF2\u590D\u5236" }, footnotes: "\u6CE8\u91CA" } });
+}
+function RunTimeline({ ctx, api, runId, openSession, onChange, embedded = false, focusNodeId = null, children: children2 }) {
+  const [run, setRun] = (0, import_react7.useState)(null), [error, setError] = (0, import_react7.useState)(""), [busy, setBusy] = (0, import_react7.useState)(false);
+  const [expanded, setExpanded] = (0, import_react7.useState)({}), [recipient, setRecipient] = (0, import_react7.useState)(""), [message, setMessage] = (0, import_react7.useState)("");
+  const [confirm, setConfirm] = (0, import_react7.useState)(null), [editing, setEditing] = (0, import_react7.useState)({});
+  const lastActive = import_react7.default.useRef("");
+  (0, import_react7.useEffect)(() => {
+    let stopped = false, timer2;
+    const read = async () => {
+      try {
+        const v = await api({ action: "runRead", id: runId });
+        if (!stopped) {
+          setRun(v.run);
+          setRecipient(v.run.recipient ?? "");
+          const active = Object.keys(v.run.nodes).filter((k) => v.run.nodes[k].status === "running").join(",");
+          if (active && active !== lastActive.current) {
+            setExpanded({});
+            lastActive.current = active;
+          }
+        }
+      } catch (e) {
+        if (!stopped) setError(e.message);
+      }
+      if (!stopped) timer2 = setTimeout(read, 1e3);
+    };
+    setRun(null);
+    setExpanded({});
+    read();
+    return () => {
+      stopped = true;
+      clearTimeout(timer2);
+    };
+  }, [runId]);
+  const act = async (args) => {
+    if (busy) return;
+    setBusy(true);
+    setError("");
+    try {
+      const result = await api(args);
+      const v = await api({ action: "runRead", id: runId });
+      setRun(v.run);
+      await onChange?.();
+      return result;
+    } catch (e) {
+      setError(e.message);
+      return false;
+    } finally {
+      setBusy(false);
+    }
+  };
+  const review = async (value) => {
+    try {
+      const latest = (await api({ action: "runRead", id: runId })).run;
+      setRun(latest);
+      setConfirm({ ...value, expectedRevision: latest.checkpointRevision });
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+  (0, import_react7.useEffect)(() => {
+    if (!confirm) return;
+    const previous = document.activeElement;
+    const dialog = document.querySelector(".wf-confirm");
+    dialog?.querySelector("button")?.focus();
+    const keyboard = (e) => {
+      if (e.key === "Escape" && !busy) {
+        e.preventDefault();
+        setConfirm(null);
+      }
+      if (e.key === "Tab") {
+        const controls = [...dialog?.querySelectorAll("button:not(:disabled)") ?? []];
+        if (!controls.length) return;
+        const index2 = controls.indexOf(document.activeElement);
+        e.preventDefault();
+        controls[(index2 + (e.shiftKey ? controls.length - 1 : 1)) % controls.length].focus();
+      }
+    };
+    document.addEventListener("keydown", keyboard);
+    return () => {
+      document.removeEventListener("keydown", keyboard);
+      previous?.focus();
+    };
+  }, [confirm, busy]);
+  if (!run) return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("section", { className: "wf wf-timeline", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { role: "status", children: error || "\u6B63\u5728\u8BFB\u53D6\u8FD0\u884C\u2026" }) });
+  const running = ["running", "queued"].includes(run.status);
+  const resumable = ["paused", "failed", "needs_attention", "cancelled"].includes(run.status);
+  const targets = Object.entries(run.nodes).flatMap(([nodeId, n]) => [
+    ...n.sessionId ? [{ nodeId, sessionId: n.sessionId, name: n.name, status: n.status }] : [],
+    ...Object.entries(n.subagents ?? {}).filter(([, m]) => m.sessionId).map(([memberId, m]) => ({ nodeId, memberId, sessionId: m.sessionId, name: m.name, status: m.status }))
+  ]);
+  const currentStep = Object.entries(run.nodes).find(([, n]) => n.status === "running")?.[0];
+  const resume = (debug) => act({ action: "resume", runId, sessionId: run.sessionId, debug, response: true, background: true, expectedRevision: run.checkpointRevision });
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("section", { className: "wf wf-timeline", "aria-label": "\u5DE5\u4F5C\u6D41\u8FD0\u884C\u65F6\u95F4\u7EBF", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("header", { className: "wf-run-header", children: [
+      focusNodeId && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u8FD4\u56DE\u5DE5\u4F5C\u6D41\u603B\u4F1A\u8BDD", icon: ArrowLeft, onClick: () => openSession(run.sessionId) }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { children: run.prepared.definition.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "wf-run-caption", children: [
+          "v",
+          run.revision,
+          " \xB7 ",
+          names[run.status] ?? run.status,
+          " \xB7 ",
+          run.debug ? "\u9010\u6B65\u8C03\u8BD5" : "\u8FDE\u7EED\u6267\u884C"
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "wf-run-actions", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("select", { "aria-label": "\u6B65\u9AA4\u6D88\u606F\u63A5\u6536\u8005", value: recipient, onChange: (e) => {
+          setRecipient(e.target.value);
+          act({ action: "setRecipient", sessionId: run.sessionId, recipient: e.target.value });
+        }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("option", { value: "", children: "\u5F53\u524D\u6B65\u9AA4" }),
+          targets.map((t) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("option", { value: t.sessionId, children: t.name }, t.sessionId))
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("label", { className: "wf-debug-toggle", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("input", { type: "checkbox", checked: Boolean(run.debug), disabled: busy || running, onChange: async (e) => {
+            const debug = e.target.checked;
+            const result = await act({ action: "setDebug", sessionId: run.sessionId, runId, debug });
+            if (result) setRun((v) => ({ ...v, debug }));
+          } }),
+          "\u9010\u6B65\u8C03\u8BD5"
+        ] }),
+        running && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u6682\u505C", icon: Pause, disabled: busy, onClick: () => act({ action: "pause", id: runId }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u505C\u6B62", icon: Square, disabled: busy, onClick: () => act({ action: "cancel", id: runId }) })
+        ] }),
+        resumable && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u8FD0\u884C\u4E00\u6B65", icon: StepForward, disabled: busy, onClick: () => resume(true) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u8FDE\u7EED\u6267\u884C", icon: Play, disabled: busy, onClick: () => resume(false) })
+        ] }),
+        !embedded && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => openSession(run.sessionId), children: "\u6253\u5F00\u603B\u4F1A\u8BDD" })
+      ] })
+    ] }),
+    error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "wf-error", role: "alert", children: error }),
+    run.error && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "wf-error", children: run.error }),
+    run.prepared.definition.nodes.map((node, index2) => {
+      if (focusNodeId && focusNodeId !== node.id) return null;
+      const state = run.nodes[node.id] ?? { status: "pending" };
+      const active = state.status === "running";
+      const show = expanded[node.id] ?? (active || node.id === currentStep);
+      return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("article", { className: `wf-run-step ${active ? "is-running" : ""}`, "data-step-id": node.id, style: { "--wf-cell-hue": [218, 150, 35, 278, 185, 340][index2 % 6] }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("header", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "wf-step-number", children: [
+            "\u6B65\u9AA4 ",
+            index2 + 1
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { children: node.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "wf-step-state", children: [
+            active ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LoaderCircle, { size: 13, className: "wf-spin" }) : state.status === "completed" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Check, { size: 13 }) : null,
+            names[state.status]
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("p", { className: "wf-model-line", children: [
+          "\u6A21\u578B\uFF1A",
+          state.route ? `${state.route.provider} / ${state.route.model}${state.route.reasoningEffort ? " \xB7 " + state.route.reasoningEffort : ""}` : node.kind === "agent" ? "\u6267\u884C\u65F6\u786E\u5B9A" : "\u6D41\u7A0B\u6B65\u9AA4"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "wf-cell-toolbar", role: "toolbar", "aria-label": `${node.name}\u64CD\u4F5C`, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u8FD0\u884C\u6B64\u6B65\u9AA4", icon: Play, disabled: busy || running || Boolean(editing[node.id]), onClick: () => act({ action: "stepRun", runId, nodeId: node.id, expectedRevision: run.checkpointRevision }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u7F16\u8F91\u8F93\u5165", icon: Pencil, disabled: busy || running, onClick: () => setEditing((v) => ({ ...v, [node.id]: !v[node.id] })) }),
+          (state.sessionId || state.status === "completed") && !focusNodeId && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u6253\u5F00\u6B65\u9AA4\u4F1A\u8BDD", icon: ExternalLink, disabled: busy, onClick: () => act({ action: "stepOpen", runId, nodeId: node.id }).then((result) => result && openSession(result.sessionId)) }),
+          state.status === "completed" && !running && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u66F4\u65B0\u6B65\u9AA4\u8F93\u51FA", icon: CheckCheck, disabled: busy || !state.sessionId, onClick: () => review({ action: "adopt", nodeId: node.id, label: "\u66F4\u65B0\u6B65\u9AA4\u8F93\u51FA", description: "\u5C06\u6700\u65B0\u56DE\u7B54\u4FDD\u5B58\u4E3A\u6B65\u9AA4\u8F93\u51FA\uFF0C\u5E76\u56DE\u9000\u4F9D\u8D56\u6B65\u9AA4\u7684\u6587\u4EF6\u6539\u52A8\u3002" }) }),
+          state.status === "completed" && !running && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(IconButton, { label: "\u51C6\u5907\u540E\u7EED\u6B65\u9AA4", icon: SkipForward, disabled: busy, onClick: () => review({ action: "rewind", nodeId: node.id, include: false, label: "\u51C6\u5907\u540E\u7EED\u6B65\u9AA4", description: "\u4FDD\u7559\u672C\u6B65\u9AA4\uFF0C\u56DE\u9000\u4F9D\u8D56\u6B65\u9AA4\u7684\u6587\u4EF6\u6539\u52A8\u3002" }) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(StepInput, { api, run, node, state, busy, act, editing: Boolean(editing[node.id]), setEditing: (value) => setEditing((v) => ({ ...v, [node.id]: value })) }),
+        !focusNodeId && (state.sessionId || Object.keys(state.subagents ?? {}).length > 0) && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { className: "wf-activity-toggle", "aria-label": show ? "\u6536\u8D77\u8FC7\u7A0B" : "\u5C55\u5F00\u8FC7\u7A0B", "aria-expanded": show, onClick: () => setExpanded((v) => ({ ...v, [node.id]: !show })), children: [
+          show ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ChevronDown, { size: 14 }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ChevronRight, { size: 14 }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { children: [
+            "\u6267\u884C\u8FC7\u7A0B",
+            Object.keys(state.subagents ?? {}).length ? ` \xB7 ${Object.keys(state.subagents).length} \u4E2A\u5B50\u4EE3\u7406` : ""
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "wf-cell-process", children: [
+          state.interaction?.question && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("aside", { className: "wf-interaction", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("strong", { children: "\u7B49\u5F85\u4F60\u7684\u56DE\u7B54" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: state.interaction.question }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => openSession(run.sessionId), children: "\u53BB\u603B\u4F1A\u8BDD\u56DE\u7B54" })
+          ] }),
+          !focusNodeId && show && Object.entries(state.subagents ?? {}).map(([memberId, m]) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("section", { className: "wf-team-member", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("strong", { children: m.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { children: [
+              names[m.status],
+              " \xB7 ",
+              m.route?.provider,
+              " / ",
+              m.route?.model
+            ] }),
+            m.sessionId && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => act({ action: "stepOpen", runId, nodeId: node.id, memberId }).then((ok) => ok && openSession(m.sessionId)), children: "\u6253\u5F00\u5B50\u4EE3\u7406\u4F1A\u8BDD" }),
+            show && m.sessionId && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(NativeStep, { ctx, parentSessionId: run.sessionId, sessionId: m.sessionId })
+          ] }, memberId)),
+          !focusNodeId && show && state.sessionId && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(NativeStep, { ctx, parentSessionId: run.sessionId, sessionId: state.sessionId }),
+          !focusNodeId && show && !state.sessionId && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "wf-muted", children: "\u6B64\u6B65\u9AA4\u7684\u6267\u884C\u4FE1\u606F\u8BB0\u5F55\u5728\u8F93\u5165\u3001\u8F93\u51FA\u53CA\u68C0\u67E5\u70B9\u4E2D\u3002" })
+        ] }),
+        focusNodeId && children2,
+        state.output && !focusNodeId && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "wf-step-answer", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("small", { children: "\u8F93\u51FA" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Content, { value: state.output })
+        ] }),
+        state.status === "stale" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "wf-muted", children: "\u8F93\u51FA\u5DF2\u8FC7\u671F\uFF0C\u7B49\u5F85\u91CD\u8DD1\u3002" }),
+        !!state.output?.attachments?.length && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "wf-file-row", children: state.output.attachments.map((block) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(FileCard, { api, runId: run.id, block }, block.attachment.attachmentId)) }),
+        !!state.attempts?.length && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("details", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("summary", { children: [
+            "\u6587\u4EF6\u4E0E\u5C1D\u8BD5\u8BB0\u5F55 \xB7 ",
+            state.attempts.length
+          ] }),
+          state.attempts.map((a) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("strong", { children: [
+              "\u5C1D\u8BD5 ",
+              a.index,
+              " \xB7 ",
+              a.status,
+              a.reverted ? " \xB7 \u5DF2\u56DE\u9000" : ""
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "wf-path", children: a.folder }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("pre", { children: pretty(a.checkpoint?.changes ?? []) })
+          ] }, a.index))
+        ] })
+      ] }, node.id);
+    }),
+    !embedded && !!targets.length && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("form", { className: "wf-run-composer", onSubmit: (e) => {
+      e.preventDefault();
+      const selected2 = targets.find((t) => t.sessionId === recipient) ?? targets.find((t) => t.status === "running") ?? targets.at(-1);
+      act({ action: "stepMessage", runId, nodeId: selected2.nodeId, memberId: selected2.memberId, text: message }).then((ok) => ok && setMessage(""));
+    }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("textarea", { "aria-label": "\u4E0E\u6B65\u9AA4\u4EA4\u6D41", value: message, onChange: (e) => setMessage(e.target.value), placeholder: "\u8865\u5145\u8981\u6C42\u3001\u63D0\u95EE\u6216\u68C0\u89C6\u7ED3\u679C\u2026" }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { disabled: busy || !message.trim(), type: "submit", children: "\u53D1\u9001" })
+    ] }),
+    confirm && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "wf-confirm", role: "dialog", "aria-modal": "true", "aria-label": confirm.label, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h3", { children: confirm.label }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: confirm.description }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { disabled: busy, onClick: async () => {
+        const ok = await act({ ...confirm, label: void 0, description: void 0, runId, expectedRevision: confirm.expectedRevision });
+        if (ok) setConfirm(null);
+      }, children: "\u786E\u8BA4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => setConfirm(null), children: "\u53D6\u6D88" })
+    ] })
+  ] });
+}
+
+// client/step-prompt.jsx
+var import_react8 = __toESM(require("react"), 1);
+var import_jsx_runtime5 = require("react/jsx-runtime");
 function serialize(root2) {
   const read = (node) => {
     if (node.nodeType === 3) return node.textContent;
@@ -9442,11 +9927,11 @@ function serialize(root2) {
   return read(root2).replace(/\n$/, "");
 }
 function StepPrompt({ node, definition, onChange, onReference }) {
-  const editor = (0, import_react5.useRef)(null);
-  const last = (0, import_react5.useRef)();
-  const [picker, setPicker] = (0, import_react5.useState)(false);
-  const [query, setQuery] = (0, import_react5.useState)("");
-  (0, import_react5.useLayoutEffect)(() => {
+  const editor = (0, import_react8.useRef)(null);
+  const last = (0, import_react8.useRef)();
+  const [picker, setPicker] = (0, import_react8.useState)(false);
+  const [query, setQuery] = (0, import_react8.useState)("");
+  (0, import_react8.useLayoutEffect)(() => {
     const value = node.prompt ?? "";
     if (last.current === value) return;
     const root2 = editor.current;
@@ -9475,8 +9960,8 @@ function StepPrompt({ node, definition, onChange, onReference }) {
     last.current = text;
     onChange(text);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "wf-prompt-composer", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "wf-prompt-composer", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
       "div",
       {
         ref: editor,
@@ -9512,10 +9997,10 @@ function StepPrompt({ node, definition, onChange, onReference }) {
         }
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: "wf-add-reference", "aria-expanded": picker, onClick: () => setPicker((v) => !v), children: "\uFF20 \u5F15\u7528\u6B65\u9AA4" }),
-    picker && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "wf-reference-picker", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("input", { "aria-label": "\u641C\u7D22\u53EF\u5F15\u7528\u6B65\u9AA4", placeholder: "\u641C\u7D22\u6B65\u9AA4", value: query, onChange: (e) => setQuery(e.target.value) }),
-      definition.nodes.filter((n) => canConnect(definition, n.id, node.id) && n.name.includes(query)).map((source) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", className: `wf-step-${source.kind}`, onClick: () => {
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { type: "button", className: "wf-add-reference", "aria-expanded": picker, onClick: () => setPicker((v) => !v), children: "\uFF20 \u5F15\u7528\u6B65\u9AA4" }),
+    picker && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "wf-reference-picker", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("input", { "aria-label": "\u641C\u7D22\u53EF\u5F15\u7528\u6B65\u9AA4", placeholder: "\u641C\u7D22\u6B65\u9AA4", value: query, onChange: (e) => setQuery(e.target.value) }),
+      definition.nodes.filter((n) => canConnect(definition, n.id, node.id) && n.name.includes(query)).map((source) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { type: "button", className: `wf-step-${source.kind}`, onClick: () => {
         onReference(source.id);
         setPicker(false);
         setQuery("");
@@ -9525,7 +10010,7 @@ function StepPrompt({ node, definition, onChange, onReference }) {
 }
 
 // client/index.jsx
-var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_jsx_runtime6 = require("react/jsx-runtime");
 var name = "dsh-plugin-workflow";
 var inject = [
   "slots",
@@ -9558,7 +10043,8 @@ var statuses = {
   waiting_input: "\u7B49\u5F85\u8F93\u5165",
   needs_attention: "\u9700\u8981\u5904\u7406",
   skipped: "\u5DF2\u8DF3\u8FC7",
-  pending: "\u5F85\u6267\u884C"
+  pending: "\u5F85\u6267\u884C",
+  stale: "\u8F93\u51FA\u5DF2\u8FC7\u671F"
 };
 var glyphs = {
   workflow: GitBranch,
@@ -9580,9 +10066,9 @@ var glyphs = {
 };
 var glyphFor = (glyph, size) => {
   const Glyph = glyphs[glyph] ?? GitBranch;
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Glyph, { size });
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Glyph, { size });
 };
-var pretty = (value) => JSON.stringify(value, null, 2);
+var pretty2 = (value) => JSON.stringify(value, null, 2);
 var timestamp = (time) => time ? new Date(time).toLocaleString() : "-";
 var download = (name2, content, type = "application/json") => {
   const url = URL.createObjectURL(new Blob([content], { type }));
@@ -9593,7 +10079,7 @@ var download = (name2, content, type = "application/json") => {
   setTimeout(() => URL.revokeObjectURL(url), 1e3);
 };
 function Icon2({ label, icon: Symbol2, className, size = 16, ...props }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
     "button",
     {
       type: "button",
@@ -9601,30 +10087,49 @@ function Icon2({ label, icon: Symbol2, className, size = 16, ...props }) {
       title: label,
       "aria-label": label,
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Symbol2, { size })
+      children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Symbol2, { size })
     }
   );
 }
 function Field({ label, children: children2 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-field", role: "group", "aria-label": label, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: label }),
-    import_react6.default.Children.map(children2, (child) => import_react6.default.isValidElement(child) && ["input", "textarea", "select"].includes(child.type) ? import_react6.default.cloneElement(child, { "aria-label": child.props["aria-label"] ?? label }) : child)
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-field", role: "group", "aria-label": label, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: label }),
+    import_react9.default.Children.map(children2, (child) => import_react9.default.isValidElement(child) && ["input", "textarea", "select"].includes(child.type) ? import_react9.default.cloneElement(child, { "aria-label": child.props["aria-label"] ?? label }) : child)
+  ] });
+}
+function TeamEditor({ members, update }) {
+  const patch = (index2, changes) => update(members.map((member, i) => i === index2 ? { ...member, ...changes } : member));
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("section", { className: "wf-team-editor", "aria-label": "\u5E76\u884C\u5B50\u4EE3\u7406\u914D\u7F6E", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { children: "\u5E76\u884C\u5B50\u4EE3\u7406" }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-muted", children: "\u5148\u5E76\u884C\u6267\u884C\u5404\u6210\u5458\uFF0C\u518D\u7531\u672C\u6B65\u9AA4\u6C47\u603B\u7ED3\u679C\u3002\u6BCF\u4E2A\u6210\u5458\u4FDD\u7559\u72EC\u7ACB\u4F1A\u8BDD\u3002" }),
+    members.map((member, index2) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("details", { open: true, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("summary", { children: member.name || `\u5B50\u4EE3\u7406 ${index2 + 1}` }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5B50\u4EE3\u7406\u540D\u79F0", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("input", { value: member.name, onChange: (e) => patch(index2, { name: e.target.value }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5B50\u4EE3\u7406\u4EFB\u52A1", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("textarea", { value: member.prompt, onChange: (e) => patch(index2, { prompt: e.target.value }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5B50\u4EE3\u7406\u6A21\u578B", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("input", { placeholder: "\u7559\u7A7A\u7EE7\u627F\u4E3B\u4F1A\u8BDD", value: member.model?.mode === "explicit" ? member.model.id : "", onChange: (e) => patch(index2, { model: e.target.value ? { mode: "explicit", id: e.target.value } : { mode: "inherit" } }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5B50\u4EE3\u7406\u5DE5\u5177", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("input", { placeholder: "\u5DE5\u5177\u540D\u79F0\uFF0C\u4EE5\u9017\u53F7\u5206\u9694", value: (member.tools ?? []).join(", "), onChange: (e) => patch(index2, { tools: [...new Set(e.target.value.split(",").map((t) => t.trim()).filter(Boolean))] }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { type: "button", onClick: () => update(members.filter((_, i) => i !== index2)), children: "\u79FB\u9664\u5B50\u4EE3\u7406" })
+    ] }, member.id)),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { type: "button", disabled: members.length >= 8, onClick: () => update([...members, { id: `member-${crypto.randomUUID().slice(0, 8)}`, name: `\u5B50\u4EE3\u7406 ${members.length + 1}`, prompt: "" }]), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Plus, { size: 14 }),
+      "\u6DFB\u52A0\u5B50\u4EE3\u7406"
+    ] })
   ] });
 }
 function JsonField({ label, value, change, rows = 5 }) {
-  const [text, setText] = (0, import_react6.useState)(pretty(value ?? {}));
-  const [error, setError] = (0, import_react6.useState)("");
-  const last = import_react6.default.useRef(pretty(value ?? {}));
-  (0, import_react6.useEffect)(() => {
-    const next = pretty(value ?? {});
+  const [text, setText] = (0, import_react9.useState)(pretty2(value ?? {}));
+  const [error, setError] = (0, import_react9.useState)("");
+  const last = import_react9.default.useRef(pretty2(value ?? {}));
+  (0, import_react9.useEffect)(() => {
+    const next = pretty2(value ?? {});
     if (next !== last.current) {
       last.current = next;
       setText(next);
       setError("");
     }
   }, [value]);
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(Field, { label, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(Field, { label, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
       "textarea",
       {
         rows,
@@ -9635,7 +10140,7 @@ function JsonField({ label, value, change, rows = 5 }) {
           setText(e.target.value);
           try {
             const parsed = JSON.parse(e.target.value);
-            last.current = pretty(parsed);
+            last.current = pretty2(parsed);
             change(parsed);
             setError("");
           } catch {
@@ -9644,20 +10149,20 @@ function JsonField({ label, value, change, rows = 5 }) {
         }
       }
     ),
-    error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("small", { role: "alert", children: error })
+    error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("small", { role: "alert", children: error })
   ] });
 }
 function Modal({ title, close, children: children2 }) {
-  const ref = import_react6.default.useRef();
-  (0, import_react6.useEffect)(() => {
+  const ref = import_react9.default.useRef();
+  (0, import_react9.useEffect)(() => {
     const el = ref.current;
     el.showModal();
     return () => el.close();
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("dialog", { className: "wf-modal wf", ref, onCancel: close, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("header", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon2, { label: "\u5173\u95ED", icon: X, onClick: close })
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("dialog", { className: "wf-modal wf", ref, onCancel: close, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Icon2, { label: "\u5173\u95ED", icon: X, onClick: close })
     ] }),
     children2
   ] });
@@ -9715,18 +10220,18 @@ function apply(ctx) {
     });
     return refreshing;
   };
-  const useData = () => (0, import_react6.useSyncExternalStore)(
+  const useData = () => (0, import_react9.useSyncExternalStore)(
     (fn) => {
       listeners.add(fn);
       return () => listeners.delete(fn);
     },
     () => snapshot
   );
-  const useSessions = () => (0, import_react6.useSyncExternalStore)(
+  const useSessions = () => (0, import_react9.useSyncExternalStore)(
     ctx.sessions.list.subscribe,
     ctx.sessions.list.getSnapshot
   );
-  const usePanel = () => (0, import_react6.useSyncExternalStore)(
+  const usePanel = () => (0, import_react9.useSyncExternalStore)(
     (fn) => {
       panelListeners.add(fn);
       return () => panelListeners.delete(fn);
@@ -9739,6 +10244,7 @@ function apply(ctx) {
     panelListeners.forEach((f) => f());
   };
   const openEditor = (id2, tab = "graph") => {
+    void refresh();
     panel = { id: id2, tab };
     setPanelOpen(true);
     panelListeners.forEach((f) => f());
@@ -9867,7 +10373,7 @@ function apply(ctx) {
     headerDraft = next;
     headerListeners.forEach((listener) => listener());
   };
-  const useHeaderDraft = () => (0, import_react6.useSyncExternalStore)(
+  const useHeaderDraft = () => (0, import_react9.useSyncExternalStore)(
     (fn) => {
       headerListeners.add(fn);
       return () => headerListeners.delete(fn);
@@ -9875,7 +10381,7 @@ function apply(ctx) {
     () => headerDraft
   );
   function WorkflowSessions({ workflow, data, sessions, onError }) {
-    const [menuSession, setMenuSession] = (0, import_react6.useState)(null);
+    const [menuSession, setMenuSession] = (0, import_react9.useState)(null);
     const perform = (fn) => Promise.resolve().then(fn).catch((e) => onError(e.message));
     const act = async (action, sessionId, title) => {
       setMenuSession(null);
@@ -9919,16 +10425,16 @@ function apply(ctx) {
       (r) => r.workflowId === workflow.id && sessions.byId[r.sessionId] && !ctx.workspaces.list.getSnapshot().archivedSessionIds.includes(r.sessionId)
     );
     if (!rows.length)
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-sessions-empty", children: "\u8FD8\u6CA1\u6709\u5BF9\u8BDD\uFF0C\u70B9\u300C\u8FD0\u884C\u300D\u5F00\u59CB\u4E00\u4E2A\u3002" });
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-sessions", children: rows.map((r) => {
+      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-sessions-empty", children: "\u8FD8\u6CA1\u6709\u5BF9\u8BDD\uFF0C\u70B9\u300C\u8FD0\u884C\u300D\u5F00\u59CB\u4E00\u4E2A\u3002" });
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-sessions", children: rows.map((r) => {
       const title = sessions.byId[r.sessionId].displayTitle;
       const openMenu = menuSession === r.sessionId;
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
         "div",
         {
           className: "wf-session-row " + (sessions.current === r.sessionId ? "selected" : ""),
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "button",
               {
                 type: "button",
@@ -9939,24 +10445,24 @@ function apply(ctx) {
                   setPanelOpen(false);
                 },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(MessageSquare, { size: 13, "aria-hidden": "true" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: title })
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(MessageSquare, { size: 13, "aria-hidden": "true" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: title })
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-              import_dsh_client_ui_primitives.Menu,
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+              import_dsh_client_ui_primitives2.Menu,
               {
                 open: openMenu,
                 onClose: () => setMenuSession(null),
                 onSelect: (action) => perform(() => act(action, r.sessionId, title)),
                 items: [
-                  { id: "copy", label: "\u590D\u5236\u4F1A\u8BDD\u5F15\u7528", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Copy, { size: 16 }) },
-                  { id: "rename", label: "\u91CD\u547D\u540D", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Pencil, { size: 16 }) },
-                  { id: "fork", label: "\u5206\u53C9\u4F1A\u8BDD", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(GitBranch, { size: 16 }) },
-                  { id: "archive", label: "\u5F52\u6863\u4F1A\u8BDD", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Archive, { size: 16 }) }
+                  { id: "copy", label: "\u590D\u5236\u4F1A\u8BDD\u5F15\u7528", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Copy, { size: 16 }) },
+                  { id: "rename", label: "\u91CD\u547D\u540D", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Pencil, { size: 16 }) },
+                  { id: "fork", label: "\u5206\u53C9\u4F1A\u8BDD", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(GitBranch, { size: 16 }) },
+                  { id: "archive", label: "\u5F52\u6863\u4F1A\u8BDD", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Archive, { size: 16 }) }
                 ],
-                anchor: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                anchor: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                   "button",
                   {
                     type: "button",
@@ -9967,12 +10473,12 @@ function apply(ctx) {
                       event.stopPropagation();
                       setMenuSession(openMenu ? null : r.sessionId);
                     },
-                    children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Ellipsis, { size: 15 })
+                    children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Ellipsis, { size: 15 })
                   }
                 )
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 className: "wf-row-action",
@@ -9989,11 +10495,11 @@ function apply(ctx) {
   }
   function Gallery({ data, onError }) {
     const sessions = useSessions();
-    const [view, setView] = (0, import_react6.useState)(
+    const [view, setView] = (0, import_react9.useState)(
       () => localStorage.getItem("workflow-studio:view") ?? "cards"
     );
-    const [archived, setArchived] = (0, import_react6.useState)(false);
-    const [detail, setDetail] = (0, import_react6.useState)(/* @__PURE__ */ new Set());
+    const [archived, setArchived] = (0, import_react9.useState)(false);
+    const [detail, setDetail] = (0, import_react9.useState)(/* @__PURE__ */ new Set());
     const perform = (fn) => Promise.resolve().then(fn).catch((e) => onError(e.message));
     const choose = (next) => {
       localStorage.setItem("workflow-studio:view", next);
@@ -10010,12 +10516,12 @@ function apply(ctx) {
     );
     const rows = data.workflows.filter((w) => w.archived === archived);
     const empty2 = !rows.length;
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-scroll", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-gallery-bar", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: empty2 ? archived ? "\u6CA1\u6709\u5DF2\u5F52\u6863\u7684\u5DE5\u4F5C\u6D41" : "\u8FD8\u6CA1\u6709\u5DE5\u4F5C\u6D41" : `${rows.length} \u4E2A\u5DE5\u4F5C\u6D41` }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-spacer" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { className: "wf-check", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-scroll", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-gallery-bar", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: empty2 ? archived ? "\u6CA1\u6709\u5DF2\u5F52\u6863\u7684\u5DE5\u4F5C\u6D41" : "\u8FD8\u6CA1\u6709\u5DE5\u4F5C\u6D41" : `${rows.length} \u4E2A\u5DE5\u4F5C\u6D41` }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-spacer" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("label", { className: "wf-check", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "input",
             {
               type: "checkbox",
@@ -10025,48 +10531,48 @@ function apply(ctx) {
           ),
           "\u5DF2\u5F52\u6863"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-segmented", role: "tablist", "aria-label": "\u5DE5\u4F5C\u6D41\u6837\u5F0F", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-segmented", role: "tablist", "aria-label": "\u5DE5\u4F5C\u6D41\u6837\u5F0F", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
             "button",
             {
               role: "tab",
               "aria-selected": view === "cards",
               onClick: () => choose("cards"),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(LayoutGrid, { size: 15 }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(LayoutGrid, { size: 15 }),
                 "\u5361\u7247"
               ]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
             "button",
             {
               role: "tab",
               "aria-selected": view === "list",
               onClick: () => choose("list"),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(List, { size: 15 }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(List, { size: 15 }),
                 "\u5217\u8868"
               ]
             }
           )
         ] })
       ] }),
-      empty2 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-gallery-empty", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: archived ? "\u5F52\u6863\u7684\u5DE5\u4F5C\u6D41\u4F1A\u51FA\u73B0\u5728\u8FD9\u91CC\u3002" : "\u5DE5\u4F5C\u6D41\u628A\u4E00\u6BB5\u56FA\u5B9A\u7684\u505A\u6CD5\u53D8\u6210\u53EF\u590D\u7528\u7684\u6B65\u9AA4\uFF1A\u5148\u5728\u5BF9\u8BDD\u91CC\u63CF\u8FF0\u76EE\u6807\uFF0CAgent \u4F1A\u751F\u6210\u4E00\u4E2A\u521D\u6B65\u7248\u672C\u3002" }),
-        !archived && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { className: "wf-primary", onClick: () => perform(() => beginAuthorSession()), children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Plus, { size: 16 }),
+      empty2 ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-gallery-empty", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: archived ? "\u5F52\u6863\u7684\u5DE5\u4F5C\u6D41\u4F1A\u51FA\u73B0\u5728\u8FD9\u91CC\u3002" : "\u5DE5\u4F5C\u6D41\u628A\u4E00\u6BB5\u56FA\u5B9A\u7684\u505A\u6CD5\u53D8\u6210\u53EF\u590D\u7528\u7684\u6B65\u9AA4\uFF1A\u5148\u5728\u5BF9\u8BDD\u91CC\u63CF\u8FF0\u76EE\u6807\uFF0CAgent \u4F1A\u751F\u6210\u4E00\u4E2A\u521D\u6B65\u7248\u672C\u3002" }),
+        !archived && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { className: "wf-primary", onClick: () => perform(() => beginAuthorSession()), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Plus, { size: 16 }),
           "\u521B\u5EFA\u5DE5\u4F5C\u6D41"
         ] })
-      ] }) : view === "cards" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-cards", children: rows.map((w) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("article", { className: "wf-card", "data-workflow-card": w.id, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+      ] }) : view === "cards" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-cards", children: rows.map((w) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("article", { className: "wf-card", "data-workflow-card": w.id, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             type: "button",
             className: "wf-card-head",
             onClick: () => openEditor(w.id),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 "span",
                 {
                   className: `wf-workflow-icon wf-icon-${w.icon ?? "workflow"}`,
@@ -10074,8 +10580,8 @@ function apply(ctx) {
                   children: glyphFor(w.icon ?? "workflow", 15)
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-card-title", children: w.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-card-title", children: w.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 "span",
                 {
                   className: `wf-chip ${w.published === w.revision ? "is-published" : ""}`,
@@ -10085,38 +10591,38 @@ function apply(ctx) {
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-card-desc", children: w.description || "\u8FD8\u6CA1\u6709\u63CF\u8FF0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "wf-card-meta", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-card-desc", children: w.description || "\u8FD8\u6CA1\u6709\u63CF\u8FF0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "wf-card-meta", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
             conversations(w.id),
             " \u4E2A\u5BF9\u8BDD"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
             "\u6700\u8FD1\u4FEE\u6539 ",
             timestamp(w.updatedAt)
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-card-actions", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { onClick: () => openEditor(w.id), children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Settings2, { size: 15 }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-card-actions", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { onClick: () => openEditor(w.id), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Settings2, { size: 15 }),
             "\u6253\u5F00"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
             "button",
             {
               disabled: w.archived,
               onClick: () => perform(() => bind(w)),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Play, { size: 15 }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Play, { size: 15 }),
                 "\u8FD0\u884C"
               ]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { onClick: () => copy(w), children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Copy, { size: 15 }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { onClick: () => copy(w), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Copy, { size: 15 }),
             "\u62F7\u8D1D"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             Icon2,
             {
               label: w.archived ? `\u6062\u590D ${w.name}` : `\u5F52\u6863 ${w.name}`,
@@ -10125,12 +10631,12 @@ function apply(ctx) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("details", { className: "wf-card-sessions", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("summary", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("details", { className: "wf-card-sessions", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("summary", { children: [
             "\u5BF9\u8BDD ",
             conversations(w.id) ? `(${conversations(w.id)})` : ""
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             WorkflowSessions,
             {
               workflow: w,
@@ -10140,22 +10646,22 @@ function apply(ctx) {
             }
           )
         ] })
-      ] }, w.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("table", { className: "wf-table", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u5DE5\u4F5C\u6D41" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u7248\u672C" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u5BF9\u8BDD" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u6700\u8FD1\u4FEE\u6539" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u64CD\u4F5C" })
+      ] }, w.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("table", { className: "wf-table", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u5DE5\u4F5C\u6D41" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u7248\u672C" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u5BF9\u8BDD" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u6700\u8FD1\u4FEE\u6539" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u64CD\u4F5C" })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("tbody", { children: rows.map((w) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_react6.default.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { "data-workflow-row": w.id, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "wf-link", onClick: () => openEditor(w.id), children: w.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("small", { children: w.description })
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("tbody", { children: rows.map((w) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_react9.default.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("tr", { "data-workflow-row": w.id, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { className: "wf-link", onClick: () => openEditor(w.id), children: w.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("small", { children: w.description })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: w.published ? `\u5DF2\u53D1\u5E03 v${w.published}` : `\u8349\u7A3F v${w.revision}` }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: w.published ? `\u5DF2\u53D1\u5E03 v${w.published}` : `\u8349\u7A3F v${w.revision}` }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "button",
               {
                 className: "wf-link",
@@ -10171,9 +10677,9 @@ function apply(ctx) {
                 ]
               }
             ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: timestamp(w.updatedAt) }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: timestamp(w.updatedAt) }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 Icon2,
                 {
                   label: `\u8FD0\u884C ${w.name}`,
@@ -10182,7 +10688,7 @@ function apply(ctx) {
                   onClick: () => perform(() => bind(w))
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 Icon2,
                 {
                   label: `\u62F7\u8D1D ${w.name}`,
@@ -10190,7 +10696,7 @@ function apply(ctx) {
                   onClick: () => copy(w)
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 Icon2,
                 {
                   label: `\u7F16\u8F91 ${w.name}`,
@@ -10198,7 +10704,7 @@ function apply(ctx) {
                   onClick: () => openEditor(w.id)
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 Icon2,
                 {
                   label: w.archived ? `\u6062\u590D ${w.name}` : `\u5F52\u6863 ${w.name}`,
@@ -10208,7 +10714,7 @@ function apply(ctx) {
               )
             ] })
           ] }),
-          detail.has(w.id) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("tr", { className: "wf-detail-row", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { colSpan: 5, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          detail.has(w.id) && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("tr", { className: "wf-detail-row", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { colSpan: 5, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             WorkflowSessions,
             {
               workflow: w,
@@ -10223,7 +10729,7 @@ function apply(ctx) {
   }
   function Tree({ wide = true, usePanelInfo }) {
     const data = useData();
-    const fallback = (0, import_react6.useSyncExternalStore)(
+    const fallback = (0, import_react9.useSyncExternalStore)(
       (fn) => {
         panelListeners.add(fn);
         return () => panelListeners.delete(fn);
@@ -10232,7 +10738,7 @@ function apply(ctx) {
     );
     const active = typeof usePanelInfo === "function" ? usePanelInfo((info) => info.activePanelId === "workflow-studio") : fallback;
     const count = data.workflows.filter((w) => !w.archived).length;
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf wf-tree", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf wf-tree", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
       "button",
       {
         type: "button",
@@ -10249,15 +10755,15 @@ function apply(ctx) {
           }
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(GitBranch, { size: 16, "aria-hidden": "true" }),
-          wide && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "\u5DE5\u4F5C\u6D41" }),
-          wide && count > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-nav-count", children: count })
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(GitBranch, { size: 16, "aria-hidden": "true" }),
+          wide && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "\u5DE5\u4F5C\u6D41" }),
+          wide && count > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-nav-count", children: count })
         ]
       }
     ) });
   }
   function Picker() {
-    const value = (0, import_react6.useSyncExternalStore)(
+    const value = (0, import_react9.useSyncExternalStore)(
       (fn) => {
         pickerListeners.add(fn);
         return () => pickerListeners.delete(fn);
@@ -10265,10 +10771,10 @@ function apply(ctx) {
       () => picker
     );
     const data = useData();
-    const [query, setQuery] = (0, import_react6.useState)("");
-    const [busy, setBusy] = (0, import_react6.useState)(false);
-    const [error, setError] = (0, import_react6.useState)("");
-    (0, import_react6.useEffect)(() => {
+    const [query, setQuery] = (0, import_react9.useState)("");
+    const [busy, setBusy] = (0, import_react9.useState)(false);
+    const [error, setError] = (0, import_react9.useState)("");
+    (0, import_react9.useEffect)(() => {
       setError("");
       setQuery("");
     }, [value]);
@@ -10284,11 +10790,11 @@ function apply(ctx) {
         setBusy(false);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Modal, { title: "\u9009\u62E9\u5DE5\u4F5C\u6D41", close: closePicker, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-modal-body", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-search", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Search, { size: 16 }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Modal, { title: "\u9009\u62E9\u5DE5\u4F5C\u6D41", close: closePicker, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-modal-body", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-search", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Search, { size: 16 }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "input",
             {
               "aria-label": "\u641C\u7D22\u5DE5\u4F5C\u6D41",
@@ -10297,18 +10803,18 @@ function apply(ctx) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-picker-list", children: data.workflows.filter((w) => !w.archived && w.name.includes(query)).map((w) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-picker-list", children: data.workflows.filter((w) => !w.archived && w.name.includes(query)).map((w) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             disabled: busy,
             onClick: () => act(() => bind(w, value.sessionId)),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(GitBranch, { size: 18 }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: w.name }),
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("small", { children: w.description })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(GitBranch, { size: 18 }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: w.name }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("small", { children: w.description })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
                 "v",
                 w.published ?? w.revision
               ] })
@@ -10316,19 +10822,19 @@ function apply(ctx) {
           },
           w.id
         )) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { onClick: () => act(() => beginAuthorSession(value.sessionId)), children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Plus, { size: 16 }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { onClick: () => act(() => beginAuthorSession(value.sessionId)), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Plus, { size: 16 }),
           "\u521B\u5EFA\u5DE5\u4F5C\u6D41"
         ] })
       ] }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-error", role: "alert", children: error })
+      error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-error", role: "alert", children: error })
     ] }) });
   }
   function Routing({ node, update, caps }) {
-    const [info, setInfo] = (0, import_react6.useState)(null);
+    const [info, setInfo] = (0, import_react9.useState)(null);
     const provider = node.provider?.mode === "explicit" ? node.provider.id : "";
     const model = node.model?.mode === "explicit" ? node.model.id : "";
-    (0, import_react6.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       let live = true;
       setInfo(null);
       if (provider && model)
@@ -10345,16 +10851,16 @@ function apply(ctx) {
     const route = (field, value) => update({
       [field]: value ? { mode: "explicit", id: value } : { mode: "inherit" }
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "Executor", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "Executor", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
         "select",
         {
           value: node.executor ?? "spawn",
           onChange: (e) => update({ executor: e.target.value }),
-          children: (caps?.executors ?? ["spawn"]).map((p) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { children: p }, p))
+          children: (caps?.executors ?? ["spawn"]).map((p) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { children: p }, p))
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "Provider", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "Provider", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
         "select",
         {
           value: provider,
@@ -10367,13 +10873,13 @@ function apply(ctx) {
             });
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "", children: "\u7EE7\u627F\u4F1A\u8BDD" }),
-            providers.map((p) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: p.id, children: p.name }, p.id))
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "", children: "\u7EE7\u627F\u4F1A\u8BDD" }),
+            providers.map((p) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: p.id, children: p.name }, p.id))
           ]
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(Field, { label: "Model", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(Field, { label: "Model", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             list: "wf-models",
@@ -10382,10 +10888,10 @@ function apply(ctx) {
             onChange: (e) => route("model", e.target.value)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("datalist", { id: "wf-models", children: models.map((m) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: m.id, children: m.name }, m.id)) })
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("datalist", { id: "wf-models", children: models.map((m) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: m.id, children: m.name }, m.id)) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(Field, { label: "Effort", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(Field, { label: "Effort", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             list: "wf-efforts",
@@ -10394,33 +10900,33 @@ function apply(ctx) {
             onChange: (e) => route("effort", e.target.value)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("datalist", { id: "wf-efforts", children: info?.reasoning?.efforts.map((e) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: e.id, children: e.name }, e.id)) })
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("datalist", { id: "wf-efforts", children: info?.reasoning?.efforts.map((e) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: e.id, children: e.name }, e.id)) })
       ] })
     ] });
   }
   function Editor({ record, caps, save }) {
     const data = useData();
     const draftKey = `${record.id}:${record.revision}`;
-    const [definition, setDefinition] = (0, import_react6.useState)(drafts.get(draftKey) ?? record.snapshot.definition);
-    const [selected2, setSelected] = (0, import_react6.useState)(definition.nodes[0]?.id);
-    const [dirty, setDirty] = (0, import_react6.useState)(drafts.has(draftKey));
-    const [panelTab, setPanelTab] = (0, import_react6.useState)("step");
-    const [raw, setRaw] = (0, import_react6.useState)(false);
-    const [error, setError] = (0, import_react6.useState)("");
-    const [history, setHistory] = (0, import_react6.useState)([]);
-    const [clipboard, setClipboard] = (0, import_react6.useState)(null);
-    const [instruction, setInstruction] = (0, import_react6.useState)("");
-    const [sending, setSending] = (0, import_react6.useState)(false);
-    const [notice, setNotice] = (0, import_react6.useState)("");
-    const [run, setRun] = (0, import_react6.useState)(null);
-    const [assetsOpen, setAssetsOpen] = (0, import_react6.useState)(false);
-    const flow = import_react6.default.useRef();
-    const importInput = import_react6.default.useRef();
-    (0, import_react6.useEffect)(() => {
+    const [definition, setDefinition] = (0, import_react9.useState)(drafts.get(draftKey) ?? record.snapshot.definition);
+    const [selected2, setSelected] = (0, import_react9.useState)(definition.nodes[0]?.id);
+    const [dirty, setDirty] = (0, import_react9.useState)(drafts.has(draftKey));
+    const [panelTab, setPanelTab] = (0, import_react9.useState)("step");
+    const [raw, setRaw] = (0, import_react9.useState)(false);
+    const [error, setError] = (0, import_react9.useState)("");
+    const [history, setHistory] = (0, import_react9.useState)([]);
+    const [clipboard, setClipboard] = (0, import_react9.useState)(null);
+    const [instruction, setInstruction] = (0, import_react9.useState)("");
+    const [sending, setSending] = (0, import_react9.useState)(false);
+    const [notice, setNotice] = (0, import_react9.useState)("");
+    const [run, setRun] = (0, import_react9.useState)(null);
+    const [assetsOpen, setAssetsOpen] = (0, import_react9.useState)(false);
+    const flow = import_react9.default.useRef();
+    const importInput = import_react9.default.useRef();
+    (0, import_react9.useEffect)(() => {
       setDefinition(drafts.get(draftKey) ?? record.snapshot.definition);
       setDirty(drafts.has(draftKey));
     }, [record]);
-    (0, import_react6.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       const fn = (e) => {
         if (dirty) {
           e.preventDefault();
@@ -10436,7 +10942,7 @@ function apply(ctx) {
       setDefinition(value);
       setDirty(true);
     };
-    (0, import_react6.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       setHeaderDraft({
         key: draftKey,
         definition,
@@ -10445,12 +10951,12 @@ function apply(ctx) {
         save: () => save(definition, record.revision)
       });
     }, [definition, dirty, draftKey]);
-    (0, import_react6.useEffect)(
+    (0, import_react9.useEffect)(
       () => () => setHeaderDraft({ key: null, definition: null, dirty: false }),
       []
     );
     const node = definition.nodes.find((n) => n.id === selected2);
-    (0, import_react6.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       const onKey = (e) => {
         if (e.target.closest('input, textarea, select, [contenteditable="true"]')) return;
         if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "c" && node) {
@@ -10537,24 +11043,24 @@ function apply(ctx) {
       className: e.on === "false" ? "wf-edge-dashed" : void 0
     }));
     const nodeTypes = {
-      workflowNode: ({ data: view, selected: active }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: `wf-node-card wf-step-${view.kind} ${active ? "is-selected" : ""}`, children: [
-        view.kind !== "input" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Handle, { type: "target", position: Position.Left }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-step-heading", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-step-glyph", children: glyphFor(view.kind, 14) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: view.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("em", { children: labels[view.kind] })
+      workflowNode: ({ data: view, selected: active }) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: `wf-node-card wf-step-${view.kind} ${active ? "is-selected" : ""}`, children: [
+        view.kind !== "input" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Handle, { type: "target", position: Position.Left }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-step-heading", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-glyph", children: glyphFor(view.kind, 14) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: view.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("em", { children: labels[view.kind] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-step-body", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: view.summary }),
-          view.references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-step-references", children: view.references.map((ref, i) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: `wf-inline-reference wf-step-${ref.kind}`, children: ref.name }, `${ref.id}-${i}`)) }),
-          view.kind === "agent" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-step-model", children: view.model }),
-          view.kind === "interact" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-step-model", children: view.mode })
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-step-body", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: view.summary }),
+          view.references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-step-references", children: view.references.map((ref, i) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `wf-inline-reference wf-step-${ref.kind}`, children: ref.name }, `${ref.id}-${i}`)) }),
+          view.kind === "agent" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-model", children: view.model }),
+          view.kind === "interact" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-model", children: view.mode })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Handle, { type: "source", position: Position.Right })
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Handle, { type: "source", position: Position.Right })
       ] })
     };
     const latestRun = data.runs.find((item) => item.workflowId === record.id);
-    (0, import_react6.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       let live = true;
       if (!latestRun) {
         setRun(null);
@@ -10607,11 +11113,11 @@ function apply(ctx) {
         setError(e.message);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-editor", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-editor-body", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-stage", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-canvas", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-addbar", role: "toolbar", "aria-label": "\u6DFB\u52A0\u6B65\u9AA4", children: [
-            Object.entries(labels).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-editor", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-editor-body", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-stage", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-canvas", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-addbar", role: "toolbar", "aria-label": "\u6DFB\u52A0\u6B65\u9AA4", children: [
+            Object.entries(labels).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "button",
               {
                 draggable: true,
@@ -10624,26 +11130,26 @@ function apply(ctx) {
               },
               kind
             )),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-addbar-divider", "aria-hidden": "true" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-              import_dsh_client_ui_primitives.Menu,
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-addbar-divider", "aria-hidden": "true" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+              import_dsh_client_ui_primitives2.Menu,
               {
                 open: assetsOpen,
                 onClose: () => setAssetsOpen(false),
                 items: [
-                  { id: "save", label: "\u4FDD\u5B58\u7248\u672C", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Save, { size: 16 }) },
-                  { id: "import", label: "\u5BFC\u5165\u5DE5\u4F5C\u6D41", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Upload, { size: 16 }) },
-                  { id: "export", label: "\u5BFC\u51FA\u5B9A\u4E49", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Download, { size: 16 }) },
-                  { id: "json", label: raw ? "\u8FD4\u56DE\u753B\u5E03" : "\u7F16\u8F91 JSON", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(FileText, { size: 16 }) }
+                  { id: "save", label: "\u4FDD\u5B58\u7248\u672C", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Save, { size: 16 }) },
+                  { id: "import", label: "\u5BFC\u5165\u5DE5\u4F5C\u6D41", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Upload, { size: 16 }) },
+                  { id: "export", label: "\u5BFC\u51FA\u5B9A\u4E49", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Download, { size: 16 }) },
+                  { id: "json", label: raw ? "\u8FD4\u56DE\u753B\u5E03" : "\u7F16\u8F91 JSON", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(FileText, { size: 16 }) }
                 ],
                 onSelect: (action) => {
                   setAssetsOpen(false);
                   if (action === "save") void saveDraft();
-                  if (action === "export") download(`${definition.id}.json`, pretty(definition));
+                  if (action === "export") download(`${definition.id}.json`, pretty2(definition));
                   if (action === "json") setRaw((v) => !v);
                   if (action === "import") importInput?.click();
                 },
-                anchor: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+                anchor: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
                   "button",
                   {
                     type: "button",
@@ -10651,7 +11157,7 @@ function apply(ctx) {
                     "aria-expanded": assetsOpen,
                     onClick: () => setAssetsOpen((v) => !v),
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Plus, { size: 14 }),
+                      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Plus, { size: 14 }),
                       "\u6DFB\u52A0\u8D44\u6E90"
                     ]
                   }
@@ -10659,7 +11165,7 @@ function apply(ctx) {
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "input",
             {
               ref: importInput,
@@ -10673,7 +11179,7 @@ function apply(ctx) {
               }
             }
           ),
-          raw ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-json", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          raw ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-json", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             JsonField,
             {
               label: "\u5DE5\u4F5C\u6D41\u5B9A\u4E49",
@@ -10681,7 +11187,7 @@ function apply(ctx) {
               change,
               rows: 30
             }
-          ) }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          ) }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "div",
             {
               className: "wf-flow",
@@ -10691,7 +11197,7 @@ function apply(ctx) {
                 const kind = e.dataTransfer.getData("application/workflow-node");
                 if (labels[kind]) add(kind, flow.current?.screenToFlowPosition({ x: e.clientX, y: e.clientY }));
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+              children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
                 index,
                 {
                   onInit: (instance) => {
@@ -10747,15 +11253,15 @@ function apply(ctx) {
                     }
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Controls, {}),
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(MiniMap, { pannable: true, zoomable: true })
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Controls, {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(MiniMap, { pannable: true, zoomable: true })
                   ]
                 }
               )
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-canvas-tools", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-canvas-tools", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: "\u590D\u5236\u8282\u70B9",
@@ -10764,7 +11270,7 @@ function apply(ctx) {
                 onClick: () => node && setClipboard({ nodes: [structuredClone(node)], edges: definition.edges.filter((e) => e.from === node.id || e.to === node.id) })
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: "\u7C98\u8D34\u8282\u70B9",
@@ -10779,7 +11285,7 @@ function apply(ctx) {
                 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: "\u64A4\u9500",
@@ -10792,7 +11298,7 @@ function apply(ctx) {
                 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: raw ? "\u8FD4\u56DE\u753B\u5E03" : "\u7F16\u8F91 JSON",
@@ -10803,9 +11309,9 @@ function apply(ctx) {
             )
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-step-composer", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-instruction", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-step-composer", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-instruction", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "input",
               {
                 "aria-label": "\u7F16\u8F91\u8FD9\u4E9B\u6B65\u9AA4",
@@ -10821,7 +11327,7 @@ function apply(ctx) {
                 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "button",
               {
                 type: "button",
@@ -10829,15 +11335,15 @@ function apply(ctx) {
                 "aria-label": "\u53D1\u9001\u4FEE\u6539\u6307\u4EE4",
                 disabled: sending || !instruction.trim(),
                 onClick: () => void submitInstruction(),
-                children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Send, { size: 16 })
+                children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Send, { size: 16 })
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-composer-note", role: "status", children: notice || "\u7528\u4E00\u53E5\u8BDD\u8BF4\u660E\u8981\u6539\u4EC0\u4E48\uFF0CAgent \u4F1A\u66F4\u65B0\u6B65\u9AA4\u5B9A\u4E49\uFF1B\u4FDD\u5B58\u540E\u751F\u6210\u65B0\u7248\u672C\u3002" })
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-composer-note", role: "status", children: notice || "\u7528\u4E00\u53E5\u8BDD\u8BF4\u660E\u8981\u6539\u4EC0\u4E48\uFF0CAgent \u4F1A\u66F4\u65B0\u6B65\u9AA4\u5B9A\u4E49\uFF1B\u4FDD\u5B58\u540E\u751F\u6210\u65B0\u7248\u672C\u3002" })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("aside", { className: "wf-inspector", "aria-label": "\u6B65\u9AA4\u8BBE\u7F6E", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-panel-tabs", role: "tablist", "aria-label": "\u6B65\u9AA4\u9762\u677F", children: [["step", "\u6B65\u9AA4"], ["preview", "\u9884\u89C8"], ["console", "\u63A7\u5236\u53F0"], ["theme", "\u4E3B\u9898"]].map(([key, label]) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("aside", { className: "wf-inspector", "aria-label": "\u6B65\u9AA4\u8BBE\u7F6E", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-panel-tabs", role: "tablist", "aria-label": "\u6B65\u9AA4\u9762\u677F", children: [["step", "\u6B65\u9AA4"], ["preview", "\u9884\u89C8"], ["console", "\u63A7\u5236\u53F0"], ["theme", "\u4E3B\u9898"]].map(([key, label]) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "button",
           {
             role: "tab",
@@ -10847,14 +11353,14 @@ function apply(ctx) {
           },
           key
         )) }),
-        panelTab !== "theme" && node && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: `wf-panel-head wf-step-${node.kind}`, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-step-glyph", children: glyphFor(node.kind, 14) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: node.name }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("em", { children: labels[node.kind] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon2, { label: "\u5220\u9664\u8282\u70B9", icon: Trash2, onClick: remove2 })
+        panelTab !== "theme" && node && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: `wf-panel-head wf-step-${node.kind}`, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-glyph", children: glyphFor(node.kind, 14) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: node.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("em", { children: labels[node.kind] }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Icon2, { label: "\u5220\u9664\u8282\u70B9", icon: Trash2, onClick: remove2 })
         ] }),
-        panelTab === "theme" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-panel-body", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u5DE5\u4F5C\u6D41\u56FE\u6807", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-icon-picker", children: ["workflow", "book", "search", "code", "file", "sparkles"].map((name2) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        panelTab === "theme" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-panel-body", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5DE5\u4F5C\u6D41\u56FE\u6807", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-icon-picker", children: ["workflow", "book", "search", "code", "file", "sparkles"].map((name2) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "button",
             {
               type: "button",
@@ -10865,38 +11371,38 @@ function apply(ctx) {
             },
             name2
           )) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u6B65\u9AA4\u914D\u8272", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-swatches", children: Object.entries(labels).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: `wf-swatch wf-step-${kind}`, children: label }, kind)) }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-muted", children: "\u56FE\u6807\u4E0E\u914D\u8272\u5199\u5728\u5B9A\u4E49\u91CC\uFF0C\u4FDD\u5B58\u540E\u5BF9\u6240\u6709\u4F1A\u8BDD\u751F\u6548\u3002" })
-        ] }) : panelTab === "preview" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-panel-body", children: !run ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-panel-empty", children: "\u8FD8\u6CA1\u6709\u8FD0\u884C\u8BB0\u5F55" }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "wf-panel-note", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u6B65\u9AA4\u914D\u8272", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-swatches", children: Object.entries(labels).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `wf-swatch wf-step-${kind}`, children: label }, kind)) }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-muted", children: "\u56FE\u6807\u4E0E\u914D\u8272\u5199\u5728\u5B9A\u4E49\u91CC\uFF0C\u4FDD\u5B58\u540E\u5BF9\u6240\u6709\u4F1A\u8BDD\u751F\u6548\u3002" })
+        ] }) : panelTab === "preview" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-panel-body", children: !run ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-panel-empty", children: "\u8FD8\u6CA1\u6709\u8FD0\u884C\u8BB0\u5F55" }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "wf-panel-note", children: [
             "\u6700\u8FD1\u4E00\u6B21\u8FD0\u884C \xB7 ",
             statuses[run.run.status] ?? run.run.status,
             " \xB7 ",
             timestamp(run.run.createdAt)
           ] }),
-          stepRun ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-panel-note", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: `wf-status ${stepRun.status}`, children: statuses[stepRun.status] ?? stepRun.status }) }),
-            stepRun.error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-error", children: stepRun.error }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("pre", { className: "wf-output", children: typeof stepRun.output === "string" ? stepRun.output : pretty(stepRun.output ?? null) })
-          ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-panel-empty", children: "\u8BE5\u6B65\u9AA4\u8FD8\u6CA1\u6709\u8F93\u51FA" })
-        ] }) }) : panelTab === "console" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-panel-body", children: [
-          stepEvents.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-panel-empty", children: "\u6682\u65E0\u8BE5\u6B65\u9AA4\u7684\u4E8B\u4EF6" }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("ul", { className: "wf-console", children: stepEvents.map((event, index2) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("li", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("time", { children: timestamp(event.at ?? event.createdAt) }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { children: [
+          stepRun ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-panel-note", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `wf-status ${stepRun.status}`, children: statuses[stepRun.status] ?? stepRun.status }) }),
+            stepRun.error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-error", children: stepRun.error }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("pre", { className: "wf-output", children: typeof stepRun.output === "string" ? stepRun.output : pretty2(stepRun.output ?? null) })
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-panel-empty", children: "\u8BE5\u6B65\u9AA4\u8FD8\u6CA1\u6709\u8F93\u51FA" })
+        ] }) }) : panelTab === "console" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-panel-body", children: [
+          stepEvents.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-panel-empty", children: "\u6682\u65E0\u8BE5\u6B65\u9AA4\u7684\u4E8B\u4EF6" }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("ul", { className: "wf-console", children: stepEvents.map((event, index2) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("li", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("time", { children: timestamp(event.at ?? event.createdAt) }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
               event.type ?? event.kind ?? "event",
               event.error ? ` \xB7 ${event.error}` : ""
             ] })
           ] }, `${event.type ?? "event"}-${index2}`)) }),
-          run?.run?.nodes && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("details", { className: "wf-advanced", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("summary", { children: "\u8FD0\u884C\u8BE6\u60C5" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("pre", { className: "wf-output", children: pretty(run.run.nodes) })
+          run?.run?.nodes && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("details", { className: "wf-advanced", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("summary", { children: "\u8FD0\u884C\u8BE6\u60C5" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("pre", { className: "wf-output", children: pretty2(run.run.nodes) })
           ] })
-        ] }) : node ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-panel-body", children: [
-          !(node.kind === "interact" && node.interaction !== "goal") && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Routing, { node, update, caps }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-prompt-label", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Sparkles, { size: 12 }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: node.kind === "interact" ? node.interaction === "goal" ? "\u4EA4\u4E92\u76EE\u6807" : "\u63D0\u95EE\u5185\u5BB9" : "\u6B65\u9AA4\u8BF4\u660E" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        ] }) : node ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-panel-body", children: [
+          !(node.kind === "interact" && node.interaction !== "goal") && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Routing, { node, update, caps }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-prompt-label", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Sparkles, { size: 12 }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: node.kind === "interact" ? node.interaction === "goal" ? "\u4EA4\u4E92\u76EE\u6807" : "\u63D0\u95EE\u5185\u5BB9" : "\u6B65\u9AA4\u8BF4\u660E" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: "\u7F16\u8F91\u6B65\u9AA4\u8BF4\u660E",
@@ -10906,7 +11412,7 @@ function apply(ctx) {
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             StepPrompt,
             {
               node,
@@ -10922,9 +11428,9 @@ function apply(ctx) {
             },
             node.id
           ),
-          node.kind === "agent" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(Field, { label: "\u6280\u80FD", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          node.kind === "agent" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(Field, { label: "\u6280\u80FD", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 "input",
                 {
                   list: "wf-skills",
@@ -10934,9 +11440,9 @@ function apply(ctx) {
                   })
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("datalist", { id: "wf-skills", children: (caps?.skills ?? []).map((s) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: s.name }, s.name)) })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("datalist", { id: "wf-skills", children: (caps?.skills ?? []).map((s) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: s.name }, s.name)) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u5DE5\u5177", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5DE5\u5177", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "input",
               {
                 list: "wf-tools",
@@ -10947,7 +11453,7 @@ function apply(ctx) {
               }
             ) })
           ] }),
-          node.kind === "tool" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "Tool", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          node.kind === "tool" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "Tool", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "input",
             {
               list: "wf-tools",
@@ -10955,8 +11461,8 @@ function apply(ctx) {
               onChange: (e) => update({ tool: e.target.value })
             }
           ) }),
-          node.kind === "interact" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u4EA4\u4E92\u65B9\u5F0F", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+          node.kind === "interact" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u4EA4\u4E92\u65B9\u5F0F", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "select",
               {
                 value: node.interaction ?? "once",
@@ -10965,12 +11471,12 @@ function apply(ctx) {
                   ...e.target.value === "once" ? { maxTurns: void 0 } : {}
                 }),
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "once", children: "\u4EA4\u4E92\u4E00\u6B21\uFF1A\u7528\u6237\u56DE\u7B54\u4E00\u6B21\u540E\u7EE7\u7EED" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "goal", children: "\u4EA4\u4E92\u76EE\u6807\uFF1A\u53CD\u590D\u6F84\u6E05\u76F4\u5230\u786E\u8BA4\u7406\u89E3" })
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "once", children: "\u4EA4\u4E92\u4E00\u6B21\uFF1A\u7528\u6237\u56DE\u7B54\u4E00\u6B21\u540E\u7EE7\u7EED" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "goal", children: "\u4EA4\u4E92\u76EE\u6807\uFF1A\u53CD\u590D\u6F84\u6E05\u76F4\u5230\u786E\u8BA4\u7406\u89E3" })
                 ]
               }
             ) }),
-            node.interaction === "goal" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u6700\u591A\u56DE\u7B54\u8F6E\u6B21", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            node.interaction === "goal" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u6700\u591A\u56DE\u7B54\u8F6E\u6B21", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "input",
               {
                 type: "number",
@@ -10980,7 +11486,7 @@ function apply(ctx) {
                 onChange: (e) => update({ maxTurns: Number(e.target.value) })
               }
             ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u5DF2\u6709\u6750\u6599\u65F6\u8DF3\u8FC7\u63D0\u95EE", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5DF2\u6709\u6750\u6599\u65F6\u8DF3\u8FC7\u63D0\u95EE", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "select",
               {
                 value: node.provided ? ["/text", "/attachments"].includes(node.provided.path) ? node.provided.path : "custom" : "",
@@ -10988,23 +11494,24 @@ function apply(ctx) {
                   provided: e.target.value ? e.target.value === "custom" ? node.provided : { source: "workflow", path: e.target.value } : void 0
                 }),
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "", children: "\u6BCF\u6B21\u63D0\u95EE" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "/attachments", children: "\u6D88\u606F\u5DF2\u5E26\u9644\u4EF6\u65F6\u76F4\u63A5\u91C7\u7528" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "/text", children: "\u6D88\u606F\u6587\u672C\u5C31\u662F\u6750\u6599\u65F6\u76F4\u63A5\u91C7\u7528" }),
-                  node.provided && !["/text", "/attachments"].includes(node.provided.path) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "custom", children: "\u81EA\u5B9A\u4E49\u5F15\u7528" })
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "", children: "\u6BCF\u6B21\u63D0\u95EE" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "/attachments", children: "\u6D88\u606F\u5DF2\u5E26\u9644\u4EF6\u65F6\u76F4\u63A5\u91C7\u7528" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "/text", children: "\u6D88\u606F\u6587\u672C\u5C31\u662F\u6750\u6599\u65F6\u76F4\u63A5\u91C7\u7528" }),
+                  node.provided && !["/text", "/attachments"].includes(node.provided.path) && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "custom", children: "\u81EA\u5B9A\u4E49\u5F15\u7528" })
                 ]
               }
             ) }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "wf-muted", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "wf-muted", children: [
               "\u4EA4\u4E92\u8282\u70B9\u4F1A\u6682\u505C\u8FD0\u884C\uFF0C\u628A\u95EE\u9898\u4EA4\u7ED9\u7ED1\u5B9A\u4F1A\u8BDD\u91CC\u7684 Agent\uFF1B\u7528\u6237\u7684\u4E0B\u4E00\u6761\u6D88\u606F\u5C31\u662F\u8FD9\u6B21\u4EA4\u4E92\u7684\u56DE\u7B54\u3002",
               node.interaction === "goal" ? "\u5224\u5B9A Agent \u8BA4\u4E3A\u5DF2\u7ECF\u7406\u89E3\u610F\u56FE\u540E\uFF0C\u4F1A\u5148\u8BF7\u4F60\u786E\u8BA4\uFF0C\u786E\u8BA4\u540E\u624D\u8FDB\u5165\u4E0B\u4E00\u6B65\u3002" : ""
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("datalist", { id: "wf-tools", children: (caps?.tools ?? []).map((t) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: t }, t)) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("details", { className: "wf-advanced", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("summary", { children: "\u9AD8\u7EA7\u8BBE\u7F6E" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u6B65\u9AA4\u6807\u8BC6", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("input", { value: node.id, readOnly: true }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("datalist", { id: "wf-tools", children: (caps?.tools ?? []).map((t) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: t }, t)) }),
+          node.kind === "agent" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(TeamEditor, { members: node.subagents ?? [], update: (subagents) => update({ subagents }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("details", { className: "wf-advanced", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("summary", { children: "\u9AD8\u7EA7\u8BBE\u7F6E" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u6B65\u9AA4\u6807\u8BC6", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("input", { value: node.id, readOnly: true }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               JsonField,
               {
                 label: "\u8F93\u5165\u6620\u5C04",
@@ -11012,7 +11519,7 @@ function apply(ctx) {
                 change: (input) => update({ input })
               }
             ),
-            node.kind === "condition" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            node.kind === "condition" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               JsonField,
               {
                 label: "\u6761\u4EF6",
@@ -11020,7 +11527,7 @@ function apply(ctx) {
                 change: (condition) => update({ condition })
               }
             ),
-            !(node.kind === "interact" && node.interaction !== "goal") && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            !(node.kind === "interact" && node.interaction !== "goal") && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               JsonField,
               {
                 label: "\u8F93\u51FA\u6570\u636E\u7ED3\u6784",
@@ -11028,7 +11535,7 @@ function apply(ctx) {
                 change: (outputSchema) => update({ outputSchema })
               }
             ),
-            ["loop", "subworkflow"].includes(node.kind) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            ["loop", "subworkflow"].includes(node.kind) && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               JsonField,
               {
                 label: "\u5B50\u5DE5\u4F5C\u6D41\u7248\u672C",
@@ -11036,7 +11543,7 @@ function apply(ctx) {
                 change: (workflow) => update({ workflow })
               }
             ),
-            node.kind !== "interact" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u8D85\u65F6\uFF08\u79D2\uFF09", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            node.kind !== "interact" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u8D85\u65F6\uFF08\u79D2\uFF09", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "input",
               {
                 type: "number",
@@ -11046,7 +11553,7 @@ function apply(ctx) {
                 onChange: (e) => update({ timeoutSeconds: Number(e.target.value) })
               }
             ) }),
-            node.kind === "loop" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u6700\u5927\u6761\u76EE\u6570", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            node.kind === "loop" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u6700\u5927\u6761\u76EE\u6570", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "input",
               {
                 type: "number",
@@ -11056,11 +11563,11 @@ function apply(ctx) {
                 onChange: (e) => update({ maxItems: Number(e.target.value) })
               }
             ) }),
-            definition.edges.filter((e) => e.from === node.id).map((e) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            definition.edges.filter((e) => e.from === node.id).map((e) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Field,
               {
                 label: `\u8FDE\u63A5\u81F3 ${definition.nodes.find((n) => n.id === e.to)?.name}`,
-                children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+                children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
                   "select",
                   {
                     value: e.on ?? "success",
@@ -11071,10 +11578,10 @@ function apply(ctx) {
                       )
                     }),
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "success", children: "\u6210\u529F" }),
-                      node.kind === "condition" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "true", children: "\u662F" }),
-                        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "false", children: "\u5426" })
+                      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "success", children: "\u6210\u529F" }),
+                      node.kind === "condition" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "true", children: "\u662F" }),
+                        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "false", children: "\u5426" })
                       ] })
                     ]
                   }
@@ -11083,15 +11590,15 @@ function apply(ctx) {
               e.to
             ))
           ] })
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-panel-empty", children: "\u672A\u9009\u62E9\u6B65\u9AA4" }),
-        error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-error", role: "alert", children: error })
+        ] }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-panel-empty", children: "\u672A\u9009\u62E9\u6B65\u9AA4" }),
+        error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-error", role: "alert", children: error })
       ] })
     ] }) });
   }
   function Runs({ id: id2 }) {
     const data = useData();
-    const [detail, setDetail] = (0, import_react6.useState)(null);
-    const [error, setError] = (0, import_react6.useState)("");
+    const [detail, setDetail] = (0, import_react9.useState)(null);
+    const [error, setError] = (0, import_react9.useState)("");
     const action = async (args) => {
       try {
         await api(args);
@@ -11102,31 +11609,31 @@ function apply(ctx) {
         setError(e.message);
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-scroll", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("table", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u8FD0\u884C" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u7248\u672C" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u72B6\u6001" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u65F6\u95F4" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u64CD\u4F5C" })
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-scroll", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("table", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u8FD0\u884C" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u7248\u672C" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u72B6\u6001" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u65F6\u95F4" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u64CD\u4F5C" })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("tbody", { children: data.runs.filter((r) => r.workflowId === id2).map((r) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("tbody", { children: data.runs.filter((r) => r.workflowId === id2).map((r) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "button",
             {
               onClick: async () => setDetail(await api({ action: "runRead", id: r.id })),
               children: r.id.slice(0, 18)
             }
           ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
             "v",
             r.revision
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: `wf-status ${r.status}`, children: statuses[r.status] ?? r.status }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: timestamp(r.createdAt) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `wf-status ${r.status}`, children: statuses[r.status] ?? r.status }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: timestamp(r.createdAt) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: "\u6253\u5F00\u8FD0\u884C\u4F1A\u8BDD",
@@ -11138,8 +11645,8 @@ function apply(ctx) {
                 }
               }
             ),
-            r.status === "running" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            r.status === "running" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 Icon2,
                 {
                   label: "\u6682\u505C\u8FD0\u884C",
@@ -11147,7 +11654,7 @@ function apply(ctx) {
                   onClick: () => action({ action: "pause", id: r.id })
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 Icon2,
                 {
                   label: "\u53D6\u6D88\u8FD0\u884C",
@@ -11161,7 +11668,7 @@ function apply(ctx) {
               "needs_attention",
               "waiting_approval",
               "cancelled"
-            ].includes(r.status) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            ].includes(r.status) && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: "\u6062\u590D\u8FD0\u884C",
@@ -11172,15 +11679,15 @@ function apply(ctx) {
           ] })
         ] }, r.id)) })
       ] }),
-      !data.runs.some((r) => r.workflowId === id2) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-muted", children: "\u6682\u65E0\u8FD0\u884C\u8BB0\u5F55" }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { role: "alert", className: "wf-error", children: error }),
-      detail && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Modal, { title: "\u8FD0\u884C\u8BE6\u60C5", close: () => setDetail(null), children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-modal-body", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { children: [
+      !data.runs.some((r) => r.workflowId === id2) && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-muted", children: "\u6682\u65E0\u8FD0\u884C\u8BB0\u5F55" }),
+      error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { role: "alert", className: "wf-error", children: error }),
+      detail && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Modal, { title: "\u8FD0\u884C\u8BE6\u60C5", close: () => setDetail(null), children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-modal-body", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { children: [
           statuses[detail.run.status],
           " \xB7 v",
           detail.run.revision
         ] }),
-        detail.run.error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-error", children: detail.run.error }),
+        detail.run.error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-error", children: detail.run.error }),
         (() => {
           const entry = Object.entries(detail.run.nodes ?? {}).find(
             ([, n]) => n.status === "waiting_input"
@@ -11188,17 +11695,17 @@ function apply(ctx) {
           if (detail.run.status !== "waiting_input" || !entry) return null;
           const [nodeId, state] = entry;
           const info = state.interaction ?? {};
-          return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-interaction", "data-wf-interaction": nodeId, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: info.phase === "confirm" ? "\u7B49\u5F85\u4F60\u786E\u8BA4\u7406\u89E3" : "\u7B49\u5F85\u4F60\u7684\u56DE\u7B54" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: info.question }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("small", { children: [
+          return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-interaction", "data-wf-interaction": nodeId, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: info.phase === "confirm" ? "\u7B49\u5F85\u4F60\u786E\u8BA4\u7406\u89E3" : "\u7B49\u5F85\u4F60\u7684\u56DE\u7B54" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: info.question }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("small", { children: [
               "\u7B2C ",
               info.turns ?? 0,
               " / ",
               info.maxTurns ?? 1,
               " \u8F6E \xB7 \u5728\u8FD0\u884C\u4F1A\u8BDD\u91CC\u56DE\u7B54\uFF0C\u6216\u5728\u8FD9\u91CC\u8DF3\u8FC7\u53BB\u56DE\u590D"
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
               "button",
               {
                 className: "wf-primary",
@@ -11208,15 +11715,15 @@ function apply(ctx) {
                   ctx.layout.selectPanel(null);
                 },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(MessageSquare, { size: 16 }),
+                  /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(MessageSquare, { size: 16 }),
                   "\u53BB\u5BF9\u8BDD\u56DE\u7B54"
                 ]
               }
             )
           ] });
         })(),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("pre", { children: pretty(detail.run.nodes) }),
-        detail.artifacts.map((a) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(RunTimeline, { ctx, api, runId: detail.run.id, openSession, onChange: refresh }),
+        detail.artifacts.map((a) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             onClick: async () => {
@@ -11231,7 +11738,7 @@ function apply(ctx) {
               );
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Download, { size: 16 }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Download, { size: 16 }),
               a.name
             ]
           },
@@ -11243,9 +11750,9 @@ function apply(ctx) {
           "needs_attention",
           "waiting_approval",
           "cancelled"
-        ].includes(detail.run.status) && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: "\u6062\u590D\u5C06\u4FDD\u7559\u5DF2\u5B8C\u6210\u8282\u70B9\uFF0C\u5E76\u91CD\u65B0\u6267\u884C\u672A\u5B8C\u6210\u8282\u70B9\u3002\u6D89\u53CA\u5199\u5165\u7684\u6B65\u9AA4\u9700\u8981\u6838\u5BF9\u5916\u90E8\u6267\u884C\u7ED3\u679C\u3002" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        ].includes(detail.run.status) && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: "\u6062\u590D\u5C06\u4FDD\u7559\u5DF2\u5B8C\u6210\u8282\u70B9\uFF0C\u5E76\u91CD\u65B0\u6267\u884C\u672A\u5B8C\u6210\u8282\u70B9\u3002\u6D89\u53CA\u5199\u5165\u7684\u6B65\u9AA4\u9700\u8981\u6838\u5BF9\u5916\u90E8\u6267\u884C\u7ED3\u679C\u3002" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
             "button",
             {
               className: "wf-primary",
@@ -11257,24 +11764,24 @@ function apply(ctx) {
                 background: true
               }),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Play, { size: 16 }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Play, { size: 16 }),
                 "\u786E\u8BA4\u5E76\u6062\u590D"
               ]
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("details", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("summary", { children: "\u4E8B\u4EF6\u8BB0\u5F55" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("pre", { children: pretty(detail.events) })
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("details", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("summary", { children: "\u4E8B\u4EF6\u8BB0\u5F55" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("pre", { children: pretty2(detail.events) })
         ] })
       ] }) })
     ] });
   }
   function Schedules({ record, caps }) {
     const data = useData();
-    const [plan, setPlan] = (0, import_react6.useState)(null);
-    const [preview, setPreview] = (0, import_react6.useState)([]);
-    const [error, setError] = (0, import_react6.useState)("");
+    const [plan, setPlan] = (0, import_react9.useState)(null);
+    const [preview, setPreview] = (0, import_react9.useState)([]);
+    const [error, setError] = (0, import_react9.useState)("");
     const perform = async (fn) => {
       try {
         await fn();
@@ -11285,11 +11792,11 @@ function apply(ctx) {
       }
     };
     const update = (patch) => setPlan((p) => ({ ...p, ...patch }));
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-scroll", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-toolbar", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { children: "\u5B9A\u65F6\u4EFB\u52A1" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-spacer" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-scroll", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-toolbar", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { children: "\u5B9A\u65F6\u4EFB\u52A1" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-spacer" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             onClick: () => setPlan({
@@ -11307,33 +11814,33 @@ function apply(ctx) {
               tools: []
             }),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Plus, { size: 16 }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Plus, { size: 16 }),
               "\u6DFB\u52A0\u5B9A\u65F6\u4EFB\u52A1"
             ]
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("table", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u65F6\u95F4" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u4E0B\u6B21\u6267\u884C" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u7248\u672C" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u72B6\u6001" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u64CD\u4F5C" })
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("table", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u65F6\u95F4" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u4E0B\u6B21\u6267\u884C" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u7248\u672C" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u72B6\u6001" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u64CD\u4F5C" })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("tbody", { children: data.schedules.filter((p) => p.workflowId === record.id).map((p) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("tbody", { children: data.schedules.filter((p) => p.workflowId === record.id).map((p) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
             p.cron ?? p.at ?? `${p.seconds}s`,
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("small", { children: p.timezone })
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("small", { children: p.timezone })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: timestamp(p.nextAt) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: timestamp(p.nextAt) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
             "v",
             p.workflowRevision
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: p.enabled ? "\u542F\u7528" : "\u505C\u7528" }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: p.enabled ? "\u542F\u7528" : "\u505C\u7528" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: "\u7F16\u8F91\u5B9A\u65F6\u4EFB\u52A1",
@@ -11341,7 +11848,7 @@ function apply(ctx) {
                 onClick: () => setPlan(p)
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               Icon2,
               {
                 label: "\u5220\u9664\u5B9A\u65F6\u4EFB\u52A1",
@@ -11354,43 +11861,43 @@ function apply(ctx) {
           ] })
         ] }, p.id)) })
       ] }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { role: "alert", className: "wf-error", children: error }),
-      plan && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Modal, { title: "\u5B9A\u65F6\u4EFB\u52A1", close: () => setPlan(null), children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-modal-body", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u7C7B\u578B", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+      error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { role: "alert", className: "wf-error", children: error }),
+      plan && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Modal, { title: "\u5B9A\u65F6\u4EFB\u52A1", close: () => setPlan(null), children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-modal-body", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u7C7B\u578B", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "select",
           {
             value: plan.kind,
             onChange: (e) => update({ kind: e.target.value }),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "cron", children: "\u56FA\u5B9A\u65E5\u7A0B" }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "once", children: "\u5355\u6B21" }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "interval", children: "\u56FA\u5B9A\u95F4\u9694" })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "cron", children: "\u56FA\u5B9A\u65E5\u7A0B" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "once", children: "\u5355\u6B21" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "interval", children: "\u56FA\u5B9A\u95F4\u9694" })
             ]
           }
         ) }),
-        plan.kind === "cron" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "Cron", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        plan.kind === "cron" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "Cron", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "input",
             {
               value: plan.cron ?? "",
               onChange: (e) => update({ cron: e.target.value })
             }
           ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u65F6\u533A", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u65F6\u533A", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "input",
             {
               value: plan.timezone ?? "",
               onChange: (e) => update({ timezone: e.target.value })
             }
           ) })
-        ] }) : plan.kind === "once" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u6267\u884C\u65F6\u95F4\uFF08\u542B\u65F6\u533A\uFF09", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        ] }) : plan.kind === "once" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u6267\u884C\u65F6\u95F4\uFF08\u542B\u65F6\u533A\uFF09", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             value: plan.at ?? "",
             placeholder: "2026-09-14T09:00:00+08:00",
             onChange: (e) => update({ at: e.target.value })
           }
-        ) }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u95F4\u9694\uFF08\u79D2\uFF09", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        ) }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u95F4\u9694\uFF08\u79D2\uFF09", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             type: "number",
@@ -11399,14 +11906,14 @@ function apply(ctx) {
             onChange: (e) => update({ seconds: Number(e.target.value) })
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u5DE5\u4F5C\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5DE5\u4F5C\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             value: plan.cwd,
             onChange: (e) => update({ cwd: e.target.value })
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u56FA\u5B9A\u7248\u672C", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u56FA\u5B9A\u7248\u672C", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             type: "number",
@@ -11416,7 +11923,7 @@ function apply(ctx) {
             onChange: (e) => update({ workflowRevision: Number(e.target.value) })
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "Provider", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "Provider", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "select",
           {
             value: plan.rootRoute.provider,
@@ -11424,12 +11931,12 @@ function apply(ctx) {
               rootRoute: { provider: e.target.value, model: "" }
             }),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "", children: "\u9009\u62E9 Provider" }),
-              caps?.providers?.map((p) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: p.id, children: p.name }, p.id))
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "", children: "\u9009\u62E9 Provider" }),
+              caps?.providers?.map((p) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: p.id, children: p.name }, p.id))
             ]
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "Model", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "Model", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             value: plan.rootRoute.model,
@@ -11438,7 +11945,7 @@ function apply(ctx) {
             })
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "Effort", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "Effort", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             value: plan.rootRoute.reasoningEffort ?? "",
@@ -11450,7 +11957,7 @@ function apply(ctx) {
             })
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           JsonField,
           {
             label: "\u8F93\u5165",
@@ -11458,29 +11965,29 @@ function apply(ctx) {
             change: (input) => update({ input })
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u9519\u8FC7\u6267\u884C", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u9519\u8FC7\u6267\u884C", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "select",
           {
             value: plan.missed,
             onChange: (e) => update({ missed: e.target.value }),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "skip", children: "\u8DF3\u8FC7" }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "latest", children: "\u8865\u6267\u884C\u6700\u8FD1\u4E00\u6B21" })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "skip", children: "\u8DF3\u8FC7" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "latest", children: "\u8865\u6267\u884C\u6700\u8FD1\u4E00\u6B21" })
             ]
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u8FD0\u884C\u91CD\u53E0", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u8FD0\u884C\u91CD\u53E0", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "select",
           {
             value: plan.overlap,
             onChange: (e) => update({ overlap: e.target.value }),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "skip", children: "\u8DF3\u8FC7" }),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "latest", children: "\u6392\u961F\u6700\u8FD1\u4E00\u6B21" })
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "skip", children: "\u8DF3\u8FC7" }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "latest", children: "\u6392\u961F\u6700\u8FD1\u4E00\u6B21" })
             ]
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Field, { label: "\u5141\u8BB8\u7684\u5DE5\u5177", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Field, { label: "\u5141\u8BB8\u7684\u5DE5\u5177", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             value: (plan.tools ?? []).join(", "),
@@ -11489,8 +11996,8 @@ function apply(ctx) {
             })
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("label", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "input",
             {
               type: "checkbox",
@@ -11500,24 +12007,24 @@ function apply(ctx) {
           ),
           "\u542F\u7528"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "wf-muted", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("p", { className: "wf-muted", children: [
           "Host \u5728\u7EBF\u65F6\u6267\u884C \xB7 ",
           plan.timezone
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             onClick: () => perform(
               async () => setPreview(await api({ action: "schedulePreview", plan }))
             ),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Clock, { size: 16 }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Clock, { size: 16 }),
               "\u9884\u89C8\u6267\u884C\u65F6\u95F4"
             ]
           }
         ),
-        preview.map((at) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: timestamp(at) }, at)),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        preview.map((at) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: timestamp(at) }, at)),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             className: "wf-primary",
@@ -11530,12 +12037,12 @@ function apply(ctx) {
               setPlan(null);
             }),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Save, { size: 16 }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Save, { size: 16 }),
               "\u4FDD\u5B58\u5B9A\u65F6\u4EFB\u52A1"
             ]
           }
         ),
-        error && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { role: "alert", className: "wf-error", children: error })
+        error && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { role: "alert", className: "wf-error", children: error })
       ] }) })
     ] });
   }
@@ -11543,29 +12050,29 @@ function apply(ctx) {
     const selected2 = usePanel();
     const data = useData();
     const header = useHeaderDraft();
-    const [record, setRecord] = (0, import_react6.useState)(null);
-    const [caps, setCaps] = (0, import_react6.useState)(null);
-    const [error, setError] = (0, import_react6.useState)("");
-    const [trial, setTrial] = (0, import_react6.useState)(false);
-    const [input, setInput] = (0, import_react6.useState)({ text: "" });
-    const [versions, setVersions] = (0, import_react6.useState)([]);
-    const [archived, setArchived] = (0, import_react6.useState)(false);
-    const [moreOpen, setMoreOpen] = (0, import_react6.useState)(false);
+    const [record, setRecord] = (0, import_react9.useState)(null);
+    const [caps, setCaps] = (0, import_react9.useState)(null);
+    const [error, setError] = (0, import_react9.useState)("");
+    const [trial, setTrial] = (0, import_react9.useState)(false);
+    const [input, setInput] = (0, import_react9.useState)({ text: "" });
+    const [versions, setVersions] = (0, import_react9.useState)([]);
+    const [archived, setArchived] = (0, import_react9.useState)(false);
+    const [moreOpen, setMoreOpen] = (0, import_react9.useState)(false);
     const load = async () => {
       if (selected2.id)
         setRecord(await api({ action: "read", id: selected2.id }));
     };
     const revision = data.workflows.find((w) => w.id === selected2.id)?.revision;
-    (0, import_react6.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       setRecord(null);
       setError("");
       load().catch((e) => setError(e.message));
       api({ action: "capabilities", sessionId: current() }).then(setCaps).catch((e) => setError(e.message));
     }, [selected2.id]);
-    (0, import_react6.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       if (selected2.id) load().catch((e) => setError(e.message));
     }, [revision]);
-    (0, import_react6.useEffect)(() => {
+    (0, import_react9.useEffect)(() => {
       if (selected2.tab === "versions" && selected2.id)
         api({ action: "versions", id: selected2.id }).then(setVersions).catch((e) => setError(e.message));
     }, [selected2]);
@@ -11590,9 +12097,9 @@ function apply(ctx) {
         });
       await load();
     });
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("main", { className: "wf wf-main", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("header", { className: "wf-appbar", children: record ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("main", { className: "wf wf-main", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("header", { className: "wf-appbar", children: record ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           Icon2,
           {
             label: "\u8FD4\u56DE\u5DE5\u4F5C\u6D41\u5217\u8868",
@@ -11600,7 +12107,7 @@ function apply(ctx) {
             onClick: () => openEditor(null)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "span",
           {
             className: `wf-workflow-icon wf-icon-${record.icon ?? "workflow"}`,
@@ -11608,7 +12115,7 @@ function apply(ctx) {
             children: glyphFor(record.icon, 15)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "input",
           {
             className: "wf-appbar-name",
@@ -11618,17 +12125,17 @@ function apply(ctx) {
             onChange: (e) => draft?.rename?.(e.target.value)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "span",
           {
             className: `wf-chip ${record.published === record.revision ? "is-published" : ""}`,
             children: record.published === record.revision ? `\u5DF2\u53D1\u5E03 v${record.revision}` : `\u8349\u7A3F v${record.revision}`
           }
         ),
-        section === "editor" && draft && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: `wf-chip ${draft.dirty ? "is-dirty" : ""}`, children: draft.dirty ? "\u672A\u4FDD\u5B58" : "\u5DF2\u4FDD\u5B58" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-spacer" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-segmented", role: "tablist", "aria-label": "\u5DE5\u4F5C\u6D41\u89C6\u56FE", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        section === "editor" && draft && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `wf-chip ${draft.dirty ? "is-dirty" : ""}`, children: draft.dirty ? "\u672A\u4FDD\u5B58" : "\u5DF2\u4FDD\u5B58" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-spacer" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-segmented", role: "tablist", "aria-label": "\u5DE5\u4F5C\u6D41\u89C6\u56FE", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "button",
             {
               role: "tab",
@@ -11637,7 +12144,7 @@ function apply(ctx) {
               children: "\u7F16\u8F91\u5668"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "button",
             {
               role: "tab",
@@ -11647,16 +12154,16 @@ function apply(ctx) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { onClick: () => perform(() => bind(record, void 0, "author")), children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(MessageSquare, { size: 16 }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { onClick: () => perform(() => bind(record, void 0, "author")), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(MessageSquare, { size: 16 }),
           "\u5BF9\u8BDD\u4FEE\u6539"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { onClick: () => setTrial(true), children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Play, { size: 16 }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { onClick: () => setTrial(true), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Play, { size: 16 }),
           "\u8BD5\u8FD0\u884C"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Icon2, { label: "\u4FDD\u5B58\u7248\u672C", icon: Save, onClick: () => void saveFromBar() }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Icon2, { label: "\u4FDD\u5B58\u7248\u672C", icon: Save, onClick: () => void saveFromBar() }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             className: "wf-primary",
@@ -11669,26 +12176,26 @@ function apply(ctx) {
               await load();
             }),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Check, { size: 16 }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Check, { size: 16 }),
               record.published === record.revision ? "\u5DF2\u53D1\u5E03" : "\u53D1\u5E03\u7248\u672C"
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          import_dsh_client_ui_primitives.Menu,
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          import_dsh_client_ui_primitives2.Menu,
           {
             open: moreOpen,
             onClose: () => setMoreOpen(false),
             items: [
-              { id: "export", label: "\u5BFC\u51FA\u5B9A\u4E49", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Download, { size: 16 }) },
-              { id: "copy", label: "\u62F7\u8D1D\u5DE5\u4F5C\u6D41", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Copy, { size: 16 }) },
-              { id: "archive", label: record.archived ? "\u6062\u590D\u5DE5\u4F5C\u6D41" : "\u5F52\u6863\u5DE5\u4F5C\u6D41", icon: record.archived ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Undo2, { size: 16 }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Archive, { size: 16 }) },
-              { id: "manage", label: "\u7BA1\u7406\u5DE5\u4F5C\u6D41", icon: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Settings2, { size: 16 }) }
+              { id: "export", label: "\u5BFC\u51FA\u5B9A\u4E49", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Download, { size: 16 }) },
+              { id: "copy", label: "\u62F7\u8D1D\u5DE5\u4F5C\u6D41", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Copy, { size: 16 }) },
+              { id: "archive", label: record.archived ? "\u6062\u590D\u5DE5\u4F5C\u6D41" : "\u5F52\u6863\u5DE5\u4F5C\u6D41", icon: record.archived ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Undo2, { size: 16 }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Archive, { size: 16 }) },
+              { id: "manage", label: "\u7BA1\u7406\u5DE5\u4F5C\u6D41", icon: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Settings2, { size: 16 }) }
             ],
             onSelect: (action) => {
               setMoreOpen(false);
               if (action === "export")
-                download(`${record.id}.json`, pretty(record.snapshot.definition));
+                download(`${record.id}.json`, pretty2(record.snapshot.definition));
               if (action === "copy")
                 void perform(async () => {
                   const created = await api({ action: "copy", id: record.id });
@@ -11701,25 +12208,25 @@ function apply(ctx) {
                 );
               if (action === "manage") openEditor(null);
             },
-            anchor: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            anchor: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
               "button",
               {
                 type: "button",
                 "aria-label": "\u66F4\u591A\u5DE5\u4F5C\u6D41\u64CD\u4F5C",
                 "aria-expanded": moreOpen,
                 onClick: () => setMoreOpen((v) => !v),
-                children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Ellipsis, { size: 16 })
+                children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Ellipsis, { size: 16 })
               }
             )
           }
         )
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-workflow-icon", "aria-hidden": "true", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(GitBranch, { size: 15 }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h1", { children: "\u5DE5\u4F5C\u6D41" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "wf-spacer" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { className: "wf-import", title: "\u5BFC\u5165\u5DE5\u4F5C\u6D41", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Upload, { size: 16 }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-workflow-icon", "aria-hidden": "true", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(GitBranch, { size: 15 }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { children: "\u5DE5\u4F5C\u6D41" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-spacer" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("label", { className: "wf-import", title: "\u5BFC\u5165\u5DE5\u4F5C\u6D41", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Upload, { size: 16 }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "input",
             {
               "aria-label": "\u5BFC\u5165\u5DE5\u4F5C\u6D41",
@@ -11740,20 +12247,20 @@ function apply(ctx) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             className: "wf-primary",
             onClick: () => perform(() => beginAuthorSession()),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Plus, { size: 16 }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Plus, { size: 16 }),
               "\u521B\u5EFA\u5DE5\u4F5C\u6D41"
             ]
           }
         )
       ] }) }),
-      (error || data.error) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "wf-error", role: "alert", children: error || data.error }),
-      record ? section === "editor" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      (error || data.error) && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "wf-error", role: "alert", children: error || data.error }),
+      record ? section === "editor" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
         Editor,
         {
           record,
@@ -11764,12 +12271,12 @@ function apply(ctx) {
             await refresh();
           }
         }
-      ) : /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("nav", { className: "wf-tabs", "aria-label": "\u5DE5\u4F5C\u6D41\u89C6\u56FE", children: [
+      ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("nav", { className: "wf-tabs", "aria-label": "\u5DE5\u4F5C\u6D41\u89C6\u56FE", children: [
           ["runs", "\u8FD0\u884C\u8BB0\u5F55"],
           ["schedules", "\u5B9A\u65F6\u4EFB\u52A1"],
           ["versions", "\u7248\u672C\u5386\u53F2"]
-        ].map(([tab, label]) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        ].map(([tab, label]) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "button",
           {
             "aria-current": selected2.tab === tab ? "page" : void 0,
@@ -11778,37 +12285,37 @@ function apply(ctx) {
           },
           tab
         )) }),
-        selected2.tab === "runs" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Runs, { id: record.id }),
+        selected2.tab === "runs" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Runs, { id: record.id }),
         " ",
-        selected2.tab === "schedules" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Schedules, { record, caps }),
+        selected2.tab === "schedules" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Schedules, { record, caps }),
         " ",
-        selected2.tab === "versions" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "wf-scroll", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("table", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u7248\u672C" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u540D\u79F0" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u65F6\u95F4" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { children: "\u64CD\u4F5C" })
+        selected2.tab === "versions" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-scroll", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("table", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u7248\u672C" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u540D\u79F0" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u65F6\u95F4" }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("th", { children: "\u64CD\u4F5C" })
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("tbody", { children: versions.map((v) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("tbody", { children: versions.map((v) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
               "v",
               v.revision
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: v.definition.name }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: timestamp(v.createdAt) }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("td", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: v.definition.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("td", { children: timestamp(v.createdAt) }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("td", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 Icon2,
                 {
                   label: `\u5BFC\u51FA v${v.revision}`,
                   icon: Download,
                   onClick: () => download(
                     `${record.id}-v${v.revision}.json`,
-                    pretty(v.definition)
+                    pretty2(v.definition)
                   )
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
                 "button",
                 {
                   onClick: () => perform(async () => {
@@ -11826,9 +12333,9 @@ function apply(ctx) {
             ] })
           ] }, v.revision)) })
         ] }) })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Gallery, { data, onError: setError }),
-      trial && record && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Modal, { title: "\u8BD5\u8FD0\u884C", close: () => setTrial(false), children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-modal-body", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Gallery, { data, onError: setError }),
+      trial && record && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Modal, { title: "\u8BD5\u8FD0\u884C", close: () => setTrial(false), children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-modal-body", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           JsonField,
           {
             label: "\u8F93\u5165\u6750\u6599",
@@ -11837,7 +12344,7 @@ function apply(ctx) {
             rows: 12
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
           "button",
           {
             className: "wf-primary",
@@ -11862,7 +12369,7 @@ function apply(ctx) {
               openEditor(record.id, "runs");
             }),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Play, { size: 16 }),
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Play, { size: 16 }),
               "\u6267\u884C v",
               record.revision
             ]
@@ -11875,6 +12382,8 @@ function apply(ctx) {
     const data = useData();
     const binding = data.bindings.find((item) => item.sessionId === sessionId);
     const creating = (data.authoring ?? []).some((item) => item.sessionId === sessionId);
+    const step = data.stepSessions?.find((item) => item.sessionId === sessionId);
+    if (step) return null;
     if (!binding && !creating) return null;
     const workflow = binding ? data.workflows.find((w) => w.id === binding.workflowId) : void 0;
     const authoring = creating || binding?.mode === "author";
@@ -11883,9 +12392,12 @@ function apply(ctx) {
         item.status
       )
     );
+    const latest = data.runs.find((r) => r.sessionId === sessionId);
+    const recipients = (data.stepSessions ?? []).filter((s) => s.runId === latest?.id);
+    if (!authoring) return null;
     const name2 = workflow?.name ?? "\u65B0\u5DE5\u4F5C\u6D41";
     const label = authoring ? creating ? "\u6B63\u5728\u521B\u5EFA\u5DE5\u4F5C\u6D41" : "\u6B63\u5728\u4FEE\u6539\u5DE5\u4F5C\u6D41" : "\u5DE5\u4F5C\u6D41\u8FD0\u884C\u4F1A\u8BDD";
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
       "span",
       {
         className: "wf-composer-tag",
@@ -11893,7 +12405,7 @@ function apply(ctx) {
         "data-workflow-tag": binding?.workflowId ?? "new",
         title: `${label} \xB7 ${name2}`,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
             "button",
             {
               type: "button",
@@ -11901,17 +12413,31 @@ function apply(ctx) {
               "aria-label": `${label}\uFF1A${name2}`,
               onClick: () => openEditor(binding?.workflowId ?? null),
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Workflow, { size: 13, "aria-hidden": "true" }),
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: name2 }),
-                binding && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("small", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Workflow, { size: 13, "aria-hidden": "true" }),
+                /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: name2 }),
+                binding && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("small", { children: [
                   "v",
                   binding.revision
                 ] })
               ]
             }
           ),
-          active && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: `wf-status ${active.status}`, children: statuses[active.status] ?? active.status }),
-          binding && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          !authoring && recipients.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("select", { "aria-label": "\u6B65\u9AA4\u6D88\u606F\u63A5\u6536\u8005", className: "wf-recipient", value: binding?.recipient ?? "", onChange: async (e) => {
+            await api({ action: "setRecipient", sessionId, recipient: e.target.value });
+            await refresh();
+          }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: "", children: "\u5F53\u524D\u6B65\u9AA4" }),
+            recipients.map((r) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("option", { value: r.sessionId, children: r.name }, r.sessionId))
+          ] }),
+          !authoring && binding && !active && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("label", { className: "wf-debug-toggle", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("input", { type: "checkbox", checked: Boolean(binding.debug), onChange: async (e) => {
+              await api({ action: "setDebug", sessionId, debug: e.target.checked });
+              await refresh();
+            } }),
+            "\u9010\u6B65\u8C03\u8BD5"
+          ] }),
+          active && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `wf-status ${active.status}`, children: statuses[active.status] ?? active.status }),
+          binding && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
             "button",
             {
               type: "button",
@@ -11919,7 +12445,7 @@ function apply(ctx) {
               "aria-label": "\u7ED3\u675F\u7ED1\u5B9A",
               title: "\u7ED3\u675F\u7ED1\u5B9A",
               onClick: () => void unbind(sessionId),
-              children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(X, { size: 12, "aria-hidden": "true" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(X, { size: 12, "aria-hidden": "true" })
             }
           )
         ]
@@ -11937,6 +12463,47 @@ function apply(ctx) {
     "main",
     () => ctx.slots.register({ name: "main", key: "workflow-studio" }, Panel2)
   );
+  ctx.slots.inject("conversation.session", () => {
+    const native = ctx.slots.entriesOfSlot("conversation.session")[0];
+    if (!native?.component) return;
+    const Native = native.component;
+    const Wrapped = (props) => {
+      const data = useData();
+      const run = data.runs.find((r) => r.sessionId === props.sessionId);
+      const view = props.useStore((s) => s.view);
+      const step = data.stepSessions?.find((s) => s.sessionId === props.sessionId);
+      if (step) return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(RunTimeline, { ctx, api, runId: step.runId, focusNodeId: step.nodeId, openSession, onChange: refresh, embedded: true, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Native, { ...props }) });
+      if (!run) {
+        const binding = data.bindings.find((b) => b.sessionId === props.sessionId && b.mode !== "author");
+        if (binding) return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf wf-timeline", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { className: "wf-run-header", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: data.workflows.find((w) => w.id === binding.workflowId)?.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("label", { className: "wf-debug-toggle", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("input", { type: "checkbox", checked: Boolean(binding.debug), onChange: async (e) => {
+                await api({ action: "setDebug", sessionId: props.sessionId, debug: e.target.checked });
+                await refresh();
+              } }),
+              "\u9010\u6B65\u8C03\u8BD5"
+            ] })
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Native, { ...props })
+        ] });
+        return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Native, { ...props });
+      }
+      if (view === "trajectory") return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Native, { ...props });
+      return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(RunTimeline, { ctx, api, runId: run.id, openSession, onChange: refresh, embedded: true }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("details", { className: "wf-root-conversation", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("summary", { children: "\u603B\u4F1A\u8BDD\u4EA4\u6D41" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Native, { ...props })
+        ] })
+      ] });
+    };
+    native.component = Wrapped;
+    return () => {
+      if (native.component === Wrapped) native.component = Native;
+    };
+  });
   ctx.slots.inject(
     "conversation.input.left",
     () => ctx.slots.register(
@@ -11967,17 +12534,17 @@ function apply(ctx) {
     const subscribers = /* @__PURE__ */ new Set();
     const Wrapped = (props) => {
       sidebarWide = props.wide;
-      const visible = (0, import_react6.useSyncExternalStore)(
+      const visible = (0, import_react9.useSyncExternalStore)(
         (fn) => {
           subscribers.add(fn);
           return () => subscribers.delete(fn);
         },
         () => enabled
       );
-      return visible ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "wf-workspace-wrapper", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Tree, { wide: props.wide, usePanelInfo: props.usePanelInfo }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Native, { ...props })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Native, { ...props });
+      return visible ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-workspace-wrapper", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Tree, { wide: props.wide, usePanelInfo: props.usePanelInfo }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Native, { ...props })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Native, { ...props });
     };
     native.component = Wrapped;
     return () => {
@@ -12042,6 +12609,7 @@ function apply(ctx) {
       if (!document.hidden) await refresh();
       if (!stopped) timer2 = setTimeout(poll, 2e3);
     };
+    void refresh();
     void poll();
     if (window.innerWidth < 700) {
       try {
@@ -12097,19 +12665,25 @@ lucide-react/dist/esm/createLucideIcon.js:
 lucide-react/dist/esm/icons/archive.js:
 lucide-react/dist/esm/icons/arrow-left.js:
 lucide-react/dist/esm/icons/book-open.js:
+lucide-react/dist/esm/icons/check-check.js:
 lucide-react/dist/esm/icons/check.js:
+lucide-react/dist/esm/icons/chevron-down.js:
+lucide-react/dist/esm/icons/chevron-right.js:
 lucide-react/dist/esm/icons/clipboard-paste.js:
 lucide-react/dist/esm/icons/clock.js:
 lucide-react/dist/esm/icons/code.js:
 lucide-react/dist/esm/icons/copy.js:
 lucide-react/dist/esm/icons/download.js:
 lucide-react/dist/esm/icons/ellipsis.js:
+lucide-react/dist/esm/icons/external-link.js:
 lucide-react/dist/esm/icons/file-text.js:
 lucide-react/dist/esm/icons/git-branch.js:
 lucide-react/dist/esm/icons/layout-grid.js:
 lucide-react/dist/esm/icons/list.js:
+lucide-react/dist/esm/icons/loader-circle.js:
 lucide-react/dist/esm/icons/message-square.js:
 lucide-react/dist/esm/icons/panels-top-left.js:
+lucide-react/dist/esm/icons/paperclip.js:
 lucide-react/dist/esm/icons/pause.js:
 lucide-react/dist/esm/icons/pencil.js:
 lucide-react/dist/esm/icons/play.js:
@@ -12119,8 +12693,10 @@ lucide-react/dist/esm/icons/save.js:
 lucide-react/dist/esm/icons/search.js:
 lucide-react/dist/esm/icons/send.js:
 lucide-react/dist/esm/icons/settings-2.js:
+lucide-react/dist/esm/icons/skip-forward.js:
 lucide-react/dist/esm/icons/sparkles.js:
 lucide-react/dist/esm/icons/square.js:
+lucide-react/dist/esm/icons/step-forward.js:
 lucide-react/dist/esm/icons/text-cursor-input.js:
 lucide-react/dist/esm/icons/trash-2.js:
 lucide-react/dist/esm/icons/undo-2.js:
