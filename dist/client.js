@@ -10896,6 +10896,23 @@ function apply(ctx) {
       ] })
     ] });
   }
+  const nodeTypes = {
+    workflowNode: ({ data: view, selected: active }) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: `wf-node-card wf-step-${view.kind} ${active ? "is-selected" : ""}`, children: [
+      view.kind !== "input" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Handle, { type: "target", position: Position.Left }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-step-heading", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-glyph", children: glyphFor(view.kind, 14) }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: view.title }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("em", { children: labels[view.kind] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-step-body", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: view.summary }),
+        view.references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-step-references", children: view.references.map((ref, i) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `wf-inline-reference wf-step-${ref.kind}`, children: ref.name }, `${ref.id}-${i}`)) }),
+        view.kind === "agent" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-model", children: view.model }),
+        view.kind === "interact" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-model", children: view.mode })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Handle, { type: "source", position: Position.Right })
+    ] })
+  };
   function Editor({ record, caps, save }) {
     const data = useData();
     const draftKey = `${record.id}:${record.revision}`;
@@ -11034,23 +11051,6 @@ function apply(ctx) {
       label: e.on === "true" ? "\u662F" : e.on === "false" ? "\u5426" : void 0,
       className: e.on === "false" ? "wf-edge-dashed" : void 0
     }));
-    const nodeTypes = {
-      workflowNode: ({ data: view, selected: active }) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: `wf-node-card wf-step-${view.kind} ${active ? "is-selected" : ""}`, children: [
-        view.kind !== "input" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Handle, { type: "target", position: Position.Left }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-step-heading", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-glyph", children: glyphFor(view.kind, 14) }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: view.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("em", { children: labels[view.kind] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "wf-step-body", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { children: view.summary }),
-          view.references.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "wf-step-references", children: view.references.map((ref, i) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: `wf-inline-reference wf-step-${ref.kind}`, children: ref.name }, `${ref.id}-${i}`)) }),
-          view.kind === "agent" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-model", children: view.model }),
-          view.kind === "interact" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "wf-step-model", children: view.mode })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Handle, { type: "source", position: Position.Right })
-      ] })
-    };
     const latestRun = data.runs.find((item) => item.workflowId === record.id);
     (0, import_react9.useEffect)(() => {
       let live = true;
