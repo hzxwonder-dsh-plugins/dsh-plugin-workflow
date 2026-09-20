@@ -10090,8 +10090,8 @@ var style_default4 = `/* Workflow Studio surfaces.
   background: var(--wf-surface-strong);
 }
 .wf-segmented button {
-  min-height: 26px;
-  padding: 3px 14px;
+  min-height: 32px;
+  padding: 5px 14px;
   border: 0;
   border-radius: 999px;
   background: transparent;
@@ -10224,8 +10224,8 @@ var style_default4 = `/* Workflow Studio surfaces.
   color: var(--wf-muted);
   font-size: 12px;
 }
-.wf-check { display: inline-flex; align-items: center; gap: 6px; }
-.wf-check input { width: auto; }
+.wf-check { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; }
+.wf-check input { width: 16px; height: 16px; }
 .wf-gallery-empty {
   display: flex;
   flex-direction: column;
