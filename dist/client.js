@@ -942,7 +942,7 @@ function createGallery({ ctx, api, refresh, openSession, openEditor, bind, begin
                   children: glyphFor2(w.icon ?? "workflow", 15)
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "wf-card-title", children: w.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "wf-card-title", title: w.name, children: w.name }),
               /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
                 "span",
                 {
@@ -953,7 +953,7 @@ function createGallery({ ctx, api, refresh, openSession, openEditor, bind, begin
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "wf-card-desc", children: w.description || "\u8FD8\u6CA1\u6709\u63CF\u8FF0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "wf-card-desc", title: w.description || "\u8FD8\u6CA1\u6709\u63CF\u8FF0", children: w.description || "\u8FD8\u6CA1\u6709\u63CF\u8FF0" }),
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "wf-card-meta", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { children: [
           "\u6700\u8FD1\u4FEE\u6539 ",
           timestamp2(w.updatedAt)
@@ -1019,8 +1019,16 @@ function createGallery({ ctx, api, refresh, openSession, openEditor, bind, begin
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("tbody", { children: rows.map((w) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_react4.default.Fragment, { children: [
           /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("tr", { "data-workflow-row": w.id, children: [
             /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("td", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { className: "wf-link", onClick: () => openEditor(w.id), children: w.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("small", { children: w.description })
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                "button",
+                {
+                  className: "wf-link wf-list-title",
+                  title: w.name,
+                  onClick: () => openEditor(w.id),
+                  children: w.name
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("small", { className: "wf-list-desc", title: w.description, children: w.description })
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("td", { children: w.published ? `\u5DF2\u53D1\u5E03 v${w.published}` : `\u8349\u7A3F v${w.revision}` }),
             /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
@@ -10080,8 +10088,17 @@ var style_default4 = `/* Workflow Studio surfaces.
   font-weight: 600;
   white-space: nowrap;
 }
-.wf-chip.is-published { background: color-mix(in srgb, #2f9e6b 16%, transparent); color: #1d7d52; }
-.wf-chip.is-dirty { background: color-mix(in srgb, #d98324 18%, transparent); color: #9a5a13; }
+/* Status colors come from the host's state tokens, so a published or edited chip
+   keeps its meaning and its contrast when the theme flips; the literals are only
+   the fallback for a host that does not define them. */
+.wf-chip.is-published {
+  background: color-mix(in srgb, var(--dsw-alias-state-success-primary, #2f9e6b) 16%, transparent);
+  color: var(--dsw-alias-state-success-tertiary, var(--dsw-alias-state-success-primary, #1d7d52));
+}
+.wf-chip.is-dirty {
+  background: color-mix(in srgb, var(--dsw-alias-state-warn-primary, #d98324) 18%, transparent);
+  color: var(--dsw-alias-state-warn-label, var(--dsw-alias-state-warn-primary, #9a5a13));
+}
 .wf-segmented {
   display: inline-flex;
   gap: 2px;
@@ -10906,8 +10923,37 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 .wf-error-bar > button { flex: none; min-height: 26px; }
 .wf-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
 .wf-card { padding: 20px; gap: 12px; box-shadow: none; border-radius: 12px; }
-.wf-card-title { font-size: 15px; white-space: normal; overflow-wrap: anywhere; line-height: 1.45; }
-.wf-card-desc { min-height: 42px; font-size: 13px; line-height: 1.65; }
+/* A name or description of any length is clamped to a fixed number of lines, so one
+   long record cannot size the grid and push every other card out of view. The full
+   text stays available through the element's title attribute. */
+.wf-card-title {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.wf-card-desc {
+  display: -webkit-box;
+  min-height: 42px;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.wf-list-title,
+.wf-list-desc {
+  display: block;
+  max-width: 42ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .wf-card-meta { font-size: 12px; }
 .wf-card-actions { gap: 8px; padding-block: 4px; }
 .wf-card-actions > button { min-height: 34px; }

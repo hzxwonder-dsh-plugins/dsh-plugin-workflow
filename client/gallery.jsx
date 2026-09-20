@@ -295,14 +295,16 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
                   >
                     {glyphFor(w.icon ?? "workflow", 15)}
                   </span>
-                  <span className="wf-card-title">{w.name}</span>
+                  <span className="wf-card-title" title={w.name}>{w.name}</span>
                   <span
                     className={`wf-chip ${w.published === w.revision ? "is-published" : ""}`}
                   >
                     {w.published ? `已发布 v${w.published}` : `草稿 v${w.revision}`}
                   </span>
                 </button>
-                <p className="wf-card-desc">{w.description || "还没有描述"}</p>
+                <p className="wf-card-desc" title={w.description || "还没有描述"}>
+                  {w.description || "还没有描述"}
+                </p>
                 <p className="wf-card-meta">
                   <span>最近修改 {timestamp(w.updatedAt)}</span>
                 </p>
@@ -365,10 +367,16 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
                 <React.Fragment key={w.id}>
                   <tr data-workflow-row={w.id}>
                     <td>
-                      <button className="wf-link" onClick={() => openEditor(w.id)}>
+                      <button
+                        className="wf-link wf-list-title"
+                        title={w.name}
+                        onClick={() => openEditor(w.id)}
+                      >
                         {w.name}
                       </button>
-                      <small>{w.description}</small>
+                      <small className="wf-list-desc" title={w.description}>
+                        {w.description}
+                      </small>
                     </td>
                     <td>
                       {w.published ? `已发布 v${w.published}` : `草稿 v${w.revision}`}
