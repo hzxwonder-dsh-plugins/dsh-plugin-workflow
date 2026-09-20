@@ -10919,7 +10919,7 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 .wf-error-bar { display: flex; align-items: center; gap: 10px; margin: 0 16px 8px; padding: 8px 10px; border: 1px solid color-mix(in srgb, var(--dsw-alias-state-error-primary, #b13e4a) 32%, var(--wf-line)); border-radius: 10px; background: color-mix(in srgb, var(--dsw-alias-state-error-primary, #b13e4a) 8%, transparent); }
 .wf-error-bar .wf-error { flex: 1 1 auto; min-width: 0; margin: 0; font-size: 12.5px; }
 .wf-error-bar > button { flex: none; min-height: 26px; }
-.wf-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 336px), 1fr)); gap: 16px; }
+.wf-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 292px), 336px)); gap: 14px; }
 .wf-card { padding: 20px; gap: 12px; box-shadow: none; border-radius: 12px; }
 /* A name or description of any length is clamped to a fixed number of lines, so one
    long record cannot size the grid and push every other card out of view. The full
@@ -10932,17 +10932,17 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
   overflow-wrap: anywhere;
   white-space: normal;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
 }
 .wf-card-desc {
   display: -webkit-box;
-  min-height: 42px;
+  min-height: 40px;
   overflow: hidden;
   font-size: 13px;
   line-height: 1.65;
   overflow-wrap: anywhere;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
 }
 .wf-list-title,
 .wf-list-desc {
@@ -10960,7 +10960,7 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
   gap: 6px;
   padding-block: 4px;
 }
-.wf-card-actions > button { min-width: 0; min-height: 34px; padding-inline: 9px; white-space: nowrap; }
+.wf-card-actions > button { min-width: 0; min-height: 34px; padding-inline: 8px; font-size: 12.5px; white-space: nowrap; }
 .wf-card-actions > button:not(.wf-primary) { border-color: transparent; background: transparent; }
 .wf-card-sessions { padding-top: 10px; }
 .wf-card-sessions > summary { padding: 6px 0; font-size: 13px; color: var(--wf-text); }
