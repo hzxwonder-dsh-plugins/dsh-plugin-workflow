@@ -251,13 +251,27 @@ export function apply(ctx) {
     snapshot = next;
     listeners.forEach((f) => f());
   };
+  // A run registers a conversation the host may not have listed yet, and the gallery
+  // shows a conversation only once the host knows the session. Whenever the state names
+  // a session the list does not hold, ask for the list again so the conversation a run
+  // just created becomes visible without reopening the panel.
+  const syncSessions = (data) => {
+    const known = ctx.sessions.list.getSnapshot().byId;
+    const referenced = new Set([
+      ...data.references.map((item) => item.sessionId),
+      ...data.bindings.map((item) => item.sessionId),
+      ...data.runs.map((item) => item.sessionId),
+      ...(data.stepSessions ?? []).map((item) => item.sessionId),
+    ]);
+    if ([...referenced].some((id) => id && !known[id])) void ctx.sessions.refresh();
+  };
   const refresh = () => {
     if (stopped) return Promise.resolve();
     if (refreshing) return refreshing;
     refreshing = api({ action: "state" }, AbortSignal.any([
       lifetime.signal, AbortSignal.timeout(15000),
     ]))
-      .then((data) => publish({ ...data, error: "" }))
+      .then((data) => { publish({ ...data, error: "" }); syncSessions(data); })
       .catch((e) => publish({ ...snapshot, error: e.message }))
       .finally(() => { refreshing = undefined; });
     return refreshing;

@@ -11894,13 +11894,26 @@ function apply(ctx) {
     snapshot = next;
     listeners.forEach((f) => f());
   };
+  const syncSessions = (data) => {
+    const known = ctx.sessions.list.getSnapshot().byId;
+    const referenced = /* @__PURE__ */ new Set([
+      ...data.references.map((item) => item.sessionId),
+      ...data.bindings.map((item) => item.sessionId),
+      ...data.runs.map((item) => item.sessionId),
+      ...(data.stepSessions ?? []).map((item) => item.sessionId)
+    ]);
+    if ([...referenced].some((id2) => id2 && !known[id2])) void ctx.sessions.refresh();
+  };
   const refresh = () => {
     if (stopped) return Promise.resolve();
     if (refreshing) return refreshing;
     refreshing = api({ action: "state" }, AbortSignal.any([
       lifetime.signal,
       AbortSignal.timeout(15e3)
-    ])).then((data) => publish({ ...data, error: "" })).catch((e) => publish({ ...snapshot, error: e.message })).finally(() => {
+    ])).then((data) => {
+      publish({ ...data, error: "" });
+      syncSessions(data);
+    }).catch((e) => publish({ ...snapshot, error: e.message })).finally(() => {
       refreshing = void 0;
     });
     return refreshing;
