@@ -1,0 +1,18 @@
+{
+  "paper": "https://arxiv.org/abs/2608.16157",
+  "provider": "china-models",
+  "model": "deepseek-flash",
+  "status": "completed",
+  "score": 91,
+  "rounds": 1,
+  "readerInputKeys": [
+    "article",
+    "questions"
+  ],
+  "readerToolCalls": 0,
+  "writerToolCalls": 0,
+  "articleCharacters": 21163,
+  "published": true,
+  "samePostId": true,
+  "images": 5
+}
