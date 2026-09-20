@@ -714,7 +714,7 @@ function createGallery({ ctx, api, refresh, openSession, openEditor, bind, begin
     };
     const rows = workflowHistory(data, sessions, ctx.workspaces.list.getSnapshot().archivedSessionIds, workflow.id);
     if (!rows.length)
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "wf-sessions-empty", children: "\u8FD8\u6CA1\u6709\u5386\u53F2\u5BF9\u8BDD\u3002\u70B9\u51FB\u300C\u8FD0\u884C\u300D\u5E76\u53D1\u9001\u6D88\u606F\u540E\uFF0C\u4F1A\u8BDD\u4F1A\u4FDD\u5B58\u5728\u8FD9\u91CC\u3002" });
+      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "wf-sessions-empty", children: "\u8FD8\u6CA1\u6709\u5386\u53F2\u5BF9\u8BDD" });
     return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "wf-sessions", children: rows.map((r) => {
       const title = sessions.byId[r.sessionId].displayTitle;
       const openMenu = menuSession === r.sessionId;
@@ -828,7 +828,6 @@ function createGallery({ ctx, api, refresh, openSession, openEditor, bind, begin
     const scopeLabel = archived ? "\u5DF2\u5F52\u6863\u7684\u5DE5\u4F5C\u6D41" : "\u5DE5\u4F5C\u6D41";
     const countText = empty2 ? trimmed ? "\u6CA1\u6709\u5339\u914D\u7684\u5DE5\u4F5C\u6D41" : archived ? "\u6CA1\u6709\u5DF2\u5F52\u6863\u7684\u5DE5\u4F5C\u6D41" : "\u8FD8\u6CA1\u6709\u5DE5\u4F5C\u6D41" : trimmed ? `\u5339\u914D ${rows.length} / ${data.workflows.filter((w) => w.archived === archived).length} \u4E2A` : `${rows.length} \u4E2A\u5DE5\u4F5C\u6D41`;
     return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "wf-scroll wf-gallery", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "wf-gallery-intro", children: "\u8FD0\u884C\u5DE5\u4F5C\u6D41\u5B8C\u6210\u4EFB\u52A1\uFF0C\u6216\u4ECE\u5386\u53F2\u5BF9\u8BDD\u7EE7\u7EED\u3002" }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "wf-gallery-bar", children: [
         /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("label", { className: "wf-gallery-search", children: [
           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Search, { size: 16, "aria-hidden": "true" }),
@@ -902,7 +901,7 @@ function createGallery({ ctx, api, refresh, openSession, openEditor, bind, begin
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Icon3, { label: "\u5173\u95ED\u63D0\u793A", icon: X, onClick: () => setFeedback(null) })
       ] }),
       empty2 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "wf-gallery-empty", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { children: trimmed ? `\u6CA1\u6709\u627E\u5230\u5339\u914D\u300C${trimmed}\u300D\u7684${scopeLabel}\u3002\u6362\u4E2A\u5173\u952E\u8BCD\uFF0C\u6216\u6E05\u9664\u641C\u7D22\u67E5\u770B\u5168\u90E8\u3002` : archived ? "\u5F52\u6863\u7684\u5DE5\u4F5C\u6D41\u4F1A\u51FA\u73B0\u5728\u8FD9\u91CC\u3002\u5F52\u6863\u4E0D\u4F1A\u5220\u9664\u5B9A\u4E49\u3001\u7248\u672C\u548C\u8FD0\u884C\u8BB0\u5F55\uFF0C\u968F\u65F6\u53EF\u4EE5\u6062\u590D\u3002" : "\u5DE5\u4F5C\u6D41\u628A\u4E00\u6BB5\u56FA\u5B9A\u7684\u505A\u6CD5\u53D8\u6210\u53EF\u590D\u7528\u7684\u6B65\u9AA4\uFF1A\u5148\u5728\u5BF9\u8BDD\u91CC\u63CF\u8FF0\u76EE\u6807\uFF0CAgent \u4F1A\u751F\u6210\u4E00\u4E2A\u521D\u6B65\u7248\u672C\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { children: trimmed ? `\u6CA1\u6709\u627E\u5230\u5339\u914D\u300C${trimmed}\u300D\u7684${scopeLabel}` : archived ? "\u8FD8\u6CA1\u6709\u5F52\u6863\u7684\u5DE5\u4F5C\u6D41" : "\u8FD8\u6CA1\u6709\u5DE5\u4F5C\u6D41" }),
         trimmed && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { onClick: () => setQuery(""), children: "\u6E05\u9664\u641C\u7D22" }),
         !archived && !trimmed && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
           "button",
@@ -10908,7 +10907,6 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 
 /* Shared hierarchy for browsing, editing and reading workflows. */
 .wf-gallery { padding: 24px 28px; }
-.wf-gallery-intro { margin: 0 0 20px; color: var(--wf-muted); font-size: 14px; }
 .wf-gallery-bar { flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
 .wf-gallery-search { display: flex; align-items: center; gap: 8px; flex: 0 1 280px; min-width: 180px; padding: 0 10px; border: 1px solid var(--wf-line); border-radius: 9px; background: var(--wf-surface); }
 .wf .wf-gallery-search input { border: 0; background: transparent; padding: 8px 0; }
@@ -10998,7 +10996,6 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 }
 @media(prefers-reduced-motion:reduce) { .wf *, .wf *::before, .wf *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
 .wf-editor-viewbar { display:flex; align-items:center; gap:16px; padding:10px 16px; border-bottom:1px solid var(--wf-line); }
-.wf-editor-viewbar > span { color:var(--wf-muted); font-size:12px; }
 .wf-outline { flex:1; min-height:0; overflow:auto; padding:82px 24px 72px; background:var(--wf-bg); }
 .wf-outline > header { margin-bottom:24px; }
 .wf-outline > header p { margin:6px 0 0; color:var(--wf-muted); font-size:13px; }
@@ -11009,7 +11006,6 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 .wf-outline-copy strong { font-size:14px; }
 .wf-outline-copy > span { color:var(--wf-muted); font-size:13px; line-height:1.65; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:anywhere; }
 .wf-outline-copy small { font-size:12px; color:var(--wf-muted); overflow-wrap:anywhere; }
-@media(max-width:760px) { .wf-editor-viewbar > span { display:none; } .wf-outline { padding:70px 12px 56px; } }
 /* Workflow cells own their reading width; native resize rails belong to plain chat. */
 [data-phase="active"]:has(.wf-timeline) > [data-width-handle],
 [data-phase="active"]:has(.wf-timeline) [data-width-handle] { display:none; }
@@ -11055,7 +11051,6 @@ body[data-ds-dark-theme] .wf .wf-primary:hover { color:var(--dsw-alias-bg-base,#
 .wf-skill-add { display:flex; gap:6px; }
 .wf-skill-add input { flex:1; }
 .wf-skill-add button { flex:none; }
-.wf-setting-help { margin:10px 0 14px; padding:10px 12px; border-left:3px solid var(--wf-accent); background:var(--wf-surface-subtle); color:var(--wf-muted); font-size:12px; line-height:1.65; }
 .wf-review-settings > summary small { display:block; margin:4px 0 0 20px; color:var(--wf-muted); font-weight:400; }
 .wf .react-flow__edge.wf-edge-loop .react-flow__edge-path { stroke:var(--wf-accent); stroke-width:2; stroke-dasharray:7 5; }
 .wf .react-flow__edge.wf-edge-loop .react-flow__edge-text { fill:var(--wf-accent); font-size:11px; font-weight:600; }
@@ -11075,7 +11070,6 @@ body[data-ds-dark-theme] .wf .wf-primary:hover { color:var(--dsw-alias-bg-base,#
 .wf .wf-step-heading { background:var(--wf-surface); border-bottom:1px solid var(--wf-line); }
 .wf .wf-node-card { border:1px solid var(--wf-line-strong); border-radius:12px; box-shadow:0 2px 5px rgb(0 0 0 / 5%); }
 .wf .wf-step-body p { -webkit-line-clamp:2; }
-.wf-graph-legend { padding:10px 16px 0; color:var(--wf-muted); font-size:12px; background:var(--wf-bg); }
 .wf-addbar { overflow:visible; }
 .wf-canvas > .wf-addbar { flex-wrap:wrap; }
 .wf .wf-step-picker button span { font-weight:500; }
@@ -12498,40 +12492,32 @@ function apply(ctx) {
       }
     };
     return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "wf-editor", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "wf-editor-viewbar", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-segmented", role: "tablist", "aria-label": "\u6B65\u9AA4\u5C55\u793A\u65B9\u5F0F", children: [["steps", "\u6B65\u9AA4\u5217\u8868"], ["graph", "\u6D41\u7A0B\u56FE"]].map(([id2, label]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { role: "tab", "aria-selected": editorView === id2, onClick: () => {
-          setEditorView(id2);
-          setRaw(false);
-          localStorage.setItem("workflow-studio:editor-view", id2);
-        }, children: label }, id2)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: "\u9009\u62E9\u6B65\u9AA4\u7F16\u8F91\u4EFB\u52A1\uFF0C\u8FD0\u884C\u540E\u5728\u5BF9\u8BDD\u4E2D\u67E5\u770B\u7ED3\u679C" })
-      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-editor-viewbar", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-segmented", role: "tablist", "aria-label": "\u6B65\u9AA4\u5C55\u793A\u65B9\u5F0F", children: [["steps", "\u6B65\u9AA4\u5217\u8868"], ["graph", "\u6D41\u7A0B\u56FE"]].map(([id2, label]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { role: "tab", "aria-selected": editorView === id2, onClick: () => {
+        setEditorView(id2);
+        setRaw(false);
+        localStorage.setItem("workflow-studio:editor-view", id2);
+      }, children: label }, id2)) }) }),
       notice && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "wf-editor-notice", role: "status", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: notice }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { disabled: !history.length, onClick: undo, children: "\u64A4\u9500" }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Icon2, { label: "\u5173\u95ED\u63D0\u793A", icon: X, onClick: () => setNotice("") })
       ] }),
       skillEdit && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Modal, { title: `\u7F16\u8F91 skill \xB7 ${skillEdit.name}`, close: () => setSkillEdit(null), children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { children: "\u4FDD\u5B58\u4E3A\u5F53\u524D\u6B65\u9AA4\u7684\u4E13\u7528\u5185\u5BB9\uFF0C\u4FDD\u5B58\u5DE5\u4F5C\u6D41\u7248\u672C\u540E\u7528\u4E8E\u540E\u7EED\u8FD0\u884C\u3002" }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("textarea", { className: "wf-skill-content", "aria-label": "Skill \u5185\u5BB9", value: skillEdit.content, onChange: (e) => setSkillEdit({ ...skillEdit, content: e.target.value }) }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { className: "wf-primary", onClick: () => {
           update({ skillOverrides: { ...node.skillOverrides, [skillEdit.name]: skillEdit.content } });
           setSkillEdit(null);
         }, children: "\u5E94\u7528\u5230\u6B65\u9AA4" })
       ] }),
-      assetsOpen && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Modal, { title: "\u6DFB\u52A0\u6B65\u9AA4", close: () => setAssetsOpen(false), children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "wf-modal-body", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "wf-muted", children: "\u9009\u62E9\u6B64\u6B65\u9AA4\u8981\u5B8C\u6210\u7684\u4EFB\u52A1\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-step-picker", role: "menu", "aria-label": "\u66F4\u591A\u6B65\u9AA4\u9009\u9879", children: Object.entries(labels).filter(([kind]) => !["input", "interact", "agent", "artifact"].includes(kind)).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("button", { role: "menuitem", onClick: () => {
-          setAssetsOpen(false);
-          add(kind);
-        }, children: [
-          glyphFor(kind, 20),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: label })
-        ] }, kind)) })
-      ] }) }),
+      assetsOpen && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Modal, { title: "\u6DFB\u52A0\u6B65\u9AA4", close: () => setAssetsOpen(false), children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-modal-body", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-step-picker", role: "menu", "aria-label": "\u66F4\u591A\u6B65\u9AA4\u9009\u9879", children: Object.entries(labels).filter(([kind]) => !["input", "interact", "agent", "artifact"].includes(kind)).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("button", { role: "menuitem", onClick: () => {
+        setAssetsOpen(false);
+        add(kind);
+      }, children: [
+        glyphFor(kind, 20),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: label })
+      ] }, kind)) }) }) }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "wf-editor-body", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-stage", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "wf-canvas", children: [
-          editorView === "graph" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-graph-legend", children: "\u81EA\u4E0A\u800C\u4E0B\u6267\u884C \xB7 \u865A\u7EBF\u8FD4\u56DE\u4FEE\u6539 \xB7 \u8DE8\u6B65\u6750\u6599\u89C1\u5361\u7247\u6807\u7B7E" }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "wf-addbar", role: "toolbar", "aria-label": "\u6DFB\u52A0\u6B65\u9AA4", children: [
             Object.entries(labels).filter(([kind]) => ["input", "interact", "agent", "artifact"].includes(kind)).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
               "button",
@@ -12728,8 +12714,7 @@ function apply(ctx) {
               },
               name2
             )) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u6B65\u9AA4\u914D\u8272", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-swatches", children: Object.entries(labels).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: `wf-swatch wf-step-${kind}`, children: label }, kind)) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "wf-muted", children: "\u56FE\u6807\u4E0E\u914D\u8272\u5199\u5728\u5B9A\u4E49\u91CC\uFF0C\u4FDD\u5B58\u540E\u5BF9\u6240\u6709\u4F1A\u8BDD\u751F\u6548\u3002" })
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u6B65\u9AA4\u914D\u8272", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-swatches", children: Object.entries(labels).map(([kind, label]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: `wf-swatch wf-step-${kind}`, children: label }, kind)) }) })
           ] }) : panelTab === "preview" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "wf-panel-body", children: !run ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "wf-panel-empty", children: "\u8FD8\u6CA1\u6709\u8FD0\u884C\u8BB0\u5F55" }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
             /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { className: "wf-panel-note", children: [
               "\u6700\u8FD1\u4E00\u6B21\u8FD0\u884C \xB7 ",
@@ -12799,7 +12784,6 @@ function apply(ctx) {
                   " \u9879"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "wf-muted", children: "\u6309\u4EFB\u52A1\u9700\u8981\u9009\u62E9\u80FD\u529B\uFF0C\u591A\u4E2A\u540D\u79F0\u7528\u9017\u53F7\u5206\u9694\u3002" }),
               /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(Field, { label: "\u6280\u80FD", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
                   "input",
@@ -12883,11 +12867,7 @@ function apply(ctx) {
                     node.provided && !["/text", "/attachments"].includes(node.provided.path) && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "custom", children: "\u81EA\u5B9A\u4E49\u5F15\u7528" })
                   ]
                 }
-              ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { className: "wf-muted", children: [
-                "\u4EA4\u4E92\u8282\u70B9\u4F1A\u6682\u505C\u8FD0\u884C\uFF0C\u628A\u95EE\u9898\u4EA4\u7ED9\u7ED1\u5B9A\u4F1A\u8BDD\u91CC\u7684 Agent\uFF1B\u7528\u6237\u7684\u4E0B\u4E00\u6761\u6D88\u606F\u5C31\u662F\u8FD9\u6B21\u4EA4\u4E92\u7684\u56DE\u7B54\u3002",
-                node.interaction === "goal" ? "\u5224\u5B9A Agent \u8BA4\u4E3A\u5DF2\u7ECF\u7406\u89E3\u610F\u56FE\u540E\uFF0C\u4F1A\u5148\u8BF7\u4F60\u786E\u8BA4\uFF0C\u786E\u8BA4\u540E\u624D\u8FDB\u5165\u4E0B\u4E00\u6B65\u3002" : ""
-              ] })
+              ) })
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("datalist", { id: "wf-tools", children: (caps?.tools ?? []).map((t) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: t }, t)) }),
             node.kind === "agent" && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("details", { className: "wf-review-settings", children: [
@@ -12895,7 +12875,6 @@ function apply(ctx) {
                 /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: "\u8BC4\u5BA1\u4E0E\u5FAA\u73AF" }),
                 /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "wf-setting-value", children: node.repeat ? "\u5DF2\u5F00\u542F" : "\u672A\u5F00\u542F" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "wf-setting-help", children: "\u672C\u6B65\u9AA4\u68C0\u67E5\u7ED3\u679C\uFF1B\u4E0D\u6EE1\u8DB3\u901A\u8FC7\u6761\u4EF6\u65F6\u8FD4\u56DE\u6307\u5B9A\u6B65\u9AA4\u4FEE\u6539\uFF0C\u518D\u6B21\u68C0\u67E5\u3002\u8FBE\u5230\u8F6E\u6570\u4E0A\u9650\u4ECD\u672A\u901A\u8FC7\u65F6\u6682\u505C\u3002" }),
               /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("label", { children: [
                 /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("input", { type: "checkbox", checked: Boolean(node.repeat), onChange: (e) => {
                   if (e.target.checked) update({ repeat: { target: definition.nodes.find((n) => n.id !== node.id && n.kind === "agent")?.id ?? "", until: { ">=": [{ var: "score" }, 85] }, maxRounds: 3, sessionMode: "new" } });
@@ -12917,8 +12896,7 @@ function apply(ctx) {
                   /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "continue", children: "\u63A5\u7740\u4E0A\u6B21\u4F1A\u8BDD\u7EE7\u7EED" })
                 ] }) }),
                 /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u6700\u591A\u8BC4\u5BA1\u8F6E\u6570", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("input", { type: "number", min: "1", max: "20", value: node.repeat.maxRounds, onChange: (e) => update({ repeat: { ...node.repeat, maxRounds: Number(e.target.value) } }) }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(JsonField, { label: "\u901A\u8FC7\u6761\u4EF6", value: node.repeat.until, change: (until) => update({ repeat: { ...node.repeat, until } }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "wf-muted", children: "\u8FBE\u5230\u8F6E\u6570\u4E0A\u9650\u4ECD\u672A\u901A\u8FC7\u65F6\u6682\u505C\uFF0C\u4FDD\u7559\u6240\u6709\u7A3F\u4EF6\u4E0E\u8BC4\u5BA1\u8BB0\u5F55\u3002" })
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(JsonField, { label: "\u901A\u8FC7\u6761\u4EF6", value: node.repeat.until, change: (until) => update({ repeat: { ...node.repeat, until } }) })
               ] })
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("details", { className: "wf-advanced", children: [

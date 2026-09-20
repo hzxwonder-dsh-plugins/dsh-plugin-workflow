@@ -49,7 +49,7 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
     };
     const rows = workflowHistory(data, sessions, ctx.workspaces.list.getSnapshot().archivedSessionIds, workflow.id);
     if (!rows.length)
-      return <p className="wf-sessions-empty">还没有历史对话。点击「运行」并发送消息后，会话会保存在这里。</p>;
+      return <p className="wf-sessions-empty">还没有历史对话</p>;
     return (
       <div className="wf-sessions">
         {rows.map((r) => {
@@ -184,7 +184,6 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
         : `${rows.length} 个工作流`;
     return (
       <div className="wf-scroll wf-gallery">
-        <p className="wf-gallery-intro">运行工作流完成任务，或从历史对话继续。</p>
         <div className="wf-gallery-bar">
           <label className="wf-gallery-search">
             <Search size={16} aria-hidden="true" />
@@ -249,10 +248,10 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
           <div className="wf-gallery-empty">
             <p>
               {trimmed
-                ? `没有找到匹配「${trimmed}」的${scopeLabel}。换个关键词，或清除搜索查看全部。`
+                ? `没有找到匹配「${trimmed}」的${scopeLabel}`
                 : archived
-                  ? "归档的工作流会出现在这里。归档不会删除定义、版本和运行记录，随时可以恢复。"
-                  : "工作流把一段固定的做法变成可复用的步骤：先在对话里描述目标，Agent 会生成一个初步版本。"}
+                  ? "还没有归档的工作流"
+                  : "还没有工作流"}
             </p>
             {trimmed && <button onClick={() => setQuery("")}>清除搜索</button>}
             {!archived && !trimmed && (

@@ -875,14 +875,13 @@ export function apply(ctx) {
     };
     return (
       <div className="wf-editor">
-        <div className="wf-editor-viewbar"><div className="wf-segmented" role="tablist" aria-label="步骤展示方式">{[["steps","步骤列表"],["graph","流程图"]].map(([id,label])=><button key={id} role="tab" aria-selected={editorView===id} onClick={()=>{setEditorView(id);setRaw(false);localStorage.setItem("workflow-studio:editor-view",id);}}>{label}</button>)}</div><span>选择步骤编辑任务，运行后在对话中查看结果</span></div>
+        <div className="wf-editor-viewbar"><div className="wf-segmented" role="tablist" aria-label="步骤展示方式">{[["steps","步骤列表"],["graph","流程图"]].map(([id,label])=><button key={id} role="tab" aria-selected={editorView===id} onClick={()=>{setEditorView(id);setRaw(false);localStorage.setItem("workflow-studio:editor-view",id);}}>{label}</button>)}</div></div>
         {notice && <div className="wf-editor-notice" role="status"><span>{notice}</span><button disabled={!history.length} onClick={undo}>撤销</button><Icon label="关闭提示" icon={X} onClick={()=>setNotice("")} /></div>}
-        {skillEdit && <Modal title={`编辑 skill · ${skillEdit.name}`} close={()=>setSkillEdit(null)}><p>保存为当前步骤的专用内容，保存工作流版本后用于后续运行。</p><textarea className="wf-skill-content" aria-label="Skill 内容" value={skillEdit.content} onChange={e=>setSkillEdit({...skillEdit,content:e.target.value})}/><button className="wf-primary" onClick={()=>{update({skillOverrides:{...node.skillOverrides,[skillEdit.name]:skillEdit.content}});setSkillEdit(null);}}>应用到步骤</button></Modal>}
-        {assetsOpen && <Modal title="添加步骤" close={()=>setAssetsOpen(false)}><div className="wf-modal-body"><p className="wf-muted">选择此步骤要完成的任务。</p><div className="wf-step-picker" role="menu" aria-label="更多步骤选项">{Object.entries(labels).filter(([kind])=>!["input","interact","agent","artifact"].includes(kind)).map(([kind,label])=><button key={kind} role="menuitem" onClick={()=>{setAssetsOpen(false);add(kind);}}>{glyphFor(kind,20)}<span>{label}</span></button>)}</div></div></Modal>}
+        {skillEdit && <Modal title={`编辑 skill · ${skillEdit.name}`} close={()=>setSkillEdit(null)}><textarea className="wf-skill-content" aria-label="Skill 内容" value={skillEdit.content} onChange={e=>setSkillEdit({...skillEdit,content:e.target.value})}/><button className="wf-primary" onClick={()=>{update({skillOverrides:{...node.skillOverrides,[skillEdit.name]:skillEdit.content}});setSkillEdit(null);}}>应用到步骤</button></Modal>}
+        {assetsOpen && <Modal title="添加步骤" close={()=>setAssetsOpen(false)}><div className="wf-modal-body"><div className="wf-step-picker" role="menu" aria-label="更多步骤选项">{Object.entries(labels).filter(([kind])=>!["input","interact","agent","artifact"].includes(kind)).map(([kind,label])=><button key={kind} role="menuitem" onClick={()=>{setAssetsOpen(false);add(kind);}}>{glyphFor(kind,20)}<span>{label}</span></button>)}</div></div></Modal>}
         <div className="wf-editor-body">
           <div className="wf-stage">
             <div className="wf-canvas">
-              {editorView === 'graph' && <div className="wf-graph-legend">自上而下执行 · 虚线返回修改 · 跨步材料见卡片标签</div>}
               <div className="wf-addbar" role="toolbar" aria-label="添加步骤">
                 {Object.entries(labels).filter(([kind]) => ["input", "interact", "agent", "artifact"].includes(kind)).map(([kind, label]) => (
                   <button
@@ -1066,8 +1065,7 @@ export function apply(ctx) {
                     ))}
                   </div>
                 </Field>
-                <p className="wf-muted">图标与配色写在定义里，保存后对所有会话生效。</p>
-              </div>
+                              </div>
             ) : panelTab === "preview" ? (
               <div className="wf-panel-body">
                 {!run ? (
@@ -1147,8 +1145,7 @@ export function apply(ctx) {
                 )}
                 {node.kind === "agent" && (
                   <details className="wf-settings-group"><summary>技能与工具 <small>{(node.skills?.length ?? 0) + (node.tools?.length ?? 0)} 项</small></summary>
-                    <p className="wf-muted">按任务需要选择能力，多个名称用逗号分隔。</p>
-                    <Field label="技能">
+                                        <Field label="技能">
                       <input
                         list="wf-skills"
                         value={(node.skills ?? []).join(", ")}
@@ -1252,12 +1249,6 @@ export function apply(ctx) {
                           )}
                       </select>
                     </Field>
-                    <p className="wf-muted">
-                      交互节点会暂停运行，把问题交给绑定会话里的 Agent；用户的下一条消息就是这次交互的回答。
-                      {node.interaction === "goal"
-                        ? "判定 Agent 认为已经理解意图后，会先请你确认，确认后才进入下一步。"
-                        : ""}
-                    </p>
                   </>
                 )}
                 <datalist id="wf-tools">
@@ -1266,15 +1257,14 @@ export function apply(ctx) {
                   ))}
                 </datalist>
 
-                {node.kind === 'agent' && <details className="wf-review-settings"><summary><span>评审与循环</span><span className="wf-setting-value">{node.repeat ? "已开启" : "未开启"}</span></summary><p className="wf-setting-help">本步骤检查结果；不满足通过条件时返回指定步骤修改，再次检查。达到轮数上限仍未通过时暂停。</p>
+                {node.kind === 'agent' && <details className="wf-review-settings"><summary><span>评审与循环</span><span className="wf-setting-value">{node.repeat ? "已开启" : "未开启"}</span></summary>
                   <label><input type="checkbox" checked={Boolean(node.repeat)} onChange={e => { if (e.target.checked) update({ repeat: { target: definition.nodes.find(n => n.id !== node.id && n.kind === 'agent')?.id ?? '', until: { '>=': [{ var: 'score' }, 85] }, maxRounds: 3, sessionMode: 'new' } }); else { const next = { ...node }; delete next.repeat; change({ ...definition, nodes: definition.nodes.map(n => n.id === node.id ? next : n) }); } }} />根据结果返回修订</label>
                   {node.repeat && <>
                     <Field label="返回步骤"><select value={node.repeat.target} onChange={e => update({ repeat: { ...node.repeat, target: e.target.value } })}><option value="">选择上游步骤</option>{definition.nodes.filter(n => n.id !== node.id && n.kind === 'agent').map(n => <option key={n.id} value={n.id}>{n.name}</option>)}</select></Field>
                     <Field label="每轮会话"><select value={node.repeat.sessionMode} onChange={e => update({ repeat: { ...node.repeat, sessionMode: e.target.value } })}><option value="new">新建会话，传入材料与反馈</option><option value="continue">接着上次会话继续</option></select></Field>
                     <Field label="最多评审轮数"><input type="number" min="1" max="20" value={node.repeat.maxRounds} onChange={e => update({ repeat: { ...node.repeat, maxRounds: Number(e.target.value) } })} /></Field>
                     <JsonField label="通过条件" value={node.repeat.until} change={until => update({ repeat: { ...node.repeat, until } })} />
-                    <p className="wf-muted">达到轮数上限仍未通过时暂停，保留所有稿件与评审记录。</p>
-                  </>}
+                                      </>}
                 </details>}
                 <details className="wf-advanced">
                   <summary>高级设置</summary>

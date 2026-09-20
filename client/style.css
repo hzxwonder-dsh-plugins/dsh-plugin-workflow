@@ -980,7 +980,6 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 
 /* Shared hierarchy for browsing, editing and reading workflows. */
 .wf-gallery { padding: 24px 28px; }
-.wf-gallery-intro { margin: 0 0 20px; color: var(--wf-muted); font-size: 14px; }
 .wf-gallery-bar { flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
 .wf-gallery-search { display: flex; align-items: center; gap: 8px; flex: 0 1 280px; min-width: 180px; padding: 0 10px; border: 1px solid var(--wf-line); border-radius: 9px; background: var(--wf-surface); }
 .wf .wf-gallery-search input { border: 0; background: transparent; padding: 8px 0; }
@@ -1070,7 +1069,6 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 }
 @media(prefers-reduced-motion:reduce) { .wf *, .wf *::before, .wf *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
 .wf-editor-viewbar { display:flex; align-items:center; gap:16px; padding:10px 16px; border-bottom:1px solid var(--wf-line); }
-.wf-editor-viewbar > span { color:var(--wf-muted); font-size:12px; }
 .wf-outline { flex:1; min-height:0; overflow:auto; padding:82px 24px 72px; background:var(--wf-bg); }
 .wf-outline > header { margin-bottom:24px; }
 .wf-outline > header p { margin:6px 0 0; color:var(--wf-muted); font-size:13px; }
@@ -1081,7 +1079,6 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 .wf-outline-copy strong { font-size:14px; }
 .wf-outline-copy > span { color:var(--wf-muted); font-size:13px; line-height:1.65; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; overflow-wrap:anywhere; }
 .wf-outline-copy small { font-size:12px; color:var(--wf-muted); overflow-wrap:anywhere; }
-@media(max-width:760px) { .wf-editor-viewbar > span { display:none; } .wf-outline { padding:70px 12px 56px; } }
 /* Workflow cells own their reading width; native resize rails belong to plain chat. */
 [data-phase="active"]:has(.wf-timeline) > [data-width-handle],
 [data-phase="active"]:has(.wf-timeline) [data-width-handle] { display:none; }
@@ -1127,7 +1124,6 @@ body[data-ds-dark-theme] .wf .wf-primary:hover { color:var(--dsw-alias-bg-base,#
 .wf-skill-add { display:flex; gap:6px; }
 .wf-skill-add input { flex:1; }
 .wf-skill-add button { flex:none; }
-.wf-setting-help { margin:10px 0 14px; padding:10px 12px; border-left:3px solid var(--wf-accent); background:var(--wf-surface-subtle); color:var(--wf-muted); font-size:12px; line-height:1.65; }
 .wf-review-settings > summary small { display:block; margin:4px 0 0 20px; color:var(--wf-muted); font-weight:400; }
 .wf .react-flow__edge.wf-edge-loop .react-flow__edge-path { stroke:var(--wf-accent); stroke-width:2; stroke-dasharray:7 5; }
 .wf .react-flow__edge.wf-edge-loop .react-flow__edge-text { fill:var(--wf-accent); font-size:11px; font-weight:600; }
@@ -1147,7 +1143,6 @@ body[data-ds-dark-theme] .wf .wf-primary:hover { color:var(--dsw-alias-bg-base,#
 .wf .wf-step-heading { background:var(--wf-surface); border-bottom:1px solid var(--wf-line); }
 .wf .wf-node-card { border:1px solid var(--wf-line-strong); border-radius:12px; box-shadow:0 2px 5px rgb(0 0 0 / 5%); }
 .wf .wf-step-body p { -webkit-line-clamp:2; }
-.wf-graph-legend { padding:10px 16px 0; color:var(--wf-muted); font-size:12px; background:var(--wf-bg); }
 .wf-addbar { overflow:visible; }
 .wf-canvas > .wf-addbar { flex-wrap:wrap; }
 .wf .wf-step-picker button span { font-weight:500; }
