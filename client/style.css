@@ -160,17 +160,23 @@
   font-weight: 600;
   white-space: nowrap;
 }
-/* Status colors come from the host's state tokens, so a published or edited chip
-   keeps its meaning and its contrast when the theme flips; the literals are only
-   the fallback for a host that does not define them. */
-.wf-chip.is-published {
-  background: color-mix(in srgb, var(--dsw-alias-state-success-primary, #2f9e6b) 16%, transparent);
-  color: var(--dsw-alias-state-success-tertiary, var(--dsw-alias-state-success-primary, #1d7d52));
+/* The host's state tokens are a solid accent plus a surface tint, not a text color:
+   the tint is the theme-correct background for a small chip, and the accent carries
+   the state as a dot. The label itself uses the reading color, so it stays legible in
+   either theme instead of tracking a tint that is pale in one and dark in the other. */
+.wf-chip.is-published { background: var(--dsw-alias-state-success-tertiary, #e3f5ea); color: var(--wf-text); }
+.wf-chip.is-published::before,
+.wf-chip.is-dirty::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: currentColor;
 }
-.wf-chip.is-dirty {
-  background: color-mix(in srgb, var(--dsw-alias-state-warn-primary, #d98324) 18%, transparent);
-  color: var(--dsw-alias-state-warn-label, var(--dsw-alias-state-warn-primary, #9a5a13));
-}
+.wf-chip.is-published::before { background: var(--dsw-alias-state-success-primary, #2f9e6b); }
+.wf-chip.is-dirty { background: var(--dsw-alias-state-warn-tertiary, #f8ecdc); color: var(--wf-text); }
+.wf-chip.is-dirty::before { background: var(--dsw-alias-state-warn-primary, #d98324); }
 .wf-segmented {
   display: inline-flex;
   gap: 2px;
