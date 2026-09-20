@@ -2427,6 +2427,12 @@ export function apply(ctx) {
     if (window.innerWidth < 700) {
       try { ctx.layout.toggleSidebar(); } catch {}
     }
+    // The panel is host layout state, so remembering the flag is not enough: after a
+    // reload or a window restart the plugin has to ask for the panel back, or the
+    // window comes up with the workflow surface closed every time.
+    if (panelOpen) {
+      try { ctx.layout.selectPanel("workflow-studio"); } catch { /* the host may not offer a panel slot */ }
+    }
     const resize = () => {if (document.querySelector('.wf-main')) fitNarrowPanel();};
     window.addEventListener('resize', resize);
     const visible = () => { if (!document.hidden) void refresh(); };

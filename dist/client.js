@@ -13975,6 +13975,12 @@ function apply(ctx) {
       } catch {
       }
     }
+    if (panelOpen) {
+      try {
+        ctx.layout.selectPanel("workflow-studio");
+      } catch {
+      }
+    }
     const resize = () => {
       if (document.querySelector(".wf-main")) fitNarrowPanel();
     };
