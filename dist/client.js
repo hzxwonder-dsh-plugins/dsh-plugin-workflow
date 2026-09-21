@@ -622,11 +622,8 @@ var descriptions = {
 };
 function StepOutline({ definition, selected: selected2, onSelect, onDelete }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "wf-outline", "aria-label": "\u5DE5\u4F5C\u6D41\u6B65\u9AA4\u5217\u8868", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "\u4EFB\u52A1\u6B65\u9AA4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "\u9009\u62E9\u4E00\u6B65\u67E5\u770B\u6216\u4FEE\u6539\u4EFB\u52A1\u3002\u6750\u6599\u5173\u7CFB\u51B3\u5B9A\u6267\u884C\u987A\u5E8F\u3002" })
-    ] }),
-    !definition.nodes.length && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "wf-panel-empty", children: "\u4ECE\u4E0A\u65B9\u6DFB\u52A0\u4E00\u4E2A\u6B65\u9AA4\uFF0C\u6216\u4F7F\u7528\u300C\u5BF9\u8BDD\u4FEE\u6539\u300D\u63CF\u8FF0\u4F60\u7684\u4EFB\u52A1\u3002" }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "\u4EFB\u52A1\u6B65\u9AA4" }) }),
+    !definition.nodes.length && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "wf-panel-empty", children: "\u4ECE\u4E0A\u65B9\u6DFB\u52A0\u4E00\u4E2A\u6B65\u9AA4" }),
     definition.nodes.map((node, index2) => {
       const inputs = definition.edges.filter((e) => e.to === node.id).map((e) => definition.nodes.find((n) => n.id === e.from)?.name).filter(Boolean);
       const output = definition.edges.some((e) => e.from === node.id);
@@ -10998,7 +10995,6 @@ body[data-ds-dark-theme] .wf button:not(.wf-native-step *):not(.wf-primary):hove
 .wf-editor-viewbar { display:flex; align-items:center; gap:16px; padding:10px 16px; border-bottom:1px solid var(--wf-line); }
 .wf-outline { flex:1; min-height:0; overflow:auto; padding:82px 24px 72px; background:var(--wf-bg); }
 .wf-outline > header { margin-bottom:24px; }
-.wf-outline > header p { margin:6px 0 0; color:var(--wf-muted); font-size:13px; }
 .wf .wf-outline-step { display:flex; align-items:flex-start; gap:14px; width:100%; padding:18px; margin-bottom:12px; text-align:left; border-radius:12px; background:var(--wf-surface); }
 .wf .wf-outline-step[aria-pressed="true"] { border-color:var(--wf-accent); background:color-mix(in srgb,var(--wf-accent) 4%,var(--wf-surface)); }
 .wf-outline-number { color:var(--wf-muted); font-size:12px; font-variant-numeric:tabular-nums; padding-top:2px; }
@@ -13154,7 +13150,7 @@ function apply(ctx) {
           "waiting_approval",
           "cancelled"
         ].includes(detail.run.status) && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { children: "\u6062\u590D\u5C06\u4FDD\u7559\u5DF2\u5B8C\u6210\u8282\u70B9\uFF0C\u5E76\u91CD\u65B0\u6267\u884C\u672A\u5B8C\u6210\u8282\u70B9\u3002\u6D89\u53CA\u5199\u5165\u7684\u6B65\u9AA4\u9700\u8981\u6838\u5BF9\u5916\u90E8\u6267\u884C\u7ED3\u679C\u3002" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { children: "\u6062\u590D\u4F1A\u91CD\u65B0\u6267\u884C\u672A\u5B8C\u6210\u8282\u70B9\u3002" }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
             "button",
             {

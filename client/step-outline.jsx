@@ -9,8 +9,8 @@ const descriptions = {
 };
 export function StepOutline({definition, selected, onSelect, onDelete}) {
  return <section className="wf-outline" aria-label="工作流步骤列表">
-  <header><h2>任务步骤</h2><p>选择一步查看或修改任务。材料关系决定执行顺序。</p></header>
-  {!definition.nodes.length && <p className="wf-panel-empty">从上方添加一个步骤，或使用「对话修改」描述你的任务。</p>}
+  <header><h2>任务步骤</h2></header>
+  {!definition.nodes.length && <p className="wf-panel-empty">从上方添加一个步骤</p>}
   {definition.nodes.map((node,index) => {
    const inputs = definition.edges.filter(e=>e.to===node.id).map(e=>definition.nodes.find(n=>n.id===e.from)?.name).filter(Boolean);
    const output = definition.edges.some(e=>e.from===node.id);

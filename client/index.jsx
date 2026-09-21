@@ -1543,9 +1543,7 @@ export function apply(ctx) {
                 "cancelled",
               ].includes(detail.run.status) && (
                 <>
-                  <p>
-                    恢复将保留已完成节点，并重新执行未完成节点。涉及写入的步骤需要核对外部执行结果。
-                  </p>
+                  <p>恢复会重新执行未完成节点。</p>
                   <button
                     className="wf-primary"
                     onClick={() =>
