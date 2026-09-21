@@ -2247,7 +2247,6 @@ export function apply(ctx) {
     );
     const latest = data.runs.find(r => r.sessionId === sessionId);
     const recipients = (data.stepSessions ?? []).filter(s => s.runId === latest?.id);
-    if (!authoring) return null;
     const name = workflow?.name ?? "新工作流";
     const label = authoring
       ? creating

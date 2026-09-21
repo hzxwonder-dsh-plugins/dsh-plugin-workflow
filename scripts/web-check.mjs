@@ -249,8 +249,8 @@ try {
     assert.equal(await card.getByText("论文精读", { exact: true }).count(), 1);
     const search = page.getByRole('textbox', {name:'搜索工作流', exact:true});
     await search.fill('不存在的工作流');
-    await page.getByText('没有找到匹配的工作流，试试其他名称或关键词。', {exact:true}).waitFor();
-    await page.getByRole('button',{name:'清除搜索',exact:true}).click();
+    await page.getByText('没有找到匹配「不存在的工作流」的工作流', {exact:true}).waitFor();
+    await page.getByRole('button',{name:'清除搜索',exact:true}).first().click();
     await card.waitFor();
     await page.screenshot({path:join(plugin,'docs/acceptance/web/gallery-light.png')});
     // Cards and rows render the same records; the choice is remembered.

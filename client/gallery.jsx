@@ -295,11 +295,20 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
                     {glyphFor(w.icon ?? "workflow", 15)}
                   </span>
                   <span className="wf-card-title" title={w.name}>{w.name}</span>
-                  <span
-                    className={`wf-chip ${w.published === w.revision ? "is-published" : ""}`}
-                  >
-                    {w.published ? `已发布 v${w.published}` : `草稿 v${w.revision}`}
-                  </span>
+                  {w.published ? (
+                    <>
+                      <span className="wf-chip is-published">
+                        已发布 v{w.published}
+                      </span>
+                      {w.revision > w.published && (
+                        <span className="wf-chip is-dirty">
+                          草稿 v{w.revision}
+                        </span>
+                      )}
+                    </>
+                  ) : (
+                    <span className="wf-chip">草稿 v{w.revision}</span>
+                  )}
                 </button>
                 <p className="wf-card-desc" title={w.description || "还没有描述"}>
                   {w.description || "还没有描述"}
@@ -308,10 +317,6 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
                   <span>最近修改 {timestamp(w.updatedAt)}</span>
                 </p>
                 <div className="wf-card-actions">
-                  <button onClick={() => openEditor(w.id)}>
-                    <Settings2 size={15} aria-hidden="true" />
-                    打开
-                  </button>
                   <button
                     className="wf-run-action"
                     disabled={w.archived}
@@ -319,6 +324,10 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
                   >
                     <Play size={15} aria-hidden="true" />
                     运行
+                  </button>
+                  <button onClick={() => openEditor(w.id)}>
+                    <Settings2 size={15} aria-hidden="true" />
+                    打开
                   </button>
                   <button disabled={pending === w.id} onClick={() => copy(w)}>
                     <Copy size={15} aria-hidden="true" />
@@ -378,7 +387,9 @@ export function createGallery({ctx, api, refresh, openSession, openEditor, bind,
                       </small>
                     </td>
                     <td>
-                      {w.published ? `已发布 v${w.published}` : `草稿 v${w.revision}`}
+                      {w.published
+                        ? `已发布 v${w.published}${w.revision > w.published ? ` · 草稿 v${w.revision}` : ""}`
+                        : `草稿 v${w.revision}`}
                     </td>
                     <td>
                       <button
