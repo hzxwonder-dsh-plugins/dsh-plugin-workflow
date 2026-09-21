@@ -12013,7 +12013,7 @@ function apply(ctx) {
     closePicker();
   };
   const bindSession = async (wf, sessionId, mode = "run", revision) => {
-    const workspace = mode === "run" && !sessionId ? await ensureWorkflowWorkspace(wf.id, wf.name) : null;
+    const workspace = sessionId ? null : mode === "run" ? await ensureWorkflowWorkspace(wf.id, wf.name) : await ensureWorkflowWorkspace("tmp", "\u5DE5\u4F5C\u6D41\u5BF9\u8BDD");
     const id2 = sessionId ?? await newSession(workspace?.workspaceId);
     await api({
       action: "bind",

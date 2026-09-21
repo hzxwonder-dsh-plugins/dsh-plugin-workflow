@@ -378,8 +378,14 @@ export function apply(ctx) {
     closePicker();
   };
   const bindSession = async (wf, sessionId, mode = "run", revision) => {
-    const workspace =
-      mode === "run" && !sessionId ? await ensureWorkflowWorkspace(wf.id, wf.name) : null;
+    // A session without a workspace opens on the workspace picker, so a conversation
+    // started from a card or from 对话修改 is placed in a workspace before it opens:
+    // the workflow's own workspace for a run, the shared one for a modification.
+    const workspace = sessionId
+      ? null
+      : mode === "run"
+        ? await ensureWorkflowWorkspace(wf.id, wf.name)
+        : await ensureWorkflowWorkspace("tmp", "工作流对话");
     const id = sessionId ?? (await newSession(workspace?.workspaceId));
     await api({
       action: "bind",
