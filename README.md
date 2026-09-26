@@ -4,11 +4,22 @@ DeepSeek Harness 的可插拔工作流 Studio。侧栏只有一个“工作流�
 
 ## 宿主支持
 
-两端共用同一个包 `dsh-plugin-workflow`，没有桌面端专用包，也没有需要单独维护的桌面仓库，两端由本仓库同一份实现维护。插件数据落在 `$DSH_HOME`（`config.dshHome` → `DSH_HOME` → `~/.dsh`），两端各用自己的 home。
+本仓库维护 [DeepSeek 官方 Desktop](https://github.com/deepseek-ai/deepseek-harness) 的独立适配插件。
+[DSH Omni](https://github.com/hzxwonder/dsh-omni) 的集成版由其 `vendor/` 单独维护。维护目标为这两个桌面产品，Web 端不再作为维护目标。
 
-客户端通过 Harness 的工作流面板、输入标签和会话槽集成。步骤内复用原生对话组件，包含消息、思考过程和工具调用。嵌入步骤视图使用 `0.1.5-rc.2` 的版本固定适配层；升级 Harness 时需要重新验证会话历史和 slot 契约。
+### 官方 Desktop 验收
 
-包显式导出 `./package.json`：DSH Desktop 的宿主在 Electron Utility 进程里通过 Node loader 的 fallback 路径解析客户端入口，未声明该导出时客户端入口会被静默跳过；普通 Web 宿主不受影响。该导出对两端都保留。
+2026-09-26，macOS arm64，官方签名的 DeepSeek Harness **0.1.7-rc.2**，通过应用插件管理页安装公开版本 **0.3.0**：官方安装器拒绝：skill/tools peerDependencies 固定为 0.1.5-rc.2。
+
+官方有 JavaScript/subagent 编排与运行阶段卡片；本插件增加可视化 Studio、可复用定义版本、步骤编辑和调试。
+
+[完整验收与官方功能对照](https://github.com/hzxwonder/dsh-omni/blob/main/docs/official-desktop-compatibility.md)。安装成功、组件运行与核心功能验收是不同阶段；兼容范围以实机报告为准。
+
+开发与发布顺序：DSH Omni 开发及实机验收 → 更新 Omni 仓库 → 官方 Desktop 适配及实机验收 → 发布本仓库。每次重新构建后重新实机验证。
+
+### 安装到官方 Desktop
+
+在官方应用中打开“插件 → 添加插件”，输入 `https://github.com/hzxwonder-dsh-plugins/dsh-plugin-workflow`。安装器通过兼容性检查后再启用；按照上面的验收状态决定是否在日常配置使用。
 
 ## 对话式运行与调试
 
