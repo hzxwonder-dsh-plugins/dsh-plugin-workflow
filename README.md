@@ -1,10 +1,5 @@
 # dsh-plugin-workflow
 
-## Desktop 兼容性（2026-09-27）
-
-适配官方 DeepSeek Harness Desktop 0.1.7-rc.2。工作流入口使用官方 `sidebar.panellist`，与其他全局面板共享布局。保留步骤列表、流程图、步骤名称编辑和折叠设置；确定性工作流导入、执行及文件产出已通过实机验收，53 项运行时回归通过。完整范围见 [验收记录](docs/desktop-acceptance-2026-09-27.md)。
-
-
 DeepSeek Harness 的可插拔工作流 Studio。侧栏只有一个“工作流”入口：点击在主界面打开工作流面板（卡片或列表两种样式），再点一次回到对话。每个工作流保存不可变版本，它的对话显示在面板中对应的工作流下。任意会话也可输入 `/workflow` 选择或创建工作流。
 
 ## 宿主支持
@@ -26,6 +21,10 @@ DeepSeek Harness 的可插拔工作流 Studio。侧栏只有一个“工作流�
 
 在官方应用中打开“插件 → 添加插件”，输入 `https://github.com/hzxwonder-dsh-plugins/dsh-plugin-workflow`。安装器通过兼容性检查后再启用；按照上面的验收状态决定是否在日常配置使用。
 
+### 分发说明
+
+本仓库是官方 DeepSeek Harness Desktop 的公开适配版；[DSH Omni](https://github.com/hzxwonder/dsh-omni) 集成 `vendor/dsh-plugin-workflow` 固定快照。两套版本共享可视化工作流 Studio 能力，但分别跟随宿主验收；Web 端不再作为维护目标。官方 Desktop 的当前状态见 [兼容性报告](https://github.com/hzxwonder/dsh-omni/blob/main/docs/official-desktop-compatibility.md)。
+
 ## 对话式运行与调试
 
 ![工作流步骤对话演示](assets/workflow-conversation.gif)
@@ -40,6 +39,9 @@ DeepSeek Harness 的可插拔工作流 Studio。侧栏只有一个“工作流�
 - 调试每次执行一个已就绪节点，内部最多 8 个子代理并行，各有独立会话与模型配置。步骤会话可继续交流并返回总会话。
 - 更新输出图标将最新回答保存为步骤输出，回退依赖步骤的公共文件改动；随后选择单步或连续执行。
 - 每个步骤和尝试在本地保留输入、输出、快照、精确二进制 patch 和文本 unified diff。公共工作目录直接修改；回退前检查文件哈希和权限。
+- 会话输入标签直接显示工作流名与当前草稿版本（修改/创建标注用途），保存后立即跟随新版本；点击标签即可打开编辑器。
+- 对话修改默认走定点编辑：Agent 只提交受影响节点的字段（`edit`），由 Host 校验并保存新版本、自动回绑会话，不需要重发整份定义，也不允许绕过工具直接读写工作流数据。
+- 运行列表以输入摘要标识一次运行，失败行直接给出可读原因；运行详情的错误横幅指明失败的步骤，事件记录渲染为人读时间线，原始 JSON 收在二级折叠里。
 
 验证命令和逐项结果见 [验收报告](https://github.com/hzxwonder-dsh-plugins/dsh-plugin-workflow/blob/main/docs/acceptance-report.md) 与 [测试清单](https://github.com/hzxwonder-dsh-plugins/dsh-plugin-workflow/blob/main/docs/workflow-acceptance-plan.md)。
 
@@ -57,11 +59,25 @@ DeepSeek Harness 的可插拔工作流 Studio。侧栏只有一个“工作流�
 - 工作流的对话显示在面板内对应卡片/行的“对话”里，使用同一组动作：更多操作（⋯）和新建会话（＋）
 - 工作流对话落在 `$DSH_HOME/workflows/<id>`，对应原生工作区按用途命名：运行会话用工作流名，创作/修改会话用“工作流对话”；用户自己改过的名字不会被覆盖
 - 对话创建、试运行和版本化修改
-- 可视化编辑器：浮动步骤工具条、右侧 步骤/预览/控制台/主题 面板、底部“编辑这些步骤”输入框，“应用”视图包含运行记录、定时任务和版本历史
-- Agent、工具、条件、循环、子工作流、交互、确认和产物节点
+- 可视化编辑器：浮动步骤工具条、右侧 步骤/预览/控制台/主题 面板；顶部“对话修改”进入修改会话，“应用”视图包含运行记录、定时任务和版本历史
+- Agent、工具、条件、子工作流、交互、确认和产物节点；「条件」即流程图判断框：底部是/否双端口连线。填写 Prompt 时由模型按结构化输出 `{answer:boolean, reason:string}` 裁决（answer=true 即「是」），留空则按条件表达式本地判断
+- Multithread 外壳：把「生成」步骤拖进同一个彩色外壳并发执行（并发池 1–8，可把外壳 Prompt 分发给全部子步骤）；头部双击改名，勾选分发后子步骤 Prompt 锁定
+- 脚本节点：用 Python 处理上一步输出（输入经 `input_data` JSON 注入，stdout 即输出）
 - 交互节点：在绑定会话里向用户提问，用户回答后继续。`交互一次` 收一条回答（例如论文 PDF 或链接）；`交互目标` 由判定 Agent 反复追问，直到它理解用户意图并请用户确认后才进入下一步，可用 `maxTurns` 限定轮次；“已有材料时跳过提问”让已经带上材料的消息直接进入下一步。交互节点需要真人，定时无人值守的运行会以 `INTERACTION_UNATTENDED` 失败
 - 节点级 executor、provider、model、effort、skills、工具白名单和输出 Schema
-- 附件材料自动提取；内置论文精读模板以交互节点开场索要 PDF 或链接，已经带上论文的消息直接开始解读
+- 附件材料自动提取；论文精读模板按获取论文、撰写解读、读者问答评审、Halo 发布四个阶段执行
+
+## 论文解读与评审循环
+
+![论文工作流编辑与主题演示](assets/paper-workflow.gif)
+
+演示展示四阶段布局、评审循环设置及明暗主题和窄窗口状态，采用隔离测试数据。
+
+`paper-explainer` 使用分层阅读模板，将原文转换为有具体例子、证据和适用边界的初学者文章。提问者读取原文和文章，回答者只接收文章和问题，审稿者结合原文与问答评分。85 分通过，最多三轮，未通过返回写作步骤；达到上限则保留现场供处理。
+
+步骤设置中的“评审与循环”可选择返回步骤、条件、轮数，以及延续原会话或新建会话。子代理支持 `dependsOn` 和独立 `input` 映射，无依赖成员继续并行执行。`repeat` 是有界回到上游步骤的评审循环；循环由条件与 `repeat` 组合实现。每轮文章与评审分别保存。
+
+Halo 发布使用服务器已有发布脚本。管理员在 `$DSH_HOME/workflow-studio/halo-destination.json` 配置 `sshHost`、`helper` 和 `category`，将 `scripts/halo-publish.py` 放入站点 `scripts/` 目录。站点凭据留在服务器，仓库与工作流定义不包含凭据。先使用发布适配器的 `dryRun` 完成渲染预检；正式发布返回文章标识与网址，并核实公开页面响应。更新原文章时，在运行输入中提供 `publication: {slug, postId}`；发布前校验目标并备份原正文，返回相同文章标识。站点需具备 Markdown 渲染与发布脚本；公式和图片需要目标站点支持，不能将生成的文本路径视为已上传附件。
 - 本地 Host 持久化定时任务，支持 IANA 时区、夏令时、错过执行和重叠策略
 - SQLite WAL、乐观并发控制、运行事件、产物下载、暂停/恢复和权限检查
 
@@ -81,3 +97,15 @@ npm run check:web
 在目标 Harness profile 中加入 `dsh-plugin-workflow` bundle，重启 Host。卸载时从 profile bundle 列表移除并重启；插件数据位于 `$DSH_HOME/workflow-studio`，删除该目录会移除工作流、版本、运行记录和产物。
 
 定时任务只在本地 Host 在线时执行；生产环境应保留工作流 SQLite 目录并按部署策略备份。
+
+### 历史对话
+
+工作流卡片的「对话」列出已有消息或执行记录的会话。点击后进入原会话，保留消息和运行记录，可继续交流；「运行」用于开始一次新会话。未发送消息且没有执行记录的空会话不计入历史。
+
+### Desktop 工作流
+
+在工作流首页搜索任务，点击「运行」提供材料；「对话」可以继续历史会话。编辑器默认按步骤列出任务和材料来源，选中一步即可修改。切换「流程图」检查分支与依赖，「更多步骤」提供工具、条件等配置。修改完成后保存版本，再试运行验证。
+
+![Desktop 工作流界面导览](assets/desktop-workflow-tour.gif)
+
+动图展示总览、步骤列表、流程图和深色主题。[静态截图与验收记录](docs/desktop-ux-acceptance.md)提供可逐页阅读的版本。
