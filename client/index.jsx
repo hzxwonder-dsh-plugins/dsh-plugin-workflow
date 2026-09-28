@@ -1017,21 +1017,21 @@ export function apply(ctx) {
       type: "smoothstep",
       selected: `${e.from}:${e.to}` === selectedEdge,
        className: `${e.on === "false" ? "wf-edge-dashed" : e.on === "true" ? "wf-edge-yes" : "wf-edge-default"}${`${e.from}:${e.to}` === selectedEdge ? " wf-edge-selected" : ""}`,
-       label: e.on === "true" ? "是" : e.on === "false" ? "否" : undefined,
+       label: e.on === "true" ? "是" : e.on === "false" ? "否" : e.label,
       style: e.on === "true"
         ? { stroke: "#2f9e63", color: "#2f9e63", strokeWidth: 2 }
         : e.on === "false"
           ? { stroke: "#8d97a5", color: "#8d97a5", strokeWidth: 1.75 }
           : undefined,
-      ...(e.on === "true" || e.on === "false" ? {
-        labelStyle: { fill: e.on === "true" ? "#2f9e63" : "var(--wf-muted)", fontWeight: 600, fontSize: 11 },
-        labelBgStyle: { fill: "var(--wf-surface)" },
-        labelBgPadding: [6, 3],
-        labelBgBorderRadius: 6,
+      ...(e.on === "true" || e.on === "false" || e.label ? {
+        labelStyle: { fill: "var(--wf-text)", fontWeight: 600, fontSize: 11 },
+        labelBgStyle: { fill: "var(--wf-surface)", stroke: "var(--wf-line-strong)", strokeWidth: 1 },
+        labelBgPadding: [10, 6],
+        labelBgBorderRadius: 10,
       } : {}),
       pathOptions: { offset: 18 + index * 8, borderRadius: 18 },
       };
-    }).concat(definition.nodes.filter(n=>n.repeat?.target).map(n=>({id:`repeat:${n.id}`,source:n.id,target:n.repeat.target,sourceHandle:'retry-out',targetHandle:'retry-in',type:'smoothstep',label:`未通过，返回修改 · 最多 ${n.repeat.maxRounds} 轮`,className:'wf-edge-loop',deletable:false})));
+    }).concat(definition.nodes.filter(n=>n.repeat?.target).map(n=>({id:`repeat:${n.id}`,source:n.id,target:n.repeat.target,sourceHandle:'retry-out',targetHandle:'retry-in',type:'smoothstep',label:'未通过 · 返回修订',ariaLabel:`未通过时返回${definition.nodes.find(target=>target.id===n.repeat.target)?.name ?? '指定步骤'}，最多 ${n.repeat.maxRounds} 轮`,labelStyle:{fill:'var(--wf-text)',fontWeight:600,fontSize:11},labelBgStyle:{fill:'var(--wf-surface)',stroke:'var(--wf-line-strong)',strokeWidth:1},labelBgPadding:[12,7],labelBgBorderRadius:12,className:'wf-edge-loop',deletable:false})));
     }, [definition, selectedEdge]);
      const latestRun = data.runs.find((item) => item.workflowId === record.id);
     useEffect(() => {
