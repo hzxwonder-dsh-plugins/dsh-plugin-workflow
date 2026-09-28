@@ -63,6 +63,7 @@ DeepSeek Harness 的可插拔工作流 Studio。侧栏只有一个“工作流�
 - 生成、用户输入、交互、输出、工具、条件、汇合、子工作流、确认、发布、脚本和 Multithread 步骤；「条件」节点的底部是/否双端口连线。填写 Prompt 时由模型按结构化输出 `{answer:boolean, reason:string}` 裁决（answer=true 即「是」），留空则按条件表达式本地判断
 - Multithread 外壳：把「生成」步骤拖进同一个彩色外壳并发执行（并发池 1–8，可把外壳 Prompt 分发给全部子步骤）；头部双击改名，勾选分发后子步骤 Prompt 锁定
 - 脚本节点：用 Python 处理上一步输出（输入经 `input_data` JSON 注入，stdout 即输出）
+- Skill 与文件资源节点：编辑标准 Skill 目录、拖入或创建文件，将版本化资源路径插入下游 Prompt；连线的 Skill 指令随步骤加载。操作说明见 [工作流资源模块](docs/resource-nodes.md)
 - 交互节点：在绑定会话里向用户提问，用户回答后继续。`交互一次` 收一条回答（例如论文 PDF 或链接）；`交互目标` 由判定 Agent 反复追问，直到它理解用户意图并请用户确认后才进入下一步，可用 `maxTurns` 限定轮次；“已有材料时跳过提问”让已经带上材料的消息直接进入下一步。交互节点需要真人，定时无人值守的运行会以 `INTERACTION_UNATTENDED` 失败
 - 节点级 executor、provider、model、effort、skills、工具白名单和输出 Schema
 - 附件材料自动提取；论文精读模板按获取论文、撰写解读、读者问答评审、Halo 发布四个阶段执行
