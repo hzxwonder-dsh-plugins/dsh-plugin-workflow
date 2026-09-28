@@ -254,8 +254,6 @@
   padding: 0 0 4px;
   background: transparent;
 }
-/* The single sidebar entry: a borderless row that reads as part of the rail and
-   highlights while the workflow panel owns the main area. */
 .wf-nav-button {
   display: flex;
   width: calc(100% - 4px);
@@ -295,7 +293,6 @@
   font-weight: 600;
   line-height: 18px;
 }
-.wf-nav-button.is-active .wf-nav-count { background: transparent; color: var(--wf-accent); }
 .wf-workflow-icon {
   display: inline-flex;
   align-items: center;
