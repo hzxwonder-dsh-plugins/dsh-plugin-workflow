@@ -2,18 +2,18 @@
 
 ## 采用的结构
 
-开头三句话交代问题、方法与收益；正文依次解释背景与术语、贯穿全文的具体例子、方法与必要公式、实验条件与证据、适用边界、读者自测与参考来源。章节根据论文调整。
+开头的“快速阅读”用四个短要点交代问题、核心做法、关键证据与适用边界；正文依次解释背景与术语、贯穿全文的具体例子、方法与必要公式、实验条件与证据、适用边界、Takeaway 与参考来源。简短 Q&A 放在读者可能产生疑问的章节旁。章节根据论文调整。
 
-已有文章样例体现了背景、系统瓶颈、方法、实验条件、边界与问答的连续叙述。本模板保留这种证据深度，将开头摘要和具体例子作为初学者进入正文的路径。标题与目录支持跳读，正文仍可从头连贯阅读。
+标题与目录支持跳读，正文仍可从头连贯阅读。图表与解释相邻，正文写出图表支持的结论和原文位置。文章模板由 `paper-explainer` skill 一起加载，避免运行时只看到模板文件名。
 
 ## 查阅依据与适用边界
 
 - [How Users Read on the Web](https://www.nngroup.com/articles/how-users-read-on-the-web/)：支持清晰小标题、每段一个意思、要点前置和客观表达。这是网页阅读研究，不是本产品用户测试；不将其历史统计数值当作本产品效果预测。
 - [How to Present Scientific Findings Online](https://www.nngroup.com/articles/scientific-findings-online/)：支持简洁准确标题、摘要、可跳读章节和有解释的图表。研究对象是领域专家，其跳过背景的偏好不能直接套用于初学者，因此背景保留为可导航章节。
+- [Readwise Reader Ghostreader](https://docs.readwise.io/reader/guides/ghostreader/overview)：提供针对整篇文档或选中段落的解释、提问及自定义提示词；其[跨文档问答](https://docs.readwise.io/reader/guides/ghostreader/global)把答案定位到来源段落。工作流据此强调就近解释和可追溯引用，不照搬聊天式阅读界面。
+- [OpenAI Skills](https://developers.openai.com/api/docs/guides/tools-skills)：`SKILL.md` 承载任务指令，`references/` 承载按需参考材料。插件运行时会把文章模板附入注册的 skill 内容，确保执行器实际获得模板。
 - product-design-and-ux：评分与生成解释不是正确性的证明，需保留来源、输入边界、失败恢复和完成证据。
 - ui-ux-pro-max：沿用宿主字体和主题、稳定控件、可见焦点与明确反馈。设计系统搜索中营销页面结构不适合工作流编辑器；高级配置渐进展开采用通用交互原则，未将不匹配的检索条目作为证据。
-
-未能成功获取 Google 技术写作读者分析页面，因此不将其作为本次已核实依据。
 
 ## 评审规则
 
