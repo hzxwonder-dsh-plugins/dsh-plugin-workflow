@@ -11,7 +11,7 @@ if (start < 25 || end < start) throw new Error('PREVIEW_ARTICLE_UNAVAILABLE');
 const body = page.slice(start, end).replace(/<\/div>\s*$/, '').replace('src="freetoken-overview.svg"', 'src="/lab/assets/paper-overviews/freetoken-preview.svg"');
 const overviewSvg = await readFile(join(folder, 'freetoken-overview.svg'), 'utf8');
 await writeFile(join(folder, 'freetoken-wechat-preview.html'), renderWechatPage({
-  title: '本机跑 284B MoE：FreeToken 怎样用「带宽比例」把闲置的 CPU 也算进来',
+  title: '一张显卡跑大模型：FreeToken 如何让 CPU 与 GPU 合作',
   html: body,
   overviewSvg,
 }));

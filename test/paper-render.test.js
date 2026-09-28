@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { renderPaperOverview } from '../lib/paper-overview.js';
 import { insertPaperOverview, renderPaperMarkdown, renderWechatPage } from '../lib/paper-render.js';
+import { renderPaperMath } from '../lib/paper-math.js';
 
 const overview = {
   title: '一张图读懂论文逻辑',
@@ -16,13 +17,16 @@ const overview = {
 };
 
 test('paper renderer produces accessible math, adjacent Q/A and overview assets', async () => {
-  const markdown = `# 论文精读\n\n## 论文信息\n\n- **题名：** Example Paper\n- **作者：** Example Author\n- **版本：** arXiv\n- **原文：** https://example.org/paper\n\n## 快速阅读\n\n- 问题：专家池超出显存。\n- 方法：带宽分工。\n\n${'一段清晰的简介。'.repeat(27)}\n\n## 方法\n\n$$\nq^* \\approx m \\frac{B_P}{B_H}\n$$\n\n> **Q：** 为什么要分工？\n>\n> **A：** 因为有两条执行路径。\n`;
+  const markdown = `# 论文精读\n\n## 论文信息\n\n- **题名：** Example Paper\n- **作者：** Example Author\n- **版本：** arXiv\n- **原文：** https://example.org/paper\n\n## 快速阅读\n\n- 问题：专家池超出显存。\n- 方法：带宽分工。\n\n${'一段清晰的简介。'.repeat(27)}\n\n## 方法\n\n未命中数量为 $m$，显卡填充 $q^\\star$ 个专家。\n\n$$\nq^* \\approx m \\frac{B_P}{B_H}\n$$\n\n> **Q：** 为什么要分工？\n>\n> **A：** 因为有两条执行路径。\n`;
   const withOverview = insertPaperOverview(markdown, '/lab/assets/paper-overviews/example-a1b2.svg');
   assert(withOverview.indexOf('论文逻辑总览图') < withOverview.indexOf('## 方法'));
   const rendered = await renderPaperMarkdown(withOverview);
-  assert.equal(rendered.formulas, 1);
+  assert.equal(rendered.formulas, 3);
   assert.equal(rendered.headings, 3);
   assert.match(rendered.html, /data:image\/png;base64/);
+  assert.match(rendered.html, /paper-inline-math/);
+  assert.match(rendered.html, /style="display:inline-block/);
+  assert.doesNotMatch(rendered.html, /\$q\^\\star\$/);
   assert.doesNotMatch(rendered.html, /<math/);
   assert.match(rendered.html, /paper-qa-question/);
   assert.match(rendered.html, /class="paper-source"/);
@@ -35,7 +39,9 @@ test('paper renderer produces accessible math, adjacent Q/A and overview assets'
   assert.match(diagram.svg, /<path/);
   assert.doesNotMatch(diagram.svg, /<text/);
   assert.equal(diagram.scene.type, 'excalidraw');
-  assert(diagram.scene.elements.some(element => element.type === 'arrow'));
+  assert(diagram.scene.elements.filter(element => element.type === 'line').length >= 6);
+  assert.match(diagram.svg, /width="820" height="752"/);
+  assert.equal(diagram.scene.elements.filter(element => element.type === 'rectangle').length, overview.steps.length + 3);
   const wechat = renderWechatPage({ title: '论文精读', html: rendered.html, overviewSvg: diagram.svg });
   assert.match(wechat, /复制公众号排版/);
   assert.match(wechat, /text\/html/);
@@ -43,6 +49,13 @@ test('paper renderer produces accessible math, adjacent Q/A and overview assets'
   assert.match(wechat, /background-size:24px 24px/);
   assert.doesNotMatch(wechat, /overflow:auto;padding:16px 20px/);
   assert.doesNotMatch(wechat, /<a\b/);
+});
+
+test('display formulas retain body-sized image dimensions', async () => {
+  const image = await renderPaperMath('q^\\star \\approx m\\frac{B_P}{B_H}', true);
+  const [, width, height] = image.match(/width="(\d+)" height="(\d+)"/) ?? [];
+  assert(Number(width) < 170);
+  assert(Number(height) < 60);
 });
 
 test('paper renderer rejects malformed math and unsafe HTML', async () => {

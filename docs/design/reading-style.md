@@ -2,22 +2,24 @@
 
 ## 体验目标
 
-读者在半分钟内找到论文问题、方法、关键证据与适用边界，随后能够沿着贯穿例子理解机制，并在原文位置核对结论。页面沿用顶部导航、左侧文章、右侧作者与目录的布局。正文区域采用纸张底色、思源宋体正文、思源黑体界面、深蓝灰正文、青绿色链接与少量暖铜色层级提示。
+读者在半分钟内找到论文问题、方法、关键证据与适用边界，随后能够沿着贯穿例子理解机制，并在原文位置核对结论。页面沿用顶部导航、左侧文章、右侧作者与目录的布局。正文与标题使用思源黑体（Noto Sans SC），系统已有苹方时可作为本地回退；以字重、留白和短段落构成层级。背景采用暖白纸色，正文为深蓝灰，链接为青绿色，章节提示使用少量暖铜色。
 
-设计依据：[NN/g 的网页扫读研究](https://www.nngroup.com/articles/how-users-read-on-the-web/)支持有意义的小标题、每段一个观点和要点前置；[Halo 文章模板文档](https://docs.halo.run/developer-guide/theme/template-variables/post)说明正文内容由主题模板注入，因此正文结构与主题样式分别处理；[MathJax 的 SVG 输出文档](https://docs.mathjax.org/en/v4.0/output/svg.html)说明公式可用矢量字形渲染，发布器再生成高分辨率图片以供浏览器和公众号展示；[Excalidraw 场景格式](https://github.com/excalidraw/excalidraw/blob/master/dev-docs/docs/codebase/json-schema.mdx)支持保留可编辑源文件。
+字体选择依据：[Google Fonts 的 Noto Sans SC 字体资料](https://github.com/google/fonts/blob/main/ofl/notosanssc/upstream_info.md)表明它是面向简体中文的 Noto CJK 子集，采用 [SIL OFL 授权](https://github.com/google/fonts/blob/main/ofl/notosanssc/OFL.txt)，适合跨设备呈现；[霞鹜文楷作者的说明](https://github.com/lxgw/LxgwWenKai#项目简介)提示文楷更适合中等长度文本或注释，因此长文正文选用字形更中性的无衬线字体。可读性仍取决于字号、行距、段落长度和读者习惯，字体本身不保证阅读意愿提升。中文行距的影响可参照[简体中文眼动研究](https://lbms03.cityu.edu.hk/oaps/lt2017-6580-hd897.pdf)。
+
+结构依据：[NN/g 的网页扫读研究](https://www.nngroup.com/articles/how-users-read-on-the-web/)支持有意义的小标题、每段一个观点和要点前置；[Halo 文章模板文档](https://docs.halo.run/developer-guide/theme/template-variables/post)说明正文内容由主题模板注入，因此正文结构与主题样式分别处理；[MathJax 的 SVG 输出文档](https://docs.mathjax.org/en/v4.0/output/svg.html)说明公式可用矢量字形渲染，发布器再生成高分辨率图片以供浏览器和公众号展示；[Excalidraw 场景格式](https://github.com/excalidraw/excalidraw/blob/master/dev-docs/docs/codebase/json-schema.mdx)支持保留可编辑源文件。
 
 ## 页面层级
 
 1. 标题与作者信息。
 2. 论文信息卡：题名、作者、版本、原文与项目链接分别呈现。
 3. 四项快速阅读：问题、做法、证据、边界。
-4. 可编辑 Excalidraw 总览图，正文展示 SVG。
-5. 机制与实验正文：每段一个观点，优先两到三句；条件多时改为列表或窄表格。
+4. 中心主题向两侧展开的思维导图：4–6 个编号分支交代问题与设计选择，底部连接证据和适用边界；正文展示 SVG，同时保存可编辑 Excalidraw 源文件。
+5. 面向非专业读者的机制与实验正文：从真实场景进入，术语首次出现时解释；每段一个观点，优先两到三句；条件多时改为列表或窄表格。
 6. 就近 Q/A：`Q：` 和 `A：` 分别成行，回答紧贴对应疑问。
-7. 独立公式区：TeX 由发布器校验并转为高分辨率公式图，宽度随容器缩放，公式附近解释符号及直觉。
+7. 公式：正文保留最能说明关系的核心式；行内变量和独立公式都由发布器校验 TeX 并转为高分辨率公式图，以正文尺寸显示且无横向滚动，邻近文字解释符号、前提及直觉。
 8. Takeaway 与论文出处；公众号版保留论文信息，不附外部引用链接和来源列表。
 
-正文 17px，行距 1.9；手机正文 16px，行距 1.84。右侧目录在窄屏移到正文之后。图片保留等比尺寸；文中讨论的每张原论文主图就近嵌入。表格在自身容器内横向滚动，公式区域随宽度缩放。链接与键盘焦点始终可辨。
+桌面正文 17px、行距 1.84；手机正文 16px、行距 1.84。右侧目录在窄屏移到正文之后。图片保留等比尺寸；文中讨论的每张原论文主图就近嵌入。表格在自身容器内横向滚动，公式区域随宽度缩放。链接与键盘焦点始终可辨。
 
 ## 工作流产物
 
@@ -30,4 +32,4 @@
 - [总览图 SVG](freetoken-overview.svg)
 - [总览图 Excalidraw 源文件](freetoken-overview.excalidraw)
 
-这些文件使用 FreeToken 文章内容，可供样式审阅。正式博客主题的字体、色调和组件样式以此方案为基础实施；页面栏目与布局保持上述结构。
+这些文件使用 FreeToken 原论文的设计和实验内容，可供样式与叙事审阅。预览通过正式 Markdown、公式与总览图生成器构建；文章的具体写法见 [示例 Markdown](freetoken-reading-sample.md)。正式博客主题的字体、色调和组件样式以审阅后的方案为基础实施；页面栏目与布局保持上述结构。
