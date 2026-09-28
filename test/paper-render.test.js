@@ -26,6 +26,7 @@ test('paper renderer produces accessible math, adjacent Q/A and overview assets'
   assert.match(rendered.html, /data:image\/png;base64/);
   assert.match(rendered.html, /paper-inline-math/);
   assert.match(rendered.html, /style="display:inline-block/);
+  assert.match(rendered.html, /class="paper-equation"[^>]*overflow:hidden/);
   assert.doesNotMatch(rendered.html, /\$q\^\\star\$/);
   assert.doesNotMatch(rendered.html, /<math/);
   assert.match(rendered.html, /paper-qa-question/);
