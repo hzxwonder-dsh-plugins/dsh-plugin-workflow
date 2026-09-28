@@ -30,9 +30,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.1.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js
 var require_use_sync_external_store_shim_development = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.1.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js"(exports) {
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js"(exports) {
     "use strict";
     (function() {
       function is(x, y) {
@@ -94,9 +94,9 @@ var require_use_sync_external_store_shim_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.1.1/node_modules/use-sync-external-store/shim/index.js
+// node_modules/use-sync-external-store/shim/index.js
 var require_shim = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.1.1/node_modules/use-sync-external-store/shim/index.js"(exports, module2) {
+  "node_modules/use-sync-external-store/shim/index.js"(exports, module2) {
     "use strict";
     if (false) {
       module2.exports = null;
@@ -106,9 +106,9 @@ var require_shim = __commonJS({
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.1.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js
 var require_with_selector_development = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.1.1/node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js"(exports) {
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js"(exports) {
     "use strict";
     (function() {
       function is(x, y) {
@@ -173,9 +173,9 @@ var require_with_selector_development = __commonJS({
   }
 });
 
-// node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.1.1/node_modules/use-sync-external-store/shim/with-selector.js
+// node_modules/use-sync-external-store/shim/with-selector.js
 var require_with_selector = __commonJS({
-  "node_modules/.pnpm/use-sync-external-store@1.7.0_react@19.1.1/node_modules/use-sync-external-store/shim/with-selector.js"(exports, module2) {
+  "node_modules/use-sync-external-store/shim/with-selector.js"(exports, module2) {
     "use strict";
     if (false) {
       module2.exports = null;
@@ -343,19 +343,19 @@ function InlineName({ value, onRename }) {
 // client/step-outline.jsx
 var import_react4 = __toESM(require("react"), 1);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/createLucideIcon.js
+// node_modules/lucide-react/dist/esm/createLucideIcon.js
 var import_react3 = require("react");
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/shared/src/utils.js
+// node_modules/lucide-react/dist/esm/shared/src/utils.js
 var toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 var mergeClasses = (...classes) => classes.filter((className, index2, array2) => {
   return Boolean(className) && className.trim() !== "" && array2.indexOf(className) === index2;
 }).join(" ").trim();
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/Icon.js
+// node_modules/lucide-react/dist/esm/Icon.js
 var import_react2 = require("react");
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/defaultAttributes.js
+// node_modules/lucide-react/dist/esm/defaultAttributes.js
 var defaultAttributes = {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
@@ -368,7 +368,7 @@ var defaultAttributes = {
   strokeLinejoin: "round"
 };
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/Icon.js
+// node_modules/lucide-react/dist/esm/Icon.js
 var Icon = (0, import_react2.forwardRef)(
   ({
     color: color2 = "currentColor",
@@ -400,7 +400,7 @@ var Icon = (0, import_react2.forwardRef)(
   }
 );
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/createLucideIcon.js
+// node_modules/lucide-react/dist/esm/createLucideIcon.js
 var createLucideIcon = (iconName, iconNode) => {
   const Component = (0, import_react3.forwardRef)(
     ({ className, ...props }, ref) => (0, import_react3.createElement)(Icon, {
@@ -414,7 +414,7 @@ var createLucideIcon = (iconName, iconNode) => {
   return Component;
 };
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/archive-restore.js
+// node_modules/lucide-react/dist/esm/icons/archive-restore.js
 var ArchiveRestore = createLucideIcon("ArchiveRestore", [
   ["rect", { width: "20", height: "5", x: "2", y: "3", rx: "1", key: "1wp1u1" }],
   ["path", { d: "M4 8v11a2 2 0 0 0 2 2h2", key: "tvwodi" }],
@@ -423,20 +423,20 @@ var ArchiveRestore = createLucideIcon("ArchiveRestore", [
   ["path", { d: "M12 12v9", key: "192myk" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/archive.js
+// node_modules/lucide-react/dist/esm/icons/archive.js
 var Archive = createLucideIcon("Archive", [
   ["rect", { width: "20", height: "5", x: "2", y: "3", rx: "1", key: "1wp1u1" }],
   ["path", { d: "M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8", key: "1s80jp" }],
   ["path", { d: "M10 12h4", key: "a56b0p" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/arrow-left.js
+// node_modules/lucide-react/dist/esm/icons/arrow-left.js
 var ArrowLeft = createLucideIcon("ArrowLeft", [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/book-open.js
+// node_modules/lucide-react/dist/esm/icons/book-open.js
 var BookOpen = createLucideIcon("BookOpen", [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
@@ -448,26 +448,26 @@ var BookOpen = createLucideIcon("BookOpen", [
   ]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/check-check.js
+// node_modules/lucide-react/dist/esm/icons/check-check.js
 var CheckCheck = createLucideIcon("CheckCheck", [
   ["path", { d: "M18 6 7 17l-5-5", key: "116fxf" }],
   ["path", { d: "m22 10-7.5 7.5L13 16", key: "ke71qq" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/check.js
+// node_modules/lucide-react/dist/esm/icons/check.js
 var Check = createLucideIcon("Check", [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/chevron-down.js
+// node_modules/lucide-react/dist/esm/icons/chevron-down.js
 var ChevronDown = createLucideIcon("ChevronDown", [
   ["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/chevron-right.js
+// node_modules/lucide-react/dist/esm/icons/chevron-right.js
 var ChevronRight = createLucideIcon("ChevronRight", [
   ["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/clipboard-paste.js
+// node_modules/lucide-react/dist/esm/icons/clipboard-paste.js
 var ClipboardPaste = createLucideIcon("ClipboardPaste", [
   [
     "path",
@@ -483,46 +483,46 @@ var ClipboardPaste = createLucideIcon("ClipboardPaste", [
   ["path", { d: "m17 10 4 4-4 4", key: "vp2hj1" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/clock.js
+// node_modules/lucide-react/dist/esm/icons/clock.js
 var Clock = createLucideIcon("Clock", [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/code.js
+// node_modules/lucide-react/dist/esm/icons/code.js
 var Code = createLucideIcon("Code", [
   ["polyline", { points: "16 18 22 12 16 6", key: "z7tu5w" }],
   ["polyline", { points: "8 6 2 12 8 18", key: "1eg1df" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/copy.js
+// node_modules/lucide-react/dist/esm/icons/copy.js
 var Copy = createLucideIcon("Copy", [
   ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
   ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/download.js
+// node_modules/lucide-react/dist/esm/icons/download.js
 var Download = createLucideIcon("Download", [
   ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
   ["polyline", { points: "7 10 12 15 17 10", key: "2ggqvy" }],
   ["line", { x1: "12", x2: "12", y1: "15", y2: "3", key: "1vk2je" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/ellipsis.js
+// node_modules/lucide-react/dist/esm/icons/ellipsis.js
 var Ellipsis = createLucideIcon("Ellipsis", [
   ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
   ["circle", { cx: "19", cy: "12", r: "1", key: "1wjl8i" }],
   ["circle", { cx: "5", cy: "12", r: "1", key: "1pcz8c" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/external-link.js
+// node_modules/lucide-react/dist/esm/icons/external-link.js
 var ExternalLink = createLucideIcon("ExternalLink", [
   ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
   ["path", { d: "M10 14 21 3", key: "gplh6r" }],
   ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/file-text.js
+// node_modules/lucide-react/dist/esm/icons/file-text.js
 var FileText = createLucideIcon("FileText", [
   ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
   ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
@@ -531,7 +531,7 @@ var FileText = createLucideIcon("FileText", [
   ["path", { d: "M16 17H8", key: "z1uh3a" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/git-branch.js
+// node_modules/lucide-react/dist/esm/icons/git-branch.js
 var GitBranch = createLucideIcon("GitBranch", [
   ["line", { x1: "6", x2: "6", y1: "3", y2: "15", key: "17qcm7" }],
   ["circle", { cx: "18", cy: "6", r: "3", key: "1h7g24" }],
@@ -539,7 +539,7 @@ var GitBranch = createLucideIcon("GitBranch", [
   ["path", { d: "M18 9a9 9 0 0 1-9 9", key: "n2h4wq" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/layers.js
+// node_modules/lucide-react/dist/esm/icons/layers.js
 var Layers = createLucideIcon("Layers", [
   [
     "path",
@@ -564,7 +564,7 @@ var Layers = createLucideIcon("Layers", [
   ]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/layout-grid.js
+// node_modules/lucide-react/dist/esm/icons/layout-grid.js
 var LayoutGrid = createLucideIcon("LayoutGrid", [
   ["rect", { width: "7", height: "7", x: "3", y: "3", rx: "1", key: "1g98yp" }],
   ["rect", { width: "7", height: "7", x: "14", y: "3", rx: "1", key: "6d4xhi" }],
@@ -572,7 +572,7 @@ var LayoutGrid = createLucideIcon("LayoutGrid", [
   ["rect", { width: "7", height: "7", x: "3", y: "14", rx: "1", key: "1bb6yr" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/list.js
+// node_modules/lucide-react/dist/esm/icons/list.js
 var List = createLucideIcon("List", [
   ["path", { d: "M3 12h.01", key: "nlz23k" }],
   ["path", { d: "M3 18h.01", key: "1tta3j" }],
@@ -582,24 +582,24 @@ var List = createLucideIcon("List", [
   ["path", { d: "M8 6h13", key: "ik3vkj" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/loader-circle.js
+// node_modules/lucide-react/dist/esm/icons/loader-circle.js
 var LoaderCircle = createLucideIcon("LoaderCircle", [
   ["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/message-square.js
+// node_modules/lucide-react/dist/esm/icons/message-square.js
 var MessageSquare = createLucideIcon("MessageSquare", [
   ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/panels-top-left.js
+// node_modules/lucide-react/dist/esm/icons/panels-top-left.js
 var PanelsTopLeft = createLucideIcon("PanelsTopLeft", [
   ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }],
   ["path", { d: "M3 9h18", key: "1pudct" }],
   ["path", { d: "M9 21V9", key: "1oto5p" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/paperclip.js
+// node_modules/lucide-react/dist/esm/icons/paperclip.js
 var Paperclip = createLucideIcon("Paperclip", [
   ["path", { d: "M13.234 20.252 21 12.3", key: "1cbrk9" }],
   [
@@ -611,13 +611,13 @@ var Paperclip = createLucideIcon("Paperclip", [
   ]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/pause.js
+// node_modules/lucide-react/dist/esm/icons/pause.js
 var Pause = createLucideIcon("Pause", [
   ["rect", { x: "14", y: "4", width: "4", height: "16", rx: "1", key: "zuxfzm" }],
   ["rect", { x: "6", y: "4", width: "4", height: "16", rx: "1", key: "1okwgv" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/pencil.js
+// node_modules/lucide-react/dist/esm/icons/pencil.js
 var Pencil = createLucideIcon("Pencil", [
   [
     "path",
@@ -629,18 +629,18 @@ var Pencil = createLucideIcon("Pencil", [
   ["path", { d: "m15 5 4 4", key: "1mk7zo" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/play.js
+// node_modules/lucide-react/dist/esm/icons/play.js
 var Play = createLucideIcon("Play", [
   ["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/plus.js
+// node_modules/lucide-react/dist/esm/icons/plus.js
 var Plus = createLucideIcon("Plus", [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/refresh-cw.js
+// node_modules/lucide-react/dist/esm/icons/refresh-cw.js
 var RefreshCw = createLucideIcon("RefreshCw", [
   ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
   ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
@@ -648,7 +648,7 @@ var RefreshCw = createLucideIcon("RefreshCw", [
   ["path", { d: "M8 16H3v5", key: "1cv678" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/save.js
+// node_modules/lucide-react/dist/esm/icons/save.js
 var Save = createLucideIcon("Save", [
   [
     "path",
@@ -661,13 +661,13 @@ var Save = createLucideIcon("Save", [
   ["path", { d: "M7 3v4a1 1 0 0 0 1 1h7", key: "t51u73" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/search.js
+// node_modules/lucide-react/dist/esm/icons/search.js
 var Search = createLucideIcon("Search", [
   ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }],
   ["path", { d: "m21 21-4.3-4.3", key: "1qie3q" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/send.js
+// node_modules/lucide-react/dist/esm/icons/send.js
 var Send = createLucideIcon("Send", [
   [
     "path",
@@ -679,7 +679,7 @@ var Send = createLucideIcon("Send", [
   ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/settings-2.js
+// node_modules/lucide-react/dist/esm/icons/settings-2.js
 var Settings2 = createLucideIcon("Settings2", [
   ["path", { d: "M20 7h-9", key: "3s1dr2" }],
   ["path", { d: "M14 17H5", key: "gfn3mx" }],
@@ -687,13 +687,13 @@ var Settings2 = createLucideIcon("Settings2", [
   ["circle", { cx: "7", cy: "7", r: "3", key: "dfmy0x" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/skip-forward.js
+// node_modules/lucide-react/dist/esm/icons/skip-forward.js
 var SkipForward = createLucideIcon("SkipForward", [
   ["polygon", { points: "5 4 15 12 5 20 5 4", key: "16p6eg" }],
   ["line", { x1: "19", x2: "19", y1: "5", y2: "19", key: "futhcm" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/sparkles.js
+// node_modules/lucide-react/dist/esm/icons/sparkles.js
 var Sparkles = createLucideIcon("Sparkles", [
   [
     "path",
@@ -708,18 +708,18 @@ var Sparkles = createLucideIcon("Sparkles", [
   ["path", { d: "M5 18H3", key: "zchphs" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/square.js
+// node_modules/lucide-react/dist/esm/icons/square.js
 var Square = createLucideIcon("Square", [
   ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/step-forward.js
+// node_modules/lucide-react/dist/esm/icons/step-forward.js
 var StepForward = createLucideIcon("StepForward", [
   ["line", { x1: "6", x2: "6", y1: "4", y2: "20", key: "fy8qot" }],
   ["polygon", { points: "10,4 20,12 10,20", key: "1mc1pf" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/text-cursor-input.js
+// node_modules/lucide-react/dist/esm/icons/text-cursor-input.js
 var TextCursorInput = createLucideIcon("TextCursorInput", [
   ["path", { d: "M5 4h1a3 3 0 0 1 3 3 3 3 0 0 1 3-3h1", key: "18xjzo" }],
   ["path", { d: "M13 20h-1a3 3 0 0 1-3-3 3 3 0 0 1-3 3H5", key: "fj48gi" }],
@@ -728,7 +728,7 @@ var TextCursorInput = createLucideIcon("TextCursorInput", [
   ["path", { d: "M9 7v10", key: "1vc8ob" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/trash-2.js
+// node_modules/lucide-react/dist/esm/icons/trash-2.js
 var Trash2 = createLucideIcon("Trash2", [
   ["path", { d: "M3 6h18", key: "d0wm0j" }],
   ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
@@ -737,7 +737,7 @@ var Trash2 = createLucideIcon("Trash2", [
   ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/triangle-alert.js
+// node_modules/lucide-react/dist/esm/icons/triangle-alert.js
 var TriangleAlert = createLucideIcon("TriangleAlert", [
   [
     "path",
@@ -750,27 +750,27 @@ var TriangleAlert = createLucideIcon("TriangleAlert", [
   ["path", { d: "M12 17h.01", key: "p32p05" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/undo-2.js
+// node_modules/lucide-react/dist/esm/icons/undo-2.js
 var Undo2 = createLucideIcon("Undo2", [
   ["path", { d: "M9 14 4 9l5-5", key: "102s5s" }],
   ["path", { d: "M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11", key: "f3b9sd" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/upload.js
+// node_modules/lucide-react/dist/esm/icons/upload.js
 var Upload = createLucideIcon("Upload", [
   ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
   ["polyline", { points: "17 8 12 3 7 8", key: "t8dd8p" }],
   ["line", { x1: "12", x2: "12", y1: "3", y2: "15", key: "widbto" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/workflow.js
+// node_modules/lucide-react/dist/esm/icons/workflow.js
 var Workflow = createLucideIcon("Workflow", [
   ["rect", { width: "8", height: "8", x: "3", y: "3", rx: "2", key: "by2w9f" }],
   ["path", { d: "M7 11v4a2 2 0 0 0 2 2h4", key: "xkn7yn" }],
   ["rect", { width: "8", height: "8", x: "13", y: "13", rx: "2", key: "1cgmvn" }]
 ]);
 
-// node_modules/.pnpm/lucide-react@0.468.0_react@19.1.1/node_modules/lucide-react/dist/esm/icons/x.js
+// node_modules/lucide-react/dist/esm/icons/x.js
 var X = createLucideIcon("X", [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
@@ -1281,11 +1281,11 @@ function createGallery({ ctx, api, refresh, openSession, openEditor, bind, begin
 var import_react13 = __toESM(require("react"), 1);
 var import_dsh_client_ui_primitives3 = require("@deepseek-ai/dsh-client-ui-primitives");
 
-// node_modules/.pnpm/@xyflow+react@12.10.1_react-dom@19.1.1_react@19.1.1__react@19.1.1/node_modules/@xyflow/react/dist/esm/index.js
+// node_modules/@xyflow/react/dist/esm/index.js
 var import_jsx_runtime4 = require("react/jsx-runtime");
 var import_react7 = require("react");
 
-// node_modules/.pnpm/classcat@5.0.5/node_modules/classcat/index.js
+// node_modules/classcat/index.js
 function cc(names2) {
   if (typeof names2 === "string" || typeof names2 === "number") return "" + names2;
   let out = "";
@@ -1303,7 +1303,7 @@ function cc(names2) {
   return out;
 }
 
-// node_modules/.pnpm/d3-dispatch@3.0.1/node_modules/d3-dispatch/src/dispatch.js
+// node_modules/d3-dispatch/src/dispatch.js
 var noop = { value: () => {
 } };
 function dispatch() {
@@ -1373,7 +1373,7 @@ function set(type, name2, callback) {
 }
 var dispatch_default = dispatch;
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/namespaces.js
+// node_modules/d3-selection/src/namespaces.js
 var xhtml = "http://www.w3.org/1999/xhtml";
 var namespaces_default = {
   svg: "http://www.w3.org/2000/svg",
@@ -1383,14 +1383,14 @@ var namespaces_default = {
   xmlns: "http://www.w3.org/2000/xmlns/"
 };
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/namespace.js
+// node_modules/d3-selection/src/namespace.js
 function namespace_default(name2) {
   var prefix = name2 += "", i = prefix.indexOf(":");
   if (i >= 0 && (prefix = name2.slice(0, i)) !== "xmlns") name2 = name2.slice(i + 1);
   return namespaces_default.hasOwnProperty(prefix) ? { space: namespaces_default[prefix], local: name2 } : name2;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/creator.js
+// node_modules/d3-selection/src/creator.js
 function creatorInherit(name2) {
   return function() {
     var document2 = this.ownerDocument, uri = this.namespaceURI;
@@ -1407,7 +1407,7 @@ function creator_default(name2) {
   return (fullname.local ? creatorFixed : creatorInherit)(fullname);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selector.js
+// node_modules/d3-selection/src/selector.js
 function none() {
 }
 function selector_default(selector) {
@@ -1416,7 +1416,7 @@ function selector_default(selector) {
   };
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/select.js
+// node_modules/d3-selection/src/selection/select.js
 function select_default(select) {
   if (typeof select !== "function") select = selector_default(select);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -1430,12 +1430,12 @@ function select_default(select) {
   return new Selection(subgroups, this._parents);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/array.js
+// node_modules/d3-selection/src/array.js
 function array(x) {
   return x == null ? [] : Array.isArray(x) ? x : Array.from(x);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selectorAll.js
+// node_modules/d3-selection/src/selectorAll.js
 function empty() {
   return [];
 }
@@ -1445,7 +1445,7 @@ function selectorAll_default(selector) {
   };
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/selectAll.js
+// node_modules/d3-selection/src/selection/selectAll.js
 function arrayAll(select) {
   return function() {
     return array(select.apply(this, arguments));
@@ -1465,7 +1465,7 @@ function selectAll_default(select) {
   return new Selection(subgroups, parents);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/matcher.js
+// node_modules/d3-selection/src/matcher.js
 function matcher_default(selector) {
   return function() {
     return this.matches(selector);
@@ -1477,7 +1477,7 @@ function childMatcher(selector) {
   };
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/selectChild.js
+// node_modules/d3-selection/src/selection/selectChild.js
 var find = Array.prototype.find;
 function childFind(match) {
   return function() {
@@ -1491,7 +1491,7 @@ function selectChild_default(match) {
   return this.select(match == null ? childFirst : childFind(typeof match === "function" ? match : childMatcher(match)));
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/selectChildren.js
+// node_modules/d3-selection/src/selection/selectChildren.js
 var filter = Array.prototype.filter;
 function children() {
   return Array.from(this.children);
@@ -1505,7 +1505,7 @@ function selectChildren_default(match) {
   return this.selectAll(match == null ? children : childrenFilter(typeof match === "function" ? match : childMatcher(match)));
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/filter.js
+// node_modules/d3-selection/src/selection/filter.js
 function filter_default(match) {
   if (typeof match !== "function") match = matcher_default(match);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -1518,12 +1518,12 @@ function filter_default(match) {
   return new Selection(subgroups, this._parents);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/sparse.js
+// node_modules/d3-selection/src/selection/sparse.js
 function sparse_default(update) {
   return new Array(update.length);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/enter.js
+// node_modules/d3-selection/src/selection/enter.js
 function enter_default() {
   return new Selection(this._enter || this._groups.map(sparse_default), this._parents);
 }
@@ -1550,14 +1550,14 @@ EnterNode.prototype = {
   }
 };
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/constant.js
+// node_modules/d3-selection/src/constant.js
 function constant_default(x) {
   return function() {
     return x;
   };
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/data.js
+// node_modules/d3-selection/src/selection/data.js
 function bindIndex(parent, group, enter, update, exit, data) {
   var i = 0, node, groupLength = group.length, dataLength = data.length;
   for (; i < dataLength; ++i) {
@@ -1629,12 +1629,12 @@ function arraylike(data) {
   return typeof data === "object" && "length" in data ? data : Array.from(data);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/exit.js
+// node_modules/d3-selection/src/selection/exit.js
 function exit_default() {
   return new Selection(this._exit || this._groups.map(sparse_default), this._parents);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/join.js
+// node_modules/d3-selection/src/selection/join.js
 function join_default(onenter, onupdate, onexit) {
   var enter = this.enter(), update = this, exit = this.exit();
   if (typeof onenter === "function") {
@@ -1652,7 +1652,7 @@ function join_default(onenter, onupdate, onexit) {
   return enter && update ? enter.merge(update).order() : update;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/merge.js
+// node_modules/d3-selection/src/selection/merge.js
 function merge_default(context) {
   var selection2 = context.selection ? context.selection() : context;
   for (var groups0 = this._groups, groups1 = selection2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
@@ -1668,7 +1668,7 @@ function merge_default(context) {
   return new Selection(merges, this._parents);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/order.js
+// node_modules/d3-selection/src/selection/order.js
 function order_default() {
   for (var groups = this._groups, j = -1, m = groups.length; ++j < m; ) {
     for (var group = groups[j], i = group.length - 1, next = group[i], node; --i >= 0; ) {
@@ -1681,7 +1681,7 @@ function order_default() {
   return this;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/sort.js
+// node_modules/d3-selection/src/selection/sort.js
 function sort_default(compare) {
   if (!compare) compare = ascending;
   function compareNode(a, b) {
@@ -1701,7 +1701,7 @@ function ascending(a, b) {
   return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/call.js
+// node_modules/d3-selection/src/selection/call.js
 function call_default() {
   var callback = arguments[0];
   arguments[0] = this;
@@ -1709,12 +1709,12 @@ function call_default() {
   return this;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/nodes.js
+// node_modules/d3-selection/src/selection/nodes.js
 function nodes_default() {
   return Array.from(this);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/node.js
+// node_modules/d3-selection/src/selection/node.js
 function node_default() {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group = groups[j], i = 0, n = group.length; i < n; ++i) {
@@ -1725,19 +1725,19 @@ function node_default() {
   return null;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/size.js
+// node_modules/d3-selection/src/selection/size.js
 function size_default() {
   let size = 0;
   for (const node of this) ++size;
   return size;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/empty.js
+// node_modules/d3-selection/src/selection/empty.js
 function empty_default() {
   return !this.node();
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/each.js
+// node_modules/d3-selection/src/selection/each.js
 function each_default(callback) {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group = groups[j], i = 0, n = group.length, node; i < n; ++i) {
@@ -1747,7 +1747,7 @@ function each_default(callback) {
   return this;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/attr.js
+// node_modules/d3-selection/src/selection/attr.js
 function attrRemove(name2) {
   return function() {
     this.removeAttribute(name2);
@@ -1791,12 +1791,12 @@ function attr_default(name2, value) {
   return this.each((value == null ? fullname.local ? attrRemoveNS : attrRemove : typeof value === "function" ? fullname.local ? attrFunctionNS : attrFunction : fullname.local ? attrConstantNS : attrConstant)(fullname, value));
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/window.js
+// node_modules/d3-selection/src/window.js
 function window_default(node) {
   return node.ownerDocument && node.ownerDocument.defaultView || node.document && node || node.defaultView;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/style.js
+// node_modules/d3-selection/src/selection/style.js
 function styleRemove(name2) {
   return function() {
     this.style.removeProperty(name2);
@@ -1821,7 +1821,7 @@ function styleValue(node, name2) {
   return node.style.getPropertyValue(name2) || window_default(node).getComputedStyle(node, null).getPropertyValue(name2);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/property.js
+// node_modules/d3-selection/src/selection/property.js
 function propertyRemove(name2) {
   return function() {
     delete this[name2];
@@ -1843,7 +1843,7 @@ function property_default(name2, value) {
   return arguments.length > 1 ? this.each((value == null ? propertyRemove : typeof value === "function" ? propertyFunction : propertyConstant)(name2, value)) : this.node()[name2];
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/classed.js
+// node_modules/d3-selection/src/selection/classed.js
 function classArray(string) {
   return string.trim().split(/^|\s+/);
 }
@@ -1906,7 +1906,7 @@ function classed_default(name2, value) {
   return this.each((typeof value === "function" ? classedFunction : value ? classedTrue : classedFalse)(names2, value));
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/text.js
+// node_modules/d3-selection/src/selection/text.js
 function textRemove() {
   this.textContent = "";
 }
@@ -1925,7 +1925,7 @@ function text_default(value) {
   return arguments.length ? this.each(value == null ? textRemove : (typeof value === "function" ? textFunction : textConstant)(value)) : this.node().textContent;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/html.js
+// node_modules/d3-selection/src/selection/html.js
 function htmlRemove() {
   this.innerHTML = "";
 }
@@ -1944,7 +1944,7 @@ function html_default(value) {
   return arguments.length ? this.each(value == null ? htmlRemove : (typeof value === "function" ? htmlFunction : htmlConstant)(value)) : this.node().innerHTML;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/raise.js
+// node_modules/d3-selection/src/selection/raise.js
 function raise() {
   if (this.nextSibling) this.parentNode.appendChild(this);
 }
@@ -1952,7 +1952,7 @@ function raise_default() {
   return this.each(raise);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/lower.js
+// node_modules/d3-selection/src/selection/lower.js
 function lower() {
   if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
 }
@@ -1960,7 +1960,7 @@ function lower_default() {
   return this.each(lower);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/append.js
+// node_modules/d3-selection/src/selection/append.js
 function append_default(name2) {
   var create2 = typeof name2 === "function" ? name2 : creator_default(name2);
   return this.select(function() {
@@ -1968,7 +1968,7 @@ function append_default(name2) {
   });
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/insert.js
+// node_modules/d3-selection/src/selection/insert.js
 function constantNull() {
   return null;
 }
@@ -1979,7 +1979,7 @@ function insert_default(name2, before) {
   });
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/remove.js
+// node_modules/d3-selection/src/selection/remove.js
 function remove() {
   var parent = this.parentNode;
   if (parent) parent.removeChild(this);
@@ -1988,7 +1988,7 @@ function remove_default() {
   return this.each(remove);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/clone.js
+// node_modules/d3-selection/src/selection/clone.js
 function selection_cloneShallow() {
   var clone = this.cloneNode(false), parent = this.parentNode;
   return parent ? parent.insertBefore(clone, this.nextSibling) : clone;
@@ -2001,12 +2001,12 @@ function clone_default(deep) {
   return this.select(deep ? selection_cloneDeep : selection_cloneShallow);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/datum.js
+// node_modules/d3-selection/src/selection/datum.js
 function datum_default(value) {
   return arguments.length ? this.property("__data__", value) : this.node().__data__;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/on.js
+// node_modules/d3-selection/src/selection/on.js
 function contextListener(listener) {
   return function(event) {
     listener.call(this, event, this.__data__);
@@ -2069,7 +2069,7 @@ function on_default(typename, value, options) {
   return this;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/dispatch.js
+// node_modules/d3-selection/src/selection/dispatch.js
 function dispatchEvent(node, type, params) {
   var window2 = window_default(node), event = window2.CustomEvent;
   if (typeof event === "function") {
@@ -2095,7 +2095,7 @@ function dispatch_default2(type, params) {
   return this.each((typeof params === "function" ? dispatchFunction : dispatchConstant)(type, params));
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/iterator.js
+// node_modules/d3-selection/src/selection/iterator.js
 function* iterator_default() {
   for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
     for (var group = groups[j], i = 0, n = group.length, node; i < n; ++i) {
@@ -2104,7 +2104,7 @@ function* iterator_default() {
   }
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/selection/index.js
+// node_modules/d3-selection/src/selection/index.js
 var root = [null];
 function Selection(groups, parents) {
   this._groups = groups;
@@ -2156,19 +2156,19 @@ Selection.prototype = selection.prototype = {
 };
 var selection_default = selection;
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/select.js
+// node_modules/d3-selection/src/select.js
 function select_default2(selector) {
   return typeof selector === "string" ? new Selection([[document.querySelector(selector)]], [document.documentElement]) : new Selection([[selector]], root);
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/sourceEvent.js
+// node_modules/d3-selection/src/sourceEvent.js
 function sourceEvent_default(event) {
   let sourceEvent;
   while (sourceEvent = event.sourceEvent) event = sourceEvent;
   return event;
 }
 
-// node_modules/.pnpm/d3-selection@3.0.0/node_modules/d3-selection/src/pointer.js
+// node_modules/d3-selection/src/pointer.js
 function pointer_default(event, node) {
   event = sourceEvent_default(event);
   if (node === void 0) node = event.currentTarget;
@@ -2188,7 +2188,7 @@ function pointer_default(event, node) {
   return [event.pageX, event.pageY];
 }
 
-// node_modules/.pnpm/d3-drag@3.0.0/node_modules/d3-drag/src/noevent.js
+// node_modules/d3-drag/src/noevent.js
 var nonpassive = { passive: false };
 var nonpassivecapture = { capture: true, passive: false };
 function nopropagation(event) {
@@ -2199,7 +2199,7 @@ function noevent_default(event) {
   event.stopImmediatePropagation();
 }
 
-// node_modules/.pnpm/d3-drag@3.0.0/node_modules/d3-drag/src/nodrag.js
+// node_modules/d3-drag/src/nodrag.js
 function nodrag_default(view) {
   var root2 = view.document.documentElement, selection2 = select_default2(view).on("dragstart.drag", noevent_default, nonpassivecapture);
   if ("onselectstart" in root2) {
@@ -2225,10 +2225,10 @@ function yesdrag(view, noclick) {
   }
 }
 
-// node_modules/.pnpm/d3-drag@3.0.0/node_modules/d3-drag/src/constant.js
+// node_modules/d3-drag/src/constant.js
 var constant_default2 = (x) => () => x;
 
-// node_modules/.pnpm/d3-drag@3.0.0/node_modules/d3-drag/src/event.js
+// node_modules/d3-drag/src/event.js
 function DragEvent(type, {
   sourceEvent,
   subject,
@@ -2260,7 +2260,7 @@ DragEvent.prototype.on = function() {
   return value === this._ ? this : value;
 };
 
-// node_modules/.pnpm/d3-drag@3.0.0/node_modules/d3-drag/src/drag.js
+// node_modules/d3-drag/src/drag.js
 function defaultFilter(event) {
   return !event.ctrlKey && !event.button;
 }
@@ -2405,7 +2405,7 @@ function drag_default() {
   return drag;
 }
 
-// node_modules/.pnpm/d3-color@3.1.0/node_modules/d3-color/src/define.js
+// node_modules/d3-color/src/define.js
 function define_default(constructor, factory, prototype) {
   constructor.prototype = factory.prototype = prototype;
   prototype.constructor = constructor;
@@ -2416,7 +2416,7 @@ function extend(parent, definition) {
   return prototype;
 }
 
-// node_modules/.pnpm/d3-color@3.1.0/node_modules/d3-color/src/color.js
+// node_modules/d3-color/src/color.js
 function Color() {
 }
 var darker = 0.7;
@@ -2753,7 +2753,7 @@ function hsl2rgb(h, m1, m2) {
   return (h < 60 ? m1 + (m2 - m1) * h / 60 : h < 180 ? m2 : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60 : m1) * 255;
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/basis.js
+// node_modules/d3-interpolate/src/basis.js
 function basis(t1, v0, v1, v2, v3) {
   var t2 = t1 * t1, t3 = t2 * t1;
   return ((1 - 3 * t1 + 3 * t2 - t3) * v0 + (4 - 6 * t2 + 3 * t3) * v1 + (1 + 3 * t1 + 3 * t2 - 3 * t3) * v2 + t3 * v3) / 6;
@@ -2766,7 +2766,7 @@ function basis_default(values) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/basisClosed.js
+// node_modules/d3-interpolate/src/basisClosed.js
 function basisClosed_default(values) {
   var n = values.length;
   return function(t) {
@@ -2775,10 +2775,10 @@ function basisClosed_default(values) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/constant.js
+// node_modules/d3-interpolate/src/constant.js
 var constant_default3 = (x) => () => x;
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/color.js
+// node_modules/d3-interpolate/src/color.js
 function linear(a, d) {
   return function(t) {
     return a + t * d;
@@ -2799,7 +2799,7 @@ function nogamma(a, b) {
   return d ? linear(a, d) : constant_default3(isNaN(a) ? b : a);
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/rgb.js
+// node_modules/d3-interpolate/src/rgb.js
 var rgb_default = (function rgbGamma(y) {
   var color2 = gamma(y);
   function rgb2(start2, end) {
@@ -2839,7 +2839,7 @@ function rgbSpline(spline) {
 var rgbBasis = rgbSpline(basis_default);
 var rgbBasisClosed = rgbSpline(basisClosed_default);
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/numberArray.js
+// node_modules/d3-interpolate/src/numberArray.js
 function numberArray_default(a, b) {
   if (!b) b = [];
   var n = a ? Math.min(b.length, a.length) : 0, c = b.slice(), i;
@@ -2852,7 +2852,7 @@ function isNumberArray(x) {
   return ArrayBuffer.isView(x) && !(x instanceof DataView);
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/array.js
+// node_modules/d3-interpolate/src/array.js
 function genericArray(a, b) {
   var nb = b ? b.length : 0, na = a ? Math.min(nb, a.length) : 0, x = new Array(na), c = new Array(nb), i;
   for (i = 0; i < na; ++i) x[i] = value_default(a[i], b[i]);
@@ -2863,7 +2863,7 @@ function genericArray(a, b) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/date.js
+// node_modules/d3-interpolate/src/date.js
 function date_default(a, b) {
   var d = /* @__PURE__ */ new Date();
   return a = +a, b = +b, function(t) {
@@ -2871,14 +2871,14 @@ function date_default(a, b) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/number.js
+// node_modules/d3-interpolate/src/number.js
 function number_default(a, b) {
   return a = +a, b = +b, function(t) {
     return a * (1 - t) + b * t;
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/object.js
+// node_modules/d3-interpolate/src/object.js
 function object_default(a, b) {
   var i = {}, c = {}, k;
   if (a === null || typeof a !== "object") a = {};
@@ -2896,7 +2896,7 @@ function object_default(a, b) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/string.js
+// node_modules/d3-interpolate/src/string.js
 var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g;
 var reB = new RegExp(reA.source, "g");
 function zero(b) {
@@ -2938,13 +2938,13 @@ function string_default(a, b) {
   });
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/value.js
+// node_modules/d3-interpolate/src/value.js
 function value_default(a, b) {
   var t = typeof b, c;
   return b == null || t === "boolean" ? constant_default3(b) : (t === "number" ? number_default : t === "string" ? (c = color(b)) ? (b = c, rgb_default) : string_default : b instanceof color ? rgb_default : b instanceof Date ? date_default : isNumberArray(b) ? numberArray_default : Array.isArray(b) ? genericArray : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object_default : number_default)(a, b);
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/transform/decompose.js
+// node_modules/d3-interpolate/src/transform/decompose.js
 var degrees = 180 / Math.PI;
 var identity = {
   translateX: 0,
@@ -2970,7 +2970,7 @@ function decompose_default(a, b, c, d, e, f) {
   };
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/transform/parse.js
+// node_modules/d3-interpolate/src/transform/parse.js
 var svgNode;
 function parseCss(value) {
   const m = new (typeof DOMMatrix === "function" ? DOMMatrix : WebKitCSSMatrix)(value + "");
@@ -2985,7 +2985,7 @@ function parseSvg(value) {
   return decompose_default(value.a, value.b, value.c, value.d, value.e, value.f);
 }
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/transform/index.js
+// node_modules/d3-interpolate/src/transform/index.js
 function interpolateTransform(parse, pxComma, pxParen, degParen) {
   function pop(s) {
     return s.length ? s.pop() + " " : "";
@@ -3040,7 +3040,7 @@ function interpolateTransform(parse, pxComma, pxParen, degParen) {
 var interpolateTransformCss = interpolateTransform(parseCss, "px, ", "px)", "deg)");
 var interpolateTransformSvg = interpolateTransform(parseSvg, ", ", ")", ")");
 
-// node_modules/.pnpm/d3-interpolate@3.0.1/node_modules/d3-interpolate/src/zoom.js
+// node_modules/d3-interpolate/src/zoom.js
 var epsilon2 = 1e-12;
 function cosh(x) {
   return ((x = Math.exp(x)) + 1 / x) / 2;
@@ -3085,7 +3085,7 @@ var zoom_default = (function zoomRho(rho, rho2, rho4) {
   return zoom;
 })(Math.SQRT2, 2, 4);
 
-// node_modules/.pnpm/d3-timer@3.0.1/node_modules/d3-timer/src/timer.js
+// node_modules/d3-timer/src/timer.js
 var frame = 0;
 var timeout = 0;
 var interval = 0;
@@ -3187,7 +3187,7 @@ function sleep(time) {
   }
 }
 
-// node_modules/.pnpm/d3-timer@3.0.1/node_modules/d3-timer/src/timeout.js
+// node_modules/d3-timer/src/timeout.js
 function timeout_default(callback, delay, time) {
   var t = new Timer();
   delay = delay == null ? 0 : +delay;
@@ -3198,7 +3198,7 @@ function timeout_default(callback, delay, time) {
   return t;
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/schedule.js
+// node_modules/d3-transition/src/transition/schedule.js
 var emptyOn = dispatch_default("start", "end", "cancel", "interrupt");
 var emptyTween = [];
 var CREATED = 0;
@@ -3309,7 +3309,7 @@ function create(node, id2, self) {
   }
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/interrupt.js
+// node_modules/d3-transition/src/interrupt.js
 function interrupt_default(node, name2) {
   var schedules = node.__transition, schedule, active, empty2 = true, i;
   if (!schedules) return;
@@ -3328,14 +3328,14 @@ function interrupt_default(node, name2) {
   if (empty2) delete node.__transition;
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/selection/interrupt.js
+// node_modules/d3-transition/src/selection/interrupt.js
 function interrupt_default2(name2) {
   return this.each(function() {
     interrupt_default(this, name2);
   });
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/tween.js
+// node_modules/d3-transition/src/transition/tween.js
 function tweenRemove(id2, name2) {
   var tween0, tween1;
   return function() {
@@ -3396,13 +3396,13 @@ function tweenValue(transition2, name2, value) {
   };
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/interpolate.js
+// node_modules/d3-transition/src/transition/interpolate.js
 function interpolate_default(a, b) {
   var c;
   return (typeof b === "number" ? number_default : b instanceof color ? rgb_default : (c = color(b)) ? (b = c, rgb_default) : string_default)(a, b);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/attr.js
+// node_modules/d3-transition/src/transition/attr.js
 function attrRemove2(name2) {
   return function() {
     this.removeAttribute(name2);
@@ -3452,7 +3452,7 @@ function attr_default2(name2, value) {
   return this.attrTween(name2, typeof value === "function" ? (fullname.local ? attrFunctionNS2 : attrFunction2)(fullname, i, tweenValue(this, "attr." + name2, value)) : value == null ? (fullname.local ? attrRemoveNS2 : attrRemove2)(fullname) : (fullname.local ? attrConstantNS2 : attrConstant2)(fullname, i, value));
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/attrTween.js
+// node_modules/d3-transition/src/transition/attrTween.js
 function attrInterpolate(name2, i) {
   return function(t) {
     this.setAttribute(name2, i.call(this, t));
@@ -3492,7 +3492,7 @@ function attrTween_default(name2, value) {
   return this.tween(key, (fullname.local ? attrTweenNS : attrTween)(fullname, value));
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/delay.js
+// node_modules/d3-transition/src/transition/delay.js
 function delayFunction(id2, value) {
   return function() {
     init(this, id2).delay = +value.apply(this, arguments);
@@ -3508,7 +3508,7 @@ function delay_default(value) {
   return arguments.length ? this.each((typeof value === "function" ? delayFunction : delayConstant)(id2, value)) : get2(this.node(), id2).delay;
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/duration.js
+// node_modules/d3-transition/src/transition/duration.js
 function durationFunction(id2, value) {
   return function() {
     set2(this, id2).duration = +value.apply(this, arguments);
@@ -3524,7 +3524,7 @@ function duration_default(value) {
   return arguments.length ? this.each((typeof value === "function" ? durationFunction : durationConstant)(id2, value)) : get2(this.node(), id2).duration;
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/ease.js
+// node_modules/d3-transition/src/transition/ease.js
 function easeConstant(id2, value) {
   if (typeof value !== "function") throw new Error();
   return function() {
@@ -3536,7 +3536,7 @@ function ease_default(value) {
   return arguments.length ? this.each(easeConstant(id2, value)) : get2(this.node(), id2).ease;
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/easeVarying.js
+// node_modules/d3-transition/src/transition/easeVarying.js
 function easeVarying(id2, value) {
   return function() {
     var v = value.apply(this, arguments);
@@ -3549,7 +3549,7 @@ function easeVarying_default(value) {
   return this.each(easeVarying(this._id, value));
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/filter.js
+// node_modules/d3-transition/src/transition/filter.js
 function filter_default2(match) {
   if (typeof match !== "function") match = matcher_default(match);
   for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
@@ -3562,7 +3562,7 @@ function filter_default2(match) {
   return new Transition(subgroups, this._parents, this._name, this._id);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/merge.js
+// node_modules/d3-transition/src/transition/merge.js
 function merge_default2(transition2) {
   if (transition2._id !== this._id) throw new Error();
   for (var groups0 = this._groups, groups1 = transition2._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
@@ -3578,7 +3578,7 @@ function merge_default2(transition2) {
   return new Transition(merges, this._parents, this._name, this._id);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/on.js
+// node_modules/d3-transition/src/transition/on.js
 function start(name2) {
   return (name2 + "").trim().split(/^|\s+/).every(function(t) {
     var i = t.indexOf(".");
@@ -3599,7 +3599,7 @@ function on_default2(name2, listener) {
   return arguments.length < 2 ? get2(this.node(), id2).on.on(name2) : this.each(onFunction(id2, name2, listener));
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/remove.js
+// node_modules/d3-transition/src/transition/remove.js
 function removeFunction(id2) {
   return function() {
     var parent = this.parentNode;
@@ -3611,7 +3611,7 @@ function remove_default2() {
   return this.on("end.remove", removeFunction(this._id));
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/select.js
+// node_modules/d3-transition/src/transition/select.js
 function select_default3(select) {
   var name2 = this._name, id2 = this._id;
   if (typeof select !== "function") select = selector_default(select);
@@ -3627,7 +3627,7 @@ function select_default3(select) {
   return new Transition(subgroups, this._parents, name2, id2);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/selectAll.js
+// node_modules/d3-transition/src/transition/selectAll.js
 function selectAll_default2(select) {
   var name2 = this._name, id2 = this._id;
   if (typeof select !== "function") select = selectorAll_default(select);
@@ -3647,13 +3647,13 @@ function selectAll_default2(select) {
   return new Transition(subgroups, parents, name2, id2);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/selection.js
+// node_modules/d3-transition/src/transition/selection.js
 var Selection2 = selection_default.prototype.constructor;
 function selection_default2() {
   return new Selection2(this._groups, this._parents);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/style.js
+// node_modules/d3-transition/src/transition/style.js
 function styleNull(name2, interpolate) {
   var string00, string10, interpolate0;
   return function() {
@@ -3694,7 +3694,7 @@ function style_default2(name2, value, priority) {
   return value == null ? this.styleTween(name2, styleNull(name2, i)).on("end.style." + name2, styleRemove2(name2)) : typeof value === "function" ? this.styleTween(name2, styleFunction2(name2, i, tweenValue(this, "style." + name2, value))).each(styleMaybeRemove(this._id, name2)) : this.styleTween(name2, styleConstant2(name2, i, value), priority).on("end.style." + name2, null);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/styleTween.js
+// node_modules/d3-transition/src/transition/styleTween.js
 function styleInterpolate(name2, i, priority) {
   return function(t) {
     this.style.setProperty(name2, i.call(this, t), priority);
@@ -3718,7 +3718,7 @@ function styleTween_default(name2, value, priority) {
   return this.tween(key, styleTween(name2, value, priority == null ? "" : priority));
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/text.js
+// node_modules/d3-transition/src/transition/text.js
 function textConstant2(value) {
   return function() {
     this.textContent = value;
@@ -3734,7 +3734,7 @@ function text_default2(value) {
   return this.tween("text", typeof value === "function" ? textFunction2(tweenValue(this, "text", value)) : textConstant2(value == null ? "" : value + ""));
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/textTween.js
+// node_modules/d3-transition/src/transition/textTween.js
 function textInterpolate(i) {
   return function(t) {
     this.textContent = i.call(this, t);
@@ -3758,7 +3758,7 @@ function textTween_default(value) {
   return this.tween(key, textTween(value));
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/transition.js
+// node_modules/d3-transition/src/transition/transition.js
 function transition_default() {
   var name2 = this._name, id0 = this._id, id1 = newId();
   for (var groups = this._groups, m = groups.length, j = 0; j < m; ++j) {
@@ -3777,7 +3777,7 @@ function transition_default() {
   return new Transition(groups, this._parents, name2, id1);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/end.js
+// node_modules/d3-transition/src/transition/end.js
 function end_default() {
   var on0, on1, that = this, id2 = that._id, size = that.size();
   return new Promise(function(resolve, reject) {
@@ -3798,7 +3798,7 @@ function end_default() {
   });
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/transition/index.js
+// node_modules/d3-transition/src/transition/index.js
 var id = 0;
 function Transition(groups, parents, name2, id2) {
   this._groups = groups;
@@ -3846,12 +3846,12 @@ Transition.prototype = transition.prototype = {
   [Symbol.iterator]: selection_prototype[Symbol.iterator]
 };
 
-// node_modules/.pnpm/d3-ease@3.0.1/node_modules/d3-ease/src/cubic.js
+// node_modules/d3-ease/src/cubic.js
 function cubicInOut(t) {
   return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/selection/transition.js
+// node_modules/d3-transition/src/selection/transition.js
 var defaultTiming = {
   time: null,
   // Set on use.
@@ -3885,14 +3885,14 @@ function transition_default2(name2) {
   return new Transition(groups, this._parents, name2, id2);
 }
 
-// node_modules/.pnpm/d3-transition@3.0.1_d3-selection@3.0.0/node_modules/d3-transition/src/selection/index.js
+// node_modules/d3-transition/src/selection/index.js
 selection_default.prototype.interrupt = interrupt_default2;
 selection_default.prototype.transition = transition_default2;
 
-// node_modules/.pnpm/d3-zoom@3.0.0/node_modules/d3-zoom/src/constant.js
+// node_modules/d3-zoom/src/constant.js
 var constant_default4 = (x) => () => x;
 
-// node_modules/.pnpm/d3-zoom@3.0.0/node_modules/d3-zoom/src/event.js
+// node_modules/d3-zoom/src/event.js
 function ZoomEvent(type, {
   sourceEvent,
   target,
@@ -3908,7 +3908,7 @@ function ZoomEvent(type, {
   });
 }
 
-// node_modules/.pnpm/d3-zoom@3.0.0/node_modules/d3-zoom/src/transform.js
+// node_modules/d3-zoom/src/transform.js
 function Transform(k, x, y) {
   this.k = k;
   this.x = x;
@@ -3957,7 +3957,7 @@ function transform(node) {
   return node.__zoom;
 }
 
-// node_modules/.pnpm/d3-zoom@3.0.0/node_modules/d3-zoom/src/noevent.js
+// node_modules/d3-zoom/src/noevent.js
 function nopropagation2(event) {
   event.stopImmediatePropagation();
 }
@@ -3966,7 +3966,7 @@ function noevent_default2(event) {
   event.stopImmediatePropagation();
 }
 
-// node_modules/.pnpm/d3-zoom@3.0.0/node_modules/d3-zoom/src/zoom.js
+// node_modules/d3-zoom/src/zoom.js
 function defaultFilter2(event) {
   return (!event.ctrlKey || event.type === "wheel") && !event.button;
 }
@@ -4281,7 +4281,7 @@ function zoom_default2() {
   return zoom;
 }
 
-// node_modules/.pnpm/@xyflow+system@0.0.75/node_modules/@xyflow/system/dist/esm/index.js
+// node_modules/@xyflow/system/dist/esm/index.js
 var errorMessages = {
   error001: () => "[React Flow]: Seems like you have not used zustand provider as an ancestor. Help: https://reactflow.dev/error#001",
   error002: () => "It looks like you've created a new nodeTypes or edgeTypes object. If this wasn't on purpose please define the nodeTypes/edgeTypes outside of the component or memoize them.",
@@ -6881,11 +6881,11 @@ function XYResizer({ domNode, nodeId, getStoreItems, onChange, onEnd }) {
   };
 }
 
-// node_modules/.pnpm/zustand@4.5.7_react@19.1.1/node_modules/zustand/esm/traditional.mjs
+// node_modules/zustand/esm/traditional.mjs
 var import_react6 = __toESM(require("react"), 1);
 var import_with_selector = __toESM(require_with_selector(), 1);
 
-// node_modules/.pnpm/zustand@4.5.7_react@19.1.1/node_modules/zustand/esm/vanilla.mjs
+// node_modules/zustand/esm/vanilla.mjs
 var import_meta = {};
 var createStoreImpl = (createState) => {
   let state;
@@ -6918,7 +6918,7 @@ var createStoreImpl = (createState) => {
 };
 var createStore = (createState) => createState ? createStoreImpl(createState) : createStoreImpl;
 
-// node_modules/.pnpm/zustand@4.5.7_react@19.1.1/node_modules/zustand/esm/traditional.mjs
+// node_modules/zustand/esm/traditional.mjs
 var { useDebugValue } = import_react6.default;
 var { useSyncExternalStoreWithSelector } = import_with_selector.default;
 var identity3 = (arg) => arg;
@@ -6941,7 +6941,7 @@ var createWithEqualityFnImpl = (createState, defaultEqualityFn) => {
 };
 var createWithEqualityFn = (createState, defaultEqualityFn) => createState ? createWithEqualityFnImpl(createState, defaultEqualityFn) : createWithEqualityFnImpl;
 
-// node_modules/.pnpm/zustand@4.5.7_react@19.1.1/node_modules/zustand/esm/shallow.mjs
+// node_modules/zustand/esm/shallow.mjs
 function shallow$1(objA, objB) {
   if (Object.is(objA, objB)) {
     return true;
@@ -6979,7 +6979,7 @@ function shallow$1(objA, objB) {
   return true;
 }
 
-// node_modules/.pnpm/@xyflow+react@12.10.1_react-dom@19.1.1_react@19.1.1__react@19.1.1/node_modules/@xyflow/react/dist/esm/index.js
+// node_modules/@xyflow/react/dist/esm/index.js
 var import_react_dom = require("react-dom");
 var StoreContext = (0, import_react7.createContext)(null);
 var Provider$1 = StoreContext.Provider;
@@ -10097,7 +10097,7 @@ function ResizeControl({ nodeId, position, variant = ResizeControlVariant.Handle
 }
 var NodeResizeControl = (0, import_react7.memo)(ResizeControl);
 
-// node_modules/.pnpm/@xyflow+react@12.10.1_react-dom@19.1.1_react@19.1.1__react@19.1.1/node_modules/@xyflow/react/dist/style.css
+// node_modules/@xyflow/react/dist/style.css
 var style_default3 = "/* this gets exported as style.css and can be used for the default theming */\n/* these are the necessary styles for React/Svelte Flow, they get used by base.css and style.css */\n.react-flow {\n  direction: ltr;\n\n  --xy-edge-stroke-default: #b1b1b7;\n  --xy-edge-stroke-width-default: 1;\n  --xy-edge-stroke-selected-default: #555;\n\n  --xy-connectionline-stroke-default: #b1b1b7;\n  --xy-connectionline-stroke-width-default: 1;\n\n  --xy-attribution-background-color-default: rgba(255, 255, 255, 0.5);\n\n  --xy-minimap-background-color-default: #fff;\n  --xy-minimap-mask-background-color-default: rgba(240, 240, 240, 0.6);\n  --xy-minimap-mask-stroke-color-default: transparent;\n  --xy-minimap-mask-stroke-width-default: 1;\n  --xy-minimap-node-background-color-default: #e2e2e2;\n  --xy-minimap-node-stroke-color-default: transparent;\n  --xy-minimap-node-stroke-width-default: 2;\n\n  --xy-background-color-default: transparent;\n  --xy-background-pattern-dots-color-default: #91919a;\n  --xy-background-pattern-lines-color-default: #eee;\n  --xy-background-pattern-cross-color-default: #e2e2e2;\n  background-color: var(--xy-background-color, var(--xy-background-color-default));\n  --xy-node-color-default: inherit;\n  --xy-node-border-default: 1px solid #1a192b;\n  --xy-node-background-color-default: #fff;\n  --xy-node-group-background-color-default: rgba(240, 240, 240, 0.25);\n  --xy-node-boxshadow-hover-default: 0 1px 4px 1px rgba(0, 0, 0, 0.08);\n  --xy-node-boxshadow-selected-default: 0 0 0 0.5px #1a192b;\n  --xy-node-border-radius-default: 3px;\n\n  --xy-handle-background-color-default: #1a192b;\n  --xy-handle-border-color-default: #fff;\n\n  --xy-selection-background-color-default: rgba(0, 89, 220, 0.08);\n  --xy-selection-border-default: 1px dotted rgba(0, 89, 220, 0.8);\n\n  --xy-controls-button-background-color-default: #fefefe;\n  --xy-controls-button-background-color-hover-default: #f4f4f4;\n  --xy-controls-button-color-default: inherit;\n  --xy-controls-button-color-hover-default: inherit;\n  --xy-controls-button-border-color-default: #eee;\n  --xy-controls-box-shadow-default: 0 0 2px 1px rgba(0, 0, 0, 0.08);\n\n  --xy-edge-label-background-color-default: #ffffff;\n  --xy-edge-label-color-default: inherit;\n  --xy-resize-background-color-default: #3367d9;\n}\n.react-flow.dark {\n  --xy-edge-stroke-default: #3e3e3e;\n  --xy-edge-stroke-width-default: 1;\n  --xy-edge-stroke-selected-default: #727272;\n\n  --xy-connectionline-stroke-default: #b1b1b7;\n  --xy-connectionline-stroke-width-default: 1;\n\n  --xy-attribution-background-color-default: rgba(150, 150, 150, 0.25);\n\n  --xy-minimap-background-color-default: #141414;\n  --xy-minimap-mask-background-color-default: rgba(60, 60, 60, 0.6);\n  --xy-minimap-mask-stroke-color-default: transparent;\n  --xy-minimap-mask-stroke-width-default: 1;\n  --xy-minimap-node-background-color-default: #2b2b2b;\n  --xy-minimap-node-stroke-color-default: transparent;\n  --xy-minimap-node-stroke-width-default: 2;\n\n  --xy-background-color-default: #141414;\n  --xy-background-pattern-dots-color-default: #777;\n  --xy-background-pattern-lines-color-default: #777;\n  --xy-background-pattern-cross-color-default: #777;\n  --xy-node-color-default: #f8f8f8;\n  --xy-node-border-default: 1px solid #3c3c3c;\n  --xy-node-background-color-default: #1e1e1e;\n  --xy-node-group-background-color-default: rgba(240, 240, 240, 0.25);\n  --xy-node-boxshadow-hover-default: 0 1px 4px 1px rgba(255, 255, 255, 0.08);\n  --xy-node-boxshadow-selected-default: 0 0 0 0.5px #999;\n\n  --xy-handle-background-color-default: #bebebe;\n  --xy-handle-border-color-default: #1e1e1e;\n\n  --xy-selection-background-color-default: rgba(200, 200, 220, 0.08);\n  --xy-selection-border-default: 1px dotted rgba(200, 200, 220, 0.8);\n\n  --xy-controls-button-background-color-default: #2b2b2b;\n  --xy-controls-button-background-color-hover-default: #3e3e3e;\n  --xy-controls-button-color-default: #f8f8f8;\n  --xy-controls-button-color-hover-default: #fff;\n  --xy-controls-button-border-color-default: #5b5b5b;\n  --xy-controls-box-shadow-default: 0 0 2px 1px rgba(0, 0, 0, 0.08);\n\n  --xy-edge-label-background-color-default: #141414;\n  --xy-edge-label-color-default: #f8f8f8;\n}\n.react-flow__background {\n  background-color: var(--xy-background-color-props, var(--xy-background-color, var(--xy-background-color-default)));\n  pointer-events: none;\n  z-index: -1;\n}\n.react-flow__container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n.react-flow__pane {\n  z-index: 1;\n}\n.react-flow__pane.draggable {\n    cursor: grab;\n  }\n.react-flow__pane.dragging {\n    cursor: grabbing;\n  }\n.react-flow__pane.selection {\n    cursor: pointer;\n  }\n.react-flow__viewport {\n  transform-origin: 0 0;\n  z-index: 2;\n  pointer-events: none;\n}\n.react-flow__renderer {\n  z-index: 4;\n}\n.react-flow__selection {\n  z-index: 6;\n}\n.react-flow__nodesselection-rect:focus,\n.react-flow__nodesselection-rect:focus-visible {\n  outline: none;\n}\n.react-flow__edge-path {\n  stroke: var(--xy-edge-stroke, var(--xy-edge-stroke-default));\n  stroke-width: var(--xy-edge-stroke-width, var(--xy-edge-stroke-width-default));\n  fill: none;\n}\n.react-flow__connection-path {\n  stroke: var(--xy-connectionline-stroke, var(--xy-connectionline-stroke-default));\n  stroke-width: var(--xy-connectionline-stroke-width, var(--xy-connectionline-stroke-width-default));\n  fill: none;\n}\n.react-flow .react-flow__edges {\n  position: absolute;\n}\n.react-flow .react-flow__edges svg {\n    overflow: visible;\n    position: absolute;\n    pointer-events: none;\n  }\n.react-flow__edge {\n  pointer-events: visibleStroke;\n}\n.react-flow__edge.selectable {\n    cursor: pointer;\n  }\n.react-flow__edge.animated path {\n    stroke-dasharray: 5;\n    animation: dashdraw 0.5s linear infinite;\n  }\n.react-flow__edge.animated path.react-flow__edge-interaction {\n    stroke-dasharray: none;\n    animation: none;\n  }\n.react-flow__edge.inactive {\n    pointer-events: none;\n  }\n.react-flow__edge.selected,\n  .react-flow__edge:focus,\n  .react-flow__edge:focus-visible {\n    outline: none;\n  }\n.react-flow__edge.selected .react-flow__edge-path,\n  .react-flow__edge.selectable:focus .react-flow__edge-path,\n  .react-flow__edge.selectable:focus-visible .react-flow__edge-path {\n    stroke: var(--xy-edge-stroke-selected, var(--xy-edge-stroke-selected-default));\n  }\n.react-flow__edge-textwrapper {\n    pointer-events: all;\n  }\n.react-flow__edge .react-flow__edge-text {\n    pointer-events: none;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n            user-select: none;\n  }\n/* Arrowhead marker styles - use CSS custom properties as default */\n.react-flow__arrowhead polyline {\n  stroke: var(--xy-edge-stroke, var(--xy-edge-stroke-default));\n}\n.react-flow__arrowhead polyline.arrowclosed {\n  fill: var(--xy-edge-stroke, var(--xy-edge-stroke-default));\n}\n.react-flow__connection {\n  pointer-events: none;\n}\n.react-flow__connection .animated {\n    stroke-dasharray: 5;\n    animation: dashdraw 0.5s linear infinite;\n  }\nsvg.react-flow__connectionline {\n  z-index: 1001;\n  overflow: visible;\n  position: absolute;\n}\n.react-flow__nodes {\n  pointer-events: none;\n  transform-origin: 0 0;\n}\n.react-flow__node {\n  position: absolute;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  pointer-events: all;\n  transform-origin: 0 0;\n  box-sizing: border-box;\n  cursor: default;\n}\n.react-flow__node.selectable {\n    cursor: pointer;\n  }\n.react-flow__node.draggable {\n    cursor: grab;\n    pointer-events: all;\n  }\n.react-flow__node.draggable.dragging {\n      cursor: grabbing;\n    }\n.react-flow__nodesselection {\n  z-index: 3;\n  transform-origin: left top;\n  pointer-events: none;\n}\n.react-flow__nodesselection-rect {\n    position: absolute;\n    pointer-events: all;\n    cursor: grab;\n  }\n.react-flow__handle {\n  position: absolute;\n  pointer-events: none;\n  min-width: 5px;\n  min-height: 5px;\n  width: 6px;\n  height: 6px;\n  background-color: var(--xy-handle-background-color, var(--xy-handle-background-color-default));\n  border: 1px solid var(--xy-handle-border-color, var(--xy-handle-border-color-default));\n  border-radius: 100%;\n}\n.react-flow__handle.connectingfrom {\n    pointer-events: all;\n  }\n.react-flow__handle.connectionindicator {\n    pointer-events: all;\n    cursor: crosshair;\n  }\n.react-flow__handle-bottom {\n    top: auto;\n    left: 50%;\n    bottom: 0;\n    transform: translate(-50%, 50%);\n  }\n.react-flow__handle-top {\n    top: 0;\n    left: 50%;\n    transform: translate(-50%, -50%);\n  }\n.react-flow__handle-left {\n    top: 50%;\n    left: 0;\n    transform: translate(-50%, -50%);\n  }\n.react-flow__handle-right {\n    top: 50%;\n    right: 0;\n    transform: translate(50%, -50%);\n  }\n.react-flow__edgeupdater {\n  cursor: move;\n  pointer-events: all;\n}\n.react-flow__pane.selection .react-flow__panel {\n  pointer-events: none;\n}\n.react-flow__panel {\n  position: absolute;\n  z-index: 5;\n  margin: 15px;\n}\n.react-flow__panel.top {\n    top: 0;\n  }\n.react-flow__panel.bottom {\n    bottom: 0;\n  }\n.react-flow__panel.top.center, .react-flow__panel.bottom.center {\n      left: 50%;\n      transform: translateX(-15px) translateX(-50%);\n    }\n.react-flow__panel.left {\n    left: 0;\n  }\n.react-flow__panel.right {\n    right: 0;\n  }\n.react-flow__panel.left.center, .react-flow__panel.right.center {\n      top: 50%;\n      transform: translateY(-15px) translateY(-50%);\n    }\n.react-flow__attribution {\n  font-size: 10px;\n  background: var(--xy-attribution-background-color, var(--xy-attribution-background-color-default));\n  padding: 2px 3px;\n  margin: 0;\n}\n.react-flow__attribution a {\n    text-decoration: none;\n    color: #999;\n  }\n@keyframes dashdraw {\n  from {\n    stroke-dashoffset: 10;\n  }\n}\n.react-flow__edgelabel-renderer {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  left: 0;\n  top: 0;\n}\n.react-flow__viewport-portal {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.react-flow__minimap {\n  background: var(\n    --xy-minimap-background-color-props,\n    var(--xy-minimap-background-color, var(--xy-minimap-background-color-default))\n  );\n}\n.react-flow__minimap-svg {\n    display: block;\n  }\n.react-flow__minimap-mask {\n    fill: var(\n      --xy-minimap-mask-background-color-props,\n      var(--xy-minimap-mask-background-color, var(--xy-minimap-mask-background-color-default))\n    );\n    stroke: var(\n      --xy-minimap-mask-stroke-color-props,\n      var(--xy-minimap-mask-stroke-color, var(--xy-minimap-mask-stroke-color-default))\n    );\n    stroke-width: var(\n      --xy-minimap-mask-stroke-width-props,\n      var(--xy-minimap-mask-stroke-width, var(--xy-minimap-mask-stroke-width-default))\n    );\n  }\n.react-flow__minimap-node {\n    fill: var(\n      --xy-minimap-node-background-color-props,\n      var(--xy-minimap-node-background-color, var(--xy-minimap-node-background-color-default))\n    );\n    stroke: var(\n      --xy-minimap-node-stroke-color-props,\n      var(--xy-minimap-node-stroke-color, var(--xy-minimap-node-stroke-color-default))\n    );\n    stroke-width: var(\n      --xy-minimap-node-stroke-width-props,\n      var(--xy-minimap-node-stroke-width, var(--xy-minimap-node-stroke-width-default))\n    );\n  }\n.react-flow__background-pattern.dots {\n    fill: var(\n      --xy-background-pattern-color-props,\n      var(--xy-background-pattern-color, var(--xy-background-pattern-dots-color-default))\n    );\n  }\n.react-flow__background-pattern.lines {\n    stroke: var(\n      --xy-background-pattern-color-props,\n      var(--xy-background-pattern-color, var(--xy-background-pattern-lines-color-default))\n    );\n  }\n.react-flow__background-pattern.cross {\n    stroke: var(\n      --xy-background-pattern-color-props,\n      var(--xy-background-pattern-color, var(--xy-background-pattern-cross-color-default))\n    );\n  }\n.react-flow__controls {\n  display: flex;\n  flex-direction: column;\n  box-shadow: var(--xy-controls-box-shadow, var(--xy-controls-box-shadow-default));\n}\n.react-flow__controls.horizontal {\n    flex-direction: row;\n  }\n.react-flow__controls-button {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 26px;\n    width: 26px;\n    padding: 4px;\n    border: none;\n    background: var(--xy-controls-button-background-color, var(--xy-controls-button-background-color-default));\n    border-bottom: 1px solid\n      var(\n        --xy-controls-button-border-color-props,\n        var(--xy-controls-button-border-color, var(--xy-controls-button-border-color-default))\n      );\n    color: var(\n      --xy-controls-button-color-props,\n      var(--xy-controls-button-color, var(--xy-controls-button-color-default))\n    );\n    cursor: pointer;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n            user-select: none;\n  }\n.react-flow__controls-button svg {\n      width: 100%;\n      max-width: 12px;\n      max-height: 12px;\n      fill: currentColor;\n    }\n.react-flow__edge.updating .react-flow__edge-path {\n      stroke: #777;\n    }\n.react-flow__edge-text {\n    font-size: 10px;\n  }\n.react-flow__node.selectable:focus,\n  .react-flow__node.selectable:focus-visible {\n    outline: none;\n  }\n.react-flow__node-input,\n.react-flow__node-default,\n.react-flow__node-output,\n.react-flow__node-group {\n  padding: 10px;\n  border-radius: var(--xy-node-border-radius, var(--xy-node-border-radius-default));\n  width: 150px;\n  font-size: 12px;\n  color: var(--xy-node-color, var(--xy-node-color-default));\n  text-align: center;\n  border: var(--xy-node-border, var(--xy-node-border-default));\n  background-color: var(--xy-node-background-color, var(--xy-node-background-color-default));\n}\n.react-flow__node-input.selectable:hover, .react-flow__node-default.selectable:hover, .react-flow__node-output.selectable:hover, .react-flow__node-group.selectable:hover {\n      box-shadow: var(--xy-node-boxshadow-hover, var(--xy-node-boxshadow-hover-default));\n    }\n.react-flow__node-input.selectable.selected,\n    .react-flow__node-input.selectable:focus,\n    .react-flow__node-input.selectable:focus-visible,\n    .react-flow__node-default.selectable.selected,\n    .react-flow__node-default.selectable:focus,\n    .react-flow__node-default.selectable:focus-visible,\n    .react-flow__node-output.selectable.selected,\n    .react-flow__node-output.selectable:focus,\n    .react-flow__node-output.selectable:focus-visible,\n    .react-flow__node-group.selectable.selected,\n    .react-flow__node-group.selectable:focus,\n    .react-flow__node-group.selectable:focus-visible {\n      box-shadow: var(--xy-node-boxshadow-selected, var(--xy-node-boxshadow-selected-default));\n    }\n.react-flow__node-group {\n  background-color: var(--xy-node-group-background-color, var(--xy-node-group-background-color-default));\n}\n.react-flow__nodesselection-rect,\n.react-flow__selection {\n  background: var(--xy-selection-background-color, var(--xy-selection-background-color-default));\n  border: var(--xy-selection-border, var(--xy-selection-border-default));\n}\n.react-flow__nodesselection-rect:focus,\n  .react-flow__nodesselection-rect:focus-visible,\n  .react-flow__selection:focus,\n  .react-flow__selection:focus-visible {\n    outline: none;\n  }\n.react-flow__controls-button:hover {\n      background: var(\n        --xy-controls-button-background-color-hover-props,\n        var(--xy-controls-button-background-color-hover, var(--xy-controls-button-background-color-hover-default))\n      );\n      color: var(\n        --xy-controls-button-color-hover-props,\n        var(--xy-controls-button-color-hover, var(--xy-controls-button-color-hover-default))\n      );\n    }\n.react-flow__controls-button:disabled {\n      pointer-events: none;\n    }\n.react-flow__controls-button:disabled svg {\n        fill-opacity: 0.4;\n      }\n.react-flow__controls-button:last-child {\n    border-bottom: none;\n  }\n.react-flow__controls.horizontal .react-flow__controls-button {\n    border-bottom: none;\n    border-right: 1px solid\n      var(\n        --xy-controls-button-border-color-props,\n        var(--xy-controls-button-border-color, var(--xy-controls-button-border-color-default))\n      );\n  }\n.react-flow__controls.horizontal .react-flow__controls-button:last-child {\n    border-right: none;\n  }\n.react-flow__resize-control {\n  position: absolute;\n}\n.react-flow__resize-control.left,\n.react-flow__resize-control.right {\n  cursor: ew-resize;\n}\n.react-flow__resize-control.top,\n.react-flow__resize-control.bottom {\n  cursor: ns-resize;\n}\n.react-flow__resize-control.top.left,\n.react-flow__resize-control.bottom.right {\n  cursor: nwse-resize;\n}\n.react-flow__resize-control.bottom.left,\n.react-flow__resize-control.top.right {\n  cursor: nesw-resize;\n}\n/* handle styles */\n.react-flow__resize-control.handle {\n  width: 5px;\n  height: 5px;\n  border: 1px solid #fff;\n  border-radius: 1px;\n  background-color: var(--xy-resize-background-color, var(--xy-resize-background-color-default));\n  translate: -50% -50%;\n}\n.react-flow__resize-control.handle.left {\n  left: 0;\n  top: 50%;\n}\n.react-flow__resize-control.handle.right {\n  left: 100%;\n  top: 50%;\n}\n.react-flow__resize-control.handle.top {\n  left: 50%;\n  top: 0;\n}\n.react-flow__resize-control.handle.bottom {\n  left: 50%;\n  top: 100%;\n}\n.react-flow__resize-control.handle.top.left {\n  left: 0;\n}\n.react-flow__resize-control.handle.bottom.left {\n  left: 0;\n}\n.react-flow__resize-control.handle.top.right {\n  left: 100%;\n}\n.react-flow__resize-control.handle.bottom.right {\n  left: 100%;\n}\n/* line styles */\n.react-flow__resize-control.line {\n  border-color: var(--xy-resize-background-color, var(--xy-resize-background-color-default));\n  border-width: 0;\n  border-style: solid;\n}\n.react-flow__resize-control.line.left,\n.react-flow__resize-control.line.right {\n  width: 1px;\n  transform: translate(-50%, 0);\n  top: 0;\n  height: 100%;\n}\n.react-flow__resize-control.line.left {\n  left: 0;\n  border-left-width: 1px;\n}\n.react-flow__resize-control.line.right {\n  left: 100%;\n  border-right-width: 1px;\n}\n.react-flow__resize-control.line.top,\n.react-flow__resize-control.line.bottom {\n  height: 1px;\n  transform: translate(0, -50%);\n  left: 0;\n  width: 100%;\n}\n.react-flow__resize-control.line.top {\n  top: 0;\n  border-top-width: 1px;\n}\n.react-flow__resize-control.line.bottom {\n  border-bottom-width: 1px;\n  top: 100%;\n}\n.react-flow__edge-textbg {\n  fill: var(--xy-edge-label-background-color, var(--xy-edge-label-background-color-default));\n}\n.react-flow__edge-text {\n  fill: var(--xy-edge-label-color, var(--xy-edge-label-color-default));\n}\n";
 
 // client/style.css
@@ -11068,6 +11068,8 @@ var style_default4 = `/* Workflow Studio surfaces.
 .wf-interaction p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 .wf-interaction small { color: var(--wf-muted); }
 .wf-interaction button { justify-self: start; }
+.wf-export-open { margin-top: 12px; padding: 7px 12px; border: 1px solid var(--wf-accent); border-radius: 8px; background: var(--wf-accent); color: white; font-weight: 600; cursor: pointer; }
+.wf-export-open:disabled { opacity: .55; cursor: not-allowed; }
 
 /* ------------------------------------------------------------ responsive */
 @media (max-width: 1100px) {
@@ -12688,7 +12690,8 @@ function RunTimeline({ ctx, api, runId, openSession, onChange, embedded = false,
         focusNodeId && children2,
         state.output && !focusNodeId && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "wf-step-answer", children: [
           /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("small", { children: "\u8F93\u51FA" }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Content, { value: state.output })
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Content, { value: state.output }),
+          node.kind === "publish" && state.output.wechatFile && state.output.slug && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", className: "wf-export-open", disabled: busy2, onClick: () => act({ action: "openWechatExport", slug: state.output.slug }), children: "\u6253\u5F00\u516C\u4F17\u53F7\u6392\u7248" })
         ] }),
         !!run.reviews?.[node.id]?.length && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("details", { className: "wf-review-history", children: [
           /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("summary", { children: [
