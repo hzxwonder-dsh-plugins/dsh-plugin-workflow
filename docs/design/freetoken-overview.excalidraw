@@ -37,7 +37,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "FreeToken：边端 MoE 如何让搬运与计算并行",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -74,7 +74,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "问题 → 方法 → 证据 → 适用边界",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -141,7 +141,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "01  问题",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -178,7 +178,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "专家池大于显存",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -215,7 +215,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "预填要搬大量权重；解码不断遇到缓存未命中。",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -326,7 +326,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "02  预填",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -363,7 +363,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "整层双缓冲",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -400,7 +400,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "GPU 算当前层时，PCIe 提前搬下一层专家。",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -511,7 +511,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "03  解码",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -548,7 +548,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "共享 LRU 专家缓存",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -585,7 +585,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "显存追随近期路由，主机内存保留权威副本。",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -696,7 +696,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "04  分工",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -733,7 +733,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "未命中按带宽比例切开",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -770,7 +770,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "q* ≈ m × B_P / B_H；一部分搬上 GPU，一部分在 CPU 就地算。",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -881,7 +881,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "05  执行",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -918,7 +918,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "动态决策留在 CUDA Graph",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -955,7 +955,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "固定形状的工作缓冲配合设备端有效计数。",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -1022,7 +1022,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "论文证据",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -1059,7 +1059,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "5090 上解码 77–83 / 22–25 tok/s；Figure 3 展示尾延迟改善。",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -1126,7 +1126,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "适用边界",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     },
     {
@@ -1163,7 +1163,7 @@
       "verticalAlign": "middle",
       "containerId": null,
       "originalText": "先实测两种带宽；结果限于论文评测的模型、机器与负载。",
-      "autoResize": true,
+      "autoResize": false,
       "lineHeight": 1.25
     }
   ],

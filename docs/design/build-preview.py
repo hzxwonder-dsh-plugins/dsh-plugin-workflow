@@ -2,7 +2,9 @@
 """Build a reviewable article layout from the published FreeToken content."""
 from html import escape
 from pathlib import Path
+import json
 import re
+import subprocess
 
 HERE = Path(__file__).resolve().parent
 body = (HERE / 'freetoken-rendered.html').read_text()
@@ -47,24 +49,62 @@ for label in ['问题', '做法', '关键证据', '边界']:
     body = body.replace(f'<li>{label}：', f'<li><strong>{label}</strong><span>', 1)
 body = re.sub(r'(<ul class="quick-read">.*?</ul>)', lambda m: m.group(1).replace('</li>', '</span></li>'), body, count=1, flags=re.S)
 overview = '''<figure class="paper-overview">
-  <a href="freetoken-overview.svg" target="_blank" rel="noopener"><img src="freetoken-overview.svg" alt="FreeToken 论文逻辑总览：问题、预填、解码、带宽分工、图内执行、证据和适用边界"></a>
-  <figcaption>论文逻辑总览 · 点击查看完整 SVG；<a href="freetoken-overview.excalidraw">下载可编辑 Excalidraw 源文件</a></figcaption>
+  <img src="freetoken-overview.svg" alt="FreeToken 论文逻辑总览：问题、预填、解码、带宽分工、图内执行、证据和适用边界">
 </figure>'''
 body = body.replace('</ul>', '</ul>\n' + overview, 1)
 
-def math_card(label, mathml, plain):
-    return f'<div class="paper-equation" role="group" aria-label="{escape(label)}：{escape(plain)}"><span>{escape(label)}</span><math display="block">{mathml}</math></div>'
+math_tex = [
+    r'B_R = \max(B_H-B_P,0)',
+    r'T_{\mathrm{fill}}(q) \approx \frac{q\cdot S}{B_P}',
+    r'T_{\mathrm{cpu}}(m-q) \approx \frac{(m-q)\cdot S}{B_H-B_P}',
+    r'q^* \approx \frac{m\cdot B_P}{B_H}',
+]
+rendered = subprocess.run(['node', str(HERE / 'render-math.mjs')], input=json.dumps(math_tex), text=True, capture_output=True, check=True)
+math_images = json.loads(rendered.stdout)
+
+def math_card(label, image, plain):
+    return f'<div class="paper-equation" role="group" aria-label="{escape(label)}：{escape(plain)}"><span>{escape(label)}</span>{image}</div>'
 
 equations = {
-    'B_R = max(B_H − B_P, 0)': math_card('主机剩余带宽', '<msub><mi>B</mi><mi>R</mi></msub><mo>=</mo><mi>max</mi><mo>(</mo><msub><mi>B</mi><mi>H</mi></msub><mo>−</mo><msub><mi>B</mi><mi>P</mi></msub><mo>,</mo><mn>0</mn><mo>)</mo>', 'B_R = max(B_H − B_P, 0)'),
-    'T_fill(q) ≈ q·S / B_P': math_card('搬运分支耗时', '<msub><mi>T</mi><mtext>fill</mtext></msub><mo>(</mo><mi>q</mi><mo>)</mo><mo>≈</mo><mfrac><mrow><mi>q</mi><mo>·</mo><mi>S</mi></mrow><msub><mi>B</mi><mi>P</mi></msub></mfrac>', 'T_fill(q) ≈ q·S / B_P'),
-    'T_cpu(m − q) ≈ (m − q)·S / (B_H − B_P)': math_card('CPU 分支耗时', '<msub><mi>T</mi><mtext>cpu</mtext></msub><mo>(</mo><mi>m</mi><mo>−</mo><mi>q</mi><mo>)</mo><mo>≈</mo><mfrac><mrow><mo>(</mo><mi>m</mi><mo>−</mo><mi>q</mi><mo>)</mo><mo>·</mo><mi>S</mi></mrow><mrow><msub><mi>B</mi><mi>H</mi></msub><mo>−</mo><msub><mi>B</mi><mi>P</mi></msub></mrow></mfrac>', 'T_cpu(m − q) ≈ (m − q)·S / (B_H − B_P)'),
-    'q* ≈ m · B_P / B_H': math_card('最优填充数量', '<msup><mi>q</mi><mo>*</mo></msup><mo>≈</mo><mfrac><mrow><mi>m</mi><mo>·</mo><msub><mi>B</mi><mi>P</mi></msub></mrow><msub><mi>B</mi><mi>H</mi></msub></mfrac>', 'q* ≈ m · B_P / B_H'),
+    'B_R = max(B_H − B_P, 0)': math_card('主机剩余带宽', math_images[0], 'B_R = max(B_H − B_P, 0)'),
+    'T_fill(q) ≈ q·S / B_P': math_card('搬运分支耗时', math_images[1], 'T_fill(q) ≈ q·S / B_P'),
+    'T_cpu(m − q) ≈ (m − q)·S / (B_H − B_P)': math_card('CPU 分支耗时', math_images[2], 'T_cpu(m − q) ≈ (m − q)·S / (B_H − B_P)'),
+    'q* ≈ m · B_P / B_H': math_card('最优填充数量', math_images[3], 'q* ≈ m · B_P / B_H'),
 }
 for original, replacement in equations.items():
     body = body.replace(f'<ul>\n<li>{original}</li>\n</ul>', replacement)
 body = body.replace('<ul>\n<li>T_fill(q) ≈ q·S / B_P</li>\n<li>T_cpu(m − q) ≈ (m − q)·S / (B_H − B_P)</li>\n</ul>', equations['T_fill(q) ≈ q·S / B_P'] + equations['T_cpu(m − q) ≈ (m − q)·S / (B_H − B_P)'])
 
+figures = {
+    '为什么需要它：本机跑大 MoE 卡在哪': ('Teaser.svg', 'Figure 1 展示不同模型的服务成本、能力和本机速度：这篇论文瞄准的是消费级硬件上的高能力 MoE。'),
+    '证据一：端到端吞吐稳定，尾延迟才是分水岭（Figure 3，§5.2）': ('Exp1Main.svg', 'Figure 3 同时展示四类负载的解码吞吐和首 token 时间；阅读时先看跨负载稳定性，再看尾部停顿。'),
+    '证据三：跨硬件与前沿规模（Figure 5，§5.3）': ('Exp3CrossHW.svg', 'Figure 5 比较不同消费级 GPU 上的编码代理吞吐，说明分工策略如何随机器带宽变化。'),
+}
+for heading, (file, caption) in figures.items():
+    pattern = re.compile(r'(<h2 id="section-\d+">' + re.escape(heading) + r'</h2>)')
+    figure = f'<figure class="paper-figure"><img src="https://arxiv.org/html/2608.16157v1/{file}" alt="{escape(caption)}" loading="lazy"><figcaption>{escape(caption)}</figcaption></figure>'
+    body, count = pattern.subn(lambda m: m.group(1) + '\n' + figure, body, count=1)
+    if count != 1:
+        raise SystemExit(f'figure placement unavailable: {heading}')
+
+highlights = [
+    '整池专家远超显存',
+    '「搬」才是问题',
+    '这 4 个未命中该怎么分工',
+    '同一套公式、不同机器给出不同分工',
+    '把未命中按实测带宽比例切开',
+    '传输可以连续在后台跑',
+    '新请求从「编辑后仍然存活的最深检查点」恢复',
+    '与路由相关的控制全部留在 GPU 上',
+    '77–83 tok/s',
+    '22–25 tok/s',
+    '最差一轮在所有单元都低于 44 s',
+    '共享 LRU 的 decode 期专家读取未命中率为 16% 与 39%',
+]
+for phrase in highlights:
+    body = body.replace(phrase, f'<strong>{phrase}</strong>', 1)
+
+body = re.sub(r'<p>(<img\b[^>]*>)</p>\s*<p><em>([^<]+)</em></p>', r'<figure class="paper-figure">\1<figcaption>\2</figcaption></figure>', body, flags=re.S)
 body = re.sub(r'(<table>.*?</table>)', r'<div class="table-scroll">\1</div>', body, flags=re.S)
 headings = re.findall(r'<h2 id="(section-\d+)">(.*?)</h2>', body)
 toc = '\n'.join(f'<li><a href="#{anchor}">{title}</a></li>' for anchor, title in headings)
