@@ -9,11 +9,11 @@ DeepSeek Harness 的可插拔工作流 Studio。侧栏只有一个“工作流�
 
 ### 官方 Desktop 验收
 
-2026-09-28，macOS arm64，官方签名的 DeepSeek Harness **0.1.7-rc.2** 已加载工作流插件 **0.4.0**。编辑器、模型设置、双击改名、扩展步骤和确定性单步执行已通过桌面实机验收；执行引擎通过 72 项自动化测试。
+2026-09-28，macOS arm64，官方签名的 DeepSeek Harness **0.1.7-rc.2** 已加载工作流插件 **0.5.0**。编辑器中的 Skill、文件资源模块及版本保存已通过桌面实机验收；执行引擎通过 74 项自动化测试。
 
 官方有 JavaScript/subagent 编排与运行阶段卡片；本插件增加可视化 Studio、可复用定义版本、步骤编辑和调试。
 
-[Desktop 工作流 0.4.0 验收记录](docs/desktop-workflow-0.4.0.md)列出实机与自动化检查范围。
+[Desktop 工作流 0.5.0 验收记录](docs/desktop-workflow-0.5.0.md)列出实机与自动化检查范围。
 
 开发与发布顺序：DSH Omni 开发及实机验收 → 更新 Omni 仓库 → 官方 Desktop 适配及实机验收 → 发布本仓库。每次重新构建后重新实机验证。
 
