@@ -334,6 +334,38 @@ test("one-shot interaction parks the run and continues with the user's answer", 
   assert.equal(run.nodes.task.output.text, "论文正文内容");
   assert.equal(store.list("artifact").length, 0);
 });
+test("agent interaction clarifies a free reply and routes by the resolved intent", async (t) => {
+  const decisions = [
+    { decision: "unclear", question: "继续还是结束？", reason: "尚未选择" },
+    { decision: "no", question: "", reason: "选择结束" },
+  ];
+  const calls = [];
+  const { store, engine } = await fixture(t, {
+    ...adapter,
+    agent: async () => decisions.shift(),
+    tool: async (name) => { calls.push(name); return { name }; },
+  });
+  store.save(interactionDefinition({
+    id: "choose", name: "决策", kind: "interact", interaction: "choice",
+    prompt: "继续执行吗？", choice: { yes: "继续", no: "结束" }, maxTurns: 3,
+  }, { nodes: [
+    { id: "continue", name: "继续", kind: "tool", tool: "continue", effects: "read-only" },
+    { id: "finish", name: "结束", kind: "tool", tool: "finish", effects: "read-only" },
+  ], edges: [
+    { from: "choose", to: "continue", on: "true" },
+    { from: "choose", to: "finish", on: "false" },
+  ] }));
+  let run = await engine.start({ workflowId: "x", revision: 1, input: {}, parent });
+  assert.equal(run.status, "waiting_input");
+  run = await engine.resume(run.id, parent, undefined, "还没想好");
+  assert.equal(run.status, "waiting_input");
+  assert.equal(run.nodes.choose.interaction.question, "继续还是结束？");
+  run = await engine.resume(run.id, parent, undefined, "到这里就好");
+  assert.equal(run.status, "completed", run.error);
+  assert.equal(run.nodes.choose.output.condition, false);
+  assert.equal(run.nodes.continue.status, "skipped");
+  assert.deepEqual(calls, ["finish"]);
+});
 test("interaction skips the question when material is already provided", async (t) => {
   const { store, engine } = await fixture(t);
   store.save(
