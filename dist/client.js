@@ -11846,7 +11846,51 @@ body[data-ds-dark-theme] .wf .wf-primary:hover { color:var(--dsw-alias-bg-base,#
 
 
 /* ---- Run list: summary column and labeled actions. ---- */
-.wf-run-open { max-width: 340px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; }
+.wf-run-table { table-layout: fixed; min-width: 820px; }
+.wf-run-table th:nth-child(1) { width: 40%; }
+.wf-run-table th:nth-child(2) { width: 7%; }
+.wf-run-table th:nth-child(3) { width: 13%; }
+.wf-run-table th:nth-child(4) { width: 18%; }
+.wf-run-table th:nth-child(5) { width: 22%; }
+.wf .wf-run-open {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 16px;
+  justify-content: stretch;
+  gap: 10px;
+  width: 100%;
+  min-height: 54px;
+  padding: 7px 10px 7px 6px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  text-align: left;
+}
+.wf .wf-run-open:hover { border-color: transparent; background: var(--wf-hover); }
+.wf-run-open-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid color-mix(in srgb, var(--wf-accent) 18%, var(--wf-line));
+  border-radius: 9px;
+  background: var(--wf-accent-soft);
+  color: var(--wf-accent);
+}
+.wf-run-open-text {
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  color: var(--wf-text);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.wf-run-open-arrow { color: var(--wf-muted); opacity: .55; }
+.wf .wf-run-open:hover .wf-run-open-arrow,
+.wf .wf-run-open:focus-visible .wf-run-open-arrow { color: var(--wf-accent); opacity: 1; }
 .wf-run-action { display: inline-flex; align-items: center; gap: 4px; min-height: 26px; margin-right: 6px; padding: 0 8px; border: 1px solid var(--wf-line); border-radius: 8px; background: transparent; color: inherit; font-size: 12px; }
 .wf-run-action:hover { border-color: color-mix(in srgb, currentcolor 30%, var(--wf-line)); }
 .wf-run-error-hint { display: block; margin-top: 2px; color: var(--dsw-alias-state-error-primary, #b13e4a); font-size: 11.5px; }
@@ -14922,7 +14966,7 @@ function apply(ctx) {
       }
     };
     return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "wf-scroll", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("table", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("table", { className: "wf-run-table", children: [
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("tr", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { children: "\u8FD0\u884C" }),
           /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { children: "\u7248\u672C" }),
@@ -14931,13 +14975,19 @@ function apply(ctx) {
           /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { children: "\u64CD\u4F5C" })
         ] }) }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("tbody", { children: data.runs.filter((r) => r.workflowId === id2).map((r) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
             "button",
             {
+              type: "button",
               className: "wf-run-open",
               title: r.summary || r.id,
+              "aria-label": `\u67E5\u770B\u8FD0\u884C\u8BE6\u60C5\uFF1A${r.summary || r.id.slice(0, 18)}`,
               onClick: async () => setDetail(await api({ action: "runRead", id: r.id })),
-              children: r.summary || r.id.slice(0, 18)
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "wf-run-open-icon", "aria-hidden": "true", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(FileText, { size: 16 }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "wf-run-open-text", children: r.summary || `\u8FD0\u884C ${r.id.slice(0, 8)}` }),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ChevronRight, { className: "wf-run-open-arrow", size: 16, "aria-hidden": "true" })
+              ]
             }
           ) }),
           /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { children: [

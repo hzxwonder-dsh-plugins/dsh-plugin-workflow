@@ -1678,7 +1678,7 @@ export function apply(ctx) {
     };
     return (
       <div className="wf-scroll">
-        <table>
+        <table className="wf-run-table">
           <thead>
             <tr>
               <th>运行</th>
@@ -1695,13 +1695,17 @@ export function apply(ctx) {
                 <tr key={r.id}>
                   <td>
                     <button
+                      type="button"
                       className="wf-run-open"
                       title={r.summary || r.id}
+                      aria-label={`查看运行详情：${r.summary || r.id.slice(0, 18)}`}
                       onClick={async () =>
                         setDetail(await api({ action: "runRead", id: r.id }))
                       }
                     >
-                      {r.summary || r.id.slice(0, 18)}
+                      <span className="wf-run-open-icon" aria-hidden="true"><FileText size={16} /></span>
+                      <span className="wf-run-open-text">{r.summary || `运行 ${r.id.slice(0, 8)}`}</span>
+                      <ChevronRight className="wf-run-open-arrow" size={16} aria-hidden="true" />
                     </button>
                   </td>
                   <td>v{r.revision}</td>
