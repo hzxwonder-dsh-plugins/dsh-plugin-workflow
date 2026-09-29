@@ -8,7 +8,7 @@ const markdown = await readFile(join(folder, 'freetoken-reading-sample.md'), 'ut
 const { html } = await renderPaperMarkdown(markdown);
 const body = html.replace(
   /(<h2 id="section-\d+">快速阅读<\/h2><ul class="quick-read">[\s\S]*?<\/ul>)(?=\s*<h2 id=)/,
-  '$1\n<figure class="paper-overview"><img src="freetoken-overview.svg" alt="FreeToken 论文逻辑思维导图：问题、输入、生成、缓存、执行、证据和适用边界"></figure>',
+  '$1\n<figure class="paper-overview"><img src="freetoken-overview.svg" alt="FreeToken 论文全景导图：研究问题、核心答案、预填、解码、运行时机制、证据与边界"></figure>',
 );
 if (!body.includes('src="freetoken-overview.svg"')) throw new Error('PREVIEW_OVERVIEW_MISSING');
 const headings = [...body.matchAll(/<h2 id="(section-\d+)">([^<]+)<\/h2>/g)];

@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { renderPaperOverview } from '../lib/paper-overview.js';
 import { insertPaperOverview, renderPaperMarkdown, renderWechatPage } from '../lib/paper-render.js';
 import { renderPaperMath } from '../lib/paper-math.js';
@@ -50,6 +51,22 @@ test('paper renderer produces accessible math, adjacent Q/A and overview assets'
   assert.match(wechat, /background-size:24px 24px/);
   assert.doesNotMatch(wechat, /overflow:auto;padding:16px 20px/);
   assert.doesNotMatch(wechat, /<a\b/);
+});
+
+test('paper argument map keeps the focus question, mechanisms, evidence and limits readable', async () => {
+  const sample = JSON.parse(await readFile(new URL('../docs/design/freetoken-overview.json', import.meta.url), 'utf8'));
+  const diagram = await renderPaperOverview(sample);
+  assert.match(diagram.svg, /width="760" height="\d+"/);
+  assert.match(diagram.svg, /<title id="overview-title">FreeToken/);
+  assert.match(diagram.svg, /语义边界/);
+  assert.match(diagram.svg, /CUDA Graph/);
+  assert.match(diagram.svg, /六台机器/);
+  assert.match(diagram.svg, /不能据此保证/);
+  assert.doesNotMatch(diagram.svg, /<text\b/);
+  assert(Buffer.byteLength(diagram.svg) < 1024 * 1024);
+  assert.equal(diagram.scene.elements.filter(element => element.type === 'rectangle').length, sample.branches.length + 4);
+  assert(diagram.scene.elements.filter(element => element.type === 'text').map(element => element.text).join('').includes('专家池远超显存'));
+  await assert.rejects(renderPaperOverview({ ...sample, branches: sample.branches.slice(0, 2) }), /PAPER_OVERVIEW_INVALID/);
 });
 
 test('display formulas retain body-sized image dimensions', async () => {

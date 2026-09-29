@@ -24,12 +24,16 @@ test('four-stage paper workflow revises, isolates reader input, exports article 
         assert.equal(input.paper_skill, skills[0].path);
         assert(buildAgentPrompt(node, input, skills)[0].text.includes(input.paper_skill));
         skillPath = input.paper_skill;
-        return { title: 'Paper explained', slug: 'paper-explained', text: ('Clear reader article with one concrete example. ').repeat(8), overview: { title: 'Paper logic', steps: [
-        { label: 'Problem', title: 'A real bottleneck', detail: 'Measure the bottleneck.' },
-        { label: 'Method', title: 'A concrete choice', detail: 'Choose an approach.' },
-        { label: 'Mechanism', title: 'How it works', detail: 'Follow the data.' },
-        { label: 'Result', title: 'Observed outcome', detail: 'Compare against baseline.' },
-      ], evidence: 'The experiment reports a measured result.', boundary: 'The setup limits generalization.' } };
+        return { title: 'Paper explained', slug: 'paper-explained', text: ('Clear reader article with one concrete example. ').repeat(8), overview: {
+          title: 'Paper logic', question: 'What blocks the intended result?', thesis: 'Three coordinated choices address the bottleneck.',
+          branches: [
+            { role: 'Input', title: 'Reuse work', problem: 'Repetition costs time.', insight: 'Inputs share a prefix.', method: 'Cache reusable state.', source: 'Section 2' },
+            { role: 'Compute', title: 'Share resources', problem: 'Compute is limited.', insight: 'Two paths can overlap.', method: 'Schedule both paths.', source: 'Section 3' },
+            { role: 'Runtime', title: 'Adapt capacity', problem: 'Capacity changes.', insight: 'State has safe points.', method: 'Resize at safe points.', source: 'Section 4' },
+          ],
+          evidence: { finding: 'The experiment reports a measured result.', context: 'The result depends on the test setup.', source: 'Figure 3' },
+          boundary: { scope: 'The setup limits generalization.', unknown: 'Other machines were not measured.' },
+        } };
       }
       if (node.id === 'ask') return { text: 'Explain the example.' };
       if (node.id === 'answer') { assert(!JSON.stringify(input).includes('ORIGINAL_PRIVATE_MARKER')); assert.deepEqual(Object.keys(input).sort(), ['article', 'questions']); return { text: 'The article explains the example.' }; }

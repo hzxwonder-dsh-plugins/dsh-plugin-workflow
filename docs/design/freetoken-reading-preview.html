@@ -38,7 +38,7 @@ a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:4px}a:ho
 <li><strong>最强证据：</strong> 论文在 RTX 5090 上报告 Qwen3.6-35B-A3B 的生成速度为 77–83 token/s、DeepSeek-V4-Flash 为 22–25 token/s；双缓冲消融、同路由轨迹缓存对照和跨硬件实验分别检验主要设计。</li>
 <li><strong>边界：</strong> 这些结果属于指定模型、精度、六台机器和四类负载。能否在别的机器重现，需要看显存、主机带宽、PCIe、权重格式和实际请求形态。</li>
 </ul>
-<figure class="paper-overview"><img src="freetoken-overview.svg" alt="FreeToken 论文逻辑思维导图：问题、输入、生成、缓存、执行、证据和适用边界"></figure>
+<figure class="paper-overview"><img src="freetoken-overview.svg" alt="FreeToken 论文全景导图：研究问题、核心答案、预填、解码、运行时机制、证据与边界"></figure>
 <h2 id="section-3">从开放权重到可用服务，中间缺什么？</h2>
 <p>一个人可以下载开源模型，并不等于他的电脑能持续、流畅地运行它。写代码的代理会反复读取仓库、调用工具、删改历史上下文；每次等待首个输出都可能让交互停顿。FreeToken 的研究问题是：<strong>怎样把个人电脑的 GPU、CPU、主机内存和 PCIe 当成一套系统，而不只是把数据中心程序塞进较小的显卡？</strong>（原论文 §1）</p>
 <p>混合专家模型（MoE）提供了机会。一个 MoE 层拥有许多“专家”，路由器对每个 token 只选择少数专家计算。论文举例：DeepSeek-V4-Flash 有 284B 总参数，每个 token 只激活约 13B；43 个 MoE 层中，每层从 256 个路由专家里选择 6 个。<strong>少算不等于少存</strong>：完整权重仍要放在主机内存或存储设备中，显存只容得下其中一部分（§1）。</p>
