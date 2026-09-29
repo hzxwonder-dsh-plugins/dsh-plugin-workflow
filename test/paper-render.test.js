@@ -61,12 +61,18 @@ test('paper argument map keeps the focus question, mechanisms, evidence and limi
   assert.match(diagram.svg, /语义边界/);
   assert.match(diagram.svg, /CUDA Graph/);
   assert.match(diagram.svg, /六台机器/);
-  assert.match(diagram.svg, /不能据此保证/);
+  assert.match(diagram.svg, /尚未验证/);
   assert.doesNotMatch(diagram.svg, /<text\b/);
   assert(Buffer.byteLength(diagram.svg) < 1024 * 1024);
   assert.equal(diagram.scene.elements.filter(element => element.type === 'rectangle').length, sample.branches.length + 4);
-  assert(diagram.scene.elements.filter(element => element.type === 'text').map(element => element.text).join('').includes('专家池远超显存'));
+  const visibleText = diagram.scene.elements.filter(element => element.type === 'text').map(element => element.text).join('');
+  assert(visibleText.includes('专家池远超显存'));
+  assert(!visibleText.includes('PAPER MAP'));
+  assert(!visibleText.includes('展开为以下机制'));
+  assert(!visibleText.includes('论文给出的答案'));
+  assert(!visibleText.includes('还不能推出什么'));
   await assert.rejects(renderPaperOverview({ ...sample, branches: sample.branches.slice(0, 2) }), /PAPER_OVERVIEW_INVALID/);
+  await assert.rejects(renderPaperOverview({ ...sample, thesis: '简'.repeat(76) }), /PAPER_OVERVIEW_INVALID/);
 });
 
 test('display formulas retain body-sized image dimensions', async () => {
