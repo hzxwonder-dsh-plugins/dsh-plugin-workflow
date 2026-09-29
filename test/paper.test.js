@@ -76,5 +76,6 @@ test('paper Skill is a connected, versioned resource for the writing step', asyn
  assert.equal(prepared.skills.article[0].path, prepared.resources.paper_skill);
  const prompt = buildAgentPrompt(article, { paper_skill: prepared.resources.paper_skill }, prepared.skills.article)[0].text;
  assert(prompt.includes(prepared.resources.paper_skill));
- assert(prompt.includes('## 写作判断'));
+ assert(prompt.includes('## 原文覆盖与证据'));
+ assert(prompt.includes('主张 → 机制 → 证据 → 条件 → 边界'));
 });

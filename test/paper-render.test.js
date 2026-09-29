@@ -57,6 +57,13 @@ test('display formulas retain body-sized image dimensions', async () => {
   const [, width, height] = image.match(/width="(\d+)" height="(\d+)"/) ?? [];
   assert(Number(width) < 170);
   assert(Number(height) < 60);
+  assert.match(image, new RegExp(`style="[^"]*width:${width}px;height:auto`));
+  const png = Buffer.from(image.match(/base64,([^"]+)/)[1], 'base64');
+  assert.equal(png.readUInt32BE(16), Number(width) * 2);
+  assert.equal(png.readUInt32BE(20), Number(height) * 2);
+  const inline = await renderPaperMath('B_{\\mathrm P}');
+  const [, inlineWidth, inlineHeight] = inline.match(/width="(\d+)" height="(\d+)"/) ?? [];
+  assert.match(inline, new RegExp(`style="[^"]*width:${inlineWidth}px;height:${inlineHeight}px`));
 });
 
 test('paper renderer rejects malformed math and unsafe HTML', async () => {
