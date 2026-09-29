@@ -64,12 +64,14 @@ test('paper argument map keeps the focus question, mechanisms, evidence and limi
   assert.match(diagram.svg, /尚未验证/);
   assert.doesNotMatch(diagram.svg, /<text\b/);
   assert(Buffer.byteLength(diagram.svg) < 1024 * 1024);
-  assert.equal(diagram.scene.elements.filter(element => element.type === 'rectangle').length, sample.branches.length + 4);
-  assert(diagram.scene.elements.filter(element => element.type === 'rectangle').every(element => element.roughness >= 1));
+  const cards = diagram.scene.elements.filter(element => element.type === 'rectangle');
+  assert.equal(cards.length, sample.branches.length * 2 + 4);
+  assert(cards.every(element => element.strokeColor === '#292723' && element.roundness === null));
+  assert(cards.every(element => element.roughness >= 1));
   const strokes = diagram.scene.elements.filter(element => element.type === 'line');
-  assert(strokes.length >= sample.branches.length * 4);
+  assert.equal(strokes.length, (sample.branches.length + 3) * 3);
   assert(strokes.every(element => element.roughness > 0));
-  assert(strokes.some(element => element.strokeWidth >= 4));
+  assert(strokes.every(element => element.strokeColor === '#292723'));
   assert.equal(diagram.scene.appState.currentItemFontFamily, 1);
   const visibleText = diagram.scene.elements.filter(element => element.type === 'text').map(element => element.text).join('');
   assert(diagram.scene.elements.filter(element => element.type === 'text').every(element => element.fontFamily === 1));
